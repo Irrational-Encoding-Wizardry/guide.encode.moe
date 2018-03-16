@@ -1,4 +1,4 @@
-# Introduction
+# Preface
 
 **What does it take to be a fansubber?**
 
