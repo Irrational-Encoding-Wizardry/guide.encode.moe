@@ -8,8 +8,4 @@ script: ./node_modules/.bin/gitbook build
 git:
   depth: false
 
-cache:
-  directories:
-    - node_modules
-
 after_success: bash .travis/deploy.sh
