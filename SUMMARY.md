@@ -11,7 +11,8 @@
 
 - [Preparations and Necessary Software](encoding/preparation.md)
 - [Basics and General Workflow](encoding/basics-and-workflow.md)
-- [Recognizing Video Artifacts](encoding/recognizing-video-artifacts.md)
+- [Recognizing Video Artifacts](encoding/video-artifacts.md)
+- [Scenefiltering](encoding/scenefiltering.md)
 - [Masking, Limiting, and Related Functions](encoding/masking-limiting-etc.md)
 - [Resampling](encoding/resampling.md)
 
