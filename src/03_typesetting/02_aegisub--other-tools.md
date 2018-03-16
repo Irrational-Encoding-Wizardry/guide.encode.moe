@@ -1,18 +1,4 @@
-<div id="page-show" class="container">
-
-<div class="row">
-
-<div class="col-md-8 col-md-offset-2">
-
-<div class="page-content">
-
-<div data-ng-non-bindable="">
-
 # Aegisub & Other Tools
-
-<div style="clear:left;">
-
-</div>
 
 ### Tools
 
@@ -41,7 +27,7 @@ Here is a list of tools you will want to download:
           - [Nexusfont](http://www.xiles.net)
           - [FontBase](http://fontba.se)
       - Paid (Note: can be found free on *certain
-            websites)*  
+            websites)*
           - [MainType](http://www.high-logic.com/font-manager/maintype.html)
           - [Suitcase
             Fusion](https://www.extensis.com/products/font-management/suitcase-fusion/)
@@ -147,20 +133,11 @@ hotkeys to cut down on time navigating menus. These can be accessed via
 *Interface \> Hotkeys *in Aegisub's Options menu. We'll let you decide
 on those yourself, however, and move on for now.
 
-</div>
-
 -----
 
-Revision \#11  
+Revision \#11
 Created <span title="Fri, Sep 8, 2017 5:43 AM">6 months ago</span> by
-[begna112](http://34.234.192.3/user/3)  
+[begna112](http://34.234.192.3/user/3)
 Updated <span title="Fri, Mar 16, 2018 1:40 AM">19 seconds ago</span> by
 [FichteFoll](http://34.234.192.3/user/10)
 
-</div>
-
-</div>
-
-</div>
-
-</div>

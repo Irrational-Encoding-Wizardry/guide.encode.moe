@@ -1,18 +1,4 @@
-<div id="page-show" class="container">
-
-<div class="row">
-
-<div class="col-md-8 col-md-offset-2">
-
-<div class="page-content">
-
-<div data-ng-non-bindable="">
-
 # Introduction
-
-<div style="clear:left;">
-
-</div>
 
 **What does it take to be a fansubber?**
 
@@ -45,20 +31,11 @@ If you don't even know what roles there are to choose from, don't
 worry—we'll get there. For now, let's move on to some practical
 requirements. 
 
-</div>
-
 -----
 
-Revision \#3  
+Revision \#3
 Created <span title="Wed, Aug 23, 2017 10:30 AM">6 months ago</span> by
-[stux](http://34.234.192.3/user/4)  
+[stux](http://34.234.192.3/user/4)
 Updated <span title="Fri, Sep 15, 2017 7:22 PM">6 months ago</span> by
 [begna112](http://34.234.192.3/user/3)
 
-</div>
-
-</div>
-
-</div>
-
-</div>

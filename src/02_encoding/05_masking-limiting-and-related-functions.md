@@ -1,18 +1,4 @@
-<div id="page-show" class="container">
-
-<div class="row">
-
-<div class="col-md-8 col-md-offset-2">
-
-<div class="page-content">
-
-<div data-ng-non-bindable="">
-
 # Masking, Limiting, and Related Functions
-
-<div style="clear:left;">
-
-</div>
 
     There are filters, which changes the video in various ways, and then
 there are ways to change the filtering itself. There are likely hundreds
@@ -82,7 +68,7 @@ name and is simply dhhmask(mode=3)
 
  
 
-Example: Build a simple dehalo mask**  
+Example: Build a simple dehalo mask**
 **
 
  
@@ -356,20 +342,11 @@ Example: Deband a grainy clip with f3kdb (16 bit input)
 
  
 
-</div>
-
 -----
 
-Revision \#11  
+Revision \#11
 Created <span title="Wed, Aug 30, 2017 4:13 PM">6 months ago</span> by
-[Zastin](http://34.234.192.3/user/11)  
+[Zastin](http://34.234.192.3/user/11)
 Updated <span title="Fri, Sep 8, 2017 4:58 AM">6 months ago</span> by
 [Zastin](http://34.234.192.3/user/11)
 
-</div>
-
-</div>
-
-</div>
-
-</div>

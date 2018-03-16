@@ -1,18 +1,4 @@
-<div id="page-show" class="container">
-
-<div class="row">
-
-<div class="col-md-8 col-md-offset-2">
-
-<div class="page-content">
-
-<div data-ng-non-bindable="">
-
 # Preparation and Necessary Software
-
-<div style="clear:left;">
-
-</div>
 
 While the term “encoding” originally just referred to the opposite of
 decoding—that is, compressing raw video with a video codec—the term has
@@ -116,19 +102,19 @@ VapourSynth-Script.
     downloaded
     [here](https://bitbucket.org/mystery_keeper/vapoursynth-editor/downloads/).
     It provides an easy and simple GUI to write your VapourSynth
-    scripts.![The main window of VSEdit.](images/cnvimage100.png)  
+    scripts.![The main window of VSEdit.](images/cnvimage100.png)
     While it seems to be unstable on some systems, its high performance
     preview window offsets its problems.
 
 2.  [Yuuno](https://yuuno.encode.moe/). While it is not an editor, Yuuno
     is an extension to a Python-shell-framework that runs inside your
-    browser.  
+    browser.
     This increases latency, but it gives you a wider range of preview
     related features while being more stable than VSEdit. It should be
     noted that Yuuno natively supports remote access, as it is only an
-    extension for Jupyter Notebook.  
-    ![](images/cnvimage101.png)  
-      
+    extension for Jupyter Notebook.
+    ![](images/cnvimage101.png)
+
 
 3.  [AvsPmod](https://github.com/AvsPmod/AvsPmod/releases). This is the
     editor for AviSynth. It is old and slow but stable. When you are
@@ -136,7 +122,7 @@ VapourSynth-Script.
     AviSynth and VapourSynth scripts, however, VapourSynth support was
     an afterthought and is therefore experimental, unstable, and
     “hacky”.
-    
+
     Do not use AvsPmod for VapourSynth scripts unless you have a very
     good reason\!
 
@@ -177,7 +163,7 @@ one for 10 bit. Most fansub group nowadays use 10 bit, so you should
 download that unless your group leader or encode mentor told you
 otherwise.
 
-[Download kmod](http://komisar.gin.by/ "kmod")  
+[Download kmod](http://komisar.gin.by/ "kmod")
 [Download tmod](https://github.com/jpsdr/x264/releases "tmod")
 
 A newer, more efficient alternative is x265. It is still in active
@@ -221,20 +207,11 @@ to download it. Windows builds can be found
 [here](http://ffmpeg.zeranoe.com/builds/ "FFmpeg"). Just like the
 codecs, you don't have to install it. Just extract it somewhere.
 
-</div>
-
 -----
 
-Revision \#23  
+Revision \#23
 Created <span title="Sun, Aug 20, 2017 11:17 AM">6 months ago</span> by
-[kageru](http://34.234.192.3/user/6)  
+[kageru](http://34.234.192.3/user/6)
 Updated <span title="Fri, Sep 15, 2017 7:40 PM">6 months ago</span> by
 [begna112](http://34.234.192.3/user/3)
 
-</div>
-
-</div>
-
-</div>
-
-</div>

@@ -1,18 +1,4 @@
-<div id="page-show" class="container">
-
-<div class="row">
-
-<div class="col-md-8 col-md-offset-2">
-
-<div class="page-content">
-
-<div data-ng-non-bindable="">
-
 # Recognizing Video Artifacts
-
-<div style="clear:left;">
-
-</div>
 
  
 
@@ -76,7 +62,7 @@ Aberration**
  
 
 **...and please don't do
-this  
+this
 **
 
 [![notevenonce.jpg](images/3cnvimage102.png)](http://34.234.192.3/uploads/images/gallery/2017-08-Aug/notevenonce.jpg)
@@ -189,20 +175,11 @@ Noise**
 
 [![field-noise.jpg](images/3cnvimage103.png)](https://diff.pics/84URvW5IYSdO/1)
 
-</div>
-
 -----
 
-Revision \#5  
+Revision \#5
 Created <span title="Wed, Aug 30, 2017 1:42 PM">6 months ago</span> by
-[Zastin](http://34.234.192.3/user/11)  
+[Zastin](http://34.234.192.3/user/11)
 Updated <span title="Fri, Sep 15, 2017 7:39 PM">6 months ago</span> by
 [begna112](http://34.234.192.3/user/3)
 
-</div>
-
-</div>
-
-</div>
-
-</div>

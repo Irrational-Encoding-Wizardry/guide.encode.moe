@@ -1,18 +1,4 @@
-<div id="page-show" class="container">
-
-<div class="row">
-
-<div class="col-md-8 col-md-offset-2">
-
-<div class="page-content">
-
-<div data-ng-non-bindable="">
-
 # Roles
-
-<div style="clear:left;">
-
-</div>
 
  There are 8 (sometimes 9) major roles in every fansub group. They are:
 
@@ -184,20 +170,11 @@ opening, ending, and insert songs. This can be very similar to
 typesetting but utilizes a different set of tools and can be highly
 programming-oriented.
 
-</div>
-
 -----
 
-Revision \#14  
+Revision \#14
 Created <span title="Sat, Aug 19, 2017 1:52 AM">6 months ago</span> by
-[begna112](http://34.234.192.3/user/3)  
+[begna112](http://34.234.192.3/user/3)
 Updated <span title="Fri, Sep 15, 2017 7:37 PM">6 months ago</span> by
 [begna112](http://34.234.192.3/user/3)
 
-</div>
-
-</div>
-
-</div>
-
-</div>

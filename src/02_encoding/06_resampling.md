@@ -1,18 +1,4 @@
-<div id="page-show" class="container">
-
-<div class="row">
-
-<div class="col-md-8 col-md-offset-2">
-
-<div class="page-content">
-
-<div data-ng-non-bindable="">
-
 # Resampling
-
-<div style="clear:left;">
-
-</div>
 
 #### Upsampling
 
@@ -47,20 +33,11 @@ TODO
 
 ####  
 
-</div>
-
 -----
 
-Revision \#2  
+Revision \#2
 Created <span title="Thu, Sep 14, 2017 3:51 PM">6 months ago</span> by
-[Zastin](http://34.234.192.3/user/11)  
+[Zastin](http://34.234.192.3/user/11)
 Updated <span title="Fri, Sep 15, 2017 6:36 PM">6 months ago</span> by
 [Zastin](http://34.234.192.3/user/11)
 
-</div>
-
-</div>
-
-</div>
-
-</div>

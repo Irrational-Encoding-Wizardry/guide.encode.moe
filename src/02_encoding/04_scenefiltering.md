@@ -1,18 +1,4 @@
-<div id="page-show" class="container">
-
-<div class="row">
-
-<div class="col-md-8 col-md-offset-2">
-
-<div class="page-content">
-
-<div data-ng-non-bindable="">
-
 # Scenefiltering
-
-<div style="clear:left;">
-
-</div>
 
 The author of this article likes British English and does not concern
 himself with what his fellow authors prefer.
@@ -107,7 +93,7 @@ quite simple:
 
 <!-- end list -->
 
-    #The following replaces frames 30 to 40 (inclusive) and frame 50 of the filtered clip with the non-filtered clip. 
+    #The following replaces frames 30 to 40 (inclusive) and frame 50 of the filtered clip with the non-filtered clip.
     filtered = core.remap.Rfs(filtered, non-filtered, mappings="[30 40] 50")
 
      3. Repeat with the next scene.
@@ -139,25 +125,16 @@ always consider the impacts on performance. Calling a strong, slow
 denoise filter might still be faster (and better-looking) than calling a
 weak, faster filter multiple times.
 
-Do we really want to keep this line?  
+Do we really want to keep this line?
 <span style="text-decoration: line-through;">That's how you become a
 cool German encoder. :^)</span> That should be all you need to know
 about scenefiltering.
 
-</div>
-
 -----
 
-Revision \#3  
+Revision \#3
 Created <span title="Wed, Aug 23, 2017 9:41 AM">6 months ago</span> by
-[blaze077](http://34.234.192.3/user/7)  
+[blaze077](http://34.234.192.3/user/7)
 Updated <span title="Fri, Sep 8, 2017 4:58 AM">6 months ago</span> by
 [kageru](http://34.234.192.3/user/6)
 
-</div>
-
-</div>
-
-</div>
-
-</div>

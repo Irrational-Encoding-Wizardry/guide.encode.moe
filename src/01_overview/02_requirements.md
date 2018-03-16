@@ -1,18 +1,4 @@
-<div id="page-show" class="container">
-
-<div class="row">
-
-<div class="col-md-8 col-md-offset-2">
-
-<div class="page-content">
-
-<div data-ng-non-bindable="">
-
 # Requirements
-
-<div style="clear:left;">
-
-</div>
 
 ### Language
 
@@ -40,13 +26,13 @@ needs to be.
       - **CPU**: dual-core \>2Ghz 
           - Computer should be able to playback HD anime with
             subtitles. 
-      - **Memory**: 4GB  
+      - **Memory**: 4GB
           - Aegisub loads the entire video into memory. With larger HD
             videos being standard today, this could be up to several GB.
       - **Storage**: 50GB available
       - **Mouse**: recommended
       - **Internet**: 25 Mbps download
-  - **Typesetter**  
+  - **Typesetter**
       - The middle of the road in terms of required computer hardware. 
       - **OS**: Windows 7, Mac OS X 10.7, Linux
           - 64bit recommended
@@ -54,7 +40,7 @@ needs to be.
       - **CPU**: dual-core \>2.5GHz (quad-core \>3GHz recommended)
           - Computer should be able to playback modern fansubbed anime
             releases with high settings.  
-      - **Memory**: 8GB  
+      - **Memory**: 8GB
           - Aegisub loads the entire video into memory. With larger HD
             videos being standard today, this could be up to several GB.
           - Windows loads installed fonts into memory on boot. For
@@ -75,11 +61,11 @@ needs to be.
       - **CPU**: quad-core \>4GHz 
           - More cores and/or higher speed are better. (e.g. AMD Ryzen,
             Threadripper or Intel Core i7+)
-          - **CPU Requirements**:  
+          - **CPU Requirements**:
               - Hyperthreading
               - AVX2
               - SSE4
-      - **Memory**: 8GB  
+      - **Memory**: 8GB
           - Memory can be a bottleneck when encoding. More, faster
             memory is always better for encoding rigs. 
       - **Storage**: 500GB available
@@ -92,7 +78,7 @@ needs to be.
       - At least the same as the Timer role. 
   - **Quality Checker**
       - At least the same as the Typesetter role.
-  - **Translator / Translation Checker**  
+  - **Translator / Translation Checker**
       - At least the same as the Timer role.
 
 ### Software
@@ -115,20 +101,11 @@ Lua and Moonscript are useful for Typesetters. Encoders will find that
 Python is used to interact with VapourSynth, so learning it ahead of
 time will be to their advantage.
 
-</div>
-
 -----
 
-Revision \#14  
+Revision \#14
 Created <span title="Sat, Aug 19, 2017 1:00 AM">6 months ago</span> by
-[begna112](http://34.234.192.3/user/3)  
+[begna112](http://34.234.192.3/user/3)
 Updated <span title="Fri, Sep 15, 2017 7:26 PM">6 months ago</span> by
 [begna112](http://34.234.192.3/user/3)
 
-</div>
-
-</div>
-
-</div>
-
-</div>

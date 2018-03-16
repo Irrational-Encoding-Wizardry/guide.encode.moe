@@ -1,18 +1,4 @@
-<div id="page-show" class="container">
-
-<div class="row">
-
-<div class="col-md-8 col-md-offset-2">
-
-<div class="page-content">
-
-<div data-ng-non-bindable="">
-
 # Basics and General Workflow
-
-<div style="clear:left;">
-
-</div>
 
 #### Preparation
 
@@ -44,20 +30,11 @@ mkvtoolnix
 
  
 
-</div>
-
 -----
 
-Revision \#4  
+Revision \#4
 Created <span title="Mon, Aug 21, 2017 8:07 AM">6 months ago</span> by
-[kageru](http://34.234.192.3/user/6)  
+[kageru](http://34.234.192.3/user/6)
 Updated <span title="Fri, Sep 15, 2017 7:40 PM">6 months ago</span> by
 [begna112](http://34.234.192.3/user/3)
 
-</div>
-
-</div>
-
-</div>
-
-</div>
