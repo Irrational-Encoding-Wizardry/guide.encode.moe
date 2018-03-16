@@ -1,0 +1,18 @@
+language: node_js
+
+install: npm install gitbook-cli
+
+script: ./node_module/.bin/gitbook build
+
+cache:
+  directories:
+    - "node_modules"
+
+deploy:
+  provider: pages
+  local-dir: _book
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  fqdn: guide.encode.moe
+  'on':
+    branch: master
