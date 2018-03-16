@@ -19,4 +19,4 @@ openssl aes-256-cbc -K $encrypted_81bb60eb1b21_key -iv $encrypted_81bb60eb1b21_i
 chmod 600 .travis/id_deploy
 eval $(ssh-agent -s)
 ssh-add .travis/id_deploy
-git push -f -q "ssh://git@github.com/$TRAVIS_REPO_SLUG.git" gh-pages
+git push -f -q "ssh://git@github.com/$TRAVIS_REPO_SLUG.git" HEAD:gh-pages
