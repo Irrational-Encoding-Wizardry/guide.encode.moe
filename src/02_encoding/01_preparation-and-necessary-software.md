@@ -207,11 +207,3 @@ to download it. Windows builds can be found
 [here](http://ffmpeg.zeranoe.com/builds/ "FFmpeg"). Just like the
 codecs, you don't have to install it. Just extract it somewhere.
 
------
-
-Revision \#23
-Created <span title="Sun, Aug 20, 2017 11:17 AM">6 months ago</span> by
-[kageru](http://34.234.192.3/user/6)
-Updated <span title="Fri, Sep 15, 2017 7:40 PM">6 months ago</span> by
-[begna112](http://34.234.192.3/user/3)
-

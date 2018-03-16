@@ -130,11 +130,3 @@ Do we really want to keep this line?
 cool German encoder. :^)</span> That should be all you need to know
 about scenefiltering.
 
------
-
-Revision \#3
-Created <span title="Wed, Aug 23, 2017 9:41 AM">6 months ago</span> by
-[blaze077](http://34.234.192.3/user/7)
-Updated <span title="Fri, Sep 8, 2017 4:58 AM">6 months ago</span> by
-[kageru](http://34.234.192.3/user/6)
-

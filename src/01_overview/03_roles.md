@@ -170,11 +170,3 @@ opening, ending, and insert songs. This can be very similar to
 typesetting but utilizes a different set of tools and can be highly
 programming-oriented.
 
------
-
-Revision \#14
-Created <span title="Sat, Aug 19, 2017 1:52 AM">6 months ago</span> by
-[begna112](http://34.234.192.3/user/3)
-Updated <span title="Fri, Sep 15, 2017 7:37 PM">6 months ago</span> by
-[begna112](http://34.234.192.3/user/3)
-

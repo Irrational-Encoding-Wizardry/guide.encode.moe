@@ -175,11 +175,3 @@ Noise**
 
 [![field-noise.jpg](images/3cnvimage103.png)](https://diff.pics/84URvW5IYSdO/1)
 
------
-
-Revision \#5
-Created <span title="Wed, Aug 30, 2017 1:42 PM">6 months ago</span> by
-[Zastin](http://34.234.192.3/user/11)
-Updated <span title="Fri, Sep 15, 2017 7:39 PM">6 months ago</span> by
-[begna112](http://34.234.192.3/user/3)
-

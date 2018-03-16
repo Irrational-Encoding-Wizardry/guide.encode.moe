@@ -133,11 +133,3 @@ hotkeys to cut down on time navigating menus. These can be accessed via
 *Interface \> Hotkeys *in Aegisub's Options menu. We'll let you decide
 on those yourself, however, and move on for now.
 
------
-
-Revision \#11
-Created <span title="Fri, Sep 8, 2017 5:43 AM">6 months ago</span> by
-[begna112](http://34.234.192.3/user/3)
-Updated <span title="Fri, Mar 16, 2018 1:40 AM">19 seconds ago</span> by
-[FichteFoll](http://34.234.192.3/user/10)
-

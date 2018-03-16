@@ -31,11 +31,3 @@ If you don't even know what roles there are to choose from, don't
 worry—we'll get there. For now, let's move on to some practical
 requirements. 
 
------
-
-Revision \#3
-Created <span title="Wed, Aug 23, 2017 10:30 AM">6 months ago</span> by
-[stux](http://34.234.192.3/user/4)
-Updated <span title="Fri, Sep 15, 2017 7:22 PM">6 months ago</span> by
-[begna112](http://34.234.192.3/user/3)
-

@@ -101,11 +101,3 @@ Lua and Moonscript are useful for Typesetters. Encoders will find that
 Python is used to interact with VapourSynth, so learning it ahead of
 time will be to their advantage.
 
------
-
-Revision \#14
-Created <span title="Sat, Aug 19, 2017 1:00 AM">6 months ago</span> by
-[begna112](http://34.234.192.3/user/3)
-Updated <span title="Fri, Sep 15, 2017 7:26 PM">6 months ago</span> by
-[begna112](http://34.234.192.3/user/3)
-

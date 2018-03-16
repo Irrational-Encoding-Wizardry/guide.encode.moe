@@ -342,11 +342,3 @@ Example: Deband a grainy clip with f3kdb (16 bit input)
 
  
 
------
-
-Revision \#11
-Created <span title="Wed, Aug 30, 2017 4:13 PM">6 months ago</span> by
-[Zastin](http://34.234.192.3/user/11)
-Updated <span title="Fri, Sep 8, 2017 4:58 AM">6 months ago</span> by
-[Zastin](http://34.234.192.3/user/11)
-
