@@ -1,0 +1,5 @@
+# temporary dev folders
+node_modules/
+
+# build artifacts
+_book/
