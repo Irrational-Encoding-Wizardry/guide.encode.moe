@@ -169,4 +169,3 @@ adds effects to the lyrics and sometimes romaji and/or kanji for
 opening, ending, and insert songs. This can be very similar to
 typesetting but utilizes a different set of tools and can be highly
 programming-oriented.
-

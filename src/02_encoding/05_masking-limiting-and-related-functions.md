@@ -339,6 +339,3 @@ Example: Deband a grainy clip with f3kdb (16 bit input)
 </tr>
 </tbody>
 </table>
-
- 
-

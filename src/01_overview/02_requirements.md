@@ -100,4 +100,3 @@ fansubbing, though it is not required to begin learning. Specifically,
 Lua and Moonscript are useful for Typesetters. Encoders will find that
 Python is used to interact with VapourSynth, so learning it ahead of
 time will be to their advantage.
-

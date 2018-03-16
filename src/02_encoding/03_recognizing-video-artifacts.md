@@ -174,4 +174,3 @@ such as Fine\_Dehalo or a manual filtering of dehalo\_alpha with dhhmask
 Noise**
 
 [![field-noise.jpg](images/3cnvimage103.png)](https://diff.pics/84URvW5IYSdO/1)
-

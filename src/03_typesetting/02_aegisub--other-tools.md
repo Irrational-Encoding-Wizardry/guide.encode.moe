@@ -132,4 +132,3 @@ scripts into your workflow, you will probably want to consider adding
 hotkeys to cut down on time navigating menus. These can be accessed via
 *Interface \> Hotkeys *in Aegisub's Options menu. We'll let you decide
 on those yourself, however, and move on for now.
-

@@ -206,4 +206,3 @@ where using ffmpeg is simply the easiest solution, so it is recommended
 to download it. Windows builds can be found
 [here](http://ffmpeg.zeranoe.com/builds/ "FFmpeg"). Just like the
 codecs, you don't have to install it. Just extract it somewhere.
-

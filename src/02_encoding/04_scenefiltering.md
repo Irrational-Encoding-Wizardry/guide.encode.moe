@@ -129,4 +129,3 @@ Do we really want to keep this line?
 <span style="text-decoration: line-through;">That's how you become a
 cool German encoder. :^)</span> That should be all you need to know
 about scenefiltering.
-
