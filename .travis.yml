@@ -6,6 +6,6 @@ install: npm install gitbook-cli
 script: ./node_modules/.bin/gitbook build
 
 git:
-  depth: false
+  depth: 1
 
 after_success: bash .travis/deploy.sh
