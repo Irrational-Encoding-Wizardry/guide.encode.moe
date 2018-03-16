@@ -12,4 +12,4 @@ cache:
   directories:
     - node_modules
 
-after_success: sh .travis/deploy.sh
+after_success: bash .travis/deploy.sh

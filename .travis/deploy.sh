@@ -1,8 +1,8 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 set -ev # show commands run and terminate on non-zero exit code
 
-if [[ $TRAVIS_BRANCH == master ]]; then
+if [ $TRAVIS_BRANCH = master ]; then
   # create commit of _book folder
   cp CNAME _build
   cd _book
