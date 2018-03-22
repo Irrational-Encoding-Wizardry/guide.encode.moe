@@ -7,12 +7,12 @@ masks to protect details from smoothing filters, blending two clips with
 different filtering applied, and countless others- many of which haven't
 been thought of yet. This article will cover:
 
-  - Masking and Merging
-  - Limiting
-  - Reference clips
-  - Expressions and Lookup Tables
-  - Runtime functions
-  - Prefiltering
+- Masking and Merging
+- Limiting
+- Reference clips
+- Expressions and Lookup Tables
+- Runtime functions
+- Prefiltering
 
 ## Masking
 
