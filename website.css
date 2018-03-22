@@ -1,0 +1,10 @@
+/* re-overwrite font-size: inherit */
+.markdown-section sup,
+.markdown-section sub {
+    font-size: 75%;
+}
+
+/* fix vertical anchor alignment */
+a.plugin-anchor {
+    top: -3px;
+}
