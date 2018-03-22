@@ -1,0 +1,14 @@
+{
+    "name": "guide.encode.moe",
+    "version": "0.0.0",
+    "homepage": "https://guide.encode.moe",
+    "license": "CC-BY-SA-4.0",
+    "private": true,
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Irrational-Encoding-Wizardry/guide.encode.moe"
+    },
+    "dependencies": {
+        "gitbook-cli": "^2.3.2"
+    }
+}

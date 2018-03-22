@@ -1,9 +1,11 @@
 language: node_js
 node_js: node
 
-install: npm install gitbook-cli
+install:
+  - npm install
+  - $(npm bin)/gitbook install
 
-script: ./node_modules/.bin/gitbook build
+script: $(npm bin)/gitbook build
 
 git:
   depth: 1
