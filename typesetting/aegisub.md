@@ -1,10 +1,10 @@
 # Aegisub & Other Tools
 
-### Tools
+## Tools
 
 The first thing you'll need to do is make sure your tools are in order.
 Typesetters will need more tools than most other roles in fansubbing and
-they need to be configured properly. 
+they need to be configured properly.
 
 Here is a list of tools you will want to download:
 
@@ -15,7 +15,7 @@ Here is a list of tools you will want to download:
         by fansubbers called Dependency Control and several *critical*
         fixes to Aegisub that have not been merged into the official
         application.
-  - A font manager. 
+  - A font manager.
       - Not all font managers are equal. Choose the one that works the
         best for you. Some important features might include:
           - Performance with large font libraries.
@@ -26,8 +26,7 @@ Here is a list of tools you will want to download:
       - Free Options
           - [Nexusfont](http://www.xiles.net)
           - [FontBase](http://fontba.se)
-      - Paid (Note: can be found free on *certain
-            websites)*
+      - Paid (Note: can be found free on *certain websites)*
           - [MainType](http://www.high-logic.com/font-manager/maintype.html)
           - [Suitcase
             Fusion](https://www.extensis.com/products/font-management/suitcase-fusion/)
@@ -51,7 +50,7 @@ Here is a list of tools you will want to download:
         [Inkscape](https://inkscape.org/en/)may be used in some
         circumstances.
 
-### Configuring Aegisub
+## Configuring Aegisub
 
 For now, just change your settings to reflect the following. If you've
 made any changes previously for another fansub role, be careful not to
@@ -59,11 +58,11 @@ overwrite those. When in doubt, ask someone with Aegisub experience.
 Settings can be accessed via *View \> Options* or with the hotkey *Alt +
 O*.
 
-[![aegisub64\_2017-09-08\_01-50-08.png](images/cnvimage100.png)](http://34.201.151.95/uploads/images/gallery/2017-09-Sep/aegisub64_2017-09-08_01-50-08.png)
+![aegisub64\_2017-09-08\_01-50-08.png](images/cnvimage100.png)]
 
-[![aegisub64\_2017-09-08\_01-54-35.png](images/cnvimage101.png)](http://34.201.151.95/uploads/images/gallery/2017-09-Sep/aegisub64_2017-09-08_01-54-35.png)
+![aegisub64\_2017-09-08\_01-54-35.png](images/cnvimage101.png)]
 
-[![aegisub64\_2017-09-08\_01-54-59.png](images/cnvimage102.png)](http://34.201.151.95/uploads/images/gallery/2017-09-Sep/aegisub64_2017-09-08_01-54-59.png)
+![aegisub64\_2017-09-08\_01-54-59.png](images/cnvimage102.png)]
 
 The Advanced \> Video options include two particularly important
 settings.
@@ -72,60 +71,72 @@ settings.
     fansubbing, ***this is bad***. At least it is in most cases. If you
     want a more in depth explanation of color matrices and how these two
     are different, you can read up
-    [here](http://blog.maxofs2d.net/post/148346073513/bt601-vs-bt709),
+    [here](bt601-vs-bt709),
     but the gist of it is this: BT.601 is for Standard Definition video
     and BT.709 is for High Definition video. Opening a .ass file in
     Aegisub with the default set to BT.601 could *irreversibly ruin the
     colors of any typesetting, dialogue, or kfx already in the script*.
     Even worse, some video renderers will read this setting from the
     muxed subtitles and render the video to match it. So
-    please, *please*,* **please*** change it now. 
+    please, *please*, ***please*** change it now.
+
     1.  If you are working on a DVD or something in Standard Definition,
         you can change this to BT.601 manually in File \> Script
-        Properties. 
+        Properties.
+
         1.  Not all Standard Definition video will be BT.601, so when in
             doubt, ask the encoder or check
-            [MediaInfo](https://mediaarea.net/en/MediaInfo)if they are
+            [MediaInfo][] if they are
             not available.
         2.  You will almost always want to use TV.601 and not PC.601.
             Once again, if in doubt, ask the encoder.
+
     2.  It's also recommended that before you start working on a script,
         check that the color matrices are correct in File \> Script
-        Properties. 
+        Properties.
+
         1.  You will almost always want to use TV.709 and not PC.709.
             Once again, if in doubt, ask the encoder or
-            check [MediaInfo ](https://mediaarea.net/en/MediaInfo)if
-            they are not
-    available.
-    [![aegisub64\_2017-09-08\_02-12-08.png](images/cnvimage103.png)](http://34.201.151.95/uploads/images/gallery/2017-09-Sep/aegisub64_2017-09-08_02-12-08.png)
+            check [MediaInfo][] if
+            they are not available.
 
-The "Subtitles Provider". 
+    ![aegisub64\_2017-09-08\_02-12-08.png](images/cnvimage103.png)]
+
+[bt601-vs-bt709]: http://blog.maxofs2d.net/post/148346073513/bt601-vs-bt709
+[MediaInfo]: https://mediaarea.net/en/MediaInfo
+
+The "Subtitles Provider".
 
 1.  Just a few years ago, there was a pretty clear consensus on which
     subtitle renderer to use for anime and softsubs. These days, not so
     much.
 2.  It used to be that
-    [VSFilter ](https://sourceforge.net/projects/guliverkli/files/VSFilter/)was
+    [VSFilter][] was
     the best renderer around and was the only supported renderer by most
     fansub groups.
 3.  However, it was eventually replaced
-    with [xy-vsfilter](https://forum.doom9.org/showthread.php?t=168282) and
+    with [xy-vsfilter][] and
     then that was replaced
-    with [xySubFilter](https://forum.doom9.org/showthread.php?t=168282)
+    with [xySubFilter][]
     because VSFilter and xy-vs filter were not keeping up with the
     demands of subtitles.
 4.  By 2015, however, xySubFilter development had come to a halt and
     since then, [libass](https://github.com/libass/libass)has made many
     improvements both in speed and compatibility with advanced
     subtitling in part due to contributions from members of the fansub
-    community. 
+    community.
 5.  At the end of the day, which renderer you choose is up to you, but
     we recommend libass. It is maintained, cross-platform, can handle
     most typesetting, and has been integrated in to many commercial and
     open source software products. If you prefer, however, stock Aegisub
     ships with VSFIlter and line0's builds come with xy-vsfilter.
 
-#### Hotkeys
+[VSFilter]: https://sourceforge.net/projects/guliverkli/files/VSFilter/
+[xy-vsfilter]: https://forum.doom9.org/showthread.php?t=168282
+[xySubFilter]: https://forum.doom9.org/showthread.php?t=168282
+<!-- TODO      ^ this is the same URL -->
+
+### Hotkeys
 
 As you develop your skills more and begin to integrate automation
 scripts into your workflow, you will probably want to consider adding

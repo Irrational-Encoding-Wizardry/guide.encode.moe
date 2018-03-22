@@ -1,29 +1,34 @@
 # Basics and General Workflow
 
-#### Preparation
+## Preparation
 
 downloading a source, looking at the video, some decisions
 (resolution(s) for the release, audio codec, group-specific
 requirements)
 
-#### Writing the Script
+## Writing the Script
 
 imports, source filter (mention lsmash, ffms2), examples for resizing,
-debanding, AA. with images if
-    possible
+debanding, AA. with images if possible
 
-#### Encoding the Result
+## Encoding the Result
 
-    vspipe.exe script.vpy -y - | x264.exe --demuxer y4m --some example --parameters here --output video.264 -
+{% term %}
+$ vspipe.exe script.vpy -y - | x264.exe --demuxer y4m --some example --parameters here --output video.264 -
+{% endterm %}
+
+```sh
+$ vspipe.exe script.vpy -y - | x264.exe --demuxer y4m --some example --parameters here --output video.264 -
+```
 
 Editors for VapourSynth usually have inbuilt support for encoding
-scripts you wrote. Use `%encode --y4m variable` in Yuuno or the GUI
+scripts you wrote. Use `%encode --y4m <clip_variable>` in Yuuno or the GUI
 provided by VSEdit.
 
-#### Transcoding Audio
+## Transcoding Audio
 
 examples for qaac, flac
 
-#### Muxing
+## Muxing
 
 mkvtoolnix

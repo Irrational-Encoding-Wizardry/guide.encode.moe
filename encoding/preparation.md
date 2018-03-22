@@ -1,8 +1,8 @@
 # Preparation and Necessary Software
 
-While the term “encoding” originally just referred to the opposite of
+While the term "encoding" originally just referred to the opposite of
 decoding—that is, compressing raw video with a video codec—the term has
-a broader meaning in the context of fansubbing. Here, “encoding”
+a broader meaning in the context of fansubbing. Here, "encoding"
 includes the entire process from receiving the source video until the
 final release. Usual steps are processing or filtering of the original
 video to remove defects, compressing the video in a way that does not
@@ -17,16 +17,16 @@ It is assumed that you already have a source video at this point, so
 software like torrent clients, Perfect Dark, Share, or even FileZilla
 will not be covered. If you don't have a reliable way to get raws and if
 your group doesn't provide them, try finding a source first. Private
-bittorrent trackers like [u2](https://u2.dmhy.org "u2")or
-[AsianDVDClub](https://asiandvdclub.org "ADC")are good starting points.
+bittorrent trackers like [u2](https://u2.dmhy.org "u2") or
+[AsianDVDClub](https://asiandvdclub.org "ADC") are good starting points.
 
-#### Processing and Filtering
+## Processing and Filtering
 
-##### The Frameserver
+### The Frameserver
 
-In order to process your source video (which will be called “raw”
+In order to process your source video (which will be called "raw"
 throughout this chapter), you need to import it into a so-called
-“frameserver”, a software that is designed to process a video
+"frameserver", a software that is designed to process a video
 frame-by-frame, usually based on a script that defines various filters
 which will be applied to the video.
 
@@ -34,15 +34,14 @@ Currently, only two widely-known frameservers exist: Avisynth and
 VapourSynth.
 
 While many (especially older) encoders still use Avisynth, there is no
-reason to use it if you're just starting to learn encoding.
-<span title="It should be noted that the author strongly disagrees with this sentiment. The two have a lot in common, and any capable Avisynth encoder could reach a similar leven in Vapoursynth within a few months, maybe even weeks.">Most
-Avisynth users only use it because they have years of experience and
-don't want to switch.</span>
+reason to use it if you're just starting to learn encoding.[^1]
+Most Avisynth users only use it because they have years of experience and
+don't want to switch.
 
-<span title="At least I&#39;m honest, okay?">Since this guide is aimed
+Since this guide is aimed
 towards new encoders and the author has no qualms about imposing his own
 opinions onto the host of people willing to listen, the guide will focus
-on VapourSynth.</span> Avisynth equivalents are provided for certain
+on VapourSynth. Avisynth equivalents are provided for certain
 functions where applicable, but the sample code will always be written
 for VapourSynth.
 
@@ -54,39 +53,45 @@ can be found
 [here](https://github.com/vapoursynth/vapoursynth/releases). Linux users
 will have to build their own version, but if you're on Linux, you
 probably know how to do that. During the installation, you might be
-prompted to install the Visual C++ redistributables. Just select “Yes”
+prompted to install the Visual C++ Redistributables. Just select "Yes"
 and the installer will do it for you.
 
 And that's it. You can test your VapourSynth installation by opening the
 Python shell and typing:
 
-    >>>import vapoursynth
+```py
+>>> import vapoursynth
+```
 
 If the installation was not successful, you should receive an error that
 reads:
 
-    Traceback (most recent call last):
-      File "", line 1, in <module>
-    ImportError: No module named 'vapoursynth'
+```
+Traceback (most recent call last):
+  File "", line 1, in <module>
+ImportError: No module named 'vapoursynth'
+```
 
 In that case, make sure your current Python shell is the correct version
 (Python version as well as architecture), try restarting your PC,
 reinstall VapourSynth, or ask for help.
 
-##### Plugins
+### Plugins
 
 In addition to VapourSynth's core plugins, community-created scripts and
 plugins can be installed to extend the functionality of the frameserver.
 These are usually more specific than the universally usable core plugins
 or they are collections of wrappers and functions. A (non-exhaustive)
 list of plugins and scripts is available in the [official
-documentation](http://www.vapoursynth.com/doc/pluginlist.html "Plugins & Scripts").
+documentation][vs-plugins].
 Alternatively, some individuals in the community are creating archives
 containing the most recent version of useful plugins. [eXmendiC's encode
-pack](https://iamscum.wordpress.com/encoding-stuff/encode-pack/) is an
-example of this (the lite version should suffice).
+pack][ex-encode-pack] is an example of this (the lite version should suffice).
 
-##### The Editor
+[vs-plugins]: http://www.vapoursynth.com/doc/pluginlist.html "Plugins, Applications & Scripts"
+[ex-encode-pack]: https://iamscum.wordpress.com/encoding-stuff/encode-pack/
+
+### The Editor
 
 Now that you have installed the frameserver, you can start filtering the
 video. But without an editor, you have no means of previewing the
@@ -102,7 +107,10 @@ VapourSynth-Script.
     downloaded
     [here](https://bitbucket.org/mystery_keeper/vapoursynth-editor/downloads/).
     It provides an easy and simple GUI to write your VapourSynth
-    scripts.![The main window of VSEdit.](images/cnvimage100.png)
+    scripts.
+
+    ![The main window of VSEdit.](images/cnvimage100.png)
+
     While it seems to be unstable on some systems, its high performance
     preview window offsets its problems.
 
@@ -113,24 +121,24 @@ VapourSynth-Script.
     related features while being more stable than VSEdit. It should be
     noted that Yuuno natively supports remote access, as it is only an
     extension for Jupyter Notebook.
-    ![](images/cnvimage101.png)
 
+    ![A Jupyter Notebook.](images/cnvimage101.png)
 
 3.  [AvsPmod](https://github.com/AvsPmod/AvsPmod/releases). This is the
     editor for AviSynth. It is old and slow but stable. When you are
     using AviSynth, you are limited to this editor. AvsPmod *can* handle
     AviSynth and VapourSynth scripts, however, VapourSynth support was
     an afterthought and is therefore experimental, unstable, and
-    “hacky”.
+    "hacky".
 
     Do not use AvsPmod for VapourSynth scripts unless you have a very
-    good reason\!
+    good reason!
 
 Please rest assured that the author does not impose any editor on you.
 Instead we will give callouts for some editors. These will be completely
 optional.
 
-#### Video Codecs
+## Video Codecs
 
 Once you are happy with the result of your filter chain, you want to
 save the output to a file. While it is possible to store the script's
@@ -163,8 +171,8 @@ one for 10 bit. Most fansub group nowadays use 10 bit, so you should
 download that unless your group leader or encode mentor told you
 otherwise.
 
-[Download kmod](http://komisar.gin.by/ "kmod")
-[Download tmod](https://github.com/jpsdr/x264/releases "tmod")
+- [Download kmod](http://komisar.gin.by/)
+- [Download tmod](https://github.com/jpsdr/x264/releases)
 
 A newer, more efficient alternative is x265. It is still in active
 development and aims for 20-50% lower bitrates with the same quality as
@@ -178,11 +186,11 @@ Other codecs, such as VP9, are generally not used for fansubbing, so
 they are not listed here. The same is true for unreleased codecs like
 Daala and AV-1.
 
-#### Audio Codecs
+## Audio Codecs
 
 TODO: FLAC, AAC, maybe mention opus
 
-#### MKVToolNix
+## MKVToolNix
 
 You probably have at least three files now—that being the video, audio,
 and subtitles—and you need to combine all of them into a single file.
@@ -198,11 +206,17 @@ website](https://mkvtoolnix.download/downloads.html "MKVToolNix").
 It is possible to use other containers, but Matroska has become the
 standard for video releases due to its versatility and compatibility.
 
-#### FFmpeg
+## FFmpeg
 
 While FFmpeg is not necessary for any specific task, it is a very useful
 tool for all kinds of conversion and transcoding. There will be times
 where using ffmpeg is simply the easiest solution, so it is recommended
 to download it. Windows builds can be found
-[here](http://ffmpeg.zeranoe.com/builds/ "FFmpeg"). Just like the
+[here][ffmpeg-zeranoe]. Just like the
 codecs, you don't have to install it. Just extract it somewhere.
+
+[ffpeg-zeranoe]: http://ffmpeg.zeranoe.com/builds/ "FFmpeg"
+
+---
+
+[^1]: It should be noted that the author strongly disagrees with this sentiment. The two have a lot in common, and any capable Avisynth encoder could reach a similar leven in Vapoursynth within a few months, maybe even weeks. At least I'm honest, okay?

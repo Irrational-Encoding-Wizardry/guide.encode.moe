@@ -7,17 +7,17 @@
 3.  **Typesetter**
 4.  **Editor**
 5.  **Quality Checker**
-6.  Optional: Translator
-7.  Optional: Translation Checker
-8.  Optional: Karaoke Effects Creator
-9.  Optional: Project Leader
+6.  *Optional*: Translator
+7.  *Optional*: Translation Checker
+8.  *Optional*: Karaoke Effects Creator
+9.  *Optional*: Project Leader
 
 In this guide, we will only be providing in-depth guides for the
 Encoder, Timer, and Typesetter roles. However, Quality Checkers are
 often expected to be familiar with most or all of the roles in order to
 recognize errors.
 
-### Encoder
+## Encoder
 
 Time commitment per episode: 20 minutes - 2 hours active (4-12 hours
 inactive)
@@ -45,25 +45,25 @@ important to keep in mind that a disagreement is not always an insult
 and more experienced encoders often just want to help and provide
 feedback. The important part is the result\!
 
-### Typesetter
+## Typesetter
 
 Time commitment per episode: 20 minutes - 8+ hours (dependent on number
 and difficulty of signs)
 
 Typesetters (abbreviated *TSes*) are responsible for the visual
 presentation of text that is on-screen and has been translated. These
-are called *signs*. 
+are called *signs*.
 
 For example, given this scene and a translation of "Adachi Fourth Public
 High
 School"...
 
-[![\[DameDesuYo\]-Eromanga-sensei---01-(1920x1080-10bit-AAC)-\[05CB518E\].mkv\_snapshot\_03.11\_\[2017.08.18\_21.14.55\].jpg](images/cnvimage100.png)](http://34.234.192.3/uploads/images/gallery/2017-08-Aug/%5BDameDesuYo%5D-Eromanga-sensei---01-\(1920x1080-10bit-AAC\)-%5B05CB518E%5D.mkv_snapshot_03.11_%5B2017.08.18_21.14.55%5D.jpg)
+![\[DameDesuYo\]-Eromanga-sensei---01-(1920x1080-10bit-AAC)-\[05CB518E\].mkv\_snapshot\_03.11\_\[2017.08.18\_21.14.55\].jpg](images/cnvimage100.png)
 
 the Typesetter would be expected to produce something like
 this:
 
-[![\[DameDesuYo\]-Eromanga-sensei---01-(1920x1080-10bit-AAC)-\[05CB518E\].mkv\_snapshot\_03.11\_\[2017.08.18\_21.14.43\].jpg](images/cnvimage101.png)](http://34.234.192.3/uploads/images/gallery/2017-08-Aug/%5BDameDesuYo%5D-Eromanga-sensei---01-\(1920x1080-10bit-AAC\)-%5B05CB518E%5D.mkv_snapshot_03.11_%5B2017.08.18_21.14.43%5D.jpg)
+![\[DameDesuYo\]-Eromanga-sensei---01-(1920x1080-10bit-AAC)-\[05CB518E\].mkv\_snapshot\_03.11\_\[2017.08.18\_21.14.43\].jpg](images/cnvimage101.png)
 
 Almost sign the Typesetter works on will be unique, requiring ingenuity,
 an imagination, a sense of style and a high degree of attention to
@@ -80,16 +80,16 @@ Maid Dragon.](https://www.youtube.com/watch?v=4BVgygZe7WY)
 Though it may be hard to believe, the typesetting on the right side of
 the screen was done entirely with *softsubs* (using Aegisub), subtitles
 that can be turned off and on in the video player as compared
-to *hardsubs *(using Adobe After Effects) which cannot. Each group and
+to *hardsubs* (using Adobe After Effects) which cannot. Each group and
 language "scene" will have different standards in regards to soft and
 hardsubs. For example, in the English scene hardsubs are considered
 highly distasteful, whereas in the German scene they are readily
-accepted. 
+accepted.
 
 Something to remember about typesetting is that there is no one way to
 typeset a sign. There are, however, incorrect ways that are not visually
 pleasing, do not match the original well, are difficult to read, or are
-too *heavy* (meaning computer resource intensive). 
+too *heavy* (meaning computer resource intensive).
 
 ### Timer
 
@@ -110,7 +110,7 @@ subtitles such as entering and exiting the screen up to two seconds
 late, presenting 4-5 lines on screen at once, and not separating
 dialogue based on speaking character. These problems detract from the
 viewing experience, drawing attention to the appearance of the subtitles
-and distracting from the story and video. 
+and distracting from the story and video.
 
 ### Editor
 
@@ -124,11 +124,11 @@ rewriting, rewording, and characterizing large portions of the script.
 Each group will have different expectations of an Editor in terms of the
 type, style, number of changes made. The editor may also be responsible
 for making corrections recommended by the Translation and Quality
-Checkers. 
+Checkers.
 
 ### Quality Checker
 
- Time commitment per episode: 30 minutes to 4 hours (depending on your
+Time commitment per episode: 30 minutes to 4 hours (depending on your
 own standards)
 
 Quality Checkers (abbreviated *QCs*) are often the last eyes on an
@@ -156,9 +156,9 @@ immediately after or soon after airing in Japan. In these cases, some
 fansub groups may choose to edit and translation check the simulcast
 script rather than translate it from scratch. This depends almost
 entirely on the quality of the simulcast. Fixing a bad simulcast script
-may be harder than doing an *original translation (abbreviated OTL)*.
+may be harder than doing an *original translation* (abbreviated OTL).
 Finally, translators are responsible for transcribing and translating
-opening, ending, and insert songs as well. 
+opening, ending, and insert songs as well.
 
 ### Karaoke Effect Creator
 

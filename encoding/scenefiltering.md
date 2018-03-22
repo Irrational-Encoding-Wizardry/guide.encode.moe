@@ -1,7 +1,7 @@
-# Scenefiltering
-
-The author of this article likes British English and does not concern
+The author of this page likes British English and does not concern
 himself with what his fellow authors prefer.
+
+# Scenefiltering
 
 Scenefiltering can be hazardous to both your mind and body if used
 extensively. Avoid scenefiltering if possible.
@@ -24,15 +24,19 @@ do not want. This is where scenefiltering comes in.
 As always, you start by importing the Vapoursynth module and loading
 your video source:
 
-    from vapoursynth import core
-    src = core.lsmas.LWLibavSource("source.mkv")
+```py
+from vapoursynth import core
+src = core.lsmas.LWLibavSource("source.mkv")
+```
 
 Next, you need to come up with a common set of filters that can be
 applied to most of the video. Usually, this filtering includes denoising
 and debanding. If you can't come up with anything suitable, don't fret;
 you'll have plenty more chances to filter later.
 
-    filtered = default_filtering(src)
+```py
+filtered = default_filtering(src)
+```
 
 Now that you have your common filtering down, you need to create some
 base filter chains. Go through some random scenes in your source and
@@ -42,13 +46,15 @@ filters by their type) to keep everything neat and clean. If you do this
 part well, you will save yourself a lot of time later on, so take your
 time. At this point, your script should look something like this:
 
-    src = core.lsmas.LWLibavSource("source.mkv")
-    filtered = default_filtering(src)
-    light_denoise = some_denoise_filter(filtered)
-    heavy_denoise = some_other_denoise_filter(filtered)
-    aa = antialiasing(filtered)
-    light_deband = deband1(filtered)
-    med_deband = deband2(filtered)
+```py
+src = core.lsmas.LWLibavSource("source.mkv")
+filtered = default_filtering(src)
+light_denoise = some_denoise_filter(filtered)
+heavy_denoise = some_other_denoise_filter(filtered)
+aa = antialiasing(filtered)
+light_deband = deband1(filtered)
+med_deband = deband2(filtered)
+```
 
 Once you've done all of that, you're done with filtering your source—at
 least for the most part. Now all you need to do is add
@@ -59,18 +65,20 @@ the native Python version in
 `Rfs` is a shorthand for `ReplaceFramesSimple` and is much easier to
 type, so you should use that.
 
-    src = core.lsmas.LWLibavSource("source.mkv")
-    filtered = defaultFiltering(src)
-    light_denoise = someDenoiseFilter(filtered)
-    heavy_denoise = someOtherDenoiseFilter(filtered)
-    filtered = core.remap.Rfs(filtered, light_denoise, mappings="")
-    filtered = core.remap.Rfs(filtered, heavy_denoise, mappings="")
-    aa = antiAliasing1(filtered)
-    filtered = core.remap.Rfs(filtered, aa, mappings="")
-    light_deband = deband1(filtered)
-    med_deband = deband2(filtered)
-    filtered = core.remap.Rfs(filtered, light_deband, mappings="")
-    filtered = core.remap.Rfs(filtered, med_deband, mappings="")
+```py
+src = core.lsmas.LWLibavSource("source.mkv")
+filtered = defaultFiltering(src)
+light_denoise = someDenoiseFilter(filtered)
+heavy_denoise = someOtherDenoiseFilter(filtered)
+filtered = core.remap.Rfs(filtered, light_denoise, mappings="")
+filtered = core.remap.Rfs(filtered, heavy_denoise, mappings="")
+aa = antiAliasing1(filtered)
+filtered = core.remap.Rfs(filtered, aa, mappings="")
+light_deband = deband1(filtered)
+med_deband = deband2(filtered)
+filtered = core.remap.Rfs(filtered, light_deband, mappings="")
+filtered = core.remap.Rfs(filtered, med_deband, mappings="")
+```
 
 So you created all your base filters and added Rfs calls. Now what? You
 still have to perform the most tedious part of this entire
@@ -91,16 +99,17 @@ quite simple:
     you understand
     better:
 
-<!-- end list -->
-
-    #The following replaces frames 30 to 40 (inclusive) and frame 50 of the filtered clip with the non-filtered clip.
+    ```py
+    # The following replaces frames 30 to 40 (inclusive) and frame 50
+    # of the filtered clip with the non-filtered clip.
     filtered = core.remap.Rfs(filtered, non-filtered, mappings="[30 40] 50")
+    ```
 
-     3. Repeat with the next scene.
+3.  Repeat with the next scene.
 
 When scenefiltering, it is good practice to comment out Rfs calls you're
 currently not using because they just make your script slower and eat up
-memory. 
+memory.
 
 This step can take anywhere from a few minutes to hours, depending on
 the encoder and the source. Most of the time, the same filters can be
@@ -117,15 +126,15 @@ ranges in their Rfs calls and watch it happen. What if a scene requires
 denoising stronger than `heavy_denoise` ? Simple. Add another denoising
 filter instead of `heavy_denoise` like so:
 
-    heavier_denoise = ultra_mega_super_heavy_denoise(filtered)
-    filtered = core.remap.Rfs(filtered, heavier_denoise, mappings="[x y]")
+```py
+heavier_denoise = ultra_mega_super_heavy_denoise(filtered)
+filtered = core.remap.Rfs(filtered, heavier_denoise, mappings="[x y]")
+```
 
 Using different denoisers on that same frame range is also possible, but
 always consider the impacts on performance. Calling a strong, slow
 denoise filter might still be faster (and better-looking) than calling a
 weak, faster filter multiple times.
 
-Do we really want to keep this line?
-<span style="text-decoration: line-through;">That's how you become a
-cool German encoder. :^)</span> That should be all you need to know
+That should be all you need to know
 about scenefiltering.

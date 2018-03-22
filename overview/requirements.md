@@ -8,7 +8,7 @@ your skills in a fansub group centered on your native language. Of
 course, there are some roles that don't require any language skills to
 complete them. But you will still need to communicate with the other
 members of your chosen fansub group and a language barrier can make that
-difficult. 
+difficult.
 
 ### Hardware
 
@@ -20,12 +20,12 @@ needs to be.
 
   - **Timer**
       - One of the most forgiving roles in fansubbing for computer
-        hardware. 
+        hardware.
       - **OS**: Windows 7, Mac OS X 10.7, Linux
       - **Screen**: 720p
-      - **CPU**: dual-core \>2Ghz 
+      - **CPU**: dual-core \>2Ghz
           - Computer should be able to playback HD anime with
-            subtitles. 
+            subtitles.
       - **Memory**: 4GB
           - Aegisub loads the entire video into memory. With larger HD
             videos being standard today, this could be up to several GB.
@@ -33,13 +33,13 @@ needs to be.
       - **Mouse**: recommended
       - **Internet**: 25 Mbps download
   - **Typesetter**
-      - The middle of the road in terms of required computer hardware. 
+      - The middle of the road in terms of required computer hardware.
       - **OS**: Windows 7, Mac OS X 10.7, Linux
           - 64bit recommended
       - **Screen**: 1080p
       - **CPU**: dual-core \>2.5GHz (quad-core \>3GHz recommended)
           - Computer should be able to playback modern fansubbed anime
-            releases with high settings.  
+            releases with high settings.
       - **Memory**: 8GB
           - Aegisub loads the entire video into memory. With larger HD
             videos being standard today, this could be up to several GB.
@@ -52,13 +52,13 @@ needs to be.
   - **Encoder**
       - The most demanding role in terms of computer hardware.
       - The speed and capabilities of the computer directly correlate to
-        encode times and the stability of encoding tools. 
+        encode times and the stability of encoding tools.
       - **OS**: Windows 7, Mac OS X 10.7, Modern distro Linux
           - 64bit required
       - **Screen**: 1080p
-          - IPS panels highly recommended for color correctness. 
+          - IPS panels highly recommended for color correctness.
           - VA panels highly discouraged.
-      - **CPU**: quad-core \>4GHz 
+      - **CPU**: quad-core \>4GHz
           - More cores and/or higher speed are better. (e.g. AMD Ryzen,
             Threadripper or Intel Core i7+)
           - **CPU Requirements**:
@@ -67,15 +67,15 @@ needs to be.
               - SSE4
       - **Memory**: 8GB
           - Memory can be a bottleneck when encoding. More, faster
-            memory is always better for encoding rigs. 
+            memory is always better for encoding rigs.
       - **Storage**: 500GB available
           - Encoders sometimes deal with files up to 40GB each and
             regularly with ones between 1GB and 8GB and may be required
-            to retain these files for a long time. 
+            to retain these files for a long time.
       - **Internet**: 25 Mbps download, 10 Mbps upload (faster
         recommended)
   - **Editor**
-      - At least the same as the Timer role. 
+      - At least the same as the Timer role.
   - **Quality Checker**
       - At least the same as the Typesetter role.
   - **Translator / Translation Checker**
