@@ -1,8 +1,8 @@
 # Fansubbing Guide
 
-*This project is not officially published yed
-please help improving the articles and writing
-the TODO entries on each page.*
+*This project is not officially published yet.
+Please help improving the articles 
+and filling in the TODO entries on various pages.*
 
 This project aims to become a public guide
 for aspiring as well as veteran fansubbers
