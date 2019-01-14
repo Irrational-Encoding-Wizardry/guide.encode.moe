@@ -4,8 +4,9 @@
 
 - [Contributing](CONTRIBUTING.md)
 - [Preface](overview/preface.md)
-- [Requirements](overview/requirements.md)
 - [Roles](overview/roles.md)
+- [Requirements](overview/requirements.md)
+
 
 
 ## Encoding
