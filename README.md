@@ -1,7 +1,7 @@
 # Fansubbing Guide
 
 *This project is not officially published yet.
-Please help improving the articles 
+Please help by improving the articles
 and filling in the TODO entries on various pages.*
 
 This project aims to become a public guide
@@ -19,6 +19,6 @@ to go to the next page,
 or you can browse the page index on the left.
 
 The project is [hosted on Github][github]
-and available to read online on <https://guide.encode.moe/>.
+and available to read online at <https://guide.encode.moe/>.
 
 [github]: https://github.com/Irrational-Encoding-Wizardry/guide.encode.moe/
