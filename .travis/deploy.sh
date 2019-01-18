@@ -15,7 +15,7 @@ git add .
 git -c user.name='Deployment Bot' -c user.email='deploy@travis-ci.org' commit -m "Auto-deploy of $TRAVIS_COMMIT"
 
 # push to gh-pages branch
-openssl aes-256-cbc -K $encrypted_81bb60eb1b21_key -iv $encrypted_81bb60eb1b21_iv -in id_deploy.enc -out .travis/id_deploy -d
+openssl aes-256-cbc -K $encrypted_81bb60eb1b21_key -iv $encrypted_81bb60eb1b21_iv -in .travis/id_deploy.enc -out .travis/id_deploy -d
 chmod 600 .travis/id_deploy
 eval $(ssh-agent -s)
 ssh-add .travis/id_deploy
