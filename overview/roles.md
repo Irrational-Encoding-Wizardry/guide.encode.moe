@@ -178,8 +178,8 @@ programming-oriented.
 
 ***
 
-<b name="fn1">1</b>: <kbd>TODO - sources for AviSynth and VapourSynth builds
-relevant to fansubbing.</kbd> [↩](#a1)
+<b name="fn1">1</b>: *TODO - sources for AviSynth and VapourSynth builds
+relevant to fansubbing.* [↩](#a1)
 
 <b name="fn2">2</b>: Further reading on the x264 and x265 libraries can be
 found [here](https://www.reddit.com/r/anime/comments/8ktmvu/nerdpost_how_fansubbers_make_your_anime_look/). [↩](#a2)

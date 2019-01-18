@@ -8,3 +8,50 @@
 a.plugin-anchor {
     top: -3px;
 }
+
+/* add bottom border to big headings */
+.markdown-section h1 {
+    font-size: 2em;
+    border-bottom: 2px solid #eaecef;
+}
+.markdown-section h2 {
+    font-size: 1.75em;
+    border-bottom: 1px solid #eaecef;
+}
+
+/* make links distinguishable in theme-1 */
+.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal a {
+    color: #d11a4e;
+}
+
+/* fix hr being invisible in theme-1 */
+.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal hr {
+    background-color: rgb(112, 66, 20);
+}
+
+/* fix theme-2 nav items being bold for no reason */
+.book.color-theme-2 .book-summary ul.summary li a {
+    color: #c1c6d7;
+    background: transparent;
+    font-weight: normal;
+}
+.book.color-theme-2 .book-summary ul.summary li a:hover {
+    font-weight: normal;
+}
+
+
+/* <kbd> styling */
+kbd {
+    background-color: rgb(250, 251, 252);
+    border-radius: 3px;
+    border: rgb(209, 213, 218) solid 1px;
+    box-shadow: rgb(198, 203, 209) 0px -1px 0px 0px inset;
+    color: rgb(69, 74, 80);
+    display: inline-block;
+    font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace;
+    /*font-size: 16px;*/
+    font-weight: 400;
+    padding: 4px 5px;
+    line-height: 11px;
+    vertical-align: middle;
+}
