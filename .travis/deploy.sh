@@ -2,7 +2,7 @@
 
 set -ev # show commands run and terminate on non-zero exit code
 
-if [ $TRAVIS_BRANCH != master ]; then
+if [[ $TRAVIS_BRANCH != master || $TRAVIS_PULL_REQUEST != false ]]; then
   exit 0
 fi
 
