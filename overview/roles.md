@@ -2,11 +2,11 @@
 
  There are 8 (sometimes 9) major roles in every fansub group. They are:
 
-1.  **Encoder**
-2.  **Timer**
-3.  **Typesetter**
-4.  **Editor**
-5.  **Quality Checker**
+1.  [**Encoder**](#encoder)
+2.  [**Timer**](#timer)
+3.  [**Typesetter**](#typesetter)
+4.  [**Editor**](#editor)
+5.  [**Quality Checker**](#quality-checker)
 6.  *Optional*: Translator
 7.  *Optional*: Translation Checker
 8.  *Optional*: Karaoke Effects Creator
@@ -85,12 +85,12 @@ For example, given this scene and a translation of "Adachi Fourth Public
 High
 School"...
 
-![\[DameDesuYo\]-Eromanga-sensei---01-(1920x1080-10bit-AAC)-\[05CB518E\].mkv\_snapshot\_03.11\_\[2017.08.18\_21.14.55\].jpg](images/cnvimage100.png)
+![\[DameDesuYo\] Eromanga-sensei - 01 (1920x1080 10bit AAC) \[05CB518E\].mkv\_snapshot\_03.11\_\[2017.08.18\_21.14.55\].jpg](images/cnvimage100.png)
 
 the Typesetter would be expected to produce something like
 this:
 
-![\[DameDesuYo\]-Eromanga-sensei---01-(1920x1080-10bit-AAC)-\[05CB518E\].mkv\_snapshot\_03.11\_\[2017.08.18\_21.14.43\].jpg](images/cnvimage101.png)
+![\[DameDesuYo\] Eromanga-sensei - 01 (1920x1080 10bit AAC) \[05CB518E\].mkv\_snapshot\_03.11\_\[2017.08.18\_21.14.43\].jpg](images/cnvimage101.png)
 
 Almost every sign the Typesetter works on will be unique, requiring ingenuity,
 an imagination, a sense of style, and a high degree of attention to
