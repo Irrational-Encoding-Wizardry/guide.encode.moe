@@ -9,15 +9,6 @@ a.plugin-anchor {
     top: -3px;
 }
 
-/* add bottom border to big headings */
-.markdown-section h1 {
-    font-size: 2em;
-    border-bottom: 2px solid #eaecef;
-}
-.markdown-section h2 {
-    font-size: 1.75em;
-    border-bottom: 1px solid #eaecef;
-}
 
 /* make links distinguishable in theme-1 */
 .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal a {
@@ -30,28 +21,431 @@ a.plugin-anchor {
 }
 
 /* fix theme-2 nav items being bold for no reason */
-.book.color-theme-2 .book-summary ul.summary li a {
-    color: #c1c6d7;
-    background: transparent;
-    font-weight: normal;
-}
-.book.color-theme-2 .book-summary ul.summary li a:hover {
+.book.color-theme-2 .book-summary ul.summary li a, .book.color-theme-2 .book-summary ul.summary li a:hover, .book.color-theme-2 .book-summary ul.summary li.active > a {
     font-weight: normal;
 }
 
+
+/* website header fade-in fade-out */
+.book-header h1 {
+    transition: opacity .15s ease;
+}
+
+
+/* header buttons transition styling */
+.book-header .btn:hover {
+    transition: all 150ms ease;
+}
+.dropdown-menu .buttons .button:focus, .dropdown-menu .buttons .button:hover {
+    transition: all 150ms ease;
+}
+
+/* summary panel themes and transitions */
+.book-summary ul.summary li a:hover {
+    text-decoration: none;
+	box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.2);
+}
+.book-summary ul.summary li.active > a {
+    box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.2);
+}
 
 /* <kbd> styling */
 kbd {
     background-color: rgb(250, 251, 252);
     border-radius: 3px;
     border: rgb(209, 213, 218) solid 1px;
-    box-shadow: rgb(198, 203, 209) 0px -1px 0px 0px inset;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 1px 1px inset;
     color: rgb(69, 74, 80);
     display: inline-block;
-    font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace;
-    /*font-size: 16px;*/
+    font-family: 'Fira Mono', monospace;
     font-weight: 400;
     padding: 4px 5px;
     line-height: 11px;
     vertical-align: middle;
+}
+
+/* non-theme styling */
+.book-summary ul.summary li a, .book-summary ul.summary li span {
+    transition: box-shadow 75ms ease;
+}
+.book-header .btn, .navigation {
+    transition: all 150ms ease;
+}
+.dropdown-menu .buttons .button {
+    transition: color 150ms ease;
+}
+
+/* copy code button styling */
+.code-wrapper i {
+	color: inherit;
+	font-size: 0.9em;
+	opacity: 0.5;
+	transition: all 150ms ease;
+}
+.fa.fa-clone.t-copy:hover {
+	opacity: 1;
+}
+
+/* theme-0 and base attributes */
+/* page background */
+.book-body, .markdown-section, .normal.markdown-section {
+    background-color: #FFFFFF;
+	color: #0C0C0C;
+}
+
+/* sidebar background color */
+/* sidebar background color */
+.book-summary {
+    background-color: #F2F2F2;
+}
+
+/* sidebar subchapter text color */
+.book-summary ul.summary li a, .book-summary ul.summary li span, .book-summary ul.summary li.active > a {
+    color: #0C0C0C;
+}
+
+/* sidebar divider bar color */
+.book-summary ul.summary li.divider {
+    background-color: #D8D8D8;
+}
+
+/* sidebar header text color */
+.book-summary ul.summary li.header {
+    color: #8F8F8F;
+	padding-top: 24px /* base attr */
+}
+
+/* navigation colors */
+.navigation {
+    color: #D8D8D8;
+}
+.navigation:hover {
+    color: #0C0C0C;
+}
+
+/* header colors */
+.book-header .btn {
+    color: #D8D8D8;
+}
+.book-header .btn:hover, .book-header h1 {
+    color: #0C0C0C;
+}
+
+#book-search-input {
+    background-color: #FFFFFF;
+    margin-bottom: 0px; /* base attr */
+	color: #0C0C0C;
+}
+
+/* dropdown menu */
+.dropdown-menu {
+    background-color: #F2F2F2;
+    border: 0px; /* base attr */
+    border-radius: 2px; /* base attr */
+    box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.2); /* base attr */
+}
+.dropdown-menu .buttons .button {
+    color: #8F8F8F;
+}
+.dropdown-menu .buttons .button:hover {
+    color: #0C0C0C;
+}
+.dropdown-menu .dropdown-caret .caret-inner {
+    border-bottom: 9px solid #F2F2F2;
+}
+
+/* hr colors */
+.markdown-section h1 {
+	font-size: 2em; /* base attr */
+    border-bottom: 2px solid #D8D8D8;
+}
+.markdown-section h2 {
+	font-size: 1.75em; /* base attr */
+    border-bottom: 1px solid #D8D8D8;
+}
+.markdown-section hr {
+    height: 4px; /* base attr */
+    background-color: #D8D8D8;
+}
+
+/* code wrapper colors */
+.code-wrapper pre {
+    background: #f7f8f9;
+}
+
+/* link colors */
+.markdown-section a {
+    color: #2F77BF;
+}
+
+/* search results page */
+#book-search-results .search-results .has-results .search-results-item a {
+    color: #2F77BF;
+}
+#book-search-results .search-results .has-results .search-results-item {
+    color: #0C0C0C;
+}
+
+/* theme 1 */
+/* page background */
+
+.book.color-theme-1 .book-body, .book.color-theme-1 .book-body .page-wrapper .page-inner section, .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal {
+    background-color: #f3eacb;
+	color: #663A0F;
+}
+
+/* sidebar background color + subchapter text color */
+.book.color-theme-1 .book-summary, .book.color-theme-1 .book-summary ul.summary li a, .book.color-theme-1 .book-summary ul.summary li span {
+    color: #42260A;
+    background: #BE9470;
+}
+.book.color-theme-1 .book-summary ul.summary li.active > a, .book.color-theme-1 .book-summary ul.summary li a:hover {
+	background: #A68162;
+	box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.2);
+}
+
+/* sidebar divider bar color */
+.book.color-theme-1 .book-summary ul.summary li.divider {
+    background-color: #957C76;
+}
+
+/* sidebar header text color */
+.book.color-theme-1 .book-summary ul.summary li.header {
+    color: #F2F2DA;
+}
+
+/* navigation colors */
+.book.color-theme-1 .navigation {
+    color: rgba(149, 124, 118, 0.5);
+}
+.book.color-theme-1 .navigation:hover {
+    color: #663A0F;
+}
+
+/* header colors */
+.book.color-theme-1 .book-header .btn {
+    color: rgba(149, 124, 118, 0.5);
+}
+.book.color-theme-1 .book-header .btn:hover, .book.color-theme-1 .book-header h1 {
+    color: #663A0F;
+}
+
+.book.color-theme-1 #book-search-input {
+    background-color: #F2F2DA;
+    color: #663A0F;
+}
+
+/* dropdown menu colors */
+.book.color-theme-1 .dropdown-menu {
+    background-color: #BE9470;
+}
+.book.color-theme-1 .dropdown-menu .buttons .button {
+    color: #F2F2DA;
+}
+.book.color-theme-1 .dropdown-menu .buttons .button:hover {
+    color: #663A0F;
+}
+.book.color-theme-1 .dropdown-menu .dropdown-caret .caret-inner {
+    border-bottom: 9px solid #BE9470;
+}
+
+/* hr colors */
+.book.color-theme-1 .markdown-section h1 {
+    border-bottom: 2px solid #957C76;
+}
+.book.color-theme-1 .markdown-section h2 {
+    border-bottom: 1px solid #957C76;
+}
+.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal hr {
+    background-color: #957C76;
+}
+.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal h1 {
+    border-bottom: 2px solid #957C76;
+}
+.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal h2 {
+    border-bottom: 1px solid #957C76;
+}
+/* code wrapper colors */
+.book.color-theme-1 .code-wrapper pre {
+    background: #957C76;
+}
+
+/* link colors */
+.book.color-theme-1 .markdown-section a {
+    color: #d11a4e;
+}
+
+/* search results page */
+.book.color-theme-1 #book-search-results .search-results .has-results .search-results-item a {
+    color: #d11a4e;
+}
+.book.color-theme-1 #book-search-results .search-results .has-results .search-results-item {
+    color: #663A0F;
+}
+
+
+/* theme 2 */
+/* page background */
+.book.color-theme-2 .book-body, book.color-theme-2 .book-body .page-wrapper .page-inner section, .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal {
+    background-color: #1C1F2B;
+	color: #F9F9FF;
+}
+
+/* sidebar background color + subchapter text color */
+.book.color-theme-2 .book-summary {
+    color: #F9F9FF;
+    background: #2d3143;
+}
+.book.color-theme-2 .book-summary ul.summary li a, .book.color-theme-2 .book-summary ul.summary li span {
+    color: #F9F9FF;
+}
+.book.color-theme-2 .book-summary ul.summary li.active > a, .book.color-theme-2 .book-summary ul.summary li a:hover {
+    color: #F9F9FF;
+    background: #3E435C;
+}
+
+
+/* sidebar divider bar color */
+.book.color-theme-2 .book-summary ul.summary li.divider {
+    background-color: #A0A9A6;
+}
+
+/* sidebar header text color */
+.book.color-theme-2 .book-summary ul.summary li.header {
+    color: #B3BFFF;
+}
+
+/* navigation colors */
+.book.color-theme-2 .navigation {
+    color: #A0A9A6;
+}
+.book.color-theme-2 .navigation:hover {
+    color: #F9F9FF;
+}
+
+/* header colors */
+.book.color-theme-2 .book-header .btn {
+    color: #595F7F;
+}
+.book.color-theme-2 .book-header .btn:hover, .book.color-theme-2 .book-header h1 {
+    color: #F9F9FF;
+}
+
+.book.color-theme-2 #book-search-input {
+    background-color: #1C1F2B;
+    color: #F9F9FF;
+}
+
+/* dropdown menu colors */
+.book.color-theme-2 .dropdown-menu {
+    background-color: #2d3143;
+}
+.book.color-theme-2 .dropdown-menu .buttons .button {
+    color: #595F7F;
+}
+.book.color-theme-2 .dropdown-menu .buttons .button:hover {
+    color: #F9F9FF;
+}
+.color-theme-2 .dropdown-menu .dropdown-caret .caret-inner {
+    border-bottom: 9px solid #2d3143;
+}
+
+/* hr colors */
+.book.color-theme-2 .markdown-section h1 {
+    border-bottom: 2px solid #A0A9A6;
+}
+.book.color-theme-2 .markdown-section h2 {
+    border-bottom: 1px solid #A0A9A6;
+}
+.book.color-theme-2 .markdown-section hr {
+    background-color: #A0A9A6;
+}
+
+/* code wrapper colors */
+.book.color-theme-2 .code-wrapper pre {
+    background: #A0A9A6;
+}
+
+/* link colors */
+.book.color-theme-2 .markdown-section a {
+    color: #3eb1d0;
+}
+
+/* search results page */
+.book.color-theme-2 #book-search-results .search-results .has-results .search-results-item a {
+    color: #3eb1d0;
+}
+.book.color-theme-2 #book-search-results .search-results .has-results .search-results-item {
+    color: #F9F9FF;
+}
+
+
+/* page sizing */
+.page-inner {
+    max-width: none;
+    padding: 20px 400px 40px 400px;
+}
+
+/* fonts */
+.book.font-family-0 {
+	font-family: 'Noto Serif', serif !important;
+}
+.book.font-family-1, .book-summary {
+    font-family: 'Fira Sans', sans-serif !important;
+}
+/* fixing code not scaling with text-scaling */
+.markdown-section code, .markdown-section pre {
+	font-family: 'Fira Mono', monospace !important;
+}
+.markdown-section pre {
+	font-size: 0.9em;
+}
+.markdown-section code {
+	font-size: 1em;
+}
+/* size and transparency for line numbers */
+.code-wrapper pre > code > span.code-line::before {
+	color: inherit;
+	opacity: 0.75;
+	font-size: 0.75em;
+}
+/* sidebar shadowing */
+
+.book-summary {
+    border-right: none;
+}
+.book.with-summary .book-summary {
+	box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.2);
+}
+.book.color-theme-1 .book-summary {
+    border-right: none;
+}
+.book.color-theme-2 .book-summary {
+    border-right: none;
+}
+
+ /* header centering */
+ .book-header h1 {
+    padding-left: 79px;
+ }
+
+/* figure margins and padding */
+.markdown-section figure {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+figcaption {
+    margin-top: 1px;
+}
+
+/* image hovering shadow */
+img:hover {
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.2);
+}
+
+/* centering images with CSS instead of in-line HTML */
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
