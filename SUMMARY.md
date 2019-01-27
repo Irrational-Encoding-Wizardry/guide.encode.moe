@@ -2,7 +2,7 @@
 
 ## Overview
 
-- [Contributing](CONTRIBUTING.md)
+- [Contributing to the Guide](CONTRIBUTING.md)
 - [Preface](overview/preface.md)
 - [Roles](overview/roles.md)
 - [Requirements](overview/requirements.md)
@@ -21,4 +21,4 @@
 
 ## Typesetting
 
-- [Typesetting with Aegisub](typesetting/aegisub.md)
+- [Aegisub and Other Tools](typesetting/aegisub.md)
