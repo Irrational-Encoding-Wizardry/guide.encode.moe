@@ -54,13 +54,14 @@ kbd {
     background-color: rgb(250, 251, 252);
     border-radius: 3px;
     border: rgb(209, 213, 218) solid 1px;
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 1px 1px inset;
+    box-shadow: rgb(198, 203, 209) 0px -1px 0px 0px inset;
     color: rgb(69, 74, 80);
     display: inline-block;
-    font-family: 'Fira Mono', monospace;
+    font-size: 0.9em;
+    font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace;
     font-weight: 400;
-    padding: 4px 5px;
-    line-height: 11px;
+    padding: 0.07em 0.3em;
+    line-height: 1em;
     vertical-align: middle;
 }
 
@@ -286,21 +287,21 @@ kbd {
 
 /* theme 2 */
 /* page background */
-.book.color-theme-2 .book-body, book.color-theme-2 .book-body .page-wrapper .page-inner section, .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal {
+.book.color-theme-2 .book-body, .book.color-theme-2 .book-body .page-wrapper .page-inner section, .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal {
     background-color: #1C1F2B;
-	color: #F9F9FF;
+	  color: #DFEBF5;
 }
 
 /* sidebar background color + subchapter text color */
 .book.color-theme-2 .book-summary {
-    color: #F9F9FF;
+    color: #DFEBF5;
     background: #2d3143;
 }
 .book.color-theme-2 .book-summary ul.summary li a, .book.color-theme-2 .book-summary ul.summary li span {
-    color: #F9F9FF;
+    color: #DFEBF5;
 }
 .book.color-theme-2 .book-summary ul.summary li.active > a, .book.color-theme-2 .book-summary ul.summary li a:hover {
-    color: #F9F9FF;
+    color: #DFEBF5;
     background: #3E435C;
 }
 
@@ -315,25 +316,32 @@ kbd {
     color: #B3BFFF;
 }
 
-/* navigation colors */
+/* navigation colors -- this style is really bad, this needs a manual !important to work */
 .book.color-theme-2 .navigation {
-    color: #A0A9A6;
+    color: #A0A9A6 !important;
 }
 .book.color-theme-2 .navigation:hover {
-    color: #F9F9FF;
+    color: #DFEBF5 !important;
 }
 
 /* header colors */
 .book.color-theme-2 .book-header .btn {
     color: #595F7F;
 }
-.book.color-theme-2 .book-header .btn:hover, .book.color-theme-2 .book-header h1 {
-    color: #F9F9FF;
+.book.color-theme-2 .book-header .btn:hover, .book.color-theme-2 .book-header h1, .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal h1 {
+    color: #DFEBF5;
+}
+/* this theme is so bad */
+.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal h1, .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal h2, .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal h3, .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal h4 {
+    color: #DFEBF5 !important;
+}
+.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal h5, .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal h6 {
+    color: #DFEBF5 !important;
 }
 
 .book.color-theme-2 #book-search-input {
     background-color: #1C1F2B;
-    color: #F9F9FF;
+    color: #DFEBF5;
 }
 
 /* dropdown menu colors */
@@ -344,7 +352,7 @@ kbd {
     color: #595F7F;
 }
 .book.color-theme-2 .dropdown-menu .buttons .button:hover {
-    color: #F9F9FF;
+    color: #DFEBF5;
 }
 .color-theme-2 .dropdown-menu .dropdown-caret .caret-inner {
     border-bottom: 9px solid #2d3143;
@@ -376,14 +384,14 @@ kbd {
     color: #3eb1d0;
 }
 .book.color-theme-2 #book-search-results .search-results .has-results .search-results-item {
-    color: #F9F9FF;
+    color: #DFEBF5;
 }
 
 
 /* page sizing */
 .page-inner {
     max-width: none;
-    padding: 20px 400px 40px 400px;
+    padding: 20px 360px 40px 360px;
 }
 
 /* fonts */
