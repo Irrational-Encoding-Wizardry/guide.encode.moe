@@ -54,39 +54,26 @@ why it only applies to a specific language.
 This guide is written in [Markdown][]
 and uses [gitbook][]'s [toolchain][] to compile
 the static HTML pages.
-gitbook uses the [Github Flavoured Markdown][GFM] (GFM) variant.
+Gitbook uses the [Github Flavoured Markdown][GFM] (GFM) variant.
 
-Documentation for gitbook's toolchain can be found here:
+Documentation for gitbook's toolchain (including gitbook markdown sytax)
+can be found here:
 <https://toolchain.gitbook.com/>
 
 In order to build and preview the guide locally,
 you need [npm][] and [node.js][].
 The former is usually bundled with installation packages for node.
-Once you got those installed,
+Once you have those installed,
 run the following commands
 from the repository's folder:
 
-{% term %}
+```js
 $ npm install
-added 611 packages from 674 contributors in 4.478s
 
 $ ./node_modules/.bin/gitbook install
-info: installing 5 plugins using npm@3.9.2
-…
 
 $ ./node_modules/.bin/gitbook serve --open
-Live reload server started on port: 35729
-Press CTRL+C to quit ...
-info: 12 plugins are installed
-info: loading plugin "highlight"... OK
-…
-info: found 11 pages
-info: found 21 asset files
-…
-info: >> generation finished with success in 1.6s !
-Starting server ...
-Serving book on http://localhost:4000
-{% endterm %}
+```
 
 Afterwards, your browser will have opened
 with a preview of your files.
@@ -114,20 +101,20 @@ for each of the roles
 specified in the roles page.
 
 Feel free to work on any of the `TODO` marks
-or on a new section.
+or create a new section.
 
 Currently, we aim to add the following topics
 in no particular priority:
 
 - Workflow
-- (Translation)
+- Translation
 - Edit
 - Timing
   - Basic Procedure
   - Snapping
   - Joining, Splitting
   - Post-processing (TPP & Useful Scripts)
-  - Shifting & Sushi
+  - Shifting & [Sushi][]
   - Karaoke
 - Typesetting
   - …with Aegisub
@@ -135,37 +122,39 @@ in no particular priority:
     - Signs
       - Positioning, Layers, Rotation, Perspective, …
     - Masking
-    - Automation Scripts
+    - [Automation Scripts][TypesettingTools]
     - Movement & Motion Tracking
-  - …with Adobe Illustrator
+  - …[with Adobe Illustrator][Ai2ASS]
   - (…with Adobe After Effects)
 - Encoding \[*I'm sure there's something to be done*\]
 - Quality Check
 - Karaoke Effects
 
-You may find some inspiration for these topics
-from the following resources:
+There is a collection of links [here][issue2] that can be used as reference
+when working on any future section.
 
-- http://unanimated.hostfree.pw/ts/?i=1
-- http://blog.line0.in/typesetting-with-illustrator-and-ai2ass-part-i-the-basics/
-- https://commiesubs.com/wp-content/uploads/2011/06/A-guide-to-timing-in-Aegisubv2.pdf
-- http://doki.co/support/doki-timing-guide/
+[Ai2ASS]: https://typesettingtools.github.io/2014/08/25/typesetting-with-illustrator-and-ai2ass-part-1.html
+[TypesettingTools]: https://github.com/TypesettingTools
+[Sushi]: https://github.com/tp7/Sushi/releases
+[issue2]: https://github.com/Irrational-Encoding-Wizardry/guide.encode.moe/issues/2
 
 
 ## Style Guidelines
 
-Following are the style guidelines
+The following are the style guidelines
 for various aspects of this guide.
-The most important aspect are **Semantic Linefeeds**.
-All the other points
-serve as guidelines to refer to
-in case you are wondering
-how to format Stuff™.
+The most important aspect is having **Semantic Linefeeds**.
+The other points may serve as guidelines for formatting future pages.
+Refer to [gitbook's markdown documentation][gitbookMarkdown]
+for guidelines on visual formatting.
+
+[gitbookMarkdown]: https://toolchain.gitbook.com/syntax/markdown.html
 
 
 ### Semantic Linefeeds (!)
 
-Always use [Semantic Linefeeds][] are used
+Always use [Semantic Linefeeds][] when editing code.
+They are used
 to break lines into logical units
 rather than after a certain line length threshold is reached!
 
@@ -186,7 +175,7 @@ a comma,
 a period,
 any other sentence terminating punctuation,
 parenthesized sentences (not words),
-long lists (like this).
+or new items in a long list (such as the one you are reading right now).
 
 [Semantic Linefeeds]: http://rhodesmill.org/brandon/2012/one-sentence-per-line/
 
@@ -198,21 +187,22 @@ The indent size is **two spaces**.
 
 ### Lists
 
-Unordered lists should be indented **once**,
+Unordered list lines should be indented **once**,
 while ordered lists are indented **twice**.
-This also applies to the first line of an ordered list,
-so that there are two spaces after the first item.
+The text of an unordered item should have one space after the `-`
+while the text of an ordered item should have two spaces after the `#.`
 
 ```md
 - This is an unordered list
   - With a sublist
   - And another item in that sublist
+```
 
-
-1.  Text be here.
-    And consecutively indented with four spaces.
+```md
+1.  This is an ordered list.
+    Consecutive lines are indented with four spaces.
 2.  Another list item
-…
+...
 10. Now only one space after the item number.
 ```
 
@@ -224,6 +214,66 @@ should be separated from text
 with a blank line on each side.
 The same applies to code blocks.
 
-Separate headings from text with **two** blank lines.
+Separate headings from text with **two** blank lines before the heading
+and **one** after.
 Headings immediately following their parent heading
 only need one blank line in-between.
+
+Separate text from end-of-section hyperlink lists with **one** blank line
+before the list. See [below](#Hyperlinking) for more information.
+
+
+### Hyperlinking
+
+There are three types of hyperlinks.
+
+- The text you want highlighted is more than one word,
+  or different than the shorthand name of the link.
+  - `[website's great article][short]`
+  - [website's great article][short]
+- The text you want highlighted is the same as the shorthand.
+  - `[short][]`
+  - [short][]
+- You want the full address displayed.
+  - `<https://guide.encode.moe/>`
+  - <https://guide.encode.moe/>
+
+For the first two hyperlinking styles,
+you will want to include a line at the end of that header section
+in the following format.
+
+`[short]: https://guide.encode.moe/`
+
+If there are multiple links used in the first two styles,
+you will want multiple lines at the end of the header section.
+
+```md
+[short1]: https://guide.encode.moe/
+[short2]: https://guide.encode.moe/CONTRIBUTING.HTML
+...
+```
+
+If you are linking to a section on the same page,
+`[section name](#header)` is allowed in-line.
+An example of this is ["the hyperlink section you are reading"](#Hyperlinking).
+In code, this is simply `["the hyperlink section you are reading"](#Hyperlinking)`.
+
+For relative links (links to other pages, images, or files within
+this repository), follow the guidelines for [Jekyll Relative Links][].
+
+[short]: https://guide.encode.moe/
+[Jekyll Relative Links]: https://github.com/benbalter/jekyll-relative-links/blob/master/README.md
+
+
+### Citations
+
+If you are archiving another website's text or copying their images
+into this repository, make sure to cite your sources using APA formatting.
+To generate APA citations, use [Citation Machine][]. Only use this if you
+fear the website is not a permanent source.
+
+For mid-document citations, use "in-text citations" with footnotes for the
+full citations. For a full document citation, simply place the
+full citation at the bottom of the document under a horizontal rule.
+
+[Citation Machine]: http://www.citationmachine.net/apa/cite-a-website

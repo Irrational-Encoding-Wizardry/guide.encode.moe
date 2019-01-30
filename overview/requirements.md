@@ -77,15 +77,15 @@ needs to be.
 
 Every role will have different required software, but it is recommended
 for every role to have installed [Aegisub][]. It
-is **highly** recommended to use [line0's builds][]. They include a
-preinstalled automation script package manager and several *critical*
-fixes to Aegisub that have not been merged into the official
-application.
+is **highly** recommended to use [line0's builds][].
+They come pre-equipped with Dependency Control
+and several *critical* fixes to Aegisub that have not been merged
+into the official application.
 
 [Aegisub]: http://www.aegisub.org
 [line0's builds]: https://files.line0.eu/builds/Aegisub/
 
-More specifics will be presented in the chapter devoted to each role.
+More specifics will be presented in the chapters devoted to each role.
 
 <TODO - pages for each role ^>
 

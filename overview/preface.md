@@ -28,5 +28,5 @@ available to fansubbers, so if they are addressed in this guide, it will
 not be in as much depth as other roles.
 
 If you don't even know what roles there are to choose from, don't
-worry — we'll get there. For now, let's move on to some practical
+worry—we'll get there. For now, let's move on to some practical
 requirements.
