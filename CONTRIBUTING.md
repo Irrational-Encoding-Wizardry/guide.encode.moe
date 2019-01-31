@@ -175,7 +175,8 @@ a comma,
 a period,
 any other sentence terminating punctuation,
 parenthesized sentences (not words),
-or new items in a long list (such as the one you are reading right now).
+or new items in a long list
+(such as the one you are reading right now).
 
 [Semantic Linefeeds]: http://rhodesmill.org/brandon/2012/one-sentence-per-line/
 
@@ -258,8 +259,10 @@ If you are linking to a section on the same page,
 An example of this is ["the hyperlink section you are reading"](#Hyperlinking).
 In code, this is simply `["the hyperlink section you are reading"](#Hyperlinking)`.
 
-For relative links (links to other pages, images, or files within
-this repository), follow the guidelines for [Jekyll Relative Links][].
+For relative links (links to other pages,
+images,
+or files within this repository),
+follow the guidelines for [Jekyll Relative Links][].
 
 [short]: https://guide.encode.moe/
 [Jekyll Relative Links]: https://github.com/benbalter/jekyll-relative-links/blob/master/README.md
@@ -267,13 +270,17 @@ this repository), follow the guidelines for [Jekyll Relative Links][].
 
 ### Citations
 
-If you are archiving another website's text or copying their images
-into this repository, make sure to cite your sources using APA formatting.
-To generate APA citations, use [Citation Machine][]. Only use this if you
-fear the website is not a permanent source.
+If you are archiving another website's text
+or copying their images into this repository,
+make sure to cite your sources using APA formatting.
+To generate APA citations,
+use [Citation Machine][].
+Only use this if you fear the website is not a permanent source.
 
-For mid-document citations, use "in-text citations" with footnotes for the
-full citations. For a full document citation, simply place the
-full citation at the bottom of the document under a horizontal rule.
+For mid-document citations,
+use "in-text citations" with footnotes for the full citations.
+For a full document citation,
+simply place the full citation at the bottom of the document,
+under a horizontal rule.
 
 [Citation Machine]: http://www.citationmachine.net/apa/cite-a-website
