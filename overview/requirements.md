@@ -2,21 +2,24 @@
 
 ### Language
 
-There are fansub groups for almost every language in the world. So while
-anyone is welcome to read and use this textbook, I recommend applying
-your skills in a fansub group centered on your native language. Of
-course, there are some roles that don't require any language skills to
-complete them. But you will still need to communicate with the other
-members of your chosen fansub group and a language barrier can make that
-difficult.
+There are fansub groups for almost every language in the world.
+So, while anyone is welcome to read and use this textbook,
+I recommend applying your skills in a fansub group
+centered on your native language.
+Of course,
+there are some roles that don't require any language skills to complete them.
+But you will still need to communicate with the other
+members of your chosen fansub group,
+and a language barrier can make that difficult.
 
 ### Hardware
 
-Every fansubber will need a computer. Some roles will have higher
-requirements. Below are some **minimum *recommended* computer
-specifications** based on the role. Can you do the job with less than
-what's below? Probably, but it could make your job much harder than it
-needs to be.
+Every fansubber will need a computer.
+Some roles will have higher requirements.
+Below are some **minimum *recommended* computer specifications**
+based on the role.
+Can you do the job with less than what's below?
+Probably, but it could make your job much harder than it needs to be.
 
 - **Timer, Editor, Translator, Translation Checker**
   - Some of the most forgiving roles in fansubbing for computer
@@ -75,9 +78,9 @@ needs to be.
 
 ### Software
 
-Every role will have different required software, but it is recommended
-for every role to have installed [Aegisub][]. It
-is **highly** recommended to use [line0's builds][].
+Every role will have different required software,
+but it is recommended for every role to have installed [Aegisub][].
+It is **highly** recommended to use [line0's builds][].
 They come pre-equipped with Dependency Control
 and several *critical* fixes to Aegisub that have not been merged
 into the official application.
@@ -91,8 +94,8 @@ More specifics will be presented in the chapters devoted to each role.
 
 ### Programming
 
-Prior knowledge of some programming languages can be extremely useful for
-fansubbing, though it is not required. Specifically,
-Lua and Moonscript are useful for Typesetters. Encoders will find that
-Python is used to interact with VapourSynth, so learning it ahead of
-time will be to their advantage.
+Prior knowledge of some programming languages
+can be extremely useful for fansubbing, though it is not required.
+Specifically, Lua and Moonscript are useful for Typesetters.
+Encoders will find that Python is used to interact with VapourSynth,
+so learning it ahead of time will be to their advantage.
