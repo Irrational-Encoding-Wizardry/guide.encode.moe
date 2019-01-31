@@ -153,7 +153,7 @@ for guidelines on visual formatting.
 
 ### Semantic Linefeeds (!)
 
-Always use [Semantic Linefeeds][] when editing code.
+Always use [Semantic Linefeeds][] when editing text.
 They are used
 to break lines into logical units
 rather than after a certain line length threshold is reached!
@@ -190,8 +190,9 @@ The indent size is **two spaces**.
 
 Unordered list lines should be indented **once**,
 while ordered lists are indented **twice**.
-The text of an unordered item should have one space after the `-`
-while the text of an ordered item should have two spaces after the `#.`
+The text of an unordered item should have one space after the `-`,
+while the text of an ordered item
+should start four columns after the number.
 
 ```md
 - This is an unordered list
@@ -203,7 +204,7 @@ while the text of an ordered item should have two spaces after the `#.`
 1.  This is an ordered list.
     Consecutive lines are indented with four spaces.
 2.  Another list item
-...
+…
 10. Now only one space after the item number.
 ```
 
@@ -215,7 +216,7 @@ should be separated from text
 with a blank line on each side.
 The same applies to code blocks.
 
-Separate headings from text with **two** blank lines before the heading
+Separate headings from text with **two** blank lines before the heading,
 and **one** after.
 Headings immediately following their parent heading
 only need one blank line in-between.
@@ -251,13 +252,13 @@ you will want multiple lines at the end of the header section.
 ```md
 [short1]: https://guide.encode.moe/
 [short2]: https://guide.encode.moe/CONTRIBUTING.HTML
-...
+…
 ```
 
 If you are linking to a section on the same page,
 `[section name](#header)` is allowed in-line.
-An example of this is ["the hyperlink section you are reading"](#Hyperlinking).
-In code, this is simply `["the hyperlink section you are reading"](#Hyperlinking)`.
+An example of this is [the hyperlink section you are reading](#Hyperlinking).
+In markdown, this is simply `[the hyperlink section you are reading](#Hyperlinking)`.
 
 For relative links (links to other pages,
 images,
