@@ -30,11 +30,12 @@ and video.
 They will generally be provided with one or more video sources
 and are expected to produce the best video possible within reason.
 
-This is done with a **frame-by-frame video processor** such as AviSynth
-and VapourSynth<sup name="a1">[1](#fn1)</sup>,
-a **video encoder** such as x264 or x265<sup name="a2">[2](#fn2)</sup>,
-and **audio tools** such as eac3to, qaac,
-and FLAC<sup name="a3">[3](#fn3)</sup>.
+This is done with a **frame-by-frame video processor** such as AviSynth
+and VapourSynth[^1],
+a **video encoder** such as x264 or x265[^2],
+and **audio tools** such as eac3to,
+qaac,
+and FLAC[^3].
 This is not a comprehensive list,
 but it does represent the broad categories of tools required.
 
@@ -89,7 +90,7 @@ presentation of translated text on-screen. These generally are called *signs*.
 
 For example, given this scene and a translation of "Adachi Fourth Public
 High
-School"...
+School"…
 
 ![\[DameDesuYo\] Eromanga-sensei - 01 (1920x1080 10bit AAC) \[05CB518E\].mkv\_snapshot\_03.11\_\[2017.08.18\_21.14.55\].jpg](images/cnvimage100.png)
 
@@ -215,11 +216,14 @@ and can be highly programming-oriented.
 
 ***
 
-<b name="fn1">1</b>: *TODO - sources for AviSynth and VapourSynth builds
-relevant to fansubbing.* [↩](#a1)
+[^1]: *TODO - sources for AviSynth and VapourSynth builds
+relevant to fansubbing.*
 
-<b name="fn2">2</b>: Further reading on the x264 and x265 libraries can be
-found [here](https://www.reddit.com/r/anime/comments/8ktmvu/nerdpost_how_fansubbers_make_your_anime_look/). [↩](#a2)
+[^2]: Further reading on the x264 and x265 libraries can be found
+[here][reddit-x264-x265].
 
-<b name="fn3">3</b>: Comparisons of various audio codecs can be found
-[here](https://en.wikipedia.org/wiki/Comparison_of_audio_coding_formats). [↩](#a3)
+[^3]: Comparisons of various audio codecs can be found
+[here][wikipedia-audio].
+
+[reddit-x264-x265]: https://www.reddit.com/r/anime/comments/8ktmvu/nerdpost_how_fansubbers_make_your_anime_look/
+[wikipedia-audio]: https://en.wikipedia.org/wiki/Comparison_of_audio_coding_formats
