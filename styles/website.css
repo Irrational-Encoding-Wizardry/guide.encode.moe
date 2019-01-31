@@ -390,8 +390,8 @@ kbd {
 
 /* page sizing */
 .page-inner {
-    max-width: 1000em;
-    padding: 20px 15% 40px 15%;
+    max-width: 100em;
+    padding: 1.5em 5% 3em 5%;
 }
 
 /* fonts */
