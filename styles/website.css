@@ -412,7 +412,7 @@ kbd {
 	font-family: 'Fira Mono', monospace !important;
 }
 .markdown-section pre {
-	font-size: 0.9em;
+	font-size: 1em;
 }
 .markdown-section code {
 	font-size: 1em;
@@ -421,7 +421,7 @@ kbd {
 .code-wrapper pre > code > span.code-line::before {
 	color: inherit;
 	opacity: 0.75;
-	font-size: 0.75em;
+	font-size: 1em;
 }
 /* sidebar shadowing */
 
