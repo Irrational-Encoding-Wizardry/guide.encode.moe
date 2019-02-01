@@ -67,13 +67,27 @@ Once you have those installed,
 run the following commands
 from the repository's folder:
 
-```js
+{% term %}
 $ npm install
+added 611 packages from 674 contributors in 4.478s
 
 $ ./node_modules/.bin/gitbook install
+info: installing 5 plugins using npm@3.9.2
+…
 
 $ ./node_modules/.bin/gitbook serve --open
-```
+Live reload server started on port: 35729
+Press CTRL+C to quit ...
+info: 12 plugins are installed
+info: loading plugin "highlight"... OK
+…
+info: found 11 pages
+info: found 21 asset files
+…
+info: >> generation finished with success in 1.6s !
+Starting server ...
+Serving book on http://localhost:4000
+{% endterm %}
 
 Afterwards, your browser will have opened
 with a preview of your files.
