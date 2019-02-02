@@ -203,6 +203,7 @@ kbd {
 .book.color-theme-1 .book-summary ul.summary li.active > a, .book.color-theme-1 .book-summary ul.summary li a:hover {
 	background: #A68162;
 	box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.2);
+    color: #42260A;
 }
 
 /* sidebar divider bar color */
