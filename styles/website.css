@@ -207,7 +207,7 @@ kbd {
 
 /* sidebar divider bar color */
 .book.color-theme-1 .book-summary ul.summary li.divider {
-    background-color: #957C76;
+    background-color: #A68162;
 }
 
 /* sidebar header text color */
@@ -242,6 +242,7 @@ kbd {
 }
 .book.color-theme-1 .dropdown-menu .buttons .button {
     color: #F2F2DA;
+    border-color: #A68162;
 }
 .book.color-theme-1 .dropdown-menu .buttons .button:hover {
     color: #663A0F;
@@ -308,7 +309,7 @@ kbd {
 
 /* sidebar divider bar color */
 .book.color-theme-2 .book-summary ul.summary li.divider {
-    background-color: #A0A9A6;
+    background-color: #272a3a;
 }
 
 /* sidebar header text color */
