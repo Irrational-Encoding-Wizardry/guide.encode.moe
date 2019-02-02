@@ -86,6 +86,10 @@ kbd {
 .fa.fa-clone.t-copy:hover {
     opacity: 1;
 }
+
+/* term plug-in copy code button alignment*/
+pre.term > button.t-copy, pre.term > i.t-copy {
+    margin-top: 0px;
 }
 
 /* theme-0 and base attributes */
