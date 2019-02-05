@@ -72,9 +72,15 @@ Traceback (most recent call last):
 ImportError: No module named 'vapoursynth'
 ```
 
-In that case, make sure your current Python shell is the correct version
-(Python version as well as architecture), try restarting your PC,
-reinstall VapourSynth, or ask for help.
+In that case,
+make sure your current Python shell is the correct version
+(Python version as well as architecture),
+try restarting your PC,
+reinstall VapourSynth,
+or [ask for help][Discord].
+
+[Discord]: https://discordapp.com/invite/ZB7ZXbN
+
 
 ### Plugins
 
