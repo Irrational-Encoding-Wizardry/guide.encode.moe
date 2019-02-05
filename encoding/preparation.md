@@ -232,10 +232,17 @@ and encoding time is of secondary importance.
 Note that many groups will require you to use x264,
 so ask your group leader before picking this codec.
 
+Other codecs, such as VP9,
+are generally not used for fansubbing,
+so they are not listed here.
+The same is true for unreleased codecs like [Daala][] and [AV-1][].
+Encoders made for distributed server encoding,
+such as Intel's [SVT-AV1][] will also not be included.
 
-Other codecs, such as VP9, are generally not used for fansubbing, so
-they are not listed here. The same is true for unreleased codecs like
-Daala and AV-1.
+[Daala]: https://xiph.org/daala/
+[AV-1]: https://aomediacodec.github.io/av1-spec/
+[STV-AV1]: https://github.com/OpenVisualCloud/SVT-AV1
+
 
 ## Audio Codecs
 
