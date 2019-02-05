@@ -209,6 +209,7 @@ pre.term > button.t-copy, pre.term > i.t-copy {
     background: #A68162;
     box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.2);
     color: #42260A;
+    z-index: 100;
 }
 
 /* sidebar divider bar color */
