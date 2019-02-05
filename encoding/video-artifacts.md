@@ -54,7 +54,7 @@ Using awarpsharp or sangnom to fix it will surely lead to disaster.
 ![Have I been staring at my monitor for too long?](images/3cnvimage101.png)
 
 
-### ...and please don't do this
+### …and please don't do this
 
 ![notevenonce.jpg](images/3cnvimage102.png)
 
