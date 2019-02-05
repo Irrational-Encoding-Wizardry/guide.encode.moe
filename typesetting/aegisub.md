@@ -8,7 +8,7 @@ they need to be configured properly.
 
 Here is a list of tools you will want to download:
 
-  - [Aegisub](http://www.aegisub.org)
+  - [Aegisub][]
       - It is **highly** recommended to use [line0's builds][] which
         include a preinstalled automation script package manager built
         by fansubbers called Dependency Control and several *critical*
@@ -23,30 +23,42 @@ Here is a list of tools you will want to download:
           - Organize fonts in a meaningful way.
           - Works on your OS.
       - Free Options
-          - [Nexusfont](http://www.xiles.net)
-          - [FontBase](http://fontba.se)
+          - [Nexusfont][]
+          - [FontBase][]
       - Paid (Note: can be found free on *certain websites)*
-          - [MainType](http://www.high-logic.com/font-manager/maintype.html)
-          - [Suitcase Fusion](https://www.extensis.com/products/font-management/suitcase-fusion/)
   - [Mocha Pro standalone app](https://www.imagineersystems.com/products/mocha-pro/)
       - Look for it on *certain websites*.
       - On Windows, Mocha **requires**
         [Quicktime](https://support.apple.com/kb/DL837?locale=en_US) to
         be installed. More information can be found
         [here](http://www.imagineersystems.com/support/support-faq/#quicktime-on-windows).
-  - [x264 binary](https://download.videolan.org/x264/binaries/)
+          - [MainType][]
+          - [Suitcase Fusion][]
+  - [x264 binary][][^2]
       - Download the latest **8-bit** binary for your platform.
       - For example: x264-r2851-ba24899.exe
         **not** x264-10b-r2851-ba24899.exe
       - 32-bit builds on Windows may be more stable.
-  - [Adobe Photoshop and
-    Illustrator](http://www.adobe.com/creativecloud.html)
+  - [Adobe Photoshop and Illustrator][]
       - Look for it on *certain websites*.
       - Alternatively, free software like
-        [Gimp](https://www.gimp.org) and
-        [Inkscape](https://inkscape.org/en/) may be used in some
+        [Gimp][] and
+        [Inkscape][] may be used in some
         circumstances.
 
+[Aegisub]: http://www.aegisub.org
+[Nexusfont]: http://www.xiles.net
+[FontBase]: http://fontba.se
+[MainType]: http://www.high-logic.com/font-manager/maintype.html
+[Suitcase Fusion]: https://www.extensis.com/products/font-management/suitcase-fusion/
+[Mocha Pro standalone app]: https://www.imagineersystems.com/products/mocha-pro/
+[Quicktime]: https://support.apple.com/kb/DL837?locale=en_US
+[quicktimeFAQ]: http://www.imagineersystems.com/support/support-faq/#quicktime-on-windows
+[Blender]: https://www.blender.org/download/
+[x264 binary]: https://download.videolan.org/x264/binaries/
+[Adobe Photoshop and Illustrator]: http://www.adobe.com/creativecloud.html
+[Gimp]: https://www.gimp.org
+[Inkscape]: https://inkscape.org/en/
 [line0's builds]: https://files.line0.eu/builds/Aegisub/
 
 ## Configuring Aegisub
