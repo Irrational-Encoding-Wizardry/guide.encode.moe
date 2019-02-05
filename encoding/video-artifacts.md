@@ -92,7 +92,7 @@ appear averaged together to look like larger blocks."\(Urban, 2017\)
 Thankfully most blocking in BDs and web streams nowadays isn’t
 nearly as bad,
 and can either be ignored or removed
-by another stage in your filter chain.
+by another stage in your filter chain[^3].
 Denoising,
 debanding,
 and adding grain will all help to reduce blocking.
@@ -238,3 +238,11 @@ but you most likely aren't encoding shows from the 90s
 so who cares.
 
 [^2]: Urban, J. (2017, February 16). Understanding Video Compression Artifacts. Retrieved from http://blog.biamp.com/understanding-video-compression-artifacts/
+
+[^3]: Blocking may also occur for other reasons
+other than compression data loss.
+[Image re-construction with padding][waifu2x238] can cause
+very similar looking effects, although this is irrelevant for
+fansubbing source videos.
+
+[waifu2x238]: https://github.com/nagadomi/waifu2x/issues/238
