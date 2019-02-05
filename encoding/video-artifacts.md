@@ -58,8 +58,25 @@ disaster.
 DCT block based video compression has come a long way. If you happen
 to be encoding an MPEG2 TV station or a DVD from a previous decade, you
 will likely come across something like this:
+![Blocky Compression](images/blocky2.png)
 
-**\[gib blocky pic someone\]**
+![Blocky Exaggeration](images/blocky1.jpg)\(Urban, 2017\)
+
+From Biamp's Blog[^2]:
+"Blocking is known by several names – including tiling,
+jaggies,
+mosaicing,
+pixelating,
+quilting,
+and checkerboarding –
+and it occurs whenever a complex (compressed) image
+is streamed over a low bandwidth connection
+(imagine a golf ball being passed through a garden hose).
+At decompression,
+the output of certain decoded blocks makes surrounding pixels
+appear averaged together to look like larger blocks."\(Urban, 2017\)
+
+
 
 Thankfully most blocking in BDs and web streams nowadays isn’t
 nearly as bad, and can either be ignored or removed by another stage in
@@ -122,6 +139,7 @@ interlacing-related aliasing it is rarely recommendable.
 Ringing is something of a blanket term for edge artifacts, including
 mosquito noise, edge enhancement artifacts, overshoot, or actual
 ring-like ringing caused by the Gibbs phenomenon.
+![Mosquito Noise](images/mosquito1.png)\(Urban, 2017\)
 
 In Blu-ray encodes, the only ringing you’ll be likely to see is
 upscaling methods such as Lanczos and sharp Bicubic variants, or
@@ -163,3 +181,4 @@ Noise
 ---
 
 [^1]: At least, in digital anime. Actual grain is different but you aren't encoding shows from the 90s so who cares
+[^2]: Urban, J. (2017, February 16). Understanding Video Compression Artifacts. Retrieved from http://blog.biamp.com/understanding-video-compression-artifacts/
