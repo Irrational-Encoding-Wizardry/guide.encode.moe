@@ -193,6 +193,8 @@ which means losing some information in the process.
 As long as you're not targeting unreasonable bitrates
 (say, 50 MB per 24 minute episode),
 this loss of information should be barely noticeable.
+This process can be quite difficult,
+so there will be an [entire page](video-encoding.md) dedicated to it.
 
 None of the codecs mentioned here need to be installed.
 Just save the executable(s) somewhere for later.
