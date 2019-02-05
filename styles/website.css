@@ -471,3 +471,14 @@ img {
     margin-left: auto;
     margin-right: auto;
 }
+
+/* Glossary terms formatting */
+.markdown-section .glossary-term {
+    text-decoration: none!important;
+    border-bottom: 0.1em dashed;
+}
+.markdown-section .glossary-term:hover {
+    cursor: help;
+    position: relative;
+    text-decoration: none!important;
+}
