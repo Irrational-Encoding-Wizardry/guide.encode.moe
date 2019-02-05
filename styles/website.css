@@ -246,7 +246,7 @@ pre.term > button.t-copy, pre.term > i.t-copy {
 .book.color-theme-1 .dropdown-menu {
     background-color: #BE9470;
 }
-.book.color-theme-1 .dropdown-menu .buttons .button {
+.book.color-theme-1 .dropdown-menu .buttons{
     color: #F2F2DA;
     border-color: #A68162;
 }
