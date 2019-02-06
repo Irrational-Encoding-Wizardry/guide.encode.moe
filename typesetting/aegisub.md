@@ -61,105 +61,115 @@ Here is a list of tools you will want to download:
 [Inkscape]: https://inkscape.org/en/
 [line0's builds]: https://files.line0.eu/builds/Aegisub/
 
+
 ## Configuring Aegisub
 
-For now, just change your settings to reflect the following. If you've
-made any changes previously for another fansub role, be careful not to
-overwrite those. When in doubt, ask someone with Aegisub experience.
-Settings can be accessed via *View \> Options* or with the hotkey *Alt +
-O*.
+NOTE: the following assumes you have installed the recommended build
+mentioned above.
 
-![aegisub64\_2017-09-08\_01-50-08.png](images/cnvimage100.png)
+For now, just change your settings to reflect the following.
+If you've made any changes previously for another fansub role,
+be careful not to overwrite those.
+When in doubt, ask someone with Aegisub experience.
+Settings can be accessed via *View \> Options*
+or with the hotkey *Alt + O*.
 
-![aegisub64\_2017-09-08\_01-54-35.png](images/cnvimage101.png)
+![Aegisub 8975-master-8d77da3 preferences 1](images/preferences-1.png)
 
-![aegisub64\_2017-09-08\_01-54-59.png](images/cnvimage102.png)
+![Aegisub 8975-master-8d77da3 preferences 2](images/preferences-2.png)
 
-The *Advanced \> Video* options include two particularly important
-settings.
+![Aegisub 8975-master-8d77da3 preferences 3](images/preferences-3.png)
 
-1.  "Force BT.601" Checkbox. This option is enabled by default. For
-    fansubbing, ***this is bad***. At least it is in most cases. If you
-    want a more in depth explanation of color matrices and how these two
-    are different, you can read up
-    [here][bt601-vs-bt709],
-    but the gist of it is this: BT.601 is for Standard Definition video
-    and BT.709 is for High Definition video<sup name="a1">[1](#fn1)</sup>.
-    Opening a .ass file in
-    Aegisub with the default set to BT.601 could *irreversibly ruin the
-    colors of any typesetting, dialogue, or kfx already in the script*.
-    Even worse, some video renderers will read this setting from the
-    muxed subtitles and render the video to match it. So
-    please, *please*, ***please*** change it now.
+Under *File \> Properties*,
+there is an additional option for the *YCbCr Matrix* of the script.
+This option will set the color space of the script,
+and you will most likely be working with TV.709,
+or BT.709.
+If you are subtitling with a video present
+(using *Video \> Open Video...*),
+this option as well as the script resolution
+will automatically be set to match the video source.
 
-    1.  If you are working on a DVD or something in Standard Definition,
-        you can change this to BT.601 manually in *File \> Script
-        Properties*.
+![Aegisub 8975-master-8d77da3 script properties 1](images/script_properties-1.png)
 
-        1.  Not all Standard Definition video will be BT.601, so when in
-            doubt, ask the encoder or check
-            [MediaInfo][] if they are
-            not available.
-        2.  You will almost always want to use TV.601 and not PC.601.
-            Once again, if in doubt, ask the encoder.
+For most cases with modern fansubbing,
+the BT.709 color space will be used
+as opposed to the legacy BT.601 color space.
+If you want a more in-depth explanation of color matrices
+and how these two are different,
+you can read up [here](../archived-websites/bt601-vs-bt709.md),
+but the gist of it is this:
+BT.601 is for Standard Definition video
+and BT.709 is for High Definition video[^3].
 
-    2.  It's also recommended that before you start working on a script,
-        check that the color matrices are correct in *File \> Script
-        Properties*.
+Manually setting the script to BT.601 could
+*irreversibly ruin the colors of any typesetting,
+dialogue,
+or kfx already in the script*.
+Even worse,
+some video renderers will read this setting from the muxed subtitles
+and render the video to match it.
 
-        1.  You will almost always want to use TV.709 and not PC.709.
-            Once again, if in doubt, ask the encoder or
-            check MediaInfo if
-            they are not available.
 
-    ![aegisub64\_2017-09-08\_02-12-08.png](images/cnvimage103.png)
+If you are working on a DVD
+or something in Standard Definition,
+you can change this to BT.601 manually in *File \> Script Properties*.
+However, not all Standard Definition video will be BT.601,
+so when in doubt,
+ask the encoder or check the source's
+[MediaInfo][] if they are not available.
 
-[Standard Definition]: https://en.wikipedia.org/wiki/Standard-definition_television
-[High Definition]: https://en.wikipedia.org/wiki/High-definition_video
-[BT.601]: https://en.wikipedia.org/wiki/Rec._601
-[BT.709]: https://en.wikipedia.org/wiki/Rec._709
-
-[bt601-vs-bt709]: http://blog.maxofs2d.net/post/148346073513/bt601-vs-bt709
 [MediaInfo]: https://mediaarea.net/en/MediaInfo
 
-The "Subtitles Provider".
 
-1.  Just a few years ago, there was a pretty clear consensus on which
-    subtitle renderer to use for anime and softsubs. These days, not so
-    much.
-2.  It used to be that
-    [VSFilter][] was
-    the best renderer around and was the only supported renderer by most
-    fansub groups.
-3.  However, it was eventually replaced
-    with [xy-vsfilter][] and
-    then that was replaced
-    with [xySubFilter][]
-    because VSFilter and xy-vs filter were not keeping up with the
-    demands of subtitles.
-4.  By 2015, however, xySubFilter development had come to a halt and
-    since then, [libass][] has made many
-    improvements both in speed and compatibility with advanced
-    subtitling in part due to contributions from members of the fansub
-    community.
-5.  At the end of the day, which renderer you choose is up to you, but
-    we recommend libass. It is maintained, cross-platform, able to handle
-    most typesetting, and has been integrated into many commercial and
-    open source software products. If you prefer, however, stock Aegisub
-    ships with VSFIlter and line0's builds come with xy-vsfilter.
+### The "Subtitles Provider"
+
+The recommended build of Aegisub comes pre-equipped with libass,
+so no manual settings change is needed.
+The following is a brief history of subtitle renderers.
+
+Just a few years ago,
+there was a pretty clear consensus on which
+subtitle renderer to use for anime and softsubs.
+These days, not so much.
+It used to be that [VSFilter][] was the best renderer around
+and was the only supported renderer by most fansub groups.
+However, it was eventually replaced with [xy-vsfilter][]
+and then later replaced with [xySubFilter][]
+because VSFilter and xy-vsfilter were not keeping up
+with the demands of subtitles.
+
+By 2015, however,
+xySubFilter development had come to a halt and since then,
+[libass][] has made many improvements
+both in speed and compatibility with advanced subtitling
+in part due to contributions from members of the fansub community.
+At the end of the day,
+which renderer you choose is up to you,
+but we recommend libass.
+It is maintained,
+cross-platform,
+able to handle most typesetting,
+and has been integrated into many commercial
+and open-source software products.
 
 [libass]: https://github.com/libass/libass
 [VSFilter]: https://sourceforge.net/projects/guliverkli/files/VSFilter/
 [xy-vsfilter]: https://forum.doom9.org/showthread.php?t=168282
 [xySubFilter]: https://forum.doom9.org/showthread.php?t=168282
 
+
 ### Hotkeys
 
-As you develop your skills more and begin to integrate automation
-scripts into your workflow, you will probably want to consider adding
-hotkeys to cut down on time navigating menus. These can be accessed via
-*Interface \> Hotkeys* in Aegisub's Options menu. We'll let you decide
-on those yourself, however, and move on for now.
+As you develop your skills more
+and begin to integrate automation scripts into your workflow,
+you will probably want to consider adding
+hotkeys to cut down on time navigating menus.
+These can be accessed via
+*Interface \> Hotkeys*
+in Aegisub's Options menu.
+We'll let you decide on those yourself, however,
+and move on for now.
 
 ***
 
