@@ -10,8 +10,7 @@ Here is a list of tools you will want to download:
 
   - [Aegisub][]
       - It is **highly** recommended to use [line0's builds][] which
-        include a preinstalled automation script package manager built
-        by fansubbers called Dependency Control and several *critical*
+        include Dependency Control and several *critical*
         fixes to Aegisub that have not been merged into the official
         application.
   - A font manager
@@ -164,9 +163,17 @@ on those yourself, however, and move on for now.
 
 ***
 
-<b name="fn1">1</b>: For further reading on this, visit the wikipedia pages for
 [^1]: Most if not all fansubbers use Mocha for motion-tracking,
 but the author of the motion-tracking page prefers the free software Blender,
 which may be easier for some to acquire.
+
+[^2]: 32-bit builds on Windows may be more stable.
+
+[^3]: For further reading on this, visit the Wikipedia pages for
 [Standard Definition][] video, [High Definition][] video, and the [BT.601][]
-and [BT.709][] color spaces. [↩](#a1)
+and [BT.709][] color spaces.
+
+[Standard Definition]: https://en.wikipedia.org/wiki/Standard-definition_television
+[High Definition]: https://en.wikipedia.org/wiki/High-definition_video
+[BT.601]: https://en.wikipedia.org/wiki/Rec._601
+[BT.709]: https://en.wikipedia.org/wiki/Rec._709
