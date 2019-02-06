@@ -26,14 +26,15 @@ Here is a list of tools you will want to download:
           - [Nexusfont][]
           - [FontBase][]
       - Paid (Note: can be found free on *certain websites)*
-  - [Mocha Pro standalone app](https://www.imagineersystems.com/products/mocha-pro/)
-      - Look for it on *certain websites*.
-      - On Windows, Mocha **requires**
-        [Quicktime](https://support.apple.com/kb/DL837?locale=en_US) to
-        be installed. More information can be found
-        [here](http://www.imagineersystems.com/support/support-faq/#quicktime-on-windows).
           - [MainType][]
           - [Suitcase Fusion][]
+  - Software for motion-tracking
+      - Option 1: [Mocha Pro standalone app][]
+        - Look for it on *certain websites*.
+        - On Windows, Mocha **requires** [Quicktime][] to be installed.
+          More information can be found [here][quicktimeFAQ]
+      - Option 2: [Blender][][^1]
+        - Requires a plug-in that will be discussed in a later section.
   - [x264 binary][][^2]
       - Download the latest **8-bit** binary for your platform.
       - For example: x264-r2851-ba24899.exe
@@ -164,5 +165,8 @@ on those yourself, however, and move on for now.
 ***
 
 <b name="fn1">1</b>: For further reading on this, visit the wikipedia pages for
+[^1]: Most if not all fansubbers use Mocha for motion-tracking,
+but the author of the motion-tracking page prefers the free software Blender,
+which may be easier for some to acquire.
 [Standard Definition][] video, [High Definition][] video, and the [BT.601][]
 and [BT.709][] color spaces. [↩](#a1)
