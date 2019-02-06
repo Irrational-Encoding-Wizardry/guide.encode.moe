@@ -43,7 +43,7 @@ a.plugin-anchor {
 /* summary panel themes and transitions */
 .book-summary ul.summary li a:hover {
     text-decoration: none;
-	box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.2);
 }
 .book-summary ul.summary li.active > a {
     box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.2);
@@ -78,20 +78,25 @@ kbd {
 
 /* copy code button styling */
 .code-wrapper i {
-	color: inherit;
-	font-size: 0.9em;
-	opacity: 0.5;
-	transition: all 150ms ease;
+    color: inherit;
+    font-size: 0.9em;
+    opacity: 0.5;
+    transition: all 150ms ease;
 }
 .fa.fa-clone.t-copy:hover {
-	opacity: 1;
+    opacity: 1;
+}
+
+/* term plug-in copy code button alignment*/
+pre.term > button.t-copy, pre.term > i.t-copy {
+    margin-top: 0px;
 }
 
 /* theme-0 and base attributes */
 /* page background */
 .book-body, .markdown-section, .normal.markdown-section {
     background-color: #FFFFFF;
-	color: #0C0C0C;
+    color: #0C0C0C;
 }
 
 /* sidebar background color */
@@ -113,7 +118,7 @@ kbd {
 /* sidebar header text color */
 .book-summary ul.summary li.header {
     color: #8F8F8F;
-	padding-top: 24px /* base attr */
+    padding-top: 24px /* base attr */
 }
 
 /* navigation colors */
@@ -135,7 +140,7 @@ kbd {
 #book-search-input {
     background-color: #FFFFFF;
     margin-bottom: 0px; /* base attr */
-	color: #0C0C0C;
+    color: #0C0C0C;
 }
 
 /* dropdown menu */
@@ -157,11 +162,11 @@ kbd {
 
 /* hr colors */
 .markdown-section h1 {
-	font-size: 2em; /* base attr */
+    font-size: 2em; /* base attr */
     border-bottom: 2px solid #D8D8D8;
 }
 .markdown-section h2 {
-	font-size: 1.75em; /* base attr */
+    font-size: 1.75em; /* base attr */
     border-bottom: 1px solid #D8D8D8;
 }
 .markdown-section hr {
@@ -192,7 +197,7 @@ kbd {
 
 .book.color-theme-1 .book-body, .book.color-theme-1 .book-body .page-wrapper .page-inner section, .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal {
     background-color: #f3eacb;
-	color: #663A0F;
+    color: #663A0F;
 }
 
 /* sidebar background color + subchapter text color */
@@ -201,13 +206,15 @@ kbd {
     background: #BE9470;
 }
 .book.color-theme-1 .book-summary ul.summary li.active > a, .book.color-theme-1 .book-summary ul.summary li a:hover {
-	background: #A68162;
-	box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.2);
+    background: #A68162;
+    box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.2);
+    color: #42260A;
+    z-index: 100;
 }
 
 /* sidebar divider bar color */
 .book.color-theme-1 .book-summary ul.summary li.divider {
-    background-color: #957C76;
+    background-color: #A68162;
 }
 
 /* sidebar header text color */
@@ -240,8 +247,9 @@ kbd {
 .book.color-theme-1 .dropdown-menu {
     background-color: #BE9470;
 }
-.book.color-theme-1 .dropdown-menu .buttons .button {
+.book.color-theme-1 .dropdown-menu .buttons{
     color: #F2F2DA;
+    border-color: #A68162;
 }
 .book.color-theme-1 .dropdown-menu .buttons .button:hover {
     color: #663A0F;
@@ -289,7 +297,7 @@ kbd {
 /* page background */
 .book.color-theme-2 .book-body, .book.color-theme-2 .book-body .page-wrapper .page-inner section, .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal {
     background-color: #1C1F2B;
-	  color: #DFEBF5;
+    color: #DFEBF5;
 }
 
 /* sidebar background color + subchapter text color */
@@ -308,7 +316,7 @@ kbd {
 
 /* sidebar divider bar color */
 .book.color-theme-2 .book-summary ul.summary li.divider {
-    background-color: #A0A9A6;
+    background-color: #272a3a;
 }
 
 /* sidebar header text color */
@@ -402,26 +410,26 @@ kbd {
 
 /* fonts */
 .book.font-family-0 {
-	font-family: 'Noto Serif', serif !important;
+    font-family: 'Noto Serif', serif !important;
 }
 .book.font-family-1, .book-summary {
     font-family: 'Fira Sans', sans-serif !important;
 }
 /* fixing code not scaling with text-scaling */
 .markdown-section code, .markdown-section pre {
-	font-family: 'Fira Mono', monospace !important;
+    font-family: 'Fira Mono', monospace !important;
 }
 .markdown-section pre {
-	font-size: 1em;
+    font-size: 1em;
 }
 .markdown-section code {
-	font-size: 1em;
+    font-size: 1em;
 }
 /* size and transparency for line numbers */
 .code-wrapper pre > code > span.code-line::before {
-	color: inherit;
-	opacity: 0.75;
-	font-size: 1em;
+    color: inherit;
+    opacity: 0.75;
+    font-size: 1em;
 }
 /* sidebar shadowing */
 
@@ -429,7 +437,7 @@ kbd {
     border-right: none;
 }
 .book.with-summary .book-summary {
-	box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.2);
 }
 .book.color-theme-1 .book-summary {
     border-right: none;
@@ -438,10 +446,10 @@ kbd {
     border-right: none;
 }
 
- /* header centering */
- .book-header h1 {
+/* header centering */
+.book-header h1 {
     padding-left: 79px;
- }
+}
 
 /* figure margins and padding */
 .markdown-section figure {
@@ -462,4 +470,15 @@ img {
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+/* Glossary terms formatting */
+.markdown-section .glossary-term {
+    text-decoration: none!important;
+    border-bottom: 0.1em dashed;
+}
+.markdown-section .glossary-term:hover {
+    cursor: help;
+    position: relative;
+    text-decoration: none!important;
 }
