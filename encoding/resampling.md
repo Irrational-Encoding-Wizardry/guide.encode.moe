@@ -16,9 +16,11 @@ various kernels (and nnedi3)
 - 6 - Catmull-Rom - Bicubic b=0, c=0.5
 - 7 - Sharp Bicubic - Bicubic b=0, c=1
 
+
 ##  Downsampling
 
 TODO
+
 
 ##  Inverse scaling
 
@@ -27,8 +29,7 @@ TODO
 put something about (1-b)/2 for bicubic and b=0, c=X can be any number
 of values
 
+
 ##  Chroma Subsampling
 
 TODO
-
-##

@@ -1,11 +1,14 @@
 # Masking, Limiting, and Related Functions
 
-There are filters, which changes the video in various ways, and then
-there are ways to change the filtering itself. There are likely hundreds
-of different techniques at your disposal for various situations, using
-masks to protect details from smoothing filters, blending two clips with
-different filtering applied, and countless others- many of which haven't
-been thought of yet. This article will cover:
+There are filters,
+which changes the video in various ways,
+and then there are ways to change the filtering itself.
+There are likely hundreds of different techniques at your disposal
+for various situations,
+using masks to protect details from smoothing filters,
+blending two clips with different filtering applied,
+and countless others—many of which haven't been thought of yet.
+This article will cover:
 
 - Masking and Merging
 - Limiting
@@ -14,14 +17,15 @@ been thought of yet. This article will cover:
 - Runtime functions
 - Prefiltering
 
+
 ## Masking
 
-Masking refers to a broad set of techniques used to merge multiple
-clips, usually one filtered clip merged with a source clip according to
-an overlay mask. A mask clip may contain any information generated from
-a pixel-wise operation.Vapoursynth includes some basic tools for
-manipulating masks as
-well:
+Masking refers to a broad set of techniques used to merge multiple clips,
+usually one filtered clip merged with a source clip
+according to an overlay mask.
+A mask clip may contain any information
+generated from a pixel-wise operation.
+Vapoursynth includes some basic tools for manipulating masks as well:
 
 [**std.Minimum/std.Maximum**](http://www.vapoursynth.com/doc/functions/minimum_maximum.html)
 
@@ -34,41 +38,50 @@ TODO
 [**std.Binarize**](http://www.vapoursynth.com/doc/functions/binarize.html)
 
 Split the luma/chroma values of any clip into one of two values,
-according to a fixed threshold. For instance, binarize an edgemask to
-white when edge values are at or above 24, and set values lower to
-0:
+according to a fixed threshold.
+For instance,
+binarize an edgemask to white when edge values are at or above 24,
+and set values lower to 0:
 
 ```py
 mask.std.Binarize(24, v0=0, v1=255)
 ```
 
-For methods of creating mask clips, there are a few general
-categories...
+For methods of creating mask clips,
+there are a few general categories…
+
 
 ### Line masks
 
-These are used for normal edge detection, which is useful for
-processing edges or the area around them, like anti-aliasing and
-deringing. The traditional edge detection technique is to apply one or
-more convolutions, focused in different directions, to create a clip
-containing what you might call a gradient vector map, or more simply a
-clip which has brighter values in pixels where the neighborhood
-dissimilarity is higher. The main ones I would recommend would be
-Prewitt (core), Sobel (core), and kirsch (kagefunc).
+These are used for normal edge detection,
+which is useful for processing edges or the area around them,
+like anti-aliasing and deringing.
+The traditional edge detection technique is
+to apply one or more convolutions,
+focused in different directions,
+to create a clip containing what you might call a gradient vector map,
+or more simply a clip which has brighter values in pixels
+where the neighborhood dissimilarity is higher.
+The main ones I would recommend would be Prewitt (core),
+Sobel (core),
+and kirsch (kagefunc).
 
 There are also some edge detection methods that use prefiltering
-when generate the mask. The most common of these would be TCanny, which
-applies a gaussian blur before creating a 1-pixel-thick Sobel mask. The
-most noteworthy pre-processed edge mask would be kagefunc's
-retinex\_edgemask filter, which at least with cartoons and anime, is
-unmatched in its accuracy. This is the mask to use if you want edge
+when generating the mask.
+The most common of these would be TCanny,
+which applies a gaussian blur before creating a 1-pixel-thick Sobel mask.
+The most noteworthy pre-processed edge mask would be kagefunc's
+retinex\_edgemask filter,
+which at least with cartoons and anime,
+is unmatched in its accuracy.
+This is the mask to use if you want edge
 masking with ALL of the edges and nothing BUT the edges.
 
-One more edge mask worth mentioning is the mask in dehalohmod, which
-is a black-lineart mask well-suited to dehalo masking. Internally it
-uses a mask called a Camembert to generate a larger mask and limits it
-to the area affected by a line-darkening script. The main mask has no
-name and is simply dhhmask(mode=3)
+One more edge mask worth mentioning is the mask in dehalohmod,
+which is a black-lineart mask well-suited to dehalo masking.
+Internally it uses a mask called a Camembert to generate a larger mask
+and limits it to the area affected by a line-darkening script.
+The main mask has no name and is simply dhhmask(mode=3).
 
 Example: Build a simple dehalo mask
 
@@ -86,10 +99,14 @@ mask_inner = kgf.iterate(mask_inner, core.std.Minimum ,4)
 halos = core.std.Expr([mask_outer, mask_inner], 'x y -')
 ```
 
-I would also lump the range mask (or in masktools, the "min/max"
-mask) into this category, which is a very simple masking method that
-returns a clip made up of the maximum value of a range of neighboring
-pixels minus the minimum value of the range, as so:
+I would also lump the range mask
+(or in masktools,
+the "min/max" mask)
+into this category,
+which is a very simple masking method that
+returns a clip made up of the maximum value of a range of neighboring pixels
+minus the minimum value of the range,
+as so:
 
 ```py
 clipmax = core.std.Maximum(clip)
@@ -98,25 +115,34 @@ clipmin = core.std.Minimum(clip)
 minmax = core.std.Expr([clipmax, clipmin], 'x y -')
 ```
 
-The most common use of this mask is within GradFun3. In theory, the
-neighborhood variance technique is the perfect fit for a debanding mask.
-Banding is the result of 8 bit color limits, so we mask any pixel with a
-neighbor higher or lower than one 8 bit color step, thus masking
-everything except potential banding. But alas, grain induces false
-positives and legitimate details within a single color step are smoothed
-out, therefor debanding will forever be a balancing act between detail
-loss and residual artifacts.
+The most common use of this mask is within GradFun3.
+In theory,
+the neighborhood variance technique is the perfect fit for a debanding mask.
+Banding is the result of 8 bit color limits,
+so we mask any pixel with a neighbor higher or lower than one 8 bit color step,
+thus masking everything except potential banding.\
+But alas,
+grain induces false positives
+and legitimate details within a single color step are smoothed out,
+therefore debanding will forever be a balancing act between
+detail loss and residual artifacts.
+
 
 ### Diff masks
 
-A diff(erence) mask is any mask clip generated using the variance of
-two clips. There are many, many different ways to use this type of mask,
-from limiting a difference to a threshold, processing a filtered
-difference itself, or smoothing -\> processing the clean clip -\>
-overlaying the original grain. They can also be used in conjunction with
-line masks, for example: kagefunc's hardsubmask uses a special edge mask
-with a diff mask, and uses core.misc.Hysteresis to grow the line mask
-into diff mask).
+A diff(erence) mask is any mask clip
+generated using the variance of two clips.
+There are many different ways to use this type of mask,
+from limiting a difference to a threshold,
+processing a filtered difference itself,
+or smoothing →
+processing the clean clip →
+overlaying the original grain.
+They can also be used in conjunction with
+line masks,
+for example:
+kagefunc's hardsubmask uses a special edge mask with a diff mask,
+and uses core.misc.Hysteresis to grow the line mask into diff mask.
 
 Example: Create a descale mask for white non-fading credits with extra
 protection for lines (16 bit input)
@@ -156,30 +182,37 @@ output = muvf.MergeChroma(output, standard_scale)
 
 ## Single and multi-clip adjustments with std.Expr and friends
 
-Vapoursynth's core contains many such filters, which can manipulate
-one to three different clips according to a math function. Most, if not
-all, can be done (though possibly slower) using std.Expr, which I will
+Vapoursynth's core contains many such filters,
+which can manipulate one to three different clips according to a math function.
+Most, if not all,
+can be done (though possibly slower) using std.Expr,
+which I will
 cover at the end of this
 sub-section.
 
 [`std.MakeDiff`](http://www.vapoursynth.com/doc/functions/makediff.html)
 and [`std.MergeDiff`](http://www.vapoursynth.com/doc/functions/mergediff.html)
 
-Subtract or add the difference of two clips, respectively. These
-filters are peculiar in that they work differently in integer and float
-formats, so for more complex filtering float is recommended whenever
-possible. In 8 bit integer format where neutral luminance (gray) is 128,
-the function is `clip1 - clip2 + 128` for MakeDiff and `clip1 + clip2
-- 128` for MergeDiff, so pixels with no change will be gray.
+Subtract or add the difference of two clips, respectively.
+These filters are peculiar in that they work differently in
+integer and float formats,
+so for more complex filtering
+float is recommended whenever possible.
+In 8 bit integer format where neutral luminance (gray) is 128,
+the function is `clip1 - clip2 + 128` for MakeDiff
+and `clip1 + clip2 - 128` for MergeDiff,
+so pixels with no change will be gray.
 
-The same is true of 16 bit and 32768. The float version is simply
-`clip1 - clip2` so in 32 bit the difference is defined normally,
-negative for dark differences, positive for bright differences, and null
-differences are zero.
+The same is true of 16 bit and 32768.
+The float version is simply `clip1 - clip2` so in 32 bit
+the difference is defined normally,
+negative for dark differences,
+positive for bright differences,
+and null differences are zero.
 
-Since overflowing values are clipped to 0 and 255, changes greater
-than 128 will be clipped as well. This can be worked around by
-re-defining the input clip as so:
+Since overflowing values are clipped to 0 and 255,
+changes greater than 128 will be clipped as well.
+This can be worked around by re-defining the input clip as so:
 
 ```py
 smooth = core.bilateral.Bilateral(sigmaS=6.4, sigmaR=0.009)
@@ -202,10 +235,11 @@ TODO
 [**std.Lut**](http://www.vapoursynth.com/doc/functions/lut.html) and
 [**std.Lut2**](http://www.vapoursynth.com/doc/functions/lut2.html)
 
-May be slightly faster than Expr in some cases, otherise they can't
-really do anything that Expr can't. You can substitute a normal Python
-function for the RPN expression, though, so you may still find it
-easier. See link for usage information.
+May be slightly faster than Expr in some cases,
+otherwise they can't really do anything that Expr can't.
+You can substitute a normal Python function for the RPN expression, though,
+so you may still find it easier.
+See link for usage information.
 
 
 ## Limiting
