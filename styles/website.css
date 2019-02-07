@@ -248,8 +248,10 @@ pre.term > button.t-copy, pre.term > i.t-copy {
     background-color: #BE9470;
 }
 .book.color-theme-1 .dropdown-menu .buttons{
-    color: #F2F2DA;
     border-color: #A68162;
+}
+.book.color-theme-1 .dropdown-menu .buttons .button {
+    color: #F2F2DA;
 }
 .book.color-theme-1 .dropdown-menu .buttons .button:hover {
     color: #663A0F;
