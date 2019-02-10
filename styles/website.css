@@ -484,3 +484,17 @@ img {
     position: relative;
     text-decoration: none!important;
 }
+
+/* Footnote formatting */
+.markdown-section blockquote{
+    border-left: 4px solid #D8D8D8;
+    color: rgba(0,0,0,0.66);
+}
+.book.color-theme-1 .markdown-section blockquote {
+    border-left: 4px solid #957C76 !important;
+    color: rgba(102,58,15,0.66);
+}
+.book.color-theme-2 .markdown-section blockquote {
+    border-left: 4px solid #373b4e;
+    color: rgba(255,255,255,0.66);
+}
