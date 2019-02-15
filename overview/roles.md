@@ -216,14 +216,11 @@ and can be highly programming-oriented.
 
 ***
 
-[^1]: *TODO - sources for AviSynth and VapourSynth builds
-relevant to fansubbing.*
+[^1]: *TODO - sources for AviSynth and VapourSynth builds relevant to fansubbing.*
 
-[^2]: Further reading on the x264 and x265 libraries can be found
-[here][reddit-x264-x265].
+[^2]: Further reading on the x264 and x265 libraries can be found [here][reddit-x264-x265].
 
-[^3]: Comparisons of various audio codecs can be found
-[here][wikipedia-audio].
+[^3]: Comparisons of various audio codecs can be found [here][wikipedia-audio].
 
 [reddit-x264-x265]: https://www.reddit.com/r/anime/comments/8ktmvu/nerdpost_how_fansubbers_make_your_anime_look/
 [wikipedia-audio]: https://en.wikipedia.org/wiki/Comparison_of_audio_coding_formats
