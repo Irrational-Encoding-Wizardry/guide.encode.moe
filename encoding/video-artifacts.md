@@ -71,7 +71,9 @@ you will likely come across something like this:
 
 ![Blocky Compression](images/blocky2.png)
 
-![Blocky Exaggeration](images/blocky1.jpg)\(Urban, 2017\)
+![Blocky Exaggeration](images/blocky1.jpg)
+
+<p align="center">\(Urban, 2017\)</p>
 
 From Biamp's Blog[^2]:
 "Blocking is known by several names – including tiling,
@@ -180,7 +182,9 @@ edge enhancement artifacts,
 overshoot,
 or actual ring-like ringing caused by the Gibbs phenomenon.
 
-![Mosquito Noise](images/mosquito1.png)\(Urban, 2017\)
+![Mosquito Noise](images/mosquito1.png)
+
+<p align="center">\(Urban, 2017\)</p>
 
 In Blu-ray encodes,
 the only ringing you’ll be likely to see is
