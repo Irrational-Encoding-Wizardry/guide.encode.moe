@@ -232,17 +232,10 @@ Noise
 
 ---
 
-[^1]: At least, in digital anime.
-Actual grain is different
-but you most likely aren't encoding shows from the 90s
-so who cares.
+[^1]: At least, in digital anime. Actual grain is different but you most likely aren't encoding shows from the 90s so who cares.
 
 [^2]: Urban, J. (2017, February 16). Understanding Video Compression Artifacts. Retrieved from http://blog.biamp.com/understanding-video-compression-artifacts/
 
-[^3]: Blocking may also occur for other reasons
-other than compression data loss.
-[Image re-construction with padding][waifu2x238] can cause
-very similar looking effects, although this is irrelevant for
-fansubbing source videos.
+[^3]: Blocking may also occur for other reasons other than compression data loss. [Image re-construction with padding][waifu2x238] can cause very similar looking effects, although this is irrelevant for fansubbing source videos.
 
 [waifu2x238]: https://github.com/nagadomi/waifu2x/issues/238
