@@ -290,7 +290,7 @@ Just like the codecs,
 you don't have to install it.
 Just extract it somewhere.
 
-[ffpeg-zeranoe]: http://ffmpeg.zeranoe.com/builds/ "FFmpeg"
+[ffmpeg-zeranoe]: http://ffmpeg.zeranoe.com/builds/ "FFmpeg"
 
 ---
 
