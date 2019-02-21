@@ -96,6 +96,8 @@ More specifics will be presented in the chapters devoted to each role.
 
 Prior knowledge of some programming languages
 can be extremely useful for fansubbing, though it is not required.
-Specifically, Lua and Moonscript are useful for Typesetters.
+Specifically, Lua and [Moonscript][] are useful for Typesetters.
 Encoders will find that Python is used to interact with VapourSynth,
 so learning it ahead of time will be to their advantage.
+
+[Moonscript]: http://moonscript.org/
