@@ -31,14 +31,13 @@ Here is a list of tools you will want to download:
       - Option 1: [Mocha Pro standalone app][]
         - Look for it on *certain websites*.
         - On Windows, Mocha **requires** [Quicktime][] to be installed.
-          More information can be found [here][quicktimeFAQ]
+          More information can be found [here][quicktimeFAQ].
       - Option 2: [Blender][][^1]
         - Requires a plug-in that will be discussed in a later section.
   - [x264 binary][][^2]
       - Download the latest **8-bit** binary for your platform.
-      - For example: x264-r2851-ba24899.exe
-        **not** x264-10b-r2851-ba24899.exe
-      - 32-bit builds on Windows may be more stable.
+      - For example: `x264-r2935-545de2f.exe` for win64
+        **not** `x264-10b-r2851-ba24899.exe`
   - [Adobe Photoshop and Illustrator][]
       - Look for it on *certain websites*.
       - Alternatively, free software like
