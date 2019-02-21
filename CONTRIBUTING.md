@@ -17,8 +17,9 @@ Please open an issue on our [Github repository][issues]
 with your feedback,
 or begin working on a Pull Request.
 You can start editing any page
-by clicking on the 'Edit this page' button
-in the top bar.
+by clicking on the
+<kbd><i class="fa fa-edit"></i> EDIT THIS PAGE</kbd>
+button in the top bar.
 
 If you are mainly looking for things to work on,
 refer to the [TODO](#todo) section.
