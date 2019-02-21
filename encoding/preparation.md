@@ -237,13 +237,13 @@ so ask your group leader before picking this codec.
 Other codecs, such as VP9,
 are generally not used for fansubbing,
 so they are not listed here.
-The same is true for unreleased codecs like [Daala][] and [AV-1][].
+The same is true for experimental codecs like [Daala][] and [AV-1][].
 Encoders made for distributed server encoding,
 such as Intel's [SVT-AV1][] will also not be included.
 
 [Daala]: https://xiph.org/daala/
 [AV-1]: https://aomediacodec.github.io/av1-spec/
-[STV-AV1]: https://github.com/OpenVisualCloud/SVT-AV1
+[SVT-AV1]: https://github.com/OpenVisualCloud/SVT-AV1
 
 
 ## Audio Codecs
