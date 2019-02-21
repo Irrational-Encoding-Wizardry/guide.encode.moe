@@ -172,15 +172,11 @@ and move on for now.
 
 ***
 
-[^1]: Most if not all fansubbers use Mocha for motion-tracking,
-but the author of the motion-tracking page prefers the free software Blender,
-which may be easier for some to acquire.
+[^1]: Most if not all fansubbers use Mocha for motion-tracking, but the author of the motion-tracking page prefers the free software Blender, which may be easier for some to acquire.
 
 [^2]: 32-bit builds on Windows may be more stable.
 
-[^3]: For further reading on this, visit the Wikipedia pages for
-[Standard Definition][] video, [High Definition][] video, and the [BT.601][]
-and [BT.709][] color spaces.
+[^3]: For further reading on this, visit the Wikipedia pages for[Standard Definition][] video, [High Definition][] video, and the [BT.601][] and [BT.709][] color spaces.
 
 [Standard Definition]: https://en.wikipedia.org/wiki/Standard-definition_television
 [High Definition]: https://en.wikipedia.org/wiki/High-definition_video
