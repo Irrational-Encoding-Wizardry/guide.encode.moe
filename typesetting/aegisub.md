@@ -131,12 +131,20 @@ Just a few years ago,
 there was a pretty clear consensus on which
 subtitle renderer to use for anime and softsubs.
 These days, not so much.
-It used to be that [VSFilter][] was the best renderer around
-and was the only supported renderer by most fansub groups.
-However, it was eventually replaced with [xy-vsfilter][]
+It used to be that [VSFilter][]
+was the only supported renderer by most fansub groups.
+VSFilter, being the first of its kind,
+is considered the original subtitle renderer.
+However, it was eventually replaced with [xy-VSFilter][],
 and then later replaced with [xySubFilter][]
-because VSFilter and xy-vsfilter were not keeping up
-with the demands of subtitles.
+because VSFilter and xy-vsfilter were not performing as well
+with the resource requirements of newer subtitles.
+However, VSFilter,
+and its derivatives xy-vsfilter and xySubFilter,
+only support Windows operating systems.
+They have often been used in codec packs[^4] for
+players we don't recommend,
+such as [MPC-HC][].
 
 By 2015, however,
 xySubFilter development had come to a halt and since then,
@@ -151,12 +159,16 @@ cross-platform,
 able to handle most typesetting,
 and has been integrated into many commercial
 and open-source software products.
+Libass is used in the cross-platform player
+[mpv][],
+that we recommend for all anime-viewing purposes.
 
 [libass]: https://github.com/libass/libass
 [VSFilter]: https://sourceforge.net/projects/guliverkli/files/VSFilter/
-[xy-vsfilter]: https://forum.doom9.org/showthread.php?t=168282
+[xy-VSFilter]: https://forum.doom9.org/showthread.php?t=168282
 [xySubFilter]: https://forum.doom9.org/showthread.php?t=168282
-
+[MPC-HC]: https://mpc-hc.org/
+[mpv]: https://mpv.io/
 
 ### Hotkeys
 
@@ -177,6 +189,8 @@ and move on for now.
 [^2]: 32-bit builds on Windows may be more stable.
 
 [^3]: For further reading on this, visit the Wikipedia pages for[Standard Definition][] video, [High Definition][] video, and the [BT.601][] and [BT.709][] color spaces.
+
+[^4]: With the development of [mpv][], codec packs and player add-ons are no longer required.
 
 [Standard Definition]: https://en.wikipedia.org/wiki/Standard-definition_television
 [High Definition]: https://en.wikipedia.org/wiki/High-definition_video
