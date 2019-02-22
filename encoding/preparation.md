@@ -214,6 +214,13 @@ as of [24 Dec 2017][unification-commit],
 meaning the releases with -10b can be ignored)
 You can also build it locally from [the public repository][x264vlan-git].
 
+It used to be that different versions,
+namely kmod and tmod,
+were required for certain exclusive encoding features
+such as "aq-mode 3".
+However, all relevant features have been included in the upstream
+x264 builds since August 2018.
+
 A newer, more efficient alternative is x265.
 It is still in active development
 and aims for 20-50% lower bitrates with the same quality as x264.
