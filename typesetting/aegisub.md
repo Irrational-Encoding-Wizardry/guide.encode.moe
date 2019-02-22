@@ -35,7 +35,7 @@ Here is a list of tools you will want to download:
       - Option 2: [Blender][][^1]
         - Requires a plug-in that will be discussed in a later section.
   - [x264 binary][][^2]
-      - Download the latest **8-bit** binary for your platform.
+      - Download the latest binary for your platform.
       - For example: `x264-r2935-545de2f.exe` for win64
         **not** `x264-10b-r2851-ba24899.exe`
   - [Adobe Photoshop and Illustrator][]
@@ -96,19 +96,18 @@ the BT.709 color space will be used
 as opposed to the legacy BT.601 color space.
 If you want a more in-depth explanation of color matrices
 and how these two are different,
-you can read up [here](../archived-websites/bt601-vs-bt709.md),
+visit [Maxime Lebled's blog](../archived-websites/bt601-vs-bt709.md),
 but the gist of it is this:
 BT.601 is for Standard Definition video
 and BT.709 is for High Definition video[^3].
 
 Manually setting the script to BT.601 could
-*irreversibly ruin the colors of any typesetting,
+**irreversibly ruin the colors of any typesetting,
 dialogue,
-or kfx already in the script*.
+or kfx already in the script**.
 Even worse,
 some video renderers will read this setting from the muxed subtitles
 and render the video to match it.
-
 
 If you are working on a DVD
 or something in Standard Definition,
