@@ -204,12 +204,13 @@ and which ones you want to use.
 
 The codec used most commonly is x264,
 an implementation of the h.264 standard.
-The most recent builds can be found [here][x264vlan].
+The most recent builds can be found on [VideoLAN's site][x264vlan].
 Pick the most recent build for your operating system.
 At the time of writing this,
 win64's recent build is `x264-r2935-545de2f.exe`
 from 25-Sep-2018.
-(Notice: the 10-bit binaries are no longer separate from the 8-bit,
+(Notice: the 10-bit binaries are no longer separate from the 8-bit
+as of [24 Dec 2017][unification-commit],
 meaning the releases with -10b can be ignored)
 You can also build it locally from [the public repository][x264vlan-git].
 
@@ -237,6 +238,7 @@ such as Intel's [SVT-AV1][] will also not be included.
 [Daala]: https://xiph.org/daala/
 [AV-1]: https://aomediacodec.github.io/av1-spec/
 [SVT-AV1]: https://github.com/OpenVisualCloud/SVT-AV1
+[unification-commit]: https://git.videolan.org/?p=x264.git;a=commit;h=71ed44c7312438fac7c5c5301e45522e57127db4
 
 
 ## Audio Codecs
