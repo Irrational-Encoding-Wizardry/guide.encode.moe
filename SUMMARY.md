@@ -17,6 +17,7 @@
 - [Scenefiltering](encoding/scenefiltering.md)
 - [Masking, Limiting, and Related Functions](encoding/masking-limiting-etc.md)
 - [Resampling](encoding/resampling.md)
+- [Codecs](encoding/video-encoding.md)
 
 
 ## Typesetting

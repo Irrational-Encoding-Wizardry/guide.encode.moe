@@ -204,23 +204,22 @@ and which ones you want to use.
 
 The codec used most commonly is x264,
 an implementation of the h.264 standard.
-There are multiple versions available
-(kmod and tmod being the most popular ones),
-but they only differ slightly
-(mainly cosmetic patches and some obscure parameters
-that you will probably never use),
-and no version is objectively better than any other.
-x264 can encode in 8 or 10 bit color depth.
-We will explain the meaning of these at a later time.
-For now, they are just relevant for choosing the right binary.
-All modifications come in two versions each,
-one for 8 bit and one for 10 bit[^2].
-Most fansub group nowadays use 10 bit,
-so you should download that
-unless your group leader or encode mentor told you otherwise.
+The most recent builds can be found on [VideoLAN's site][x264vlan].
+Pick the most recent build for your operating system.
+At the time of writing this,
+win64's recent build is `x264-r2935-545de2f.exe`
+from 25-Sep-2018.
+(Notice: the 10-bit binaries are no longer separate from the 8-bit
+as of [24 Dec 2017][unification-commit],
+meaning the releases with -10b can be ignored)
+You can also build it locally from [the public repository][x264vlan-git].
 
-- [Download kmod](http://komisar.gin.by/)
-- [Download tmod](https://github.com/jpsdr/x264/releases)
+It used to be that different versions,
+namely kmod and tmod,
+were required for certain exclusive encoding features
+such as "aq-mode 3".
+However, all relevant features have been included in the upstream
+x264 builds since August 2018.
 
 A newer, more efficient alternative is x265.
 It is still in active development
@@ -237,13 +236,16 @@ so ask your group leader before picking this codec.
 Other codecs, such as VP9,
 are generally not used for fansubbing,
 so they are not listed here.
-The same is true for unreleased codecs like [Daala][] and [AV-1][].
+The same is true for experimental codecs like [Daala][] and [AV-1][].
 Encoders made for distributed server encoding,
 such as Intel's [SVT-AV1][] will also not be included.
 
+[x264vlan]: https://download.videolan.org/pub/videolan/x264/binaries/
+[x264vlan-git]: https://git.videolan.org/?p=x264.git;a=summary
 [Daala]: https://xiph.org/daala/
 [AV-1]: https://aomediacodec.github.io/av1-spec/
-[STV-AV1]: https://github.com/OpenVisualCloud/SVT-AV1
+[SVT-AV1]: https://github.com/OpenVisualCloud/SVT-AV1
+[unification-commit]: https://git.videolan.org/?p=x264.git;a=commit;h=71ed44c7312438fac7c5c5301e45522e57127db4
 
 
 ## Audio Codecs
@@ -290,10 +292,8 @@ Just like the codecs,
 you don't have to install it.
 Just extract it somewhere.
 
-[ffpeg-zeranoe]: http://ffmpeg.zeranoe.com/builds/ "FFmpeg"
+[ffmpeg-zeranoe]: http://ffmpeg.zeranoe.com/builds/ "FFmpeg"
 
 ---
 
 [^1]: It should be noted that the author strongly disagrees with this sentiment. The two have a lot in common, and any capable Avisynth encoder could reach a similar leven in Vapoursynth within a few months, maybe even weeks. At least I'm honest, okay?
-
-[^2]: https://github.com/Irrational-Encoding-Wizardry/guide.encode.moe/issues/1
