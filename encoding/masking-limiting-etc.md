@@ -69,7 +69,7 @@ and kirsch (kagefunc).
 There are also some edge detection methods that use prefiltering
 when generating the mask.
 The most common of these would be TCanny,
-which applies a gaussian blur before creating a 1-pixel-thick Sobel mask.
+which applies a Gaussian blur before creating a 1-pixel-thick Sobel mask.
 The most noteworthy pre-processed edge mask would be kagefunc's
 retinex\_edgemask filter,
 which at least with cartoons and anime,
