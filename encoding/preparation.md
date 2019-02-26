@@ -263,8 +263,9 @@ while PCM is simply raw, uncompressed PCM data.
 The usual way to handle these formats is to reencode them to other formats -
 either lossless or lossy, depending on your taste.  
 But first, you need to decode them.
-The recommended tool for that is ffmpeg,
-link to which you will find below.
+The recommended tool for that is FFmpeg.
+You can find Windows builds and Linux packages
+on [FFmpeg's official site][ffmpeg].
 
 When working with WEB and TV sources,
 you will most likely have only lossy audio available.
@@ -272,20 +273,21 @@ The most common codecs here are AC-3, E-AC-3 and AAC.
 Lossily compressed files should generally not be reencoded -
 the proper way to handle them is to remux (i.e. copy) them to the final file.
 
+[ffmpeg]: https://www.ffmpeg.org/download.html
+
 ### Which codecs to use?
 
 Once you have your lossless files decoded, you need to encode them.
-Depending on your taste, you may choose a lossy or lossless codec.
+Depending on your taste, you can choose a lossy or lossless codec.
 The two most widely accepted codecs in fansubbing community are FLAC (lossless)
 and AAC (lossy), but recently opus (also lossy) is gaining some popularity, too.
 
-The recommended encoder for FLAC is the official one,
-and this is the one this guide fill focus on.
-You can download it [here][FLAC].
+The recommended encoder for FLAC is the official one.
+Download Windows builds from [it's official site][FLAC].
+Most Linux distributions should have FLAC in their package repositories.
 
 The recommended and most widely used AAC encoder is qaac,
-which you can download [here][qaac],
-and this is the one this guide will focus on.  
+available on [it's official site][qaac]. 
 Nero and Fraunhofer FDK aren't really that much worse,
 so you can use them if you really want.
 Other AAC encoders are discouraged,
@@ -295,7 +297,7 @@ There is also opus, which is gaining some popularity recently.
 It is currently the most efficient lossy codec,
 and it's completely FOSS if you're into that.
 The recommended opus encoder is the official one,
-which you can find [here][opus].
+contained in the [opus-tools package][opus].
 
 Other codecs are generally not recommended.
 Formats like Monkey's Audio and TAK provide very little gain over FLAC,
