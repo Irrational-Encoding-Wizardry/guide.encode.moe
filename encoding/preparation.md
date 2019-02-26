@@ -260,7 +260,7 @@ you will most likely find audio encoded losslessly,
 in the form of either DTS-HD Master Audio, Dolby TrueHD, or PCM. 
 DTS-HD MA and Dolby THD are proprietary codecs that use lossless compression, 
 while PCM is simply raw, uncompressed PCM data.
-The usual way handle these formats is to reencode them to other formats - 
+The usual way to handle these formats is to reencode them to other formats - 
 either lossless or lossy, depending on your taste.   
 But first, you need to decode them. 
 The recommended tool for that is ffmpeg, 
