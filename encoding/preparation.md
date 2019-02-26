@@ -255,7 +255,7 @@ such as Intel's [SVT-AV1][] will also not be included.
 Depending on the source you'll be working with,
 you may encounter many different audio formats.
 
-On Blu-Rays, 
+On Blu-rays, 
 you will most likely find audio encoded losslessly, 
 in the form of either DTS-HD Master Audio, Dolby TrueHD, or PCM. 
 DTS-HD MA and Dolby THD are proprietary codecs that use lossless compression, 
