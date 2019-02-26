@@ -196,14 +196,14 @@ this loss of information should be barely noticeable.
 This process can be quite difficult,
 so there will be an [entire page](video-encoding.md) dedicated to it.
 
-None of the codecs mentioned here need to be installed.
+None of the encoders mentioned here need to be installed.
 Just save the executable(s) somewhere for later.
 
 For now, all you need to know is which codecs exist
-and which ones you want to use.
+and which encoders you want to use.
 
-The codec used most commonly is x264,
-an implementation of the h.264 standard.
+The codec used most commonly is h.264,
+and the most popular h.264 encoder is x264.
 The most recent builds can be found on [VideoLAN's site][x264vlan].
 Pick the most recent build for your operating system.
 At the time of writing this,
@@ -221,7 +221,8 @@ such as "aq-mode 3".
 However, all relevant features have been included in the upstream
 x264 builds since August 2018.
 
-A newer, more efficient alternative is x265.
+A newer, more efficient alternative is HEVC,
+with x265 being the most popular encoder.
 It is still in active development
 and aims for 20-50% lower bitrates with the same quality as x264.
 It does have its flaws,
@@ -231,7 +232,7 @@ but it can be a viable alternative,
 especially if small files are important
 and encoding time is of secondary importance.
 Note that many groups will require you to use x264,
-so ask your group leader before picking this codec.
+so ask your group leader before picking this encoder.
 
 Other codecs, such as VP9,
 are generally not used for fansubbing,
