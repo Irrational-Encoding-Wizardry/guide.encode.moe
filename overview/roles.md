@@ -88,9 +88,7 @@ and difficulty of signs)
 Typesetters (abbreviated *TS*) are responsible for the visual
 presentation of translated text on-screen. These generally are called *signs*.
 
-For example, given this scene and a translation of "Adachi Fourth Public
-High
-School"…
+For example, given this scene and a translation of "Adachi Fourth Public High School"…
 
 ![\[DameDesuYo\] Eromanga-sensei - 01 (1920x1080 10bit AAC) \[05CB518E\].mkv\_snapshot\_03.11\_\[2017.08.18\_21.14.55\].jpg](images/cnvimage100.png)
 

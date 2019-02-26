@@ -55,7 +55,7 @@ Probably, but it could make your job much harder than it needs to be.
   - The most demanding role in terms of computer hardware.
   - The speed and capabilities of the computer directly correlate to
     encode times and the stability of encoding tools.
-  - **OS**: Windows 7, Mac OS X 10.7, Modern distro Linux
+  - **OS**: Windows 7, Mac OS X 10.7, Linux
     - 64-bit *required*
   - **Screen**: 1080p
     - IPS panels highly recommended for color correctness.
