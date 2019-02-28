@@ -289,11 +289,11 @@ The two most widely accepted codecs in fansubbing community are FLAC (lossless)
 and AAC (lossy), but recently opus (also lossy) is gaining some popularity, too.
 
 The recommended encoder for FLAC is the official one.
-Download Windows builds from [it's official site][FLAC].
+Download Windows builds from [xiph's website][FLAC].
 Most Linux distributions should have FLAC in their package repositories.
 
 The recommended and most widely used AAC encoder is qaac,
-available on [it's official site][qaac].
+available on [its official site][qaac].
 Nero and Fraunhofer FDK aren't really that much worse,
 so you can use them if you really want.
 Other AAC encoders are discouraged,
