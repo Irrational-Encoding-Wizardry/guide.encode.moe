@@ -1,9 +1,9 @@
 # Preparation and Necessary Software
 
 While the term "encoding" originally just referred
-to the opposite of decoding—
-that is, compressing raw video with a video codec—
-the term has a broader meaning in the context of fansubbing.
+to the opposite of decoding—that is,
+compressing raw video with a video codec—the term 
+has a broader meaning in the context of fansubbing.
 Here, "encoding" includes the entire process
 from receiving the source video until the final release.
 Usual steps are processing or filtering
@@ -249,7 +249,7 @@ such as Intel's [SVT-AV1][] will also not be included.
 [unification-commit]: https://git.videolan.org/?p=x264.git;a=commit;h=71ed44c7312438fac7c5c5301e45522e57127db4
 
 
-## Audio Codecs
+## Audio
 
 ### Audio formats and how to handle them
 
@@ -261,8 +261,9 @@ you will most likely find audio encoded losslessly,
 in the form of either DTS-HD Master Audio, Dolby TrueHD, or PCM.
 DTS-HD MA and Dolby THD are proprietary codecs that use lossless compression,
 while PCM is simply raw, uncompressed PCM data.
-The usual way to handle these formats is to reencode them to other formats -
-either lossless or lossy, depending on your taste.  
+The usual way to handle these
+is to reencode them to other formats—either lossless or lossy,
+depending on your taste.  
 But first, you need to decode them.
 The recommended tool for that is FFmpeg.
 You can find Windows builds and Linux packages
@@ -271,10 +272,11 @@ on [FFmpeg's official site][ffmpeg].
 When working with WEB and TV sources,
 you will most likely have only lossy audio available.
 The most common codecs here are AC-3, E-AC-3 and AAC.
-Lossily compressed files should generally not be reencoded -
-the proper way to handle them is to remux (i.e. copy) them to the final file.
+Lossily compressed files should generally not be reencoded—the proper way to handle them
+is to remux (i.e. copy) them to the final file.
 
 [ffmpeg]: https://www.ffmpeg.org/download.html
+
 
 ### Which codecs to use?
 
@@ -288,7 +290,7 @@ Download Windows builds from [it's official site][FLAC].
 Most Linux distributions should have FLAC in their package repositories.
 
 The recommended and most widely used AAC encoder is qaac,
-available on [it's official site][qaac]. 
+available on [it's official site][qaac].
 Nero and Fraunhofer FDK aren't really that much worse,
 so you can use them if you really want.
 Other AAC encoders are discouraged,
@@ -303,19 +305,20 @@ contained in the [opus-tools package][opus].
 Other codecs are generally not recommended.
 Formats like Monkey's Audio and TAK provide very little gain over FLAC,
 while not being as widely supported,
-and — in the case of TAK —
-closed source.
+and—in the case of TAK—closed source.
 DTS-HD MA and Dolby THD are much less efficient than FLAC,
 and are also closed source.
 MP3 is simply obsolete,
 and Vorbis has been superseded by opus.
 DTS and AC-3 provide even worse compression than MP3,
 and don't have any reasonable, free encoders.  
-In short - don't bother, unless you really have to, for some reason.
+In short—don't bother,
+unless you really have to, for some reason.
 
 [FLAC]: https://xiph.org/flac/download.html
 [qaac]: https://sites.google.com/site/qaacpage/cabinet
 [opus]: https://opus-codec.org/downloads/
+
 
 ### Lossless or lossy?
 
@@ -324,9 +327,7 @@ Some people like the idea of having an (theoretically) perfect copy of the maste
 don't mind the increase in size,
 and state that lossless is the only way to go when archiving.
 Others prefer smaller file sizes,
-knowing that the difference —
-assuming high enough bitrate —
-won't be audible anyway.   
+knowing that the difference—assuming high enough bitrate—won't be audible anyway.  
 And they both have a point.
 
 So, do some ABX testing and decide for yourself.
@@ -334,11 +335,9 @@ So, do some ABX testing and decide for yourself.
 
 ## MKVToolNix
 
-You probably have at least three files now—
-that being the video,
+You probably have at least three files now—that being the video,
 audio,
-and subtitles—
-and you need to combine all of them into a single file.
+and subtitles—and you need to combine all of them into a single file.
 This process is called muxing.
 
 MKVToolNix is used to mux all parts of the final output
