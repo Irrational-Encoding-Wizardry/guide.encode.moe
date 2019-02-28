@@ -268,6 +268,9 @@ But first, you need to decode them.
 The recommended tool for that is FFmpeg.
 You can find Windows builds and Linux packages
 on [FFmpeg's official site][ffmpeg].
+It doesn't need to be installed—you can just extract it somewhere.
+But, since it is useful for many different tasks,
+adding it to the system PATH is recommeded.
 
 When working with WEB and TV sources,
 you will most likely have only lossy audio available.
@@ -301,6 +304,10 @@ It is currently the most efficient lossy codec,
 and it's completely FOSS if you're into that.
 The recommended opus encoder is the official one,
 contained in the [opus-tools package][opus].
+
+Just as with video,
+these encoders don't need to be installed.
+Qaac will require some configuration, tho.
 
 Other codecs are generally not recommended.
 Formats like Monkey's Audio and TAK provide very little gain over FLAC,
@@ -357,20 +364,6 @@ but Matroska has become the standard for video releases
 due to its versatility and compatibility.
 
 [MKVToolNix]: https://mkvtoolnix.download/downloads.html "MKVToolNix"
-
-
-## FFmpeg
-
-While FFmpeg is not necessary for any specific task,
-it is a very useful tool for all kinds of conversion and transcoding.
-There will be times where using FFmpeg is simply the easiest solution,
-so it is recommended to download it.
-Windows builds can be found [here][ffmpeg-zeranoe].
-Just like the codecs,
-you don't have to install it.
-Just extract it somewhere.
-
-[ffmpeg-zeranoe]: http://ffmpeg.zeranoe.com/builds/ "FFmpeg"
 
 ---
 
