@@ -2,7 +2,7 @@
 
 While the term "encoding" originally just referred
 to the opposite of decoding—that is,
-compressing raw video with a video codec—the term 
+compressing raw video with a video codec—the term
 has a broader meaning in the context of fansubbing.
 Here, "encoding" includes the entire process
 from receiving the source video until the final release.
@@ -263,7 +263,7 @@ DTS-HD MA and Dolby THD are proprietary codecs that use lossless compression,
 while PCM is simply raw, uncompressed PCM data.
 The usual way to handle these
 is to reencode them to other formats—either lossless or lossy,
-depending on your taste.  
+depending on your taste.
 But first, you need to decode them.
 The recommended tool for that is FFmpeg.
 You can find Windows builds and Linux packages
@@ -318,7 +318,7 @@ and are also closed source.
 MP3 is simply obsolete,
 and Vorbis has been superseded by opus.
 DTS and AC-3 provide even worse compression than MP3,
-and don't have any reasonable, free encoders.  
+and don't have any reasonable, free encoders.
 In short—don't bother,
 unless you really have to, for some reason.
 
@@ -334,7 +334,7 @@ Some people like the idea of having an (theoretically) perfect copy of the maste
 don't mind the increase in size,
 and state that lossless is the only way to go when archiving.
 Others prefer smaller file sizes,
-knowing that the difference—assuming high enough bitrate—won't be audible anyway.  
+knowing that the difference—assuming high enough bitrate—won't be audible anyway.
 And they both have a point.
 
 So, do some ABX testing and decide for yourself.
