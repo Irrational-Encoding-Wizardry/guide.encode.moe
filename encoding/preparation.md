@@ -1,9 +1,9 @@
 # Preparation and Necessary Software
 
 While the term "encoding" originally just referred
-to the opposite of decoding—
-that is, compressing raw video with a video codec—
-the term has a broader meaning in the context of fansubbing.
+to the opposite of decoding—that is,
+compressing raw video with a video codec—the term
+has a broader meaning in the context of fansubbing.
 Here, "encoding" includes the entire process
 from receiving the source video until the final release.
 Usual steps are processing or filtering
@@ -196,14 +196,14 @@ this loss of information should be barely noticeable.
 This process can be quite difficult,
 so there will be an [entire page](video-encoding.md) dedicated to it.
 
-None of the codecs mentioned here need to be installed.
+None of the encoders mentioned here need to be installed.
 Just save the executable(s) somewhere for later.
 
 For now, all you need to know is which codecs exist
-and which ones you want to use.
+and which encoders you want to use.
 
-The codec used most commonly is x264,
-an implementation of the h.264 standard.
+The codec used most commonly is h.264,
+and the most popular h.264 encoder is x264.
 The most recent builds can be found on [VideoLAN's site][x264vlan].
 Pick the most recent build for your operating system.
 At the time of writing this,
@@ -221,7 +221,8 @@ such as "aq-mode 3".
 However, all relevant features have been included in the upstream
 x264 builds since August 2018.
 
-A newer, more efficient alternative is x265.
+A newer, more efficient alternative is HEVC,
+with x265 being the most popular encoder.
 It is still in active development
 and aims for 20-50% lower bitrates with the same quality as x264.
 It does have its flaws,
@@ -231,7 +232,7 @@ but it can be a viable alternative,
 especially if small files are important
 and encoding time is of secondary importance.
 Note that many groups will require you to use x264,
-so ask your group leader before picking this codec.
+so ask your group leader before picking this encoder.
 
 Other codecs, such as VP9,
 are generally not used for fansubbing,
@@ -248,18 +249,102 @@ such as Intel's [SVT-AV1][] will also not be included.
 [unification-commit]: https://git.videolan.org/?p=x264.git;a=commit;h=71ed44c7312438fac7c5c5301e45522e57127db4
 
 
-## Audio Codecs
+## Audio
 
-TODO: FLAC, AAC, maybe mention opus
+### Audio formats and how to handle them
+
+Depending on the source you'll be working with,
+you may encounter many different audio formats.
+
+On Blu-rays,
+you will most likely find audio encoded losslessly,
+in the form of either DTS-HD Master Audio, Dolby TrueHD, or PCM.
+DTS-HD MA and Dolby THD are proprietary codecs that use lossless compression,
+while PCM is simply raw, uncompressed PCM data.
+The usual way to handle these
+is to reencode them to other formats—either lossless or lossy,
+depending on your taste.
+But first, you need to decode them.
+The recommended tool for that is FFmpeg.
+You can find Windows builds and Linux packages
+on [FFmpeg's official site][ffmpeg].
+It doesn't need to be installed—you can just extract it somewhere.
+But, since it is useful for many different tasks,
+adding it to the system PATH is recommeded.
+
+When working with WEB and TV sources,
+you will most likely have only lossy audio available.
+The most common codecs here are AC-3, E-AC-3 and AAC.
+Lossily compressed files should generally not be reencoded—the proper way to handle them
+is to remux (i.e. copy) them to the final file.
+
+[ffmpeg]: https://www.ffmpeg.org/download.html
+
+
+### Which codecs to use?
+
+Once you have your lossless files decoded, you need to encode them.
+Depending on your taste, you can choose a lossy or lossless codec.
+The two most widely accepted codecs in fansubbing community are FLAC (lossless)
+and AAC (lossy), but recently opus (also lossy) is gaining some popularity, too.
+
+The recommended encoder for FLAC is the official one.
+Download Windows builds from [xiph's website][FLAC].
+Most Linux distributions should have FLAC in their package repositories.
+
+The recommended and most widely used AAC encoder is qaac,
+available on [its official site][qaac].
+Nero and Fraunhofer FDK aren't really that much worse,
+so you can use them if you really want.
+Other AAC encoders are discouraged,
+since they provide inferior results.
+
+There is also opus, which is gaining some popularity recently.
+It is currently the most efficient lossy codec,
+and it's completely FOSS if you're into that.
+The recommended opus encoder is the official one,
+contained in the [opus-tools package][opus].
+
+Just as with video,
+these encoders don't need to be installed.
+Qaac will require some configuration, tho.
+
+Other codecs are generally not recommended.
+Formats like Monkey's Audio and TAK provide very little gain over FLAC,
+while not being as widely supported,
+and—in the case of TAK—closed source.
+DTS-HD MA and Dolby THD are much less efficient than FLAC,
+and are also closed source.
+MP3 is simply obsolete,
+and Vorbis has been superseded by opus.
+DTS and AC-3 provide even worse compression than MP3,
+and don't have any reasonable, free encoders.
+In short—don't bother,
+unless you really have to, for some reason.
+
+[FLAC]: https://xiph.org/flac/download.html
+[qaac]: https://sites.google.com/site/qaacpage/cabinet
+[opus]: https://opus-codec.org/downloads/
+
+
+### Lossless or lossy?
+
+This is entirely dependent on you.
+Some people like the idea of having an (theoretically) perfect copy of the master audio file,
+don't mind the increase in size,
+and state that lossless is the only way to go when archiving.
+Others prefer smaller file sizes,
+knowing that the difference—assuming high enough bitrate—won't be audible anyway.
+And they both have a point.
+
+So, do some ABX testing and decide for yourself.
 
 
 ## MKVToolNix
 
-You probably have at least three files now—
-that being the video,
+You probably have at least three files now—that being the video,
 audio,
-and subtitles—
-and you need to combine all of them into a single file.
+and subtitles—and you need to combine all of them into a single file.
 This process is called muxing.
 
 MKVToolNix is used to mux all parts of the final output
@@ -279,20 +364,6 @@ but Matroska has become the standard for video releases
 due to its versatility and compatibility.
 
 [MKVToolNix]: https://mkvtoolnix.download/downloads.html "MKVToolNix"
-
-
-## FFmpeg
-
-While FFmpeg is not necessary for any specific task,
-it is a very useful tool for all kinds of conversion and transcoding.
-There will be times where using FFmpeg is simply the easiest solution,
-so it is recommended to download it.
-Windows builds can be found [here][ffmpeg-zeranoe].
-Just like the codecs,
-you don't have to install it.
-Just extract it somewhere.
-
-[ffmpeg-zeranoe]: http://ffmpeg.zeranoe.com/builds/ "FFmpeg"
 
 ---
 
