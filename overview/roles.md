@@ -160,10 +160,10 @@ own standards)
 
 Quality Checkers (abbreviated *QC*) are often the last eyes on an
 episode before it is released.
-They are responsible for ensuring the overall quality of the 
-release is up to par with the group's standards.
-They are also expected to be familiar with the workflow and many
-intricacies of every other role.
+They are responsible for ensuring that the overall quality 
+of the release is up to par with the group's standards.
+They are also expected to be familiar with the workflow 
+and many intricacies of every other role.
 Each group has a different approach to how the Quality Checker
 completes their work.
 For example, one group might require an organized "QC report"
