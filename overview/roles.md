@@ -25,7 +25,7 @@ various roles will be expected to complete.
 Time commitment per episode: 20 minutes - 2 hours active (4-12 hours
 inactive)
 
-Encoders (sometimes abbreviated *ENC*) are responsible for the audio
+Encoders (sometimes abbreviated as *ENC*) are responsible for the audio
 and video.
 They will generally be provided with one or more video sources
 and are expected to produce the best video possible within reason.
@@ -63,7 +63,7 @@ Time commitment per episode: 20 minutes - 4 hours
 The Timer (abbreviated *TM*) is responsible for when the text
 representing spoken dialogue shows up on screen.
 
-The timing of subtitles is much more important than you might assume.
+The timing of subtitles is much more important than one might assume.
 The entrance and exit times of the subtitles,
 or a fluid transition from one line to the next,
 can make a large impact on the "watchability" of the episode as a whole.
@@ -86,7 +86,7 @@ Time commitment per episode: 20 minutes - 8+ hours (dependent on number
 and difficulty of signs)
 
 Typesetters (abbreviated *TS*) are responsible for the visual
-presentation of translated text on-screen. These generally are called *signs*.
+presentation of translated text on-screen. These are generally called *signs*.
 
 For example, given this scene and a translation of "Adachi Fourth Public High School"…
 
@@ -99,26 +99,26 @@ this:
 
 Almost every sign the Typesetter works on will be unique,
 requiring ingenuity,
-an imagination,
+a wild imagination,
 a sense of style,
 and a high degree of attention to detail.
 The Typesetter's goal is to produce something that integrates so
-well into the video that the viewer does not know it is actually part of
-the subtitles.
+well into the video that the viewer does not realize that it is actually 
+part of the subtitles.
 
-The sign above is actually one of the simplest that the Typesetter might
+The sign above is actually one of the more simple kinds that the Typesetter might
 have to deal with.
 It is *static*, meaning it does not move,
 and has plenty of room around it to place the translation.
 Other signs will be much more difficult.
-For example [this scene from Kobayashi-san Chi no
+Take for example [this scene from Kobayashi-san Chi no
 Maid Dragon](https://www.youtube.com/watch?v=4BVgygZe7WY).
 
 Though it may be hard to believe,
 the typesetting on the right side of the screen was done entirely
 with *softsubs* (using Aegisub),
-subtitles that can be turned off and on in the video player
-as compared to *hardsubs* (using Adobe After Effects) which cannot.
+subtitles that can be turned on and off in the video player
+as compared to *hardsubs* (using Adobe After Effects) which are burned in.
 Each group and language "scene" will have different standards
 in regards to soft and hardsubs.
 For example, in the English scene,
@@ -137,7 +137,7 @@ or are too *heavy* (meaning computer resource intensive).
 
 Time commitment per episode: 2-4+ hours
 
-The editor (sometimes abbreviated *ED*) is responsible for making sure that
+The Editor (sometimes abbreviated *ED*) is responsible for making sure that
 the script reads well.
 Depending on the source of the script,
 this may mean grammatical corrections and some rewording
@@ -150,7 +150,7 @@ Each group will have different expectations of an Editor
 in terms of the type,
 style,
 and number of changes made.
-The editor may also be responsible
+The Editor may also be responsible
 for making corrections recommended by the Quality Checkers.
 
 ## Quality Checker
@@ -160,21 +160,16 @@ own standards)
 
 Quality Checkers (abbreviated *QC*) are often the last eyes on an
 episode before it is released.
-They are responsible for inspecting the
-overall quality of every aspect of a show including:
-timing,
-typesetting,
-encode,
-and editing.
-Quality Checkers are expected to be well versed in every role
-and able to critique them.
+They are responsible for ensuring that the overall quality 
+of the release is up to par with the group's standards.
+They are also expected to be familiar with the workflow 
+and many intricacies of every other role.
 Each group has a different approach to how the Quality Checker
 completes their work.
 For example, one group might require an organized "QC report"
-of recommended changes and required fixes,
+with recommended changes and required fixes,
 while other groups may prefer the Quality
-Checker to make changes directly to the script,
-if they can.
+Checker to make changes directly to the script whenever possible.
 
 ## Translator & Translation Checker
 
@@ -188,7 +183,7 @@ of the script and signs respectively.
 This is perhaps an obvious statement,
 but it bears explaining just in case.
 Today, many shows are *simulcast* by one or more companies,
-meaning scripts will be available immediately or soon after airing in Japan.
+meaning scripts will be available either immediately or soon after airing in Japan.
 In these cases, some fansub groups may choose to edit
 and check the simulcast script rather than translate it from scratch.
 This depends almost entirely on the quality of the simulcast.
