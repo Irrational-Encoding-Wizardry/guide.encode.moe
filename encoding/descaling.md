@@ -167,7 +167,7 @@ src = lvf.src(r"BDMV/[BDMV][190302][マナリアフレンズ I]/BD/BDMV/STREAM/0
 ```
 
 The next issue is figuring out
-what was used to [upsample](#resampling) the show.
+what was used to [upsample](resampling.md#upsampling) the show.
 By default,
 getnative.py checks with Mitchell-Netravali
 (bicubic b=1/3, c=1/3).
@@ -304,8 +304,8 @@ caused by bad descaling.
 Just try not to rely on it too much,
 as it is by all means a "cheat code".
 It's also incredibly slow,
-so you might want to [use it
-on just a couple of frames at a time](#scenefiltering)
+so you might want to
+[use it on just a couple of frames at a time](scenefiltering.md)
 rather than over the entire clip.
 
 Other than Eedi3,
