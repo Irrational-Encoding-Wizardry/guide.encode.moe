@@ -54,12 +54,12 @@ of a lot of other filtering.
 ## Preparation
 
 To prepare for figuring out the native resolution,
-you'll want to use [getnative](https://github.com/Infiziert90/getnative),
+you'll want to use [getnative][],
 a Python script designed around
 figuring out the resolution
 a show was animated at.
 For the actual descaling,
-make sure to grab [descale](https://github.com/Irrational-Encoding-Wizardry/vapoursynth-descale).
+make sure to grab BluBb-mADe's [descale][].
 
 One important thing
 to keep in mind when descaling
@@ -80,6 +80,10 @@ descaling can be highly destructive.
 It's instead recommended to downscale
 as you would normally,
 or to not mess with scaling at all.
+
+[getnative]: https://github.com/Infiziert90/getnative
+[descale]: https://github.com/BluBb-mADe/vapoursynth-descale
+
 
 ## Finding out the native resolution
 
@@ -200,7 +204,7 @@ I'll be using `split` and `join` from `kagefunc` to split the planes
 and then join them again in this example,
 and `get_w` from `vsutil` to calculate the width):
 
-[Comparison between frames](https://slowpics.org/comparison/61e39e1e-d074-4d83-b7c9-b0f4e1861855)
+[Comparison between frames][manaria_compare]
 
 ```Py
 import vapoursynth as vs
@@ -240,6 +244,9 @@ is to simply descale until
 you've got what you believe to be the best result.
 It's faster to do it this way,
 but might be less accurate.
+
+[manaria_compare]: https://slowpics.org/comparison/61e39e1e-d074-4d83-b7c9-b0f4e1861855
+
 
 ## Credits and other native 1080p elements
 
