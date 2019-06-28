@@ -16,6 +16,7 @@
 - [Recognizing Video Artifacts](encoding/video-artifacts.md)
 - [Scenefiltering](encoding/scenefiltering.md)
 - [Masking, Limiting, and Related Functions](encoding/masking-limiting-etc.md)
+- [Descaling](encoding/descaling.md)
 - [Resampling](encoding/resampling.md)
 - [Codecs](encoding/video-encoding.md)
 
