@@ -202,7 +202,7 @@ when descaled using various kernels and settings
 (note that descale requires either GrayS, RGBS, or YUV444PS.
 I'll be using `split` and `join` from `kagefunc` to split the planes
 and then join them again in this example,
-and `get_w` from `vsutil` to calculate the width):
+and `get_w` from `vsutil` to calculate the width)[^1]:
 
 [Comparison between frames][manaria_compare]
 
@@ -348,3 +348,9 @@ scaled = nnedi3_rpow2(scaled).resize.Spline36(1920, 1080)
 Note how this fixed
 most of the aliasing
 on the CGI model.
+
+***
+
+[^1]: Most, if not all relevant Vapoursynth scripts/plug-ins and their functions can be found as the [VapourSynth Database][vsdb].
+
+[vsdb]: http://vsdb.top/
