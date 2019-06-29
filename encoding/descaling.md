@@ -326,22 +326,22 @@ width = vsutil.get_w(height)
 
 # Bilinear
 descale_a = core.descale.Debilinear(y, width, height).resize.Bilinear(1920, 1080)
-descale_a = kgf.join([descale_a, U, V])
+descale_a = kgf.join([descale_a, u, v])
 # Mitchell-Netravali
 descale_b = core.descale.Debicubic(y, width, height, b=1/3, c=1/3).resize.Bicubic(1920, 1080, filter_param_a=1/3, filter_param_b=1/3)
-descale_b = kgf.join([descale_b, U, V])
+descale_b = kgf.join([descale_b, u, v])
 # Sharp Bicubic
 descale_c = core.descale.Debicubic(y, width, height, b=0, c=1).resize.Bicubic(1920, 1080, filter_param_a=0, filter_param_b=1)
-descale_c = kgf.join([descale_c, U, V])
+descale_c = kgf.join([descale_c, u, v])
 # B-Spline
 descale_d = core.descale.Debicubic(y, width, height, b=1, c=0).resize.Bicubic(1920, 1080, filter_param_a=1, filter_param_b=0)
-descale_d = kgf.join([descale_d, U, V])
+descale_d = kgf.join([descale_d, u, v])
 # Catmull-rom
 descale_e = core.descale.Debicubic(y, width, height, b=0, c=1/2).resize.Bicubic(1920, 1080, filter_param_a=0, filter_param_b=1/2)
-descale_e = kgf.join([descale_e, U, V])
+descale_e = kgf.join([descale_e, u, v])
 # Spline36
 descale_f = core.descale.Despline36(y, width, height).resize.Spline36(1920, 1080)
-descale_f = kgf.join([descale_f, U, V])
+descale_f = kgf.join([descale_f, u, v])
 ```
 
 You might realize that after descaling,
