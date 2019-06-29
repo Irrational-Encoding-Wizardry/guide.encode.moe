@@ -154,7 +154,7 @@ in there as well:
 
 
 The X axis shows the resolutions that were checked
-and the Y axis shows the relative error
+and the Y axis shows the relative error.
 The relative error refers to
 the difference between the original frame
 and the rescaled frame.
