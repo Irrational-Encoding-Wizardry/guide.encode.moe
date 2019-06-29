@@ -159,8 +159,8 @@ in there as well:
 ![Manaria Friends — 01 (frame 4 getnative graph)](images/descale_graph.png)
 
 
-The X axis shows the resolutions that were checked,
-and the Y axis shows the relative error.
+The X-axis shows the resolutions that were checked,
+and the Y-axis shows the relative error.
 The relative error refers to
 the difference between the original frame
 and the rescaled frame.
@@ -257,7 +257,7 @@ for testing out varying kernels.
 ## Descaling
 
 Now it's time to actually start descaling.
-Open up your Vapoursynth editor of choice,
+Open up your VapourSynth editor of choice,
 and import the clip:
 
 ```Py
@@ -379,7 +379,7 @@ to help with dealing with that issue,
 but it might be better
 to make use of existing wrappers instead.
 For this example I'll
-be using `inverse_scale` from kagefunc.
+be using `inverse_scale` from `kagefunc`.
 
 ```Py
 descaled = kgf.inverse_scale(src, height=878, kernel='bicubic', b=0, c=1/2, mask_detail=True)
@@ -472,6 +472,6 @@ on the CGI model.
 
 ***
 
-[^1]: Most, if not all, relevant Vapoursynth scripts/plug-ins and their functions can be found in the [VapourSynth Database][vsdb].
+[^1]: Most, if not all, relevant VapourSynth scripts/plug-ins and their functions can be found in the [VapourSynth Database][vsdb].
 
 [vsdb]: http://vsdb.top/
