@@ -75,7 +75,7 @@ to perfectly descale something.
 However, usually those differences
 are so small that they're negligible.
 If you run into a case where
-you can only get high relative errors,
+you can't find any low relative error spikes,
 descaling can be highly destructive.
 It's instead recommended to downscale
 as you would normally,
@@ -152,9 +152,92 @@ in there as well:
 
 ![Manaria_Friends-ep1_04_graph](images/descale_graph.png)
 
-You should be looking for a low relative error.
+
+The X axis shows the resolutions that were checked
+and the Y axis shows the relative error
+The relative error refers to
+the difference between the original frame
+and the rescaled frame.
+What you're looking for
+are the low spikes,
+as that shows a low relative error.
 In this case it very clearly points to 878p.
 
+As a sidenote,
+it's important to note that this script
+can't find native 1080p elements.
+This is because it descales the frame
+and reupscales it afterwards
+to determine the relative error.
+You can't descale to 1080p
+if the frame is already 1080p.
+If you have reason to believe
+that your show might be native 1080p,
+you've got to go with your gut.
+
+You may notice that the line swerves a bit
+in the previous graph.
+There are going to be cases where
+you will get odd graphs like these,
+so it's important to know
+when the results are safe enough to descale
+or when they're too risky to.
+Here is an example of
+a "bad" graph:
+
+![Miru_Thighs-02_graph](images/descale_bad_graph1.png)
+```
+Output:
+Kernel: bicubic AR: 1.78 B: 0.33 C: 0.33
+Native resolution(s) (best guess): 869p, 848p
+```
+
+The script has determined that
+it's likely either 848p
+or 869p.
+However,
+there are no clear spikes in this graph
+like there was in the Manaria Friends one.
+The results are not clear enough
+to work off of.
+Here's another example:
+
+![Black_Lagoon_graph](images/descale_bad_graph2.png)
+```
+Output:
+Kernel: bicubic AR: 1.78 B: 0.33 C: 0.33
+Native resolution(s) (best guess): 1000p, 974p, 810p
+```
+
+This graph has a lot of unnatural swerves
+and it's impossible to determine
+what the native resolution is.
+
+Another pitfall you can fall in
+is checking the results of a frame
+with letterboxing.
+
+![Kizumonoagatari_frame.png](images/descale_ararararagi.png)
+![Kizumonoagatari_frame_graph.png](images/descale_ararararagi_graph.png)
+
+You will have to crop them beforehand
+or they will return odd graphs like this.
+
+For a change of pace,
+let's look at a good graph.
+
+![Aikatsu_Friend_NCOP_graph](images/descale_good_graph.png)
+```
+Output:
+Kernel: bicubic AR: 1.78 B: 0.33 C: 0.33 
+Native resolution(s) (best guess): 810p
+```
+The results are very clear.
+There's a couple of deviations,
+but there's a very clear spike 
+going down to 810p.
+This is a good result
+for testing out varying kernels.
 
 ## Descaling
 
@@ -172,8 +255,20 @@ By default,
 getnative.py checks with Mitchell-Netravali
 (bicubic b=1/3, c=1/3).
 However, it might have also been upscaled
-using other kernels,
-like Spline or Bilinear.
+using other kernels.
+
+Here is a list
+of some common kernels and values.
+
+* Lanczos
+* Spline
+* Bilinear
+* Bicubic b=1, c=0 (B-Spline)
+* Bicubic b=0, c=0 (Hermite)
+* Bicubic b=1/3, c=1/3 (Mitchell-Netravali)
+* Bicubic b=0, c=0.5 (Catmull-Rom)
+* Bicubic b=0, c=1 (Sharp Bicubic)
+
 The best way to figure out
 what is used is to simply try out
 a bunch of and use your eyes.
@@ -188,8 +283,7 @@ to keep in mind that
 you will typically find that
 the values match the following mathmatical expressions:
 
-`b + 2c = 1` or `b + c = 1`
-
+`b + 2c = 1` or `b + c = 1`.
 It could also just be 0 or 1.
 
 Whilst this isn't a 100% guarantee,
@@ -217,8 +311,8 @@ src = core.lsmas.LWLibavSource("BDMV/[BDMV][190302][マナリアフレンズ I]/
 src = fvf.Depth(src, 32)
 
 Y, U, V = kgf.split(src)
-width = vsutil.get_w(878)
 height = 878
+width = vsutil.get_w(height)
 
 descale_a = core.descale.Debilinear(Y, width, height).resize.Bilinear(1920, 1080)                                                        # Bilinear
 descale_b = core.descale.Debicubic(Y, width, height, b=1/3, c=1/3).resize.Bicubic(1920, 1080, filter_param_a=1/3, filter_param_b=1/3)    # Mitchell-Netravali
@@ -351,6 +445,6 @@ on the CGI model.
 
 ***
 
-[^1]: Most, if not all relevant Vapoursynth scripts/plug-ins and their functions can be found as the [VapourSynth Database][vsdb].
+[^1]: Most, if not all relevant Vapoursynth scripts/plug-ins and their functions can be found in the [VapourSynth Database][vsdb].
 
 [vsdb]: http://vsdb.top/
