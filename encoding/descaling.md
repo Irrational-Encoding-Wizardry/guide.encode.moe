@@ -30,13 +30,13 @@ so it's worth a try
 to see if it can be descaled.
 It's no surprise that descaling tends to
 offer far better lineart
-than usual resampling does.
+than usual rescaling does.
 
 However, descaling is not always an option.
 The worse your source is,
 the less likely it is that
-descaling will be a better alternative
-to a simple resample.
+descaling will yield better results
+than a simple resample.
 If you've got a source
 full of broken gradients
 or noise patterns,
@@ -44,19 +44,19 @@ like your average simulcast stream,
 descaling might only hurt the overall quality.
 Sadly, sources with a lot of post-processing
 might also prove tough to properly descale
-without dabbling into specific masks.
+without dabbling with specific masks.
 However, so long as you've got
 a source with nice, clean lineart,
 descaling might be a viable option,
 and possibly nullify the need
-of a lot of other filtering.
+for a lot of other filtering.
 
 
 ## Preparation
 
 To prepare for figuring out the native resolution,
 you'll want to use [getnative][],
-a Python script designed around
+a Python script designed for
 figuring out the resolution
 a show was animated at.
 For the actual descaling,
@@ -66,10 +66,14 @@ One important thing
 to keep in mind when descaling
 is that you will never find
 "the perfect descaling settings".
+Even if you find the exact settings
+that the studio used,
+you won't be able to get a frame-perfect replica
+of the original frame.
 This is because the best available sources to consumers,
 usually Blu-rays,
 aren't lossless.
-There's always going to be some differences
+There are always going to be some differences
 from the original masters
 which makes it impossible
 to perfectly descale something.
@@ -78,7 +82,7 @@ are so small that they're negligible.
 If you run into a case where
 you can't find any low relative error spikes,
 descaling can be highly destructive.
-It's instead recommended to downscale
+It's instead recommended to resize
 as you would normally,
 or to not mess with scaling at all.
 
@@ -91,17 +95,18 @@ or to not mess with scaling at all.
 To figure out what
 the native resolution of an anime is,
 first you need a good frame to test.
-Ideally you'll want a bright frame
+Ideally,
+you'll want a bright frame
 with as little blur as possible of high quality
 (Blu-ray or very good webstreams).
 It also helps to not have
 too many post-processed elements in the picture.
 Whilst it is most definitely possible
 to get pretty good results with "bad" frames,
-you'll want to generally lower that chance
-as much as possible.
+it's generally better to use
+good frames whenever possible.
 
-Here's some examples of "bad" frames.
+Here are some examples of "bad" frames.
 
 ![Manaria Friends Ep01 frame 1](images/descale_manaria01.png)
 
@@ -110,7 +115,7 @@ It also has some effects over it.
 
 ![Manaria Friends Ep01 frame 2](images/descale_manaria02.png)
 
-This picture is also very dark,
+This picture is also very dark
 and has even more effects over it.
 
 ![Manaria Friends Ep01 frame 3](images/descale_manaria03.png)
@@ -144,8 +149,8 @@ Native resolution(s) (best guess): 878p
 done in 18.39s
 ```
 
-If you look in the directory
-that you ran the script in,
+If you check the directory
+where you executed the script,
 you will find a new folder
 called "getnative".
 You can find the following graph
@@ -154,18 +159,17 @@ in there as well:
 ![Manaria_Friends-ep1_04_graph](images/descale_graph.png)
 
 
-The X axis shows the resolutions that were checked
+The X axis shows the resolutions that were checked,
 and the Y axis shows the relative error.
 The relative error refers to
 the difference between the original frame
 and the rescaled frame.
-What you're looking for
-are the low spikes,
-as that shows a low relative error.
+What you're looking for are
+the spikes that show a low relative error.
 In this case it very clearly points to 878p.
 
 As a sidenote,
-it's important to note that this script
+it's important to keep in mind that this script
 can't find native 1080p elements.
 This is because it descales the frame
 and reupscales it afterwards
@@ -176,13 +180,17 @@ If you have reason to believe
 that your show might be native 1080p,
 you've got to go with your gut.
 
+![Date_A_Live_III-ep01_graph](images/descale_native1080_graph.png)
+
+An example of a graph for a native 1080p show.
+
 You may notice that the line swerves a bit
-in the previous graph.
+in the first graph.
 There are going to be cases where
 you will get odd graphs like these,
 so it's important to know
 when the results are safe enough to descale
-or when they're too risky to.
+or when they're too risky.
 Here is an example of
 a "bad" graph:
 
@@ -214,7 +222,8 @@ This graph has a lot of unnatural swerves
 and it's impossible to determine
 what the native resolution is.
 
-Another pitfall you can fall in
+Another pitfall you've got
+to watch out for
 is checking the results of a frame
 with letterboxing.
 
@@ -230,12 +239,12 @@ let's look at a good graph.
 ![Aikatsu_Friend_NCOP_graph](images/descale_good_graph.png)
 ```
 Output:
-Kernel: bicubic AR: 1.78 B: 0.33 C: 0.33 
+Kernel: bicubic AR: 1.78 B: 0.33 C: 0.33
 Native resolution(s) (best guess): 810p
 ```
 The results are very clear.
-There's a couple of deviations,
-but there's a very clear spike 
+There are a couple of deviations,
+but there's a very clear spike
 going down to 810p.
 This is a good result
 for testing out varying kernels.
@@ -247,11 +256,11 @@ Open up your Vapoursynth editor of choice,
 and import the clip:
 
 ```Py
-src = lvf.src(r"BDMV/[BDMV][190302][マナリアフレンズ I]/BD/BDMV/STREAM/00007.m2ts")
+src = core.lsmas.LWLibavSource("BDMV/[BDMV][190302][マナリアフレンズ I]/BD/BDMV/STREAM/00007.m2ts")
 ```
 
 The next issue is figuring out
-what was used to [upsample](resampling.md#upsampling) the show.
+what was used to [upscale](resampling.md#upsampling) the show.
 By default,
 getnative.py checks with Mitchell-Netravali
 (bicubic b=1/3, c=1/3).
@@ -262,7 +271,8 @@ Here is a list
 of some common kernels and values.
 
 * Lanczos
-* Spline
+* Spline16
+* Spline36
 * Bilinear
 * Bicubic b=1, c=0 (B-Spline)
 * Bicubic b=0, c=0 (Hermite)
@@ -272,26 +282,24 @@ of some common kernels and values.
 
 The best way to figure out
 what is used is to simply try out
-a bunch of and use your eyes.
+a bunch of different kernels
+and use your eyes.
 Check for common scaling-related artifacting,
-like haloing,
-ringing,
-aliasing,
-etc.
+like haloing, ringing, aliasing, etc.
 
-For bicubic it is important
+For bicubic,
+it is important
 to keep in mind that
 you will typically find that
 the values match the following mathmatical expressions:
 
 * `b + 2c = 1`
-* `b + c = 1`
 * `b = 0, c = X`
 * `b = 1, c = 0`
 
 Whilst this isn't a 100% guarantee,
-this is the most common approach
-to resampling using bicubic,
+it is the most common approach
+to rescaling using bicubic,
 so it's worth keeping in mind.
 
 Here's an example of the previous frame
@@ -304,28 +312,36 @@ and `get_w` from `vsutil` to calculate the width)[^1]:
 [Comparison between frames][manaria_compare]
 
 ```Py
-import vapoursynth as vs
+from vapoursynth import core
 import vsutil
 import kagefunc as kgf
 import fvsfunc as fvf
-core = vs.core
 
 src = core.lsmas.LWLibavSource("BDMV/[BDMV][190302][マナリアフレンズ I]/BD/BDMV/STREAM/00007.m2ts")
 src = fvf.Depth(src, 32)
 
-Y, U, V = kgf.split(src)
+y, u, v = kgf.split(src)
 height = 878
 width = vsutil.get_w(height)
 
-descale_a = core.descale.Debilinear(Y, width, height).resize.Bilinear(1920, 1080)                                                        # Bilinear
-descale_b = core.descale.Debicubic(Y, width, height, b=1/3, c=1/3).resize.Bicubic(1920, 1080, filter_param_a=1/3, filter_param_b=1/3)    # Mitchell-Netravali
-descale_c = core.descale.Debicubic(Y, width, height, b=0, c=1).resize.Bicubic(1920, 1080, filter_param_a=0, filter_param_b=1)            # Sharp Bicubic
-descale_d = core.descale.Debicubic(Y, width, height, b=1, c=0).resize.Bicubic(1920, 1080, filter_param_a=1, filter_param_b=0)            # B-Spline
-descale_e = core.descale.Debicubic(Y, width, height, b=0, c=1/2).resize.Bicubic(1920, 1080, filter_param_a=0, filter_param_b=1/2)        # Catmull-rom
-descale_f = core.descale.Despline36(Y, width, height).resize.Spline36(1920, 1080)                                                        # Spline36
-
-descaled = kgf.join([descale_a, U, V])
-descaled.set_output()
+# Bilinear
+descale_a = core.descale.Debilinear(y, width, height).resize.Bilinear(1920, 1080)
+descale_a = kgf.join([descale_a, U, V])
+# Mitchell-Netravali
+descale_b = core.descale.Debicubic(y, width, height, b=1/3, c=1/3).resize.Bicubic(1920, 1080, filter_param_a=1/3, filter_param_b=1/3)
+descale_b = kgf.join([descale_b, U, V])
+# Sharp Bicubic
+descale_c = core.descale.Debicubic(y, width, height, b=0, c=1).resize.Bicubic(1920, 1080, filter_param_a=0, filter_param_b=1)
+descale_c = kgf.join([descale_c, U, V])
+# B-Spline
+descale_d = core.descale.Debicubic(y, width, height, b=1, c=0).resize.Bicubic(1920, 1080, filter_param_a=1, filter_param_b=0)
+descale_d = kgf.join([descale_d, U, V])
+# Catmull-rom
+descale_e = core.descale.Debicubic(y, width, height, b=0, c=1/2).resize.Bicubic(1920, 1080, filter_param_a=0, filter_param_b=1/2)
+descale_e = kgf.join([descale_e, U, V])
+# Spline36
+descale_f = core.descale.Despline36(y, width, height).resize.Spline36(1920, 1080)
+descale_f = kgf.join([descale_f, U, V])
 ```
 
 You might realize that after descaling,
@@ -333,10 +349,11 @@ we are immediately upscaling the frame
 with the same kernel and values again.
 This is done so we can compare the before and after.
 The closer the new frame is to the old one,
-how more likely it is that you've got the correct kernel.
+the more likely it is that you've got the correct kernel.
 Zooming in on the frame at 4x magnification or higher
+using Nearest Neighbor
 will help immensely.
-An alternative that you can do
+An alternative that you can use
 is to simply descale until
 you've got what you believe to be the best result.
 It's faster to do it this way,
