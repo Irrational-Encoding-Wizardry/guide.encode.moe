@@ -283,8 +283,10 @@ to keep in mind that
 you will typically find that
 the values match the following mathmatical expressions:
 
-`b + 2c = 1` or `b + c = 1`.
-It could also just be 0 or 1.
+* `b + 2c = 1`
+* `b + c = 1`
+* `b = 0, c = X`
+* `b = 1, c = 0`
 
 Whilst this isn't a 100% guarantee,
 this is the most common approach
