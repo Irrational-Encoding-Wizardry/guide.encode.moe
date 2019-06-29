@@ -2,8 +2,8 @@
 
 The ability to descale is a wonderful tool
 to have in any encoder's arsenal.
-You may be familiar with
-how most anime are not native 1080p,
+You may have heard before that
+most anime are not native 1080p,
 but a lower resolution.
 But how do we make use of that?
 How do you find the native resolution
@@ -12,18 +12,19 @@ and reverse the upscale?
 
 ## When and where to descale
 
-There's a lot of opportunities
+There are many circumstances
 where descaling might prove beneficial.
-For example say you've got
+For example,
+say you've got
 a very blurry Blu-ray source.
 Rather than sharpening it,
 you might want to consider
 checking if it's possible to descale it
 and maybe alleviate a lot of
-the blurriness that way.
+the blur that way.
 Or the opposite:
 say you've got a source full of ringing.
-It might've been upscaled
+It might have been upscaled
 using a very sharp kernel,
 so it's worth a try
 to see if it can be descaled.
@@ -378,7 +379,7 @@ Note that if you see the mask
 catching a lot of other stuff,
 you might want to consider *not* descaling
 that particular frame,
-or to try a different kernel/values.
+or trying a different kernel/values.
 Chances are that you're either
 using the wrong kernel
 or that the frames you're looking at are native 1080p.
@@ -397,8 +398,10 @@ even after descaling.
 as a fantastic AA filter
 that really nails down bad lineart
 caused by bad descaling.
-Just try not to rely on it too much,
-as it is by all means a "cheat code".
+It's at best a "cheat code",
+however.
+While it might fix up some issues,
+it won't fix everything.
 It's also incredibly slow,
 so you might want to
 [use it on just a couple of frames at a time](scenefiltering.md)
@@ -423,8 +426,6 @@ as mentioned in the introduction,
 you can't descale everything perfectly.
 Sometimes it's better to think of it
 as a magical anti-ringing/haloing/aliasing filter
-(in conjunction with a good upscaling filter
-like nnedi3_rpow2)
 rather than a scaler.
 
 For example,
@@ -447,6 +448,6 @@ on the CGI model.
 
 ***
 
-[^1]: Most, if not all relevant Vapoursynth scripts/plug-ins and their functions can be found in the [VapourSynth Database][vsdb].
+[^1]: Most, if not all, relevant Vapoursynth scripts/plug-ins and their functions can be found in the [VapourSynth Database][vsdb].
 
 [vsdb]: http://vsdb.top/
