@@ -45,7 +45,7 @@ descaling might only hurt the overall quality.
 Sadly, sources with a lot of post-processing
 might also prove tough to properly descale
 without dabbling with specific masks.
-However, so long as you've got
+However, as long as you've got
 a source with nice, clean lineart,
 descaling might be a viable option,
 and possibly nullify the need
@@ -81,7 +81,7 @@ However, usually those differences
 are so small that they're negligible.
 If you run into a case where
 you can't find any low relative error spikes,
-descaling can be highly destructive.
+resizing can be highly destructive.
 It's instead recommended to resize
 as you would normally,
 or to not mess with scaling at all.
@@ -356,7 +356,7 @@ This is done so we can compare the before and after.
 The closer the new frame is to the old one,
 the more likely it is that you've got the correct kernel.
 Zooming in on the frame at 4x magnification or higher
-using Nearest Neighbor
+using nearest neighbor
 will help immensely.
 An alternative that you can use
 is to simply descale until
