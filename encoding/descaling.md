@@ -45,7 +45,7 @@ descaling might only hurt the overall quality.
 Sadly, sources with a lot of post-processing
 might also prove tough to properly descale
 without dabbling with specific masks.
-However, so long as you've got
+However, as long as you've got
 a source with nice, clean lineart,
 descaling might be a viable option,
 and possibly nullify the need
@@ -108,21 +108,21 @@ good frames whenever possible.
 
 Here are some examples of "bad" frames.
 
-![Manaria Friends Ep01 frame 1](images/descale_manaria01.png)
+![Manaria Friends — 01 (frame 1)](images/descale_manaria01.png)
 
 This picture is dark.
 It also has some effects over it.
 
-![Manaria Friends Ep01 frame 2](images/descale_manaria02.png)
+![Manaria Friends — 01 (frame 2)](images/descale_manaria02.png)
 
 This picture is also very dark
 and has even more effects over it.
 
-![Manaria Friends Ep01 frame 3](images/descale_manaria03.png)
+![Manaria Friends — 01 (frame 3)](images/descale_manaria03.png)
 
 Heavy dynamic grain will almost always give bad results.
 
-![Manaria Friends Ep01 frame 4](images/descale_manaria04.png)
+![Manaria Friends — 01 (frame 4)](images/descale_manaria04.png)
 
 This is a nice frame to use as reference.
 The background is a bit blurry,
@@ -136,7 +136,7 @@ this anime was produced at.
 Run the following in your terminal:
 
 ```bash
-$ python getnative.py "Manaria Friends Ep01 frame 4.png"
+$ python getnative.py "descale_manaria04.png"
 ```
 
 It should show the following:
@@ -156,11 +156,11 @@ called "getnative".
 You can find the following graph
 in there as well:
 
-![Manaria_Friends-ep1_04_graph](images/descale_graph.png)
+![Manaria Friends — 01 (frame 4 getnative graph)](images/descale_graph.png)
 
 
-The X axis shows the resolutions that were checked,
-and the Y axis shows the relative error.
+The X-axis shows the resolutions that were checked,
+and the Y-axis shows the relative error.
 The relative error refers to
 the difference between the original frame
 and the rescaled frame.
@@ -180,7 +180,7 @@ If you have reason to believe
 that your show might be native 1080p,
 you've got to go with your gut.
 
-![Date_A_Live_III-ep01_graph](images/descale_native1080_graph.png)
+![Date A Live III — 01 (getnative graph)](images/descale_native1080_graph.png)
 
 An example of a graph for a native 1080p show.
 
@@ -194,7 +194,8 @@ or when they're too risky.
 Here is an example of
 a "bad" graph:
 
-![Miru_Thighs-02_graph](images/descale_bad_graph1.png)
+![Miru Tights — 02 (getnative graph)](images/descale_bad_graph1.png)
+
 ```
 Output:
 Kernel: bicubic AR: 1.78 B: 0.33 C: 0.33
@@ -211,7 +212,8 @@ The results are not clear enough
 to work off of.
 Here's another example:
 
-![Black_Lagoon_graph](images/descale_bad_graph2.png)
+![Black Lagoon (getnative graph)](images/descale_bad_graph2.png)
+
 ```
 Output:
 Kernel: bicubic AR: 1.78 B: 0.33 C: 0.33
@@ -227,8 +229,9 @@ to watch out for
 is checking the results of a frame
 with letterboxing.
 
-![Kizumonoagatari_frame.png](images/descale_ararararagi.png)
-![Kizumonoagatari_frame_graph.png](images/descale_ararararagi_graph.png)
+![Kizumonogatari I](images/descale_ararararagi.png)
+
+![Kizumonogatari I (getnative graph)](images/descale_ararararagi_graph.png)
 
 You will have to crop them beforehand
 or they will return odd graphs like this.
@@ -236,7 +239,8 @@ or they will return odd graphs like this.
 For a change of pace,
 let's look at a good graph.
 
-![Aikatsu_Friend_NCOP_graph](images/descale_good_graph.png)
+![Aikatsu Friends! — NCOP (getnative graph)](images/descale_good_graph.png)
+
 ```
 Output:
 Kernel: bicubic AR: 1.78 B: 0.33 C: 0.33
@@ -249,10 +253,11 @@ going down to 810p.
 This is a good result
 for testing out varying kernels.
 
+
 ## Descaling
 
 Now it's time to actually start descaling.
-Open up your Vapoursynth editor of choice,
+Open up your VapourSynth editor of choice,
 and import the clip:
 
 ```Py
@@ -374,7 +379,7 @@ to help with dealing with that issue,
 but it might be better
 to make use of existing wrappers instead.
 For this example I'll
-be using `inverse_scale` from kagefunc.
+be using `inverse_scale` from `kagefunc`.
 
 ```Py
 descaled = kgf.inverse_scale(src, height=878, kernel='bicubic', b=0, c=1/2, mask_detail=True)
@@ -389,8 +394,9 @@ descaled = kgf.inverse_scale(src, height=874, kernel='bicubic', b=0, c=1/2)
 descaled_mask = kgf._generate_descale_mask(vsutil.get_y(core.resize.Spline36(src, descaled.width, descaled.height)), vsutil.get_y(descaled), kernel='bicubic', b=0, c=1/2)
 ```
 
-![KaguyaOP_credits_mask](images/descale_credits_mask.png)
-![KaguyaOP_descaled](images/descale_credits.png)
+![Kaguya-sama: Love Is War — OP (credits mask)](images/descale_credits_mask.png)
+
+![Kaguya-sama: Love Is War — OP (descaled)](images/descale_credits.png)
 
 Note that if you see the mask
 catching a lot of other stuff,
@@ -401,9 +407,9 @@ Chances are that you're either
 using the wrong kernel
 or that the frames you're looking at are native 1080p.
 
-![native1080.png](images/descale_native1080.png)
+![Manaria Friends — 01 (end card)](images/descale_native1080.png)
 
-![dontdescalethis.png](images/descale_dontdescalethis.png)
+![(Don't descale this)](images/descale_dontdescalethis.png)
 
 
 ## Dealing with bad descaling
@@ -451,8 +457,9 @@ specifically to fix up
 some bad aliasing
 in the source.
 
-![akanesasu_src.png](images/descale_akanesasu_src.png)
-![akanesasu_rescaled.png](images/descale_akanesasu_rescaled.png)
+![Akanesasu Shoujo — 01 (src)](images/descale_akanesasu_src.png)
+
+![Akanesasu Shoujo — 01 (rescaled)](images/descale_akanesasu_rescaled.png)
 
 ```py
 scaled = kgf.inverse_scale(src, height=900, kernel='bicubic', b=0.25, c=0.45, mask_detail=True)
@@ -465,6 +472,6 @@ on the CGI model.
 
 ***
 
-[^1]: Most, if not all, relevant Vapoursynth scripts/plug-ins and their functions can be found in the [VapourSynth Database][vsdb].
+[^1]: Most, if not all, relevant VapourSynth scripts/plug-ins and their functions can be found in the [VapourSynth Database][vsdb].
 
 [vsdb]: http://vsdb.top/
