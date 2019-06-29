@@ -136,7 +136,7 @@ this anime was produced at.
 Run the following in your terminal:
 
 ```bash
-$ python getnative.py "Manaria Friends Ep01 frame 4.png"
+$ python getnative.py "descale_manaria04.png"
 ```
 
 It should show the following:
