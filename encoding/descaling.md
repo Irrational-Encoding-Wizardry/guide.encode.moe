@@ -195,6 +195,7 @@ Here is an example of
 a "bad" graph:
 
 ![Miru_Thighs-02_graph](images/descale_bad_graph1.png)
+
 ```
 Output:
 Kernel: bicubic AR: 1.78 B: 0.33 C: 0.33
@@ -212,6 +213,7 @@ to work off of.
 Here's another example:
 
 ![Black_Lagoon_graph](images/descale_bad_graph2.png)
+
 ```
 Output:
 Kernel: bicubic AR: 1.78 B: 0.33 C: 0.33
@@ -230,6 +232,7 @@ with letterboxing.
 ![Kizumonoagatari_frame.png](images/descale_ararararagi.png)
 ![Kizumonoagatari_frame_graph.png](images/descale_ararararagi_graph.png)
 
+
 You will have to crop them beforehand
 or they will return odd graphs like this.
 
@@ -237,6 +240,7 @@ For a change of pace,
 let's look at a good graph.
 
 ![Aikatsu_Friend_NCOP_graph](images/descale_good_graph.png)
+
 ```
 Output:
 Kernel: bicubic AR: 1.78 B: 0.33 C: 0.33
@@ -248,6 +252,7 @@ but there's a very clear spike
 going down to 810p.
 This is a good result
 for testing out varying kernels.
+
 
 ## Descaling
 
@@ -392,6 +397,7 @@ descaled_mask = kgf._generate_descale_mask(vsutil.get_y(core.resize.Spline36(src
 ![KaguyaOP_credits_mask](images/descale_credits_mask.png)
 ![KaguyaOP_descaled](images/descale_credits.png)
 
+
 Note that if you see the mask
 catching a lot of other stuff,
 you might want to consider *not* descaling
@@ -453,6 +459,7 @@ in the source.
 
 ![akanesasu_src.png](images/descale_akanesasu_src.png)
 ![akanesasu_rescaled.png](images/descale_akanesasu_rescaled.png)
+
 
 ```py
 scaled = kgf.inverse_scale(src, height=900, kernel='bicubic', b=0.25, c=0.45, mask_detail=True)
