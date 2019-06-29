@@ -81,7 +81,7 @@ However, usually those differences
 are so small that they're negligible.
 If you run into a case where
 you can't find any low relative error spikes,
-resizing can be highly destructive.
+descaling can be highly destructive.
 It's instead recommended to resize
 as you would normally,
 or to not mess with scaling at all.
@@ -356,7 +356,7 @@ This is done so we can compare the before and after.
 The closer the new frame is to the old one,
 the more likely it is that you've got the correct kernel.
 Zooming in on the frame at 4x magnification or higher
-using nearest neighbor
+using Nearest Neighbor
 will help immensely.
 An alternative that you can use
 is to simply descale until
