@@ -67,7 +67,7 @@ but the sample code will always be written for VapourSynth.
 That being said, the installation of VapourSynth is quite easy.
 It is strongly recommended to install the 64-bit version
 of all tools listed here.
-VapourSynth requires Python 3.6 or newer
+VapourSynth requires Python 3.7 or newer
 (which can be downloaded [here][Python]).
 VapourSynth Windows binaries can be found
 [here][VapourSynth].
