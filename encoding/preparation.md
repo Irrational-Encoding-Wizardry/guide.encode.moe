@@ -341,7 +341,8 @@ So, do some ABX testing and decide for yourself.
 
 Be aware though,
 encoding a lossy audio-track with a lossless codec
-will just result in the same lossy audio-track with a lot more bitrate.
+will result in the same lossy audio-track.
+It will require a lot more bitrate though. 
 
 
 ## MKVToolNix
