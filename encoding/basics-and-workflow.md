@@ -249,7 +249,12 @@ it's time to encode the result.
 There are two video codecs that are generally accepted nowadays,
 and those are AVC/H264 and HEVC/H265.
 
-For H264 encodes, you should be using [x264[(x264)].
+For H264 encodes,
+you should be using [x264](x264).
+For x265, [x265](x265).
+Both are also included in ffmpeg,
+but for this guide
+we will be using the standalone programs.
 
 There are various settings you will have to tweak
 to get your desired results.
@@ -258,7 +263,7 @@ Here's a couple of common settings:
 * preset
 * keyint
 * crf
-* aq-strenght
+* aq-strength
 * psy-rd
 * output-depth
 * output-csp
@@ -296,7 +301,7 @@ Slice of Life anime can usually get away with higher values,
 whilst action anime or anime with a lot of darker scenes
 benefit from a lower crf.
 
-aq-strenght is a setting that can drastically change the perceived quality.
+aq-strength is a setting that can drastically change the perceived quality.
 Higher values do a better job of retaining gradients at the cost of causing ringing,
 while lower values preserve edges better at the cost of causing banding.
 It is generally adviced to start with `--aq-strength 0.70`
@@ -576,4 +581,5 @@ Most of these can be found in the [VapourSynth Database][vsdb]
 [mkvtoolnix]: https://mkvtoolnix.download/
 [mkvmerge_docs]: https://mkvtoolnix.download/doc/mkvmerge.html
 [x264]: https://www.videolan.org/developers/x264.html
+[x265]: http://x265.org/
 [psy-rd_post]: https://forum.doom9.org/showthread.php?t=138293
