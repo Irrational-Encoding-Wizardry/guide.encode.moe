@@ -244,17 +244,89 @@ like `Nnedi3`.
 
 ## Encoding the Result
 
-{% term %}
-$ vspipe.exe script.vpy -y - | x264.exe --demuxer y4m --some example --parameters here --output video.264 -
-{% endterm %}
+Now that the filtering has been applied,
+it's time to encode the result.
+There are two video codecs that are generally accepted nowadays,
+and those are AVC/H264 and HEVC/H265.
+
+For H264 encodes, you should be using [x264[(x264)].
+
+There are various settings you will have to tweak
+to get your desired results.
+
+Here's a couple of common settings:
+* preset
+* keyint
+* crf
+* aq-strenght
+* psy-rd
+* output-depth
+* output-csp
+
+The preset sets a lot of settings for you.
+You'll almost always want to run `--preset veryslow` for anime.
+
+The keyint sets how often keyframes will be created.
+For full episodes those are usually
+set to `--min-keyint framerate` and `--keyint framerate*20` or `framerate*30`,
+with "framerate" being the framerate of the video.
+For example, if your video is 23.976fps (most common for anime),
+`min-keyint` would be set to 24 and `keyint` would be set to 480 or 720.
+
+The **C**onstant **R**ate **F**actor sets the constant quality option.
+The default of `--crf 23` is way too low for anime,
+and going that high will result in artifacting popping up
+more often than not.
+For values to use, this varies per encoder.
+The commonly suggested values are as follows (lower is better):
+
+x264:
+* 480p: crf 18 or 19
+* 720p: crf 15 or 16
+* 1080p: crf 16
+
+x265:
+* 480p:
+* 720p:
+* 1080p:
+
+How high or low you go will vary depending on the show
+and how much you care for the final filesize versus the quality.
+Slice of Life anime can usually get away with higher values,
+whilst action anime or anime with a lot of darker scenes
+benefit from a lower crf.
+
+aq-strenght is a setting that can drastically change the perceived quality.
+Higher values do a better job of retaining gradients at the cost of causing ringing,
+while lower values preserve edges better at the cost of causing banding.
+It is generally adviced to start with `--aq-strength 0.70`
+and tweak according to your source.
+
+psy-rd sets the Psy-RDO and Psy-Trellis.
+For an explanation on how it works, read [this doom9 post](psy-rd_post).
+For anime you usually go with `--psy-rd 0.72:0`,
+and tweak the Psy-RDO settings (first value),
+while generally leaving the Psy-Trellis settings (second value) alone.
+Higher values can help with better grain retention.
+
+For newer versions of x264,
+it is important to set the `--output-depth 10` flag
+when encoding in 10bit colordepth.
+Otherwise it will encode in 8bit.
+Likewise, when encoding in a 4:4:4 colorspace,
+make sure you set `--output-csp i444`.
+
+With those things in mind,
+this is what a common command looks like:
 
 ```sh
-$ vspipe.exe script.vpy -y - | x264.exe --demuxer y4m --some example --parameters here --output video.264 -
+$ vspipe FTOP12.vpy --y4m - | x264 --demuxer y4m -o FTOP12.264 - --preset veryslow --crf 14 --keyint 240 --min-keyint 23 --ref 16 --bframes 16  --aq-mode 3 --aq-strength 0.70 --qcomp 0.70 --no-dct-decimate --no-fast-pskip --psy-rd 0.72:0.0 --output-depth 10
 ```
 
-Editors for VapourSynth usually have inbuilt support for encoding
-scripts you wrote. Use `%encode --y4m <clip_variable>` in Yuuno or the GUI
-provided by VSEdit.
+Editors for VapourSynth usually have inbuilt support
+for encoding scripts you wrote.
+Use `%encode --y4m <clip_variable>` in Yuuno
+or the GUI provided by VSEdit.
 
 
 ## Transcoding Audio
@@ -503,3 +575,5 @@ Most of these can be found in the [VapourSynth Database][vsdb]
 [opus-tools]: http://www.opus-codec.org/downloads/
 [mkvtoolnix]: https://mkvtoolnix.download/
 [mkvmerge_docs]: https://mkvtoolnix.download/doc/mkvmerge.html
+[x264]: https://www.videolan.org/developers/x264.html
+[psy-rd_post]: https://forum.doom9.org/showthread.php?t=138293
