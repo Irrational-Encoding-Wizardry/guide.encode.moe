@@ -341,7 +341,7 @@ So, do some ABX testing and decide for yourself.
 
 Encoding a lossy audio-track with a lossless one is a monumentally stupid idea.
 Lossless Audio Codecs are not magic.
-They can't generate infomation that has been lost by the lossy audio compression.
+They can't generate infomation that has been lost by lossy audio compression.
 You will still get the same lossy audio track but you will encode it with a lot more bitrate.
 
 
