@@ -259,12 +259,238 @@ provided by VSEdit.
 
 ## Transcoding Audio
 
-examples for qaac, flac
+Before getting into transcoding audio,
+it is important to learn about
+the difference between
+"lossy" and "lossless" compression.
 
+If you're transcoding in a lossy format,
+you are chucking away data
+deemed unnecessary by the encoder.
+This is the kind of encoding you do with video,
+however it can also be done with audio.
+The benefit of this is that
+you'll end up with smaller files,
+however this might cause a reduction in quality.
+
+Lossless compression is a form of compression where,
+upon decoding, none of the data is lost.
+This is fantastic for preservation.
+However, the results can also turn up
+pretty big, very quickly.
+
+Picking between lossy and lossless encoding
+comes down to what you prefer.
+Be it having smaller filesizes
+with possibly next to no perceivable difference from the original,
+or bigger files with as much information as possible.
+
+You should never encode from a lossy audio codec
+to a lossless one, though.
+This will only increase the filesize for zero gain.
+Likewise, you want to avoid lossy-to-lossy encoding
+as much as you possibly can.
+The more data you chuck away,
+the worse it will sound,
+because of [generational loss][generational_loss].
+
+There are generally three audio codecs
+that you will use:
+
+* FLAC
+* AAC
+* opus
+
+FLAC is a **F**ree **L**ossless **A**udio **C**odec.
+This is the go-to for lossless audio encoding,
+as it's better at compression
+than other lossless codecs (like PCM).
+You can encode to fLAC using ffmpeg
+with the following command:
+
+`$ ffmpeg -i input.wav output.flac`
+
+You can also change the compression level.
+What this does is that it will try to compress
+the audio file even further than with default settings.
+However, this will take more resources to encode *and* decode.
+Levels range from 0 to 12.
+
+`$ ffmpeg -i input.wav -compression_level 12 output.flac`
+
+To show the difference in filesize,
+I will use [this](audio/Fate_Zero_OP2_(original).wav) audio file
+as an example.
+This was ripped straight from the Fate/Zero blu-rays.
+The first part is the filesize in bytes,
+and the second is the name of the file.
+The number in the brackets
+indicates the `compression_level` used.
+
+```
+26.811.464 Fate_Zero_OP2_(original).wav
+20.373.919 Fate_Zero_OP2_(00).flac
+20.324.721 Fate_Zero_OP2_(01).flac
+20.313.009 Fate_Zero_OP2_(02).flac
+19.672.150 Fate_Zero_OP2_(03).flac
+19.602.556 Fate_Zero_OP2_(04).flac
+19.600.585 Fate_Zero_OP2_(05).flac
+19.599.423 Fate_Zero_OP2_(06).flac
+19.675.564 Fate_Zero_OP2_(07).flac
+19.526.067 Fate_Zero_OP2_(08).flac
+19.585.149 Fate_Zero_OP2_(09).flac
+19.525.085 Fate_Zero_OP2_(10).flac
+19.509.644 Fate_Zero_OP2_(11).flac
+19.469.016 Fate_Zero_OP2_(12).flac
+```
+
+The difference between them for something as short as an Opening
+isn't that significant,
+but that changes
+once you start looking at full episodes:
+
+```
+458.233.964 KaguyaBD_01_(original).wav
+314.660.781 KaguyaBD_01_(00).flac
+312.773.683 KaguyaBD_01_(01).flac
+312.486.815 KaguyaBD_01_(02).flac
+300.712.094 KaguyaBD_01_(03).flac
+299.806.321 KaguyaBD_01_(04).flac
+299.658.920 KaguyaBD_01_(05).flac
+299.606.279 KaguyaBD_01_(06).flac
+300.119.565 KaguyaBD_01_(07).flac
+298.832.315 KaguyaBD_01_(08).flac
+299.172.074 KaguyaBD_01_(09).flac
+298.773.829 KaguyaBD_01_(10).flac
+298.468.836 KaguyaBD_01_(11).flac
+297.952.201 KaguyaBD_01_(12).flac
+```
+
+We can drastically reduce the filesize
+by making use of `-sample_fmt s16`.
+Not a lot of anime have true 24bit audio,
+and the vast majority of people
+wouldn't be able to tell a difference regardless.
+Some encoders prefer encoding FLAC in 16bit instead
+for this very reason.
+
+```
+458.233.964 KaguyaBD_01_(original).wav
+163.088.307 KaguyaBD_01_(00)_16bit.flac
+161.313.003 KaguyaBD_01_(01)_16bit.flac
+161.051.956 KaguyaBD_01_(02)_16bit.flac
+149.929.246 KaguyaBD_01_(03)_16bit.flac
+149.084.733 KaguyaBD_01_(04)_16bit.flac
+148.909.370 KaguyaBD_01_(05)_16bit.flac
+148.857.694 KaguyaBD_01_(06)_16bit.flac
+148.848.250 KaguyaBD_01_(07)_16bit.flac
+148.149.100 KaguyaBD_01_(08)_16bit.flac
+148.088.813 KaguyaBD_01_(09)_16bit.flac
+148.080.093 KaguyaBD_01_(10)_16bit.flac
+147.368.127 KaguyaBD_01_(11)_16bit.flac
+147.327.448 KaguyaBD_01_(12)_16bit.flac
+```
+
+AAC serves as a fantastic middleground
+between FLAC and opus.
+AAC is a lossy audio codec,
+which results in overall smaller encodes
+at the cost of it throwing away some data.
+
+For encoding in AAC it is always recommended
+to use [qaac](qaac) (the Apple AAC encoder)
+over the AAC encoder supplied with ffmpeg.
+It does a much better job of preserving the perceptional quality
+over all its competitors,
+and is thus the go-to for people that encode in AAC.
+
+The options you'll used most is `-V`.
+`-V` sets the true Variable Bitrate mode,
+allowing qaac free reign in deciding
+what it believes to be the best bitrate to encode to.
+
+The most common command looks like this:
+
+`$ qaac input.wav -V 127`
+
+Let's compare the filesizes between the FLAC encodes we did before.
+
+```
+26.811.464 Fate_Zero_OP2_(original).wav
+19.469.016 Fate_Zero_OP2_(12)_24bit.flac
+10.898.384 Fate_Zero_OP2_(12)_16bit.flac
+ 3.886.831 Fate_Zero_OP2_(qaac).m4a
+```
+```
+458.233.964 KaguyaBD_01_(original).wav
+297.952.201 KaguyaBD_01_(12)_24bit.flac
+147.327.448 KaguyaBD_01_(12)_16bit.flac
+ 54.191.826 KaguyaBD_01_(qaac).m4a
+```
+
+The final commonly-used audio codec is opus.
+Opus is used for web audio,
+as it is designed for
+low-latency, low-complexity audio compression.
+This makes it great for "mini" releases.
+You can encode to qaac through ffmpeg:
+
+`$ ffmpeg -i input.wav output.opus`
+
+Or through [Opus-tools](opus-tools)
+if you don't know
+how to compile ffmpeg with opus support:
+
+`$ opusenc input.wav output.opus`
+
+Unlike qaac, opus works with a constant bitrate.
+You can set it with `-b:a` in ffmpeg
+and `--bitrate` in opusenc.
+For anime, a bitrate of 128k is usually transparent
+for both dialogue and music.
+
+`$ opusenc input.wav --bitrate 128k output.opus`
 
 ## Muxing
 
-mkvtoolnix
+The most common tool for muxing is [mkvtoolnix](mkvtoolnix).
+It offers an easy-to-use GUI,
+as well as CLI for those that prefer that.
+
+The input tab is where you drag most of your components.
+This can be video, audio, and subtitles.
+You can also set the languages
+and additional settings for every track,
+like for example delays, track names, playback fps, etc.
+
+![mkvtoolnix Input tab](images/basics_mkvtoolnix_input.png)
+
+The output tab allows you to change the output.
+You can for example trim the output,
+set the segments, file title, etc.
+This is also where you load in the chapters
+if your video has any.
+
+![mkvtoolnix Output tab](images/basics_mkvtoolnix_output.png)
+
+The attachments tab is where you add attachments
+to the output video.
+These are generally fonts.
+
+![mkvtoolnix Attachments tab](images/basics_mkvtoolnix_attachments.png)
+
+The Chapter Editor allows you to create and edit chapters.
+These are used to skip to certain parts of the video,
+like for example the Opening.
+
+![mkvtoolnix Chapters page](images/basics_mkvtoolnix_chapter.png)
+
+For CLI, you can do a simple mux with the following command:
+
+`$ mkvmerge -o output.mkv input_video.264 input_audio.m4a`
+
+For a list of all settings,
+check the [documentation](mkvmerge_docs).
 
 ***
 
@@ -272,3 +498,8 @@ mkvtoolnix
 Most of these can be found in the [VapourSynth Database][vsdb]
 
 [vsdb]: http://vsdb.top/
+[generational_loss]: https://en.wikipedia.org/wiki/Generation_loss
+[qaac]: https://github.com/nu774/qaac
+[opus-tools]: http://www.opus-codec.org/downloads/
+[mkvtoolnix]: https://mkvtoolnix.download/
+[mkvmerge_docs]: https://mkvtoolnix.download/doc/mkvmerge.html
