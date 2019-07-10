@@ -63,7 +63,7 @@ and reading the data from the drive
 and simply sends the data straight from one program to another.
 
 To pipe from ffmpeg, specify the output format as WAV using the `-f` option,
-replace the output file name with a hyphen and place a pipe symbol at the end,
+replace the output filename with a hyphen and place a pipe symbol at the end,
 which will be used to separate the ffmpeg command from your encoder command,
 like this:
 ```
@@ -90,7 +90,7 @@ With this option FLAC will ignore the header
 and just encode the file from the beginning to the end.
 
 To encode audio piped from ffmpeg,
-replace the input file name with a hyphen
+replace the input filename with a hyphen
 and place the whole command after the ffmpeg command,
 like this:
 ```
@@ -128,7 +128,7 @@ in vast majority of cases.
 Read why in this [HydrogenAudio forum post][hydrogen_forum].
 
 To encode audio piped from ffmpeg,
-replace the input file name with a hyphen
+replace the input filename with a hyphen
 and place the whole command after the ffmpeg command:
 ```
 ffmpeg -i "input.dts" -acodec pcm_s24le -f wav - | qaac64 --tvbr 91 --ignorelength --no-delay  - -o "output.m4a"
@@ -158,7 +158,7 @@ the recommended bitrate for stereo is 160 kbps,
 while for 5.1 something in the neighbourhood of 320-384 kbps should be OK.  
 `--vbr` sets the encoding mode to Variable Bitrate, while `--ignorelength` does the same thing as in qaac.
 
-Encoding stream piped from ffmpeg works the same as for previous encoders—just replace the input file name with a hyphen:
+Encoding stream piped from ffmpeg works the same as for previous encoders—just replace the input filename with a hyphen:
 ```
 ffmpeg -i "input.dts" -acodec pcm_s24le -f wav - | opusenc --bitrate 160 --vbr --ignorelength - "output.opus"
 ```
