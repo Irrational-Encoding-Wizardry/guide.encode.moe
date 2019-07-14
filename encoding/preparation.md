@@ -175,8 +175,8 @@ VapourSynth-Script.
      
      In short: very useful for thorough comparisons and filter fine-tuning, not so much for everything else.
      
-     ![The editing window](http://0x0.st/zmIN.png)
-     ![the preview window](http://0x0.st/zmIq.png)
+     ![The editing window](images/VS-Multi-Viewer_Preview.png)
+     ![the preview window](images/VS-Multi-Viewer_Editor.png)
      
     
 4.  [AvsPmod](https://github.com/AvsPmod/AvsPmod/releases). This is the
