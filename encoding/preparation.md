@@ -116,7 +116,7 @@ These are usually more specific than the universally usable core plugins
 or they are collections of wrappers and functions.
 A (non-exhaustive) list of plugins and scripts is available in the
 [official documentation][vs-plugins]. Additionally, an extensive database of VapourSynth plugins and scripts is available at [VSDB][vsdb]. 
-VSDB also offers  a GUI for [vsrepo][vsrepo], VapourSynth’s official package manager, 
+VSDB also offers a GUI for [vsrepo][vsrepo], VapourSynth’s official package manager, 
 and a plugin pack (labeled “Portable FATPACK”) that bundles most popular plugins, scripts and VS-related applications in one archive for ease of download and installation.
 
 An alternative to the latter is [eXmendiC’s encode pack][ex-encode-pack],
@@ -175,8 +175,8 @@ VapourSynth-Script.
      
      In short: very useful for thorough comparisons and filter fine-tuning, not so much for everything else.
      
-     ![The editing window](images/VS-Multi-Viewer_Preview.png)
-     ![the preview window](images/VS-Multi-Viewer_Editor.png)
+     ![VS Multi-Viewer’s editing window.](images/VS-Multi-Viewer_Preview.png)
+     ![VS Multi-Viewer’s preview window.](images/VS-Multi-Viewer_Editor.png)
      
     
 4.  [AvsPmod](https://github.com/AvsPmod/AvsPmod/releases). This is the
