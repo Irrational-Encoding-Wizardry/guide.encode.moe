@@ -109,19 +109,22 @@ or [ask for help][Discord].
 
 ### Plugins
 
-In addition to VapourSynth's core plugins,
+In addition to VapourSynth’s core plugins,
 community-created scripts and plugins
 can be installed to extend the functionality of the frameserver.
 These are usually more specific than the universally usable core plugins
 or they are collections of wrappers and functions.
 A (non-exhaustive) list of plugins and scripts is available in the
-[official documentation][vs-plugins].
-Alternatively, some individuals in the community are creating archives
-containing the most recent version of useful plugins.
-[eXmendiC's encode pack][ex-encode-pack] is an example of this
-(the lite version should suffice).
+[official documentation][vs-plugins]. Additionally, an extensive database of VapourSynth plugins and scripts is available at [VSDB][vsdb]. 
+VSDB also offers  a GUI for [vsrepo][vsrepo], VapourSynth’s official package manager, 
+and a plugin pack (labeled “Portable FATPACK”) that bundles most popular plugins, scripts and VS-related applications in one archive for ease of download and installation.
+
+An alternative to the latter is [eXmendiC’s encode pack][ex-encode-pack],
+which contains a lot of encoding-related applications and scripts on top of a broad collection of VapourSynth plugins and scripts. However, the package is not maintained anymore and may in part include outdated software.
 
 [vs-plugins]: http://www.vapoursynth.com/doc/pluginlist.html "Plugins, Applications & Scripts"
+[vsdb]: http://vsdb.top/
+[vsrepo]: https://github.com/vapoursynth/vsrepo
 [ex-encode-pack]: https://iamscum.wordpress.com/encoding-stuff/encode-pack/
 
 
@@ -138,7 +141,7 @@ tooltips,
 preview images,
 and comparisons.
 
-There are two editors that can be used to preview you
+There are four editors that can be used to preview your
 VapourSynth-Script.
 
 1.  [VSEdit](https://bitbucket.org/mystery_keeper/vapoursynth-editor).
@@ -162,8 +165,21 @@ VapourSynth-Script.
     extension for Jupyter Notebook.
 
     ![A Jupyter Notebook.](images/cnvimage101.png)
-
-3.  [AvsPmod](https://github.com/AvsPmod/AvsPmod/releases). This is the
+    
+3.  [VapourSynth Multi-Viewer](https://github.com/mysteryx93/VapourSynthViewer.NET/releases/).
+     Multi-Viewer is a very simple and elementary previewing tool. 
+     While the text editing is vastly inferior to VSEdit’s, 
+     and the preview lacks a lot of VSEdit’s advanced features,
+     its tab-based previewing functionality easily outclasses VSEdit’s single preview window, 
+     because it makes comparisons between different script versions a lot more convenient and efficient.
+     
+     In short: very useful for thorough comparisons and filter fine-tuning, not so much for everything else.
+     
+     ![The editing window](http://0x0.st/zmIN.png)
+     ![the preview window](http://0x0.st/zmIq.png)
+     
+    
+4.  [AvsPmod](https://github.com/AvsPmod/AvsPmod/releases). This is the
     editor for AviSynth. It is old and slow but stable. When you are
     using AviSynth, you are limited to this editor. AvsPmod *can* handle
     AviSynth and VapourSynth scripts, however, VapourSynth support was
