@@ -22,14 +22,57 @@ This article will cover:
 
 Masking refers to a broad set of techniques used to merge multiple clips,
 usually one filtered clip merged with a source clip
-according to an overlay mask.
+according to an overlay mask. 
 A mask clip may contain any information
 generated from a pixel-wise operation.
+Mask clips are usually grayscale, 
+i.e. they consist of only one plane and thus contain no color information.
+In VapourSynth, such clips use the color family `GRAY`
+and one of these formats: 
+`GRAY8` (8 bits integer),
+`GRAY16` (16 bits integer),
+or `GRAYS` (single precision floating point).
+
+
 Vapoursynth includes some basic tools for manipulating masks as well:
 
 [**std.Minimum/std.Maximum**](http://www.vapoursynth.com/doc/functions/minimum_maximum.html)
 
-TODO
+The Minimum/Maximum operations replace each pixel
+with the smallest/biggest value in its 3x3 neighbourhood. 
+The 3x3 neighbourhood of a pixel
+are the 8 pixels directly adjacent to the pixel in question
+plus the pixel itself.
+To illustrate:
+![3x3 neighborhood](images/3x3.png)
+
+The Minimum/Maximum filters
+look at the 3x3 neighbourhood of each pixel in the input image
+and replace the corresponding pixel in the output image
+with the brightest (Maximum) or darkest (Minimum) pixel in that neighbourhood.
+
+Maximum generally expands/grows a mask
+because all black pixels adjacent to white edges will be turned white,
+whereas Minimum generally shrinks the mask
+because all white pixels bordering on black ones will be turned black.
+
+See the next section for usage examples.
+
+Side note:
+In general image processing,
+these operations are known as [Erosion][Erosion] (Minimum) 
+and [Dilation][Dilation] (Maximum).
+Maximum/Minimum actually implement only a specific case
+where the [structuring element][Structuring element] is a 3x3 square.
+The built-in `morpho` plug-in implements the more general case
+in the functions `morpho.Dilate` and `morpho.Erode`
+which allow finer control over the structuring element.
+However, these functions are significantly slower ``std.Minimum``/`std.Maximum`.
+
+[Erosion]: https://en.wikipedia.org/wiki/Erosion_(morphology)
+[Dilation]: https://en.wikipedia.org/wiki/Dilation_(morphology)
+[Structuring element]: https://en.wikipedia.org/wiki/Structuring_element
+
 
 [**std.Inflate/std.Deflate**](http://www.vapoursynth.com/doc/functions/deflate_inflate.html)
 
@@ -83,21 +126,106 @@ Internally it uses a mask called a Camembert to generate a larger mask
 and limits it to the area affected by a line-darkening script.
 The main mask has no name and is simply dhhmask(mode=3).
 
-Example: Build a simple dehalo mask
+For more information about edgemasks, see [here](https://kageru.moe/blog/article/edgemasks).
+
+#### Example: Build a simple dehalo mask
+
+Suppose you want to remove these halos:
+
+![source](images/halos.png)
+
+![halos](images/src0.png)
+
+(Note that the images shown in your browser are likely resized poorly; 
+you can compare them at full size [here][comparison].)
+
+Fortunately, there is a well-established script that does just that: 
+[DeHalo_alpha][dehalo_alpha].
+
+However, we must be cautious in applying that filter,
+since, while removing halos reliably,
+it’s extremly destructive to the lineart as well.
+Therefore we must use a **dehalo mask**
+to protect the lineart and limit the filtering to halos.
+
+
+A dehalo mask aims to cover the halos
+but exclude the lines themselves,
+so that the lineart won’t be blurred or dimmed.
+In order to do that,
+we first need to generate an edgemask.
+In this example,
+we’ll use the built-in Sobel function.
+After generating the edge mask, we extract the luma plane:
 
 ```py
-#black line mask
-mask = zz.dhhmask(src)
+mask = core.std.Sobel(src, 0)
+luma = core.std.ShufflePlanes(mask, 0, colorfamily=vs.GRAY)
 
-#grow mask to cover halos
-mask_outer = kgf.iterate(mask, core.std.Maximum, 3)
+```
 
-#extend a bit and shrink back to exclude close, adjacent lines
-mask_inner = core.std.Maximum(mask_outer)
-mask_inner = kgf.iterate(mask_inner, core.std.Minimum ,4)
+![mask luma](images/luma0.png)
 
+Next, we expand the mask twice, so that it covers the halos. 
+``vsutil.iterate`` is a function in [vsutil][vsutil iterate]
+which applies the specified filter a specified number of times to a clip – 
+in this case it runs ``std.Maximum`` 2 times.
+
+```py
+mask_outer = vsutil.iterate(luma, core.std.Maximum, 2)
+```
+
+![mask_outer](images/mask_outer0.png)
+Now we shrink the expanded clip back
+to cover only the lineart. 
+Applying ``std.Minimum`` twice
+would shrink it back to the edge mask’s original size, 
+but since the edge mask covers part of the halos too, 
+we need to erode it a little further. 
+
+The reason we used ``mask_outer`` as the basis and shrank it thrice,
+instead of using ``mask`` and shrinking it once, 
+which would result in a similiar outline,
+is that this way,
+small adjacent lines with gaps in them (i.e areas of fine texture or details), 
+such as the man’s eyes in this example,
+are covered up completely,
+preventing detail loss. 
+
+```py
+mask_inner = vsutil.iterate(mask_outer, core.std.Minimum, 3)
+```
+
+![mask_inner](images/mask_inner0.png)
+Now we substract the outer mask covering the halos and the lineart from the inner mask covering only the lineart. 
+This yields a mask covering only the halos,
+which is what we originally wanted:
+
+```py
 halos = core.std.Expr([mask_outer, mask_inner], 'x y -')
 ```
+
+![halos](images/halos0.png)
+Next, we do the actual dehaloing:
+
+```py
+dehalo = hf.DeHalo_alpha(src)
+```
+
+![dehalo](images/dh0.png)
+Lastly, we use MaskedMerge to merge only the filtered halos into the source clip,
+leaving the lineart mostly untouched:
+
+```py
+masked_dehalo = core.std.MaskedMerge(src, dehalo, halos)
+```
+
+![voilá: masked_dehalo](images/dehalod0.png)
+
+[comparison]: https://slowpics.org/comparison/96cbeca4-b4be-4dfc-82b1-631bbc85cdb0
+[dehalo_alpha]: https://github.com/HomeOfVapourSynthEvolution/havsfunc/blob/master/havsfunc.py#L393
+[vsutil iterate]: https://github.com/Irrational-Encoding-Wizardry/vsutil/blob/master/vsutil.py#L64
+---
 
 I would also lump the range mask
 (or in masktools,
@@ -144,8 +272,7 @@ for example:
 kagefunc's hardsubmask uses a special edge mask with a diff mask,
 and uses core.misc.Hysteresis to grow the line mask into diff mask.
 
-Example: Create a descale mask for white non-fading credits with extra
-protection for lines (16 bit input)
+#### Example: Create a descale mask for white non-fading credits with extra protection for lines (16 bit input)
 
 
 ```py
@@ -215,7 +342,7 @@ changes greater than 128 will be clipped as well.
 This can be worked around by re-defining the input clip as so:
 
 ```py
-smooth = core.bilateral.Bilateral(sigmaS=6.4, sigmaR=0.009)
+smooth = core.bilateral.Bilateral(src, sigmaS=6.4, sigmaR=0.009)
 noise = core.std.MakeDiff(src, smooth) # subtract filtered clip from source leaving the filtered difference
 smooth = core.std.MakeDiff(src, noise) # subtract diff clip to prevent clipping (doesn't apply to 32 bit)
 ```
@@ -270,6 +397,7 @@ ref = core.rgvs.RemoveGrain(src, 2)
 
 # xvid analysis is better in lower resolutions
 first = core.resize.Bilinear(ref, 640, 360).wwxd.WWXD()
+# shift by one frame
 last = core.std.DuplicateFrames(first, src.num_frames - 1).std.DeleteFrames(0)
 
 # copy prop to last frame of previous scene
