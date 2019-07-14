@@ -115,12 +115,20 @@ can be installed to extend the functionality of the frameserver.
 These are usually more specific than the universally usable core plugins
 or they are collections of wrappers and functions.
 A (non-exhaustive) list of plugins and scripts is available in the
-[official documentation][vs-plugins]. Additionally, an extensive database of VapourSynth plugins and scripts is available at [VSDB][vsdb]. 
-VSDB also offers a GUI for [vsrepo][vsrepo], VapourSynth’s official package manager, 
-and a plugin pack (labeled “Portable FATPACK”) that bundles most popular plugins, scripts and VS-related applications in one archive for ease of download and installation.
+[official documentation][vs-plugins]. 
+Additionally, an extensive database of VapourSynth plugins and scripts 
+is available at [VSDB][vsdb]. 
+VSDB also offers a GUI for [vsrepo][vsrepo],
+VapourSynth’s official package manager, 
+and a plugin pack (labeled “Portable FATPACK”) 
+that bundles most popular plugins, scripts and VS-related applications in one archive 
+for ease of download and installation.
 
 An alternative to the latter is [eXmendiC’s encode pack][ex-encode-pack],
-which contains a lot of encoding-related applications and scripts on top of a broad collection of VapourSynth plugins and scripts. However, the package is not maintained anymore and may in part include outdated software.
+which contains a lot of encoding-related applications and scripts,
+on top of a broad collection of VapourSynth plugins and scripts. 
+However, the package is not maintained anymore,
+and may in part include outdated software.
 
 [vs-plugins]: http://www.vapoursynth.com/doc/pluginlist.html "Plugins, Applications & Scripts"
 [vsdb]: http://vsdb.top/
@@ -171,9 +179,11 @@ VapourSynth-Script.
      While the text editing is vastly inferior to VSEdit’s, 
      and the preview lacks a lot of VSEdit’s advanced features,
      its tab-based previewing functionality easily outclasses VSEdit’s single preview window, 
-     because it makes comparisons between different script versions a lot more convenient and efficient.
+     because it makes comparisons between different script versions 
+     a lot more convenient and efficient.
      
-     In short: very useful for thorough comparisons and filter fine-tuning, not so much for everything else.
+     In short: very useful for thorough comparisons and filter fine-tuning, 
+     not so much for everything else.
      
      ![VS Multi-Viewer’s editing window.](images/VS-Multi-Viewer_Preview.png)
      ![VS Multi-Viewer’s preview window.](images/VS-Multi-Viewer_Editor.png)
