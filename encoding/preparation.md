@@ -115,18 +115,19 @@ can be installed to extend the functionality of the frameserver.
 These are usually more specific than the universally usable core plugins
 or they are collections of wrappers and functions.
 A (non-exhaustive) list of plugins and scripts is available in the
-[official documentation][vs-plugins]. 
-Additionally, an extensive database of VapourSynth plugins and scripts 
-is available at [VSDB][vsdb]. 
+[official documentation][vs-plugins].
+Additionally, an extensive database of VapourSynth plugins and scripts
+is available at [VSDB][vsdb].
 VSDB also offers a GUI for [vsrepo][vsrepo],
-VapourSynth’s official package manager, 
-and a plugin pack (labeled “Portable FATPACK”) 
-that bundles most popular plugins, scripts and VS-related applications in one archive 
+VapourSynth’s official package manager,
+and a plugin pack (labeled “Portable FATPACK”)
+that bundles most popular plugins,
+scripts, and VS-related applications into one archive
 for ease of download and installation.
 
 An alternative to the latter is [eXmendiC’s encode pack][ex-encode-pack],
 which contains a lot of encoding-related applications and scripts,
-on top of a broad collection of VapourSynth plugins and scripts. 
+on top of a broad collection of VapourSynth plugins and scripts.
 However, the package is not maintained anymore,
 and may in part include outdated software.
 
@@ -173,22 +174,23 @@ VapourSynth-Script.
     extension for Jupyter Notebook.
 
     ![A Jupyter Notebook.](images/cnvimage101.png)
-    
+
 3.  [VapourSynth Multi-Viewer](https://github.com/mysteryx93/VapourSynthViewer.NET/releases/).
-     Multi-Viewer is a very simple and elementary previewing tool. 
-     While the text editing is vastly inferior to VSEdit’s, 
-     and the preview lacks a lot of VSEdit’s advanced features,
-     its tab-based previewing functionality easily outclasses VSEdit’s single preview window, 
-     because it makes comparisons between different script versions 
-     a lot more convenient and efficient.
-     
-     In short: very useful for thorough comparisons and filter fine-tuning, 
-     not so much for everything else.
-     
-     ![VS Multi-Viewer’s editing window.](images/VS-Multi-Viewer_Preview.png)
-     ![VS Multi-Viewer’s preview window.](images/VS-Multi-Viewer_Editor.png)
-     
-    
+    Multi-Viewer is a very simple and elementary previewing tool.
+    While the text editing is vastly inferior to VSEdit’s,
+    and the preview lacks a lot of VSEdit’s advanced features,
+    its tab-based previewing functionality easily outclasses
+    VSEdit’s single preview window,
+    because it makes comparisons between different script versions
+    a lot more convenient and efficient.
+
+    In short: very useful for thorough comparisons and filter fine-tuning,
+    not so much for everything else.
+
+    ![VS Multi-Viewer’s editing window.](images/VS-Multi-Viewer_Preview.png)
+
+    ![VS Multi-Viewer’s preview window.](images/VS-Multi-Viewer_Editor.png)
+
 4.  [AvsPmod](https://github.com/AvsPmod/AvsPmod/releases). This is the
     editor for AviSynth. It is old and slow but stable. When you are
     using AviSynth, you are limited to this editor. AvsPmod *can* handle
@@ -202,6 +204,7 @@ VapourSynth-Script.
 Please rest assured that the author does not impose any editor on you.
 Instead we will give callouts for some editors.
 These will be completely optional.
+
 
 ## Video Codecs
 
@@ -301,7 +304,8 @@ adding it to the system PATH is recommeded.
 When working with WEB and TV sources,
 you will most likely have only lossy audio available.
 The most common codecs here are AC-3, E-AC-3 and AAC.
-Lossily compressed files should generally not be reencoded—the proper way to handle them
+Lossily compressed files should generally
+not be reencoded—the proper way to handle them
 is to remux (i.e. copy) them to the final file.
 
 [ffmpeg]: https://www.ffmpeg.org/download.html
@@ -356,11 +360,13 @@ unless you really have to, for some reason.
 ### Lossless or lossy?
 
 This is entirely dependent on you.
-Some people like the idea of having an (theoretically) perfect copy of the master audio file,
+Some people like the idea of having a (theoretically)
+perfect copy of the master audio file,
 don't mind the increase in size,
 and state that lossless is the only way to go when archiving.
 Others prefer smaller file sizes,
-knowing that the difference—assuming high enough bitrate—won't be audible anyway.
+knowing that the difference—assuming high enough bitrate—won't
+be audible anyway.
 And they both have a point.
 
 So, do some ABX testing and decide for yourself.
