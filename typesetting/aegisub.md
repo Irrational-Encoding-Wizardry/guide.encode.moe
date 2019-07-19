@@ -9,7 +9,7 @@ they need to be configured properly.
 Here is a list of tools you will want to download:
 
   - [Aegisub][]
-      - It is **highly** recommended to use [line0's builds][] which
+      - It is **highly** recommended to use [CoffeeFlux's builds][][^1] which
         include Dependency Control and several *critical*
         fixes to Aegisub that have not been merged into the official
         application.
@@ -55,7 +55,7 @@ Here is a list of tools you will want to download:
 [Adobe Photoshop and Illustrator]: http://www.adobe.com/creativecloud.html
 [Gimp]: https://www.gimp.org
 [Inkscape]: https://inkscape.org/en/
-[line0's builds]: https://files.line0.eu/builds/Aegisub/
+[CoffeeFlux's builds]: https://thevacuumof.space/builds/
 
 
 ## Configuring Aegisub
@@ -180,7 +180,7 @@ and move on for now.
 
 ***
 
-[^1]: Most if not all fansubbers use Mocha for motion-tracking, but the author of the motion-tracking page prefers the free software Blender, which may be easier for some to acquire.
+[^1]: A long outstanding bug has made the recent versions of Aegisub unstable. The latest stable version as of writing this, r8903+1, can be found on [GoodJobMedia's website][].
 
 [^2]: 32-bit builds on Windows may be more stable.
 
@@ -192,3 +192,4 @@ and move on for now.
 [High Definition]: https://en.wikipedia.org/wiki/High-definition_video
 [BT.601]: https://en.wikipedia.org/wiki/Rec._601
 [BT.709]: https://en.wikipedia.org/wiki/Rec._709
+[GoodJobMedia's website]: https://www.goodjobmedia.com/fansubbing/
