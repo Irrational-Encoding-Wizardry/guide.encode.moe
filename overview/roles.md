@@ -7,9 +7,9 @@
 3.  [**Typesetter**](#typesetter)
 4.  [**Editor**](#editor)
 5.  [**Quality Checker**](#quality-checker)
-6.  *Optional*: Translator
-7.  *Optional*: Translation Checker
-8.  *Optional*: Karaoke Effects Creator
+6.  *Optional*: [Translator](#translator--translation-checker)
+7.  *Optional*: [Translation Checker](#translator--translation-checker)
+8.  *Optional*: [Karaoke Effects Creator](#karaoke-effect-creator)
 9.  *Optional*: Project Leader
 
 In this guide, we will only be providing in-depth guides for the
