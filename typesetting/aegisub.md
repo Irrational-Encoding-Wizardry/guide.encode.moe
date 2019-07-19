@@ -166,6 +166,7 @@ that we recommend for all anime-viewing purposes.
 [MPC-HC]: https://mpc-hc.org/
 [mpv]: https://mpv.io/
 
+
 ### Hotkeys
 
 As you develop your skills more
@@ -178,13 +179,13 @@ in Aegisub's Options menu.
 We'll let you decide on those yourself, however,
 and move on for now.
 
-***
+---
 
 [^1]: A long outstanding bug has made the recent versions of Aegisub unstable. The latest stable version as of writing this, r8903+1, can be found on [GoodJobMedia's website][].
 
 [^2]: 32-bit builds on Windows may be more stable.
 
-[^3]: For further reading on this, visit the Wikipedia pages for[Standard Definition][] video, [High Definition][] video, and the [BT.601][] and [BT.709][] color spaces.
+[^3]: For further reading on this, visit the Wikipedia pages for [Standard Definition][] video, [High Definition][] video, and the [BT.601][] and [BT.709][] color spaces.
 
 [^4]: With the development of [mpv][], codec packs and player add-ons are no longer required.
 
