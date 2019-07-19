@@ -53,13 +53,9 @@ why it only applies to a specific language.
 ### Technology
 
 This guide is written in [Markdown][]
-and uses [gitbook][]'s [toolchain][] to compile
+and uses legacy gitbook's [toolchain][] to compile
 the static HTML pages.
 Gitbook uses the [Github Flavoured Markdown][GFM] (GFM) variant.
-
-Documentation for gitbook's toolchain (including gitbook markdown sytax)
-can be found here:
-<https://toolchain.gitbook.com/>
 
 In order to build and preview the guide locally,
 you need [npm][] and [node.js][].
@@ -97,7 +93,6 @@ will cause your browser to be refreshed
 and automatically reloaded.
 
 [Markdown]: https://en.wikipedia.org/wiki/Markdown
-[gitbook]: https://www.gitbook.com/
 [toolchain]: https://github.com/GitbookIO/gitbook
 [GFM]: https://github.github.com/gfm/
 [npm]: https://npmjs.com/
@@ -160,10 +155,10 @@ The following are the style guidelines
 for various aspects of this guide.
 The most important aspect is having **Semantic Linefeeds**.
 The other points may serve as guidelines for formatting future pages.
-Refer to [gitbook's markdown documentation][gitbookMarkdown]
+Refer to [gitbook's markdown documentation][gitbookMarkdown][^1]
 for guidelines on visual formatting.
 
-[gitbookMarkdown]: https://toolchain.gitbook.com/syntax/markdown.html
+[gitbookMarkdown]: https://gitbookio.gitbooks.io/documentation/content/format/markdown.html
 
 
 ### Semantic Linefeeds (!)
@@ -300,3 +295,8 @@ simply place the full citation at the bottom of the document,
 under a horizontal rule.
 
 [Citation Machine]: http://www.citationmachine.net/apa/cite-a-website
+---
+
+[^1]: The new gitbook spec is very different than the version this book is using. Almost none one of the information from [gitbook's new website][new-gitbook] applies.
+
+[new-gitbook]: https://www.gitbook.com/
