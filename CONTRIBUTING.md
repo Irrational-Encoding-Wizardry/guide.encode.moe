@@ -357,7 +357,7 @@ Line breaks **cannot** be used.
 
 ---
 
-[^1]: The new gitbook spec is very different than the version this book is using. Almost none one of the information from [gitbook's new website][new-gitbook] applies.
+[^1]: The new gitbook spec is very different than the version this book is using. Almost none of the information from [gitbook's new website][new-gitbook] applies.
 
 [^2]: This is different from how github.com's markdown preview behaves.
 
