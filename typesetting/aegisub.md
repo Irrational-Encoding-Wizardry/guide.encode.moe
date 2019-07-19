@@ -45,14 +45,14 @@ Here is a list of tools you will want to download:
 
 [Aegisub]: http://www.aegisub.org
 [Nexusfont]: http://www.xiles.net
-[FontBase]: http://fontba.se
-[MainType]: http://www.high-logic.com/font-manager/maintype.html
+[FontBase]: https://fontba.se/
+[MainType]: https://www.high-logic.com/font-manager/maintype
 [Suitcase Fusion]: https://www.extensis.com/products/font-management/suitcase-fusion/
 [Mocha Pro standalone app]: https://www.imagineersystems.com/products/mocha-pro/
 [Quicktime]: https://support.apple.com/kb/DL837?locale=en_US
-[quicktimeFAQ]: http://www.imagineersystems.com/support/support-faq/#quicktime-on-windows
+[quicktimeFAQ]: https://borisfx.com/faq/quicktime-on-windows/
 [x264 binary]: https://download.videolan.org/x264/binaries/
-[Adobe Photoshop and Illustrator]: http://www.adobe.com/creativecloud.html
+[Adobe Photoshop and Illustrator]: https://www.adobe.com/creativecloud.html
 [Gimp]: https://www.gimp.org
 [Inkscape]: https://inkscape.org/en/
 [CoffeeFlux's builds]: https://thevacuumof.space/builds/
