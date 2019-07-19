@@ -28,12 +28,10 @@ Here is a list of tools you will want to download:
           - [MainType][]
           - [Suitcase Fusion][]
   - Software for motion-tracking
-      - Option 1: [Mocha Pro standalone app][]
+      - [Mocha Pro standalone app][]
         - Look for it on *certain websites*.
         - On Windows, Mocha **requires** [Quicktime][] to be installed.
           More information can be found [here][quicktimeFAQ].
-      - Option 2: [Blender][][^1]
-        - Requires a plug-in that will be discussed in a later section.
   - [x264 binary][][^2]
       - Download the latest binary for your platform.
       - For example: `x264-r2935-545de2f.exe` for win64
@@ -53,7 +51,6 @@ Here is a list of tools you will want to download:
 [Mocha Pro standalone app]: https://www.imagineersystems.com/products/mocha-pro/
 [Quicktime]: https://support.apple.com/kb/DL837?locale=en_US
 [quicktimeFAQ]: http://www.imagineersystems.com/support/support-faq/#quicktime-on-windows
-[Blender]: https://www.blender.org/download/
 [x264 binary]: https://download.videolan.org/x264/binaries/
 [Adobe Photoshop and Illustrator]: http://www.adobe.com/creativecloud.html
 [Gimp]: https://www.gimp.org
