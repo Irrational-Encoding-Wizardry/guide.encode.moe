@@ -43,8 +43,8 @@ with the smallest/biggest value in its 3x3 neighbourhood.
 The 3x3 neighbourhood of a pixel
 are the 8 pixels directly adjacent to the pixel in question
 plus the pixel itself.
-To illustrate:
-![3x3 neighborhood](images/3x3.png)
+
+![Illustration of the 3x3 neighborhood](images/3x3.png)
 
 The Minimum/Maximum filters
 look at the 3x3 neighbourhood of each pixel in the input image
@@ -126,18 +126,21 @@ Internally it uses a mask called a Camembert to generate a larger mask
 and limits it to the area affected by a line-darkening script.
 The main mask has no name and is simply dhhmask(mode=3).
 
-For more information about edgemasks, see [here](https://kageru.moe/blog/article/edgemasks).
+For more information about edgemasks,
+see [kageru's blog post.][kageru edgemasks].
+
+[kageru edgemasks]: https://kageru.moe/blog/article/edgemasks
 
 #### Example: Build a simple dehalo mask
 
 Suppose you want to remove these halos:
 
-![source](images/halos.png)
+![Screenshot of the source.](images/halos.png)
 
-![halos](images/src0.png)
+![Point-enlargement of the halo area.](images/src0.png)
 
 (Note that the images shown in your browser are likely resized poorly; 
-you can compare them at full size [here][comparison].)
+you can view them at full size in [this comparison][halo-comparison].)
 
 Fortunately, there is a well-established script that does just that: 
 [DeHalo_alpha][dehalo_alpha].
@@ -161,21 +164,20 @@ After generating the edge mask, we extract the luma plane:
 ```py
 mask = core.std.Sobel(src, 0)
 luma = core.std.ShufflePlanes(mask, 0, colorfamily=vs.GRAY)
-
 ```
 
-![mask luma](images/luma0.png)
+![luma](images/luma0.png)
 
 Next, we expand the mask twice, so that it covers the halos. 
-``vsutil.iterate`` is a function in [vsutil][vsutil iterate]
-which applies the specified filter a specified number of times to a clip – 
-in this case it runs ``std.Maximum`` 2 times.
+``vsutil.iterate`` is a [function in vsutil][vsutil iterate]
+which applies the specified filter a specified number of times to a clip—in this case it runs ``std.Maximum`` 2 times.
 
 ```py
 mask_outer = vsutil.iterate(luma, core.std.Maximum, 2)
 ```
 
 ![mask_outer](images/mask_outer0.png)
+
 Now we shrink the expanded clip back
 to cover only the lineart. 
 Applying ``std.Minimum`` twice
@@ -183,7 +185,7 @@ would shrink it back to the edge mask’s original size,
 but since the edge mask covers part of the halos too, 
 we need to erode it a little further. 
 
-The reason we used ``mask_outer`` as the basis and shrank it thrice,
+The reason we use ``mask_outer`` as the basis and shrank it thrice,
 instead of using ``mask`` and shrinking it once, 
 which would result in a similiar outline,
 is that this way,
@@ -197,6 +199,7 @@ mask_inner = vsutil.iterate(mask_outer, core.std.Minimum, 3)
 ```
 
 ![mask_inner](images/mask_inner0.png)
+
 Now we substract the outer mask covering the halos and the lineart from the inner mask covering only the lineart. 
 This yields a mask covering only the halos,
 which is what we originally wanted:
@@ -206,6 +209,7 @@ halos = core.std.Expr([mask_outer, mask_inner], 'x y -')
 ```
 
 ![halos](images/halos0.png)
+
 Next, we do the actual dehaloing:
 
 ```py
@@ -213,6 +217,7 @@ dehalo = hf.DeHalo_alpha(src)
 ```
 
 ![dehalo](images/dh0.png)
+
 Lastly, we use MaskedMerge to merge only the filtered halos into the source clip,
 leaving the lineart mostly untouched:
 
@@ -220,11 +225,11 @@ leaving the lineart mostly untouched:
 masked_dehalo = core.std.MaskedMerge(src, dehalo, halos)
 ```
 
-![voilá: masked_dehalo](images/dehalod0.png)
+![masked_dehalo](images/dehalod0.png)
 
-[comparison]: https://slowpics.org/comparison/96cbeca4-b4be-4dfc-82b1-631bbc85cdb0
+[halo-comparison]: https://slowpics.org/comparison/96cbeca4-b4be-4dfc-82b1-631bbc85cdb0
 [dehalo_alpha]: https://github.com/HomeOfVapourSynthEvolution/havsfunc/blob/master/havsfunc.py#L393
-[vsutil iterate]: https://github.com/Irrational-Encoding-Wizardry/vsutil/blob/master/vsutil.py#L64
+[vsutil iterate]: https://github.com/Irrational-Encoding-Wizardry/vsutil/blob/c0206e2b68357fcbcfbcb47fafec70cce8391786/vsutil.py#L64
 ---
 
 I would also lump the range mask
