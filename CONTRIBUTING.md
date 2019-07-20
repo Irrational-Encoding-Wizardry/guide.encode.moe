@@ -349,7 +349,9 @@ the flow or purpose of a paragraph,
 but may still be of interest.
 They are created with `[^#]` in-text,
 and an additional `[^#]: Text here...` at the bottom of the page,
-separated by a line break `---`.
+separated by a line break `---`,
+where `#` is to be replaced with an increasing
+and per-page unique number.
 
 **Note**: The footnote text at the bottom of the page
 must all be written one line per footnote.
