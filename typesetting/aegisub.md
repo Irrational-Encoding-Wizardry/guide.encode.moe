@@ -9,7 +9,7 @@ they need to be configured properly.
 Here is a list of tools you will want to download:
 
   - [Aegisub][]
-      - It is **highly** recommended to use [line0's builds][] which
+      - It is **highly** recommended to use [CoffeeFlux's builds][][^1] which
         include Dependency Control and several *critical*
         fixes to Aegisub that have not been merged into the official
         application.
@@ -28,12 +28,10 @@ Here is a list of tools you will want to download:
           - [MainType][]
           - [Suitcase Fusion][]
   - Software for motion-tracking
-      - Option 1: [Mocha Pro standalone app][]
+      - [Mocha Pro standalone app][]
         - Look for it on *certain websites*.
         - On Windows, Mocha **requires** [Quicktime][] to be installed.
           More information can be found [here][quicktimeFAQ].
-      - Option 2: [Blender][][^1]
-        - Requires a plug-in that will be discussed in a later section.
   - [x264 binary][][^2]
       - Download the latest binary for your platform.
       - For example: `x264-r2935-545de2f.exe` for win64
@@ -47,18 +45,17 @@ Here is a list of tools you will want to download:
 
 [Aegisub]: http://www.aegisub.org
 [Nexusfont]: http://www.xiles.net
-[FontBase]: http://fontba.se
-[MainType]: http://www.high-logic.com/font-manager/maintype.html
+[FontBase]: https://fontba.se/
+[MainType]: https://www.high-logic.com/font-manager/maintype
 [Suitcase Fusion]: https://www.extensis.com/products/font-management/suitcase-fusion/
 [Mocha Pro standalone app]: https://www.imagineersystems.com/products/mocha-pro/
 [Quicktime]: https://support.apple.com/kb/DL837?locale=en_US
-[quicktimeFAQ]: http://www.imagineersystems.com/support/support-faq/#quicktime-on-windows
-[Blender]: https://www.blender.org/download/
+[quicktimeFAQ]: https://borisfx.com/faq/quicktime-on-windows/
 [x264 binary]: https://download.videolan.org/x264/binaries/
-[Adobe Photoshop and Illustrator]: http://www.adobe.com/creativecloud.html
+[Adobe Photoshop and Illustrator]: https://www.adobe.com/creativecloud.html
 [Gimp]: https://www.gimp.org
 [Inkscape]: https://inkscape.org/en/
-[line0's builds]: https://files.line0.eu/builds/Aegisub/
+[CoffeeFlux's builds]: https://thevacuumof.space/builds/
 
 
 ## Configuring Aegisub
@@ -169,6 +166,7 @@ that we recommend for all anime-viewing purposes.
 [MPC-HC]: https://mpc-hc.org/
 [mpv]: https://mpv.io/
 
+
 ### Hotkeys
 
 As you develop your skills more
@@ -181,13 +179,13 @@ in Aegisub's Options menu.
 We'll let you decide on those yourself, however,
 and move on for now.
 
-***
+---
 
-[^1]: Most if not all fansubbers use Mocha for motion-tracking, but the author of the motion-tracking page prefers the free software Blender, which may be easier for some to acquire.
+[^1]: A long outstanding bug has made the recent versions of Aegisub unstable. The latest stable version as of writing this, r8903+1, can be found on [GoodJobMedia's website][].
 
 [^2]: 32-bit builds on Windows may be more stable.
 
-[^3]: For further reading on this, visit the Wikipedia pages for[Standard Definition][] video, [High Definition][] video, and the [BT.601][] and [BT.709][] color spaces.
+[^3]: For further reading on this, visit the Wikipedia pages for [Standard Definition][] video, [High Definition][] video, and the [BT.601][] and [BT.709][] color spaces.
 
 [^4]: With the development of [mpv][], codec packs and player add-ons are no longer required.
 
@@ -195,3 +193,4 @@ and move on for now.
 [High Definition]: https://en.wikipedia.org/wiki/High-definition_video
 [BT.601]: https://en.wikipedia.org/wiki/Rec._601
 [BT.709]: https://en.wikipedia.org/wiki/Rec._709
+[GoodJobMedia's website]: https://www.goodjobmedia.com/fansubbing/

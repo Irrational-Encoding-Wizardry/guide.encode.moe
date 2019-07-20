@@ -53,13 +53,9 @@ why it only applies to a specific language.
 ### Technology
 
 This guide is written in [Markdown][]
-and uses [gitbook][]'s [toolchain][] to compile
+and uses legacy gitbook's [toolchain][] to compile
 the static HTML pages.
 Gitbook uses the [Github Flavoured Markdown][GFM] (GFM) variant.
-
-Documentation for gitbook's toolchain (including gitbook markdown sytax)
-can be found here:
-<https://toolchain.gitbook.com/>
 
 In order to build and preview the guide locally,
 you need [npm][] and [node.js][].
@@ -97,11 +93,18 @@ will cause your browser to be refreshed
 and automatically reloaded.
 
 [Markdown]: https://en.wikipedia.org/wiki/Markdown
-[gitbook]: https://www.gitbook.com/
 [toolchain]: https://github.com/GitbookIO/gitbook
 [GFM]: https://github.github.com/gfm/
 [npm]: https://npmjs.com/
 [node.js]: https://nodejs.org/
+
+
+### Adding a New Page
+
+In order for your page to be accessible,
+you need to add it to the `SUMMARY.md` file.
+The title used there will be used in the navigation bar,
+so keep it short.
 
 
 ### TODO
@@ -160,10 +163,10 @@ The following are the style guidelines
 for various aspects of this guide.
 The most important aspect is having **Semantic Linefeeds**.
 The other points may serve as guidelines for formatting future pages.
-Refer to [gitbook's markdown documentation][gitbookMarkdown]
+Refer to [gitbook's markdown documentation][gitbookMarkdown][^1]
 for guidelines on visual formatting.
 
-[gitbookMarkdown]: https://toolchain.gitbook.com/syntax/markdown.html
+[gitbookMarkdown]: https://gitbookio.gitbooks.io/documentation/content/format/markdown.html
 
 
 ### Semantic Linefeeds (!)
@@ -193,7 +196,9 @@ parenthesized sentences (not words),
 or new items in a long list
 (such as the one you are reading right now).
 
-[Semantic Linefeeds]: http://rhodesmill.org/brandon/2012/one-sentence-per-line/
+[Footnotes](#footnotes) are an exception and must be written all on one line.
+
+[Semantic Linefeeds]: https://rhodesmill.org/brandon/2012/one-sentence-per-line/
 
 
 ### Indentation
@@ -236,8 +241,10 @@ and **one** after.
 Headings immediately following their parent heading
 only need one blank line in-between.
 
-Separate text from end-of-section hyperlink lists with **one** blank line
-before the list. See [below](#Hyperlinking) for more information.
+Additionally, separate text from end-of-section hyperlink lists
+with **one** blank line before the list.
+For image embeds,
+there should be a blank line on each side.
 
 
 ### Hyperlinking
@@ -270,11 +277,6 @@ you will want multiple lines at the end of the header section.
 …
 ```
 
-If you are linking to a section on the same page,
-`[section name](#header)` is allowed in-line.
-An example of this is [the hyperlink section you are reading](#Hyperlinking).
-In markdown, this is simply `[the hyperlink section you are reading](#Hyperlinking)`.
-
 For relative links (links to other pages,
 images,
 or files within this repository),
@@ -284,13 +286,42 @@ follow the guidelines for [Jekyll Relative Links][].
 [Jekyll Relative Links]: https://github.com/benbalter/jekyll-relative-links/blob/master/README.md
 
 
+#### Section Linking
+
+If you are linking to a section on the same page,
+`[section name](#header)` is allowed in-line.
+An example of this is [the hyperlink section you are reading](#hyperlinking).
+In markdown, this is simply `[the hyperlink section you are reading](#hyperlinking)`.
+
+The section names are converted to all lowercase[^2],
+and whitespace is converted to a dash.
+Special characters excluding the dash are ignored.
+For example, a section titled *Foo & BAR-2 !* is converted to
+`#foo--bar-2-`.
+
+
+### Adding Images
+
+When adding images to your paragraphs,
+use the following syntax:
+
+```
+![Visible caption text](images/filename.png)
+```
+
+Make sure your image is separated from other images or text
+with a blank line above and below,
+as this will align them correctly
+and allow for the caption to be displayed.
+
+
 ### Citations
 
 If you are archiving another website's text
 or copying their images into this repository,
 make sure to cite your sources using APA formatting.
 To generate APA citations,
-use [Citation Machine][].
+use [PapersOwl][].
 Only use this if you fear the website is not a permanent source.
 
 For mid-document citations,
@@ -299,4 +330,35 @@ For a full document citation,
 simply place the full citation at the bottom of the document,
 under a horizontal rule.
 
-[Citation Machine]: http://www.citationmachine.net/apa/cite-a-website
+[PapersOwl]: https://papersowl.com/apa-citation-generator
+
+
+### Glossary
+
+If you find yourself repeating a term or concept
+that should be explained elsewhere,
+feel free to add the term to the `GLOSSARY.md` file.
+Examples of this can be found on the
+[Aegisub and Other Tools](typesetting/aegisub.md) page.
+
+
+### Footnotes
+
+Footnotes can be used for information that would interrupt
+the flow or purpose of a paragraph,
+but may still be of interest.
+They are created with `[^#]` in-text,
+and an additional `[^#]: Text here...` at the bottom of the page,
+separated by a line break `---`.
+
+**Note**: The footnote text at the bottom of the page
+must all be written one line per footnote.
+Line breaks **cannot** be used.
+
+---
+
+[^1]: The new gitbook spec is very different than the version this book is using. Almost none of the information from [gitbook's new website][new-gitbook] applies.
+
+[^2]: This is different from how github.com's markdown preview behaves.
+
+[new-gitbook]: https://www.gitbook.com/

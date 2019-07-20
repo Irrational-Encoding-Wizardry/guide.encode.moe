@@ -28,3 +28,7 @@
 
 ## Resources and References
 - [Colorspaces](archived-websites/bt601-vs-bt709.md)
+
+## Legal
+- [Impressum](impressum.md)
+- [Privacy Policy](privacy-policy.md)

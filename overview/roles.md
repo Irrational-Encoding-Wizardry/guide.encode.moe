@@ -7,9 +7,9 @@
 3.  [**Typesetter**](#typesetter)
 4.  [**Editor**](#editor)
 5.  [**Quality Checker**](#quality-checker)
-6.  *Optional*: Translator
-7.  *Optional*: Translation Checker
-8.  *Optional*: Karaoke Effects Creator
+6.  *Optional*: [Translator](#translator--translation-checker)
+7.  *Optional*: [Translation Checker](#translator--translation-checker)
+8.  *Optional*: [Karaoke Effects Creator](#karaoke-effect-creator)
 9.  *Optional*: Project Leader
 
 In this guide, we will only be providing in-depth guides for the
@@ -90,12 +90,12 @@ presentation of translated text on-screen. These are generally called *signs*.
 
 For example, given this scene and a translation of "Adachi Fourth Public High School"…
 
-![\[DameDesuYo\] Eromanga-sensei - 01 (1920x1080 10bit AAC) \[05CB518E\].mkv\_snapshot\_03.11\_\[2017.08.18\_21.14.55\].jpg](images/cnvimage100.png)
+![[DameDesuYo] Eromanga-sensei - 01 (1920x1080 10bit AAC) [05CB518E].mkv_snapshot_03.11_[2017.08.18_21.14.55].jpg](images/cnvimage100.png)
 
 the Typesetter would be expected to produce something like
 this:
 
-![\[DameDesuYo\] Eromanga-sensei - 01 (1920x1080 10bit AAC) \[05CB518E\].mkv\_snapshot\_03.11\_\[2017.08.18\_21.14.43\].jpg](images/cnvimage101.png)
+![[DameDesuYo] Eromanga-sensei - 01 (1920x1080 10bit AAC) [05CB518E].mkv_snapshot_03.11_[2017.08.18_21.14.43].jpg](images/cnvimage101.png)
 
 Almost every sign the Typesetter works on will be unique,
 requiring ingenuity,
@@ -103,7 +103,7 @@ a wild imagination,
 a sense of style,
 and a high degree of attention to detail.
 The Typesetter's goal is to produce something that integrates so
-well into the video that the viewer does not realize that it is actually 
+well into the video that the viewer does not realize that it is actually
 part of the subtitles.
 
 The sign above is actually one of the more simple kinds that the Typesetter might
@@ -160,9 +160,9 @@ own standards)
 
 Quality Checkers (abbreviated *QC*) are often the last eyes on an
 episode before it is released.
-They are responsible for ensuring that the overall quality 
+They are responsible for ensuring that the overall quality
 of the release is up to par with the group's standards.
-They are also expected to be familiar with the workflow 
+They are also expected to be familiar with the workflow
 and many intricacies of every other role.
 Each group has a different approach to how the Quality Checker
 completes their work.

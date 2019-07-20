@@ -37,7 +37,7 @@ these two things may sometimes be indistinguishable,
 but the two differ at a fundamental level;
 grain being added at the discretion of a human being[^1],
 and noise being added by lossy compression.
-See [Noise section](#Noise) for more information on the subject.
+See the [noise section](#noise) for more information on the subject.
 
 
 ### Badly drawn line art
@@ -73,7 +73,7 @@ you will likely come across something like this:
 
 ![Blocky Exaggeration](images/blocky1.jpg)
 
-<p align="center">\(Urban, 2017\)</p>
+<p align="center">(Urban, 2017)</p>
 
 From Biamp's Blog[^2]:
 "Blocking is known by several names – including tiling,
@@ -87,7 +87,7 @@ is streamed over a low bandwidth connection
 (imagine a golf ball being passed through a garden hose).
 At decompression,
 the output of certain decoded blocks makes surrounding pixels
-appear averaged together to look like larger blocks."\(Urban, 2017\)
+appear averaged together to look like larger blocks." \(Urban, 2017\)
 
 
 
@@ -184,7 +184,7 @@ or actual ring-like ringing caused by the Gibbs phenomenon.
 
 ![Mosquito Noise](images/mosquito1.png)
 
-<p align="center">\(Urban, 2017\)</p>
+<p align="center">(Urban, 2017)</p>
 
 In Blu-ray encodes,
 the only ringing you’ll be likely to see is
@@ -228,9 +228,7 @@ or a manual filtering of dehalo\_alpha with dhhmask
 (zzfunc.py coming soon™) are recommendable.
 
 
-### Cross-Field
-
-Noise
+### Cross-Field Noise
 
 [![field-noise.jpg](images/3cnvimage103.png)](https://diff.pics/84URvW5IYSdO/1)
 

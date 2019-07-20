@@ -80,13 +80,13 @@ Probably, but it could make your job much harder than it needs to be.
 
 Every role will have different required software,
 but it is recommended for every role to have installed [Aegisub][].
-It is **highly** recommended to use [line0's builds][].
+It is **highly** recommended to use [CoffeeFlux's builds][].
 They come pre-equipped with Dependency Control
 and several *critical* fixes to Aegisub that have not been merged
 into the official application.
 
 [Aegisub]: http://www.aegisub.org
-[line0's builds]: https://files.line0.eu/builds/Aegisub/
+[CoffeeFlux's builds]: https://thevacuumof.space/builds/
 
 More specifics will be presented in the chapters devoted to each role.
 

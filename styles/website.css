@@ -9,7 +9,6 @@ a.plugin-anchor {
     top: -3px;
 }
 
-
 /* make links distinguishable in theme-1 */
 .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal a {
     color: #d11a4e;
@@ -21,22 +20,23 @@ a.plugin-anchor {
 }
 
 /* fix theme-2 nav items being bold for no reason */
-.book.color-theme-2 .book-summary ul.summary li a, .book.color-theme-2 .book-summary ul.summary li a:hover, .book.color-theme-2 .book-summary ul.summary li.active > a {
+.book.color-theme-2 .book-summary ul.summary li a,
+.book.color-theme-2 .book-summary ul.summary li a:hover,
+.book.color-theme-2 .book-summary ul.summary li.active > a {
     font-weight: normal;
 }
 
-
 /* website header fade-in fade-out */
 .book-header h1 {
-    transition: opacity .15s ease;
+    transition: opacity 0.15s ease;
 }
-
 
 /* header buttons transition styling */
 .book-header .btn:hover {
     transition: all 150ms ease;
 }
-.dropdown-menu .buttons .button:focus, .dropdown-menu .buttons .button:hover {
+.dropdown-menu .buttons .button:focus,
+.dropdown-menu .buttons .button:hover {
     transition: all 150ms ease;
 }
 
@@ -58,7 +58,8 @@ kbd {
     color: rgb(69, 74, 80);
     display: inline-block;
     font-size: 0.9em;
-    font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace;
+    font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier,
+        monospace;
     font-weight: 400;
     padding: 0.07em 0.3em;
     line-height: 1em;
@@ -66,10 +67,12 @@ kbd {
 }
 
 /* non-theme styling */
-.book-summary ul.summary li a, .book-summary ul.summary li span {
+.book-summary ul.summary li a,
+.book-summary ul.summary li span {
     transition: box-shadow 75ms ease;
 }
-.book-header .btn, .navigation {
+.book-header .btn,
+.navigation {
     transition: all 150ms ease;
 }
 .dropdown-menu .buttons .button {
@@ -88,90 +91,100 @@ kbd {
 }
 
 /* term plug-in copy code button alignment*/
-pre.term > button.t-copy, pre.term > i.t-copy {
+pre.term > button.t-copy,
+pre.term > i.t-copy {
     margin-top: 0px;
 }
 
 /* theme-0 and base attributes */
 /* page background */
-.book-body, .markdown-section, .normal.markdown-section {
-    background-color: #FFFFFF;
-    color: #0C0C0C;
+.book-body,
+.markdown-section,
+.normal.markdown-section {
+    background-color: #ffffff;
+    color: #0c0c0c;
 }
 
 /* sidebar background color */
-/* sidebar background color */
 .book-summary {
-    background-color: #F2F2F2;
+    background-color: #f2f2f2;
 }
 
 /* sidebar subchapter text color */
-.book-summary ul.summary li a, .book-summary ul.summary li span, .book-summary ul.summary li.active > a {
-    color: #0C0C0C;
+.book-summary ul.summary li a,
+.book-summary ul.summary li span,
+.book-summary ul.summary li.active > a {
+    color: #0c0c0c;
 }
 
 /* sidebar divider bar color */
 .book-summary ul.summary li.divider {
-    background-color: #D8D8D8;
+    background-color: #d8d8d8;
 }
 
-/* sidebar header text color */
+/* sidebar header formatting */
 .book-summary ul.summary li.header {
-    color: #8F8F8F;
-    padding-top: 24px /* base attr */
+    color: #8f8f8f;
+    padding-top: 32px; /* base attr */
+    padding-bottom: 7px; /* base attr */
+}
+
+li.header:nth-child(1) {
+    padding-top: 15px !important; /* uppermost header shouldn't have huge top padding */
 }
 
 /* navigation colors */
 .navigation {
-    color: #D8D8D8;
+    color: #d8d8d8;
 }
 .navigation:hover {
-    color: #0C0C0C;
+    color: #0c0c0c;
 }
 
 /* header colors */
 .book-header .btn {
-    color: #D8D8D8;
+    color: #d8d8d8;
 }
-.book-header .btn:hover, .book-header h1 {
-    color: #0C0C0C;
+.book-header .btn:hover,
+.book-header h1 {
+    color: #0c0c0c;
 }
 
 #book-search-input {
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     margin-bottom: 0px; /* base attr */
-    color: #0C0C0C;
+    color: #0c0c0c;
 }
 
 /* dropdown menu */
 .dropdown-menu {
-    background-color: #F2F2F2;
+    background-color: #f2f2f2;
     border: 0px; /* base attr */
     border-radius: 2px; /* base attr */
     box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.2); /* base attr */
 }
 .dropdown-menu .buttons .button {
-    color: #8F8F8F;
+    color: #8f8f8f;
 }
 .dropdown-menu .buttons .button:hover {
-    color: #0C0C0C;
+    color: #0c0c0c;
 }
 .dropdown-menu .dropdown-caret .caret-inner {
-    border-bottom: 9px solid #F2F2F2;
+    border-bottom: 9px solid #f2f2f2;
 }
 
 /* hr colors */
 .markdown-section h1 {
     font-size: 2em; /* base attr */
-    border-bottom: 2px solid #D8D8D8;
+    border-bottom: 2px solid #d8d8d8;
 }
 .markdown-section h2 {
     font-size: 1.75em; /* base attr */
-    border-bottom: 1px solid #D8D8D8;
+    border-bottom: 1px solid #d8d8d8;
 }
 .markdown-section hr {
     height: 4px; /* base attr */
-    background-color: #D8D8D8;
+    background-color: #d8d8d8;
 }
 
 /* code wrapper colors */
@@ -181,45 +194,50 @@ pre.term > button.t-copy, pre.term > i.t-copy {
 
 /* link colors */
 .markdown-section a {
-    color: #2F77BF;
+    color: #2f77bf;
 }
 
 /* search results page */
 #book-search-results .search-results .has-results .search-results-item a {
-    color: #2F77BF;
+    color: #2f77bf;
 }
 #book-search-results .search-results .has-results .search-results-item {
-    color: #0C0C0C;
+    color: #0c0c0c;
 }
 
 /* theme 1 */
 /* page background */
 
-.book.color-theme-1 .book-body, .book.color-theme-1 .book-body .page-wrapper .page-inner section, .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal {
+.book.color-theme-1 .book-body,
+.book.color-theme-1 .book-body .page-wrapper .page-inner section,
+.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal {
     background-color: #f3eacb;
-    color: #663A0F;
+    color: #663a0f;
 }
 
 /* sidebar background color + subchapter text color */
-.book.color-theme-1 .book-summary, .book.color-theme-1 .book-summary ul.summary li a, .book.color-theme-1 .book-summary ul.summary li span {
-    color: #42260A;
-    background: #BE9470;
+.book.color-theme-1 .book-summary,
+.book.color-theme-1 .book-summary ul.summary li a,
+.book.color-theme-1 .book-summary ul.summary li span {
+    color: #42260a;
+    background: #be9470;
 }
-.book.color-theme-1 .book-summary ul.summary li.active > a, .book.color-theme-1 .book-summary ul.summary li a:hover {
-    background: #A68162;
+.book.color-theme-1 .book-summary ul.summary li.active > a,
+.book.color-theme-1 .book-summary ul.summary li a:hover {
+    background: #a68162;
     box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.2);
-    color: #42260A;
+    color: #42260a;
     z-index: 100;
 }
 
 /* sidebar divider bar color */
 .book.color-theme-1 .book-summary ul.summary li.divider {
-    background-color: #A68162;
+    background-color: #a68162;
 }
 
 /* sidebar header text color */
 .book.color-theme-1 .book-summary ul.summary li.header {
-    color: #F2F2DA;
+    color: #f2f2da;
 }
 
 /* navigation colors */
@@ -227,58 +245,59 @@ pre.term > button.t-copy, pre.term > i.t-copy {
     color: rgba(149, 124, 118, 0.5);
 }
 .book.color-theme-1 .navigation:hover {
-    color: #663A0F;
+    color: #663a0f;
 }
 
 /* header colors */
 .book.color-theme-1 .book-header .btn {
     color: rgba(149, 124, 118, 0.5);
 }
-.book.color-theme-1 .book-header .btn:hover, .book.color-theme-1 .book-header h1 {
-    color: #663A0F;
+.book.color-theme-1 .book-header .btn:hover,
+.book.color-theme-1 .book-header h1 {
+    color: #663a0f;
 }
 
 .book.color-theme-1 #book-search-input {
-    background-color: #F2F2DA;
-    color: #663A0F;
+    background-color: #f2f2da;
+    color: #663a0f;
 }
 
 /* dropdown menu colors */
 .book.color-theme-1 .dropdown-menu {
-    background-color: #BE9470;
+    background-color: #be9470;
 }
-.book.color-theme-1 .dropdown-menu .buttons{
-    border-color: #A68162;
+.book.color-theme-1 .dropdown-menu .buttons {
+    border-color: #a68162;
 }
 .book.color-theme-1 .dropdown-menu .buttons .button {
-    color: #F2F2DA;
+    color: #f2f2da;
 }
 .book.color-theme-1 .dropdown-menu .buttons .button:hover {
-    color: #663A0F;
+    color: #663a0f;
 }
 .book.color-theme-1 .dropdown-menu .dropdown-caret .caret-inner {
-    border-bottom: 9px solid #BE9470;
+    border-bottom: 9px solid #be9470;
 }
 
 /* hr colors */
 .book.color-theme-1 .markdown-section h1 {
-    border-bottom: 2px solid #957C76;
+    border-bottom: 2px solid #957c76;
 }
 .book.color-theme-1 .markdown-section h2 {
-    border-bottom: 1px solid #957C76;
+    border-bottom: 1px solid #957c76;
 }
 .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal hr {
-    background-color: #957C76;
+    background-color: #957c76;
 }
 .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal h1 {
-    border-bottom: 2px solid #957C76;
+    border-bottom: 2px solid #957c76;
 }
 .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal h2 {
-    border-bottom: 1px solid #957C76;
+    border-bottom: 1px solid #957c76;
 }
 /* code wrapper colors */
 .book.color-theme-1 .code-wrapper pre {
-    background: #957C76;
+    background: #957c76;
 }
 
 /* link colors */
@@ -287,34 +306,45 @@ pre.term > button.t-copy, pre.term > i.t-copy {
 }
 
 /* search results page */
-.book.color-theme-1 #book-search-results .search-results .has-results .search-results-item a {
+.book.color-theme-1
+    #book-search-results
+    .search-results
+    .has-results
+    .search-results-item
+    a {
     color: #d11a4e;
 }
-.book.color-theme-1 #book-search-results .search-results .has-results .search-results-item {
-    color: #663A0F;
+.book.color-theme-1
+    #book-search-results
+    .search-results
+    .has-results
+    .search-results-item {
+    color: #663a0f;
 }
-
 
 /* theme 2 */
 /* page background */
-.book.color-theme-2 .book-body, .book.color-theme-2 .book-body .page-wrapper .page-inner section, .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal {
-    background-color: #1C1F2B;
-    color: #DFEBF5;
+.book.color-theme-2 .book-body,
+.book.color-theme-2 .book-body .page-wrapper .page-inner section,
+.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal {
+    background-color: #1c1f2b;
+    color: #dfebf5;
 }
 
 /* sidebar background color + subchapter text color */
 .book.color-theme-2 .book-summary {
-    color: #DFEBF5;
+    color: #dfebf5;
     background: #2d3143;
 }
-.book.color-theme-2 .book-summary ul.summary li a, .book.color-theme-2 .book-summary ul.summary li span {
-    color: #DFEBF5;
+.book.color-theme-2 .book-summary ul.summary li a,
+.book.color-theme-2 .book-summary ul.summary li span {
+    color: #dfebf5;
 }
-.book.color-theme-2 .book-summary ul.summary li.active > a, .book.color-theme-2 .book-summary ul.summary li a:hover {
-    color: #DFEBF5;
-    background: #3E435C;
+.book.color-theme-2 .book-summary ul.summary li.active > a,
+.book.color-theme-2 .book-summary ul.summary li a:hover {
+    color: #dfebf5;
+    background: #3e435c;
 }
-
 
 /* sidebar divider bar color */
 .book.color-theme-2 .book-summary ul.summary li.divider {
@@ -323,35 +353,41 @@ pre.term > button.t-copy, pre.term > i.t-copy {
 
 /* sidebar header text color */
 .book.color-theme-2 .book-summary ul.summary li.header {
-    color: #B3BFFF;
+    color: #b3bfff;
 }
 
 /* navigation colors -- this style is really bad, this needs a manual !important to work */
 .book.color-theme-2 .navigation {
-    color: #A0A9A6 !important;
+    color: #a0a9a6 !important;
 }
 .book.color-theme-2 .navigation:hover {
-    color: #DFEBF5 !important;
+    color: #dfebf5 !important;
 }
 
 /* header colors */
 .book.color-theme-2 .book-header .btn {
-    color: #595F7F;
+    color: #595f7f;
 }
-.book.color-theme-2 .book-header .btn:hover, .book.color-theme-2 .book-header h1, .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal h1 {
-    color: #DFEBF5;
+.book.color-theme-2 .book-header .btn:hover,
+.book.color-theme-2 .book-header h1,
+.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal h1 {
+    color: #dfebf5;
 }
 /* this theme is so bad */
-.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal h1, .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal h2, .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal h3, .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal h4 {
-    color: #DFEBF5 !important;
+.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal h1,
+.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal h2,
+.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal h3,
+.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal h4 {
+    color: #dfebf5 !important;
 }
-.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal h5, .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal h6 {
-    color: #DFEBF5 !important;
+.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal h5,
+.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal h6 {
+    color: #dfebf5 !important;
 }
 
 .book.color-theme-2 #book-search-input {
-    background-color: #1C1F2B;
-    color: #DFEBF5;
+    background-color: #1c1f2b;
+    color: #dfebf5;
 }
 
 /* dropdown menu colors */
@@ -359,10 +395,10 @@ pre.term > button.t-copy, pre.term > i.t-copy {
     background-color: #2d3143;
 }
 .book.color-theme-2 .dropdown-menu .buttons .button {
-    color: #595F7F;
+    color: #595f7f;
 }
 .book.color-theme-2 .dropdown-menu .buttons .button:hover {
-    color: #DFEBF5;
+    color: #dfebf5;
 }
 .color-theme-2 .dropdown-menu .dropdown-caret .caret-inner {
     border-bottom: 9px solid #2d3143;
@@ -370,18 +406,18 @@ pre.term > button.t-copy, pre.term > i.t-copy {
 
 /* hr colors */
 .book.color-theme-2 .markdown-section h1 {
-    border-bottom: 2px solid #A0A9A6;
+    border-bottom: 2px solid #a0a9a6;
 }
 .book.color-theme-2 .markdown-section h2 {
-    border-bottom: 1px solid #A0A9A6;
+    border-bottom: 1px solid #a0a9a6;
 }
 .book.color-theme-2 .markdown-section hr {
-    background-color: #A0A9A6;
+    background-color: #a0a9a6;
 }
 
 /* code wrapper colors */
 .book.color-theme-2 .code-wrapper pre {
-    background: #A0A9A6;
+    background: #a0a9a6;
 }
 
 /* link colors */
@@ -390,20 +426,28 @@ pre.term > button.t-copy, pre.term > i.t-copy {
 }
 
 /* search results page */
-.book.color-theme-2 #book-search-results .search-results .has-results .search-results-item a {
+.book.color-theme-2
+    #book-search-results
+    .search-results
+    .has-results
+    .search-results-item
+    a {
     color: #3eb1d0;
 }
-.book.color-theme-2 #book-search-results .search-results .has-results .search-results-item {
-    color: #DFEBF5;
+.book.color-theme-2
+    #book-search-results
+    .search-results
+    .has-results
+    .search-results-item {
+    color: #dfebf5;
 }
-
 
 /* page sizing */
 .page-inner {
     max-width: 90em;
     padding: 1.5em 5em 3em 5em;
 }
-@media (max-width:1240px) {
+@media (max-width: 1240px) {
     .page-inner {
         /* don't need space for arrows */
         padding: 1.5em 1.5em 3em 1.5em;
@@ -412,14 +456,16 @@ pre.term > button.t-copy, pre.term > i.t-copy {
 
 /* fonts */
 .book.font-family-0 {
-    font-family: 'Noto Serif', serif !important;
+    font-family: "Noto Serif", serif !important;
 }
-.book.font-family-1, .book-summary {
-    font-family: 'Fira Sans', sans-serif !important;
+.book.font-family-1,
+.book-summary {
+    font-family: "Fira Sans", sans-serif !important;
 }
 /* fixing code not scaling with text-scaling */
-.markdown-section code, .markdown-section pre {
-    font-family: 'Fira Mono', monospace !important;
+.markdown-section code,
+.markdown-section pre {
+    font-family: "Fira Mono", monospace !important;
 }
 .markdown-section pre {
     font-size: 1em;
@@ -476,25 +522,34 @@ img {
 
 /* Glossary terms formatting */
 .markdown-section .glossary-term {
-    text-decoration: none!important;
+    text-decoration: none !important;
     border-bottom: 0.1em dashed;
 }
 .markdown-section .glossary-term:hover {
     cursor: help;
     position: relative;
-    text-decoration: none!important;
+    text-decoration: none !important;
 }
 
 /* Footnote formatting */
-.markdown-section blockquote{
-    border-left: 4px solid #D8D8D8;
-    color: rgba(0,0,0,0.66);
+.markdown-section blockquote {
+    border-left: 4px solid #d8d8d8;
+    color: rgba(0, 0, 0, 0.66);
 }
 .book.color-theme-1 .markdown-section blockquote {
-    border-left: 4px solid #957C76 !important;
-    color: rgba(102,58,15,0.66);
+    border-left: 4px solid #957c76 !important;
+    color: rgba(102, 58, 15, 0.66);
 }
 .book.color-theme-2 .markdown-section blockquote {
     border-left: 4px solid #373b4e;
-    color: rgba(255,255,255,0.66);
+    color: rgba(255, 255, 255, 0.66);
+}
+
+/* Gitbook link formatting */
+.gitbook-link {
+    margin-bottom: 40px;
+    text-align: center;
+    transition: none !important;
+    box-shadow: 0px 0px 0px 0px !important;
+    font-size: 90%;
 }
