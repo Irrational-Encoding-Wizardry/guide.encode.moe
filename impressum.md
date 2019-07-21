@@ -52,3 +52,7 @@ processing works subject to copyright protection on our web pages requires the
 prior consent of the respective owner of the rights.
 The materials from these pages are copyrighted and any unauthorized use may
 violate copyright laws.
+
+Source: [imp-tl][Englisch-Übersetzungsdienst translate-24h] *(Modified)*
+
+[imp-tl]: https://www.translate-24h.de/
