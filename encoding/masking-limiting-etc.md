@@ -228,7 +228,7 @@ masked_dehalo = core.std.MaskedMerge(src, dehalo, halos)
 ![masked_dehalo](images/dehalod0.png)
 
 [halo-comparison]: https://slowpics.org/comparison/96cbeca4-b4be-4dfc-82b1-631bbc85cdb0
-[dehalo_alpha]: https://github.com/HomeOfVapourSynthEvolution/havsfunc/blob/master/havsfunc.py#L393
+[dehalo_alpha]: https://github.com/HomeOfVapourSynthEvolution/havsfunc/blob/8b2cd62a20faf0b410c742c95e7c7848894628d4/havsfunc.py#L370
 [vsutil iterate]: https://github.com/Irrational-Encoding-Wizardry/vsutil/blob/c0206e2b68357fcbcfbcb47fafec70cce8391786/vsutil.py#L64
 ---
 
