@@ -22,24 +22,23 @@ This article will cover:
 
 Masking refers to a broad set of techniques used to merge multiple clips,
 usually one filtered clip merged with a source clip
-according to an overlay mask. 
+according to an overlay mask.
 A mask clip may contain any information
 generated from a pixel-wise operation.
-Mask clips are usually grayscale, 
+Mask clips are usually grayscale,
 i.e. they consist of only one plane and thus contain no color information.
 In VapourSynth, such clips use the color family `GRAY`
-and one of these formats: 
+and one of these formats:
 `GRAY8` (8 bits integer),
 `GRAY16` (16 bits integer),
 or `GRAYS` (single precision floating point).
-
 
 Vapoursynth includes some basic tools for manipulating masks as well:
 
 [**std.Minimum/std.Maximum**](http://www.vapoursynth.com/doc/functions/minimum_maximum.html)
 
 The Minimum/Maximum operations replace each pixel
-with the smallest/biggest value in its 3x3 neighbourhood. 
+with the smallest/biggest value in its 3x3 neighbourhood.
 The 3x3 neighbourhood of a pixel
 are the 8 pixels directly adjacent to the pixel in question
 plus the pixel itself.
@@ -139,7 +138,7 @@ Suppose you want to remove these halos:
 
 ![Point-enlargement of the halo area.](images/src0.png)
 
-(Note that the images shown in your browser are likely resized poorly; 
+(Note that the images shown in your browser are likely resized poorly;
 you can view them at full size in [this comparison][halo-comparison].)
 
 Fortunately, there is a well-established script that does just that: 
@@ -168,9 +167,10 @@ luma = core.std.ShufflePlanes(mask, 0, colorfamily=vs.GRAY)
 
 ![luma](images/luma0.png)
 
-Next, we expand the mask twice, so that it covers the halos. 
-``vsutil.iterate`` is a [function in vsutil][vsutil iterate]
-which applies the specified filter a specified number of times to a clip—in this case it runs ``std.Maximum`` 2 times.
+Next, we expand the mask twice, so that it covers the halos.
+`vsutil.iterate` is a [function in vsutil][vsutil iterate]
+which applies the specified filter a specified number of times
+to a clip—in this case it runs `std.Maximum` 2 times.
 
 ```py
 mask_outer = vsutil.iterate(luma, core.std.Maximum, 2)
@@ -179,20 +179,21 @@ mask_outer = vsutil.iterate(luma, core.std.Maximum, 2)
 ![mask_outer](images/mask_outer0.png)
 
 Now we shrink the expanded clip back
-to cover only the lineart. 
-Applying ``std.Minimum`` twice
-would shrink it back to the edge mask’s original size, 
-but since the edge mask covers part of the halos too, 
-we need to erode it a little further. 
+to cover only the lineart.
+Applying `std.Minimum` twice
+would shrink it back to the edge mask’s original size,
+but since the edge mask covers part of the halos too,
+we need to erode it a little further.
 
-The reason we use ``mask_outer`` as the basis and shrank it thrice,
-instead of using ``mask`` and shrinking it once, 
+The reason we use `mask_outer` as the basis and shrink it thrice,
+instead of using `mask` and shrinking it once,
 which would result in a similiar outline,
 is that this way,
-small adjacent lines with gaps in them (i.e areas of fine texture or details), 
+small adjacent lines with gaps in them
+(i.e. areas of fine texture or details),
 such as the man’s eyes in this example,
 are covered up completely,
-preventing detail loss. 
+preventing detail loss.
 
 ```py
 mask_inner = vsutil.iterate(mask_outer, core.std.Minimum, 3)
@@ -200,7 +201,8 @@ mask_inner = vsutil.iterate(mask_outer, core.std.Minimum, 3)
 
 ![mask_inner](images/mask_inner0.png)
 
-Now we substract the outer mask covering the halos and the lineart from the inner mask covering only the lineart. 
+Now we substract the outer mask covering the halos
+and the lineart from the inner mask covering only the lineart.
 This yields a mask covering only the halos,
 which is what we originally wanted:
 
@@ -218,7 +220,8 @@ dehalo = hf.DeHalo_alpha(src)
 
 ![dehalo](images/dh0.png)
 
-Lastly, we use MaskedMerge to merge only the filtered halos into the source clip,
+Lastly, we use MaskedMerge to merge only the filtered halos
+into the source clip,
 leaving the lineart mostly untouched:
 
 ```py
@@ -253,7 +256,7 @@ In theory,
 the neighborhood variance technique is the perfect fit for a debanding mask.
 Banding is the result of 8 bit color limits,
 so we mask any pixel with a neighbor higher or lower than one 8 bit color step,
-thus masking everything except potential banding.\
+thus masking everything except potential banding.
 But alas,
 grain induces false positives
 and legitimate details within a single color step are smoothed out,
@@ -265,8 +268,8 @@ detail loss and residual artifacts.
 
 A diff(erence) mask is any mask clip
 generated using the variance of two clips.
-There are many different ways to use this type of mask,
-from limiting a difference to a threshold,
+There are many different ways to use this type of mask:
+limiting a difference to a threshold,
 processing a filtered difference itself,
 or smoothing →
 processing the clean clip →
