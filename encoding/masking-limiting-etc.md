@@ -410,7 +410,7 @@ propclip = core.std.ModifyFrame(first, clips=[first, last], selector=shiftback)
 
 def shiftback(n, f):
     both = f[0].copy()
-     if f[1].props.SceneChange == 1:
+    if f[1].props.SceneChange == 1:
          both.props.SceneChange = 1
     return both
 
