@@ -246,6 +246,11 @@ with **one** blank line before the list.
 For image embeds,
 there should be a blank line on each side.
 
+Horizontal rules can be useful for splitting subsections or
+as a visual guide to where the next explanation begins.
+They are created with a sole `---` on its own line,
+and must have a blank line on each side.
+
 
 ### Hyperlinking
 
@@ -349,7 +354,7 @@ the flow or purpose of a paragraph,
 but may still be of interest.
 They are created with `[^#]` in-text,
 and an additional `[^#]: Text here...` at the bottom of the page,
-separated by a line break `---`,
+separated by a horizontal rule `---`,
 where `#` is to be replaced with an increasing
 and per-page unique number.
 
