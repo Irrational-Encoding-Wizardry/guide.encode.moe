@@ -35,7 +35,8 @@ or `GRAYS` (single precision floating point).
 
 Vapoursynth includes some basic tools for manipulating masks as well:
 
-[**std.Minimum/std.Maximum**](http://www.vapoursynth.com/doc/functions/minimum_maximum.html)
+
+#### [std.Minimum/std.Maximum][]
 
 The Minimum/Maximum operations replace each pixel
 with the smallest/biggest value in its 3x3 neighbourhood.
@@ -59,25 +60,30 @@ See the next section for usage examples.
 
 Side note:
 In general image processing,
-these operations are known as [Erosion][Erosion] (Minimum) 
-and [Dilation][Dilation] (Maximum).
+these operations are known as [Erosion][] (Minimum)
+and [Dilation][] (Maximum).
 Maximum/Minimum actually implement only a specific case
-where the [structuring element][Structuring element] is a 3x3 square.
+where the [structuring element][] is a 3x3 square.
 The built-in `morpho` plug-in implements the more general case
-in the functions `morpho.Dilate` and `morpho.Erode`
+in the functions `morpho.Erode` and `morpho.Dilate`
 which allow finer control over the structuring element.
-However, these functions are significantly slower ``std.Minimum``/`std.Maximum`.
+However, these functions are significantly slower than
+`std.Minimum` and `std.Maximum`.
 
+[std.Minimum/std.Maximum]: http://www.vapoursynth.com/doc/functions/minimum_maximum.html
 [Erosion]: https://en.wikipedia.org/wiki/Erosion_(morphology)
 [Dilation]: https://en.wikipedia.org/wiki/Dilation_(morphology)
-[Structuring element]: https://en.wikipedia.org/wiki/Structuring_element
+[structuring element]: https://en.wikipedia.org/wiki/Structuring_element
 
 
-[**std.Inflate/std.Deflate**](http://www.vapoursynth.com/doc/functions/deflate_inflate.html)
+#### [std.Inflate/std.Deflate][]
 
 TODO
 
-[**std.Binarize**](http://www.vapoursynth.com/doc/functions/binarize.html)
+[std.Inflate/std.Deflate]: http://www.vapoursynth.com/doc/functions/deflate_inflate.html
+
+
+#### [std.Binarize][]
 
 Split the luma/chroma values of any clip into one of two values,
 according to a fixed threshold.
@@ -91,6 +97,8 @@ mask.std.Binarize(24, v0=0, v1=255)
 
 For methods of creating mask clips,
 there are a few general categories…
+
+[std.Binarize]: http://www.vapoursynth.com/doc/functions/binarize.html
 
 
 ### Line masks
@@ -126,9 +134,10 @@ and limits it to the area affected by a line-darkening script.
 The main mask has no name and is simply dhhmask(mode=3).
 
 For more information about edgemasks,
-see [kageru's blog post.][kageru edgemasks].
+see [kageru's blog post][].
 
-[kageru edgemasks]: https://kageru.moe/blog/article/edgemasks
+[kageru's blog post]: https://kageru.moe/blog/article/edgemasks
+
 
 #### Example: Build a simple dehalo mask
 
@@ -141,8 +150,8 @@ Suppose you want to remove these halos:
 (Note that the images shown in your browser are likely resized poorly;
 you can view them at full size in [this comparison][halo-comparison].)
 
-Fortunately, there is a well-established script that does just that: 
-[DeHalo_alpha][dehalo_alpha].
+Fortunately, there is a well-established script that does just that:
+[DeHalo_alpha][].
 
 However, we must be cautious in applying that filter,
 since, while removing halos reliably,
@@ -231,8 +240,9 @@ masked_dehalo = core.std.MaskedMerge(src, dehalo, halos)
 ![masked_dehalo](images/dehalod0.png)
 
 [halo-comparison]: https://slowpics.org/comparison/96cbeca4-b4be-4dfc-82b1-631bbc85cdb0
-[dehalo_alpha]: https://github.com/HomeOfVapourSynthEvolution/havsfunc/blob/8b2cd62a20faf0b410c742c95e7c7848894628d4/havsfunc.py#L370
+[DeHalo_alpha]: https://github.com/HomeOfVapourSynthEvolution/havsfunc/blob/8b2cd62a20faf0b410c742c95e7c7848894628d4/havsfunc.py#L370
 [vsutil iterate]: https://github.com/Irrational-Encoding-Wizardry/vsutil/blob/c0206e2b68357fcbcfbcb47fafec70cce8391786/vsutil.py#L64
+
 ---
 
 I would also lump the range mask
@@ -280,8 +290,8 @@ for example:
 kagefunc's hardsubmask uses a special edge mask with a diff mask,
 and uses core.misc.Hysteresis to grow the line mask into diff mask.
 
-#### Example: Create a descale mask for white non-fading credits with extra protection for lines (16 bit input)
 
+#### Example: Create a descale mask for white non-fading credits with extra protection for lines (16 bit input)
 
 ```py
 src16 = kgf.getY(last)
@@ -325,8 +335,8 @@ which I will
 cover at the end of this
 sub-section.
 
-[`std.MakeDiff`](http://www.vapoursynth.com/doc/functions/makediff.html)
-and [`std.MergeDiff`](http://www.vapoursynth.com/doc/functions/mergediff.html)
+
+#### [std.MakeDiff][] and [std.MergeDiff][]
 
 Subtract or add the difference of two clips, respectively.
 These filters are peculiar in that they work differently in
@@ -355,26 +365,41 @@ noise = core.std.MakeDiff(src, smooth) # subtract filtered clip from source leav
 smooth = core.std.MakeDiff(src, noise) # subtract diff clip to prevent clipping (doesn't apply to 32 bit)
 ```
 
-[**std.Merge**](http://www.vapoursynth.com/doc/functions/merge.html)
+[std.MakeDiff]: http://www.vapoursynth.com/doc/functions/makediff.html
+[std.MergeDiff]: http://www.vapoursynth.com/doc/functions/mergediff.html
 
 TODO
 
-**[std.MaskedMerge](http://www.vapoursynth.com/doc/functions/maskedmerge.html)**
+#### [std.Merge][]
 
 TODO
 
-[**std.Expr**](http://www.vapoursynth.com/doc/functions/expr.html)
+[std.Merge]: http://www.vapoursynth.com/doc/functions/merge.html
 
 TODO
 
-[**std.Lut**](http://www.vapoursynth.com/doc/functions/lut.html) and
-[**std.Lut2**](http://www.vapoursynth.com/doc/functions/lut2.html)
+#### [std.MaskedMerge][]
+
+
+[std.MaskedMerge]: http://www.vapoursynth.com/doc/functions/maskedmerge.html
+
+
+#### [std.Expr][]
+
+
+[std.Expr]: http://www.vapoursynth.com/doc/functions/expr.html
+
+
+#### [std.Lut][] and [std.Lut2][]
 
 May be slightly faster than Expr in some cases,
 otherwise they can't really do anything that Expr can't.
 You can substitute a normal Python function for the RPN expression, though,
 so you may still find it easier.
 See link for usage information.
+
+[std.Lut]: http://www.vapoursynth.com/doc/functions/lut.html
+[std.Lut2]: http://www.vapoursynth.com/doc/functions/lut2.html
 
 
 ## Limiting
@@ -391,8 +416,8 @@ See link for usage information.
 
  TODO
 
-Example: Strong smoothing on scene changes (i.e. for MPEG-2 transport
-streams)
+
+#### Example: Strong smoothing on scene changes (i.e. for MPEG-2 transport streams)
 
 ```py
 from functools import partial
@@ -430,7 +455,8 @@ out = core.std.FrameEval(src, partial(scsmooth, clip=src, ref=ref), prop_src=pro
 
 TODO
 
-Example: Deband a grainy clip with f3kdb (16 bit input)
+
+#### Example: Deband a grainy clip with f3kdb (16 bit input)
 
 ```py
 src16 = last
