@@ -159,7 +159,7 @@ clip = core.resize.Bicubic(src, w, h, filter_param_a=0, filter_param_b=0.5) # �
 
 Lanczos is generally considered
 a very high-quality resampler for upscaling,
-especially its [EWA version][#ewa-elliptical-weighted-averaging-also-cylindrical-polar-circular].
+especially its [EWA version](#ewa-elliptical-weighted-averaging-also-cylindrical-polar-circular).
 
 It is usually slightly sharper than Mitchell (Bicubic b=c=1/3),
 but might produce slightly more ringing.
@@ -302,12 +302,14 @@ this is what is used.
 
 ##### EWA (Elliptical Weighted Averaging) (also: cylindrical, polar, circular)
 
-![Two-dimensional kernel. The support range is colored green.](images/polar.png)
+![Two-dimensional kernel. The radius is colored green.](images/polar.png)
 
 All input samples whose [Euclidian distance][L2] to the pixel
-is within the support range contribute to its value.
+is within the filter’s radius contribute to its value.
 The Euclidian distance is passed to the filter kernel.
 This is a lot more costly than tensor resampling in terms of runtime.
+
+[L2]: https://en.wikipedia.org/wiki/Euclidean_distance
 
 #### Scaling in modified colorspaces
 
@@ -318,47 +320,52 @@ can significantly impact the output’s subjective quality.
 
 Downscaling in gamma-corrected light instead of linear light
 can sometimes noticeably dim the image.
-(Scaling in linear light means
-undoing the image’s [Gamma transform][gamma]
-before resampling,
-and re-applying it afterwards.)
 To see why this happens,
-consider this graph:
+consider this gradient:
 
-![The sRGB gamma curve. x is the encoded value, y is the brightness.](images/gamma.png)
+![A grayscale gradient from 0 to 255.](images/gamma_shades.jpg)
 
-When downscaling,
-adjacent pixels are essentially
-averaged together.
-Let’s say we want to merge
-pixels A and B.
-Averaging the gamma-encoded values
-would result in point C.
-However,
-C is clearly closer to A on the brightness scale.
-This means,
-*the average of the gamma-encoded values is always lower than the average brightness*,
-dimming the image slightly overall.
-The correct value,
-located at the average brightness,
-is marked as D on the graph.
+It is should be apparent
+that the brightness doesn’t scale linearly with the pixel values.
+This is because most digital video
+uses [gamma-transformed][gamma] pixel values
+in order to compress more perceptually distinct color shades
+into 8 bit.
+This causes the encoded pixel values
+to deviate from their expected brightness,
+e.g. a grey pixel has value 187 instead of 127 in sRGB.
+This poses a problem when merging and interpolating colors,
+because the average pixel value of two colors doesn’t correspond
+to their average perceived brightness.
+For example,
+if you wanted to merge black and white (0 and 255),
+you would expect to get grey,
+but since grey actually has a value of ca. 187,
+the output pixel would turn out substantially darker,
+if you were you to naively average the pixel values.
 
-This dimming effect is usually only noticeable
+To calculate the correct values,
+the gamma transform needs to be reversed before scaling
+and re-applied afterwards.
+
+The dimming effect of scaling in gamma-corrected light
+is usually only noticeable
 in dense color patterns,
 e.g. small black text on a white background,
 stars in the night sky, etc,
 and much less so in blurrier areas.
 
-See [this comparison][comp] for an example of linear vs gamma downscaling.
+See [this comparison][comp] for a particularly extreme example
+of linear vs gamma downscaling.
 
 However,
-this doesn’t mean downscaling in linear light
+this doesn’t necessarily mean downscaling in linear light
 is always the right choice,
 since it noticeably accentuates dark halos
 introduced by scaling.
 Besides,
 the dimming may even be desirable in some cases like black text on white paper,
-because it preserves readability.
+because it preserves legibility.
 
 If you choose to downscale in linear light,
 make sure to use a sufficiently high bitdepth
@@ -424,6 +431,71 @@ not as resampling at shifted pixel locations,
 but as resampling at the input locations
 with shifted kernels functions.
 
+
+### Chroma shifting 
+
+When going from 4:2:0 subsampling
+to 4:4:4 (no subsampling),
+it is important to take into account 
+chroma placement and shift the chroma
+accordingly to ensure it aligns with the luma.
+
+![YUV 4:2:0 subsampling with center-aligned chroma (left) and, as per MPEG-2, left-aligned chroma (right).](images/chroma_placement.png)
+
+There are two commonly used
+[chroma siting][subsampling] patterns,
+as illustrated by the graphic above.
+Most digital video today
+uses the MPEG-2 variant,
+that is,
+left-aligned chroma.
+This is essential to keep in mind
+when going from 4:2:0 to 4:4:4,
+because if the chroma planes
+are naively upscaled and joined with the luma plane without any shifting,
+the chroma will be shifted by a quarter pixel.
+This is a consequence of the way
+output pixels are usually mapped onto the input grid
+during resampling:
+
+![Pixel mapping in common resampling algorithms (2 -> 4 upscale)](images/matchedges.png)
+
+Essentially,
+the output grid is scaled
+such that the outer edges of the pixel boxes align,
+importantly under the assumption that samples are center-aligned
+within the pixel boxes.
+Therefore,
+when scaling a chroma plane by 200%,
+which is what happens to the chroma
+when going from 4:2:0 to 4:4:4,
+the new chroma sample positions will
+match up with the luma sample positions.
+This would be the correct mapping
+if the resamplers’s assumption of center-alignment was true––if it isn’t,
+that is, in the case of MPEG-2 chroma placement,
+we have to compensate for the offset by shifting the input samples
+by a quarter pixel width to the left
+before calculating the output samples.
+This way,
+the left-alignment is restored.
+
+This quarter-pixel shifting is performed
+automatically under the hood by most format conversion software
+and media players.
+Thus, we only need to take care of it
+if we handle the chroma upscaling seperately by hand.
+
+In VS,
+shifting can be performed with the ``resize`` functions’ ``src_left`` parameter:
+
+```py
+u = core.std.ShufflePlanes(src, planes=1, colorfamily=vs.GRAY)
+shifted_scaled_u = core.resize.Spline16(u, 1920, 1080, src_left=0.25)
+```
+
+[subsampling]: https://en.wikipedia.org/wiki/Chroma_subsampling
+
 ---
 [^1]: The Fourier transform is an ubiqitous concept in image processing, so we strongly advise familiarizing oneself with at least the basics. A very good resource for this topic is [ImageMagick’s guide](http://www.imagemagick.org/Usage/fourier/)
-[^2]: If you don’t understand what this means, read the resources linked [above][#Resampling].
+[^2]: If you don’t understand what this means, read the resources linked [above](#resizing).
