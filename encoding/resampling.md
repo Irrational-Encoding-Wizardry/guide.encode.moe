@@ -232,8 +232,9 @@ In practice,
 though,
 the Gaussian filter isn’t all too useful for regular resizing.
 However,
-it can be used to accurately
-emulate a Gaussian blur (when used without resizing) in VapourSynth.
+it can be used to accurately emulate a Gaussian blur
+(when used without resizing)
+in VapourSynth.
 
 For example:
 
@@ -241,7 +242,8 @@ For example:
 blurred = core.fmtc.resample(src, kernel="gauss", fh=-1, fv=-1, a1=1)
 ```
 
-``fh=-1, fv=-1`` forces the processing when no resizing is performed.
+``fh=-1, fv=-1`` forces the processing
+when no resizing is performed.
 ``a1`` controls the blurring:
 the higher,
 the sharper the image.
@@ -278,7 +280,8 @@ In this case,
 an interpolation filter will return the input image untouched,
 whereas other filters will slightly alter it.
 
-Another, more practical,
+Another,
+more practical,
 case where this property is useful
 is when shifting an image by full pixel widths (integers),
 again because input pixel values aren’t changed
@@ -294,7 +297,7 @@ resampling in two dimensions:
 The image is resampled in two seperate passes:
 First it is resampled horizontally, then vertically.
 This allows images to be treated 1-dimensionally
-since each pixel row/colomn can be resampled seperately.
+since each pixel row/column can be resampled seperately.
 This method is considerably faster than EWA,
 which is why it’s the much more common one;
 generally, unless indicated otherwise,
@@ -335,7 +338,7 @@ This causes the encoded pixel values
 to deviate from their expected brightness,
 e.g. a grey pixel has value 187 instead of 127 in sRGB.
 This poses a problem when merging and interpolating colors,
-because the average pixel value of two colors doesn’t correspond
+because the average pixel value of two colors no longer corresponds
 to their average perceived brightness.
 For example,
 if you wanted to merge black and white (0 and 255),
@@ -363,6 +366,10 @@ this doesn’t necessarily mean downscaling in linear light
 is always the right choice,
 since it noticeably accentuates dark halos
 introduced by scaling.
+Thus,
+it may be wise to scale in gamma light
+when using a resizer prone to overshooting,
+like high-lobe Lanczos.
 Besides,
 the dimming may even be desirable in some cases like black text on white paper,
 because it preserves legibility.
@@ -374,9 +381,9 @@ so as to not introduce banding.
 Example code for resizing in linear RGB light:
 
 ```py
-linear = core.resize.Bicubic(src, format=vs.RGBS, transfer_in_s="709", transfer_s="linear", matrix_in_s="709")
+linear = core.resize.Bicubic(src, format=vs.RGBS, transfer_in_s="709", transfer_s="linear", matrix_in_s="709") #  the matrix_in_s argument is only necessary when src is YUV; otherwise, it should be omitted
 scaled_linear = core.resize.Bicubic(linear, 640, 360)
-scaled_gamma = core.resize.Bicubic(scaled_linear, format=src.format, transfer_s="709", transfer_in_s="linear", matrix_s="709")
+scaled_gamma = core.resize.Bicubic(scaled_linear, format=src.format, transfer_s="709", transfer_in_s="linear", matrix_s="709") # again: omit the matrix_s argument if src already is RGB
 ```
 
 [gamma]: https://en.wikipedia.org/wiki/Gamma_correction
@@ -411,6 +418,57 @@ de_sigmoidized = hf.SigmoidDirect(scaled_sigmoid, thr=0.5, cont=6.5)
 scaled_gamma = core.resize.Bicubic(de_sigmoidized, format=src.format, transfer_s="709", transfer_in_s="linear", matrix_s="709")
 ```
 
+### Neural network scalers
+
+NN-based scalers have become
+increasingly popular in recent times.
+This is because
+they aren't subject to the technical limitations
+of convolution-based resamplers,
+which beyond a certain point only trade one artifact for another,
+and thus produce much higher quality upscales.
+
+##### NNEDI3
+
+This is the current de-facto standard
+for high-quality upscaling,
+because it generally produces equally sharp or sharper
+images than conventional scalers,
+but doesn’t exhibit any artifacting
+such as haloing, ringing or aliasing.
+
+Nnedi3 was originally conceived as an deinterlacer;
+as such,
+it only doubles a frame’s height,
+leaving the original pixel rows untouched
+and interpolating the missing ones.
+This, however, can trivially be leveraged
+to increase image dimensions by powers of two
+(by doubling n times,
+flipping the image,
+doubling n times again,
+and flipping back).
+
+Upsampling to arbitrary dimensions can be achieved
+by scaling by the smallest power of two
+that results in a bigger image than desired,
+and downscaling to the requested resolution
+with a conventional scaler
+(the most popular choice for this is Spline36).
+
+However,
+you should note that
+good quality comes at a cost:
+nnedi3 will generally be several orders of magnitude
+slower than conventional resamplers.
+
+VapourSynth usage example:
+
+```py
+import nnedi3_rpow2
+up = nnedi3_rpow2.nnedi3_rpow2(src, width=1920, height=1080, kernel="spline36") # spline36 is technically redundant since it’s the default
+```
+
 ---
 
 ## Shifting
@@ -434,7 +492,7 @@ with shifted kernels functions.
 
 ### Chroma shifting 
 
-When going from 4:2:0 subsampling
+When going from 4:2:0 [subsampling][subsampling]
 to 4:4:4 (no subsampling),
 it is important to take into account 
 chroma placement and shift the chroma
@@ -443,7 +501,7 @@ accordingly to ensure it aligns with the luma.
 ![YUV 4:2:0 subsampling with center-aligned chroma (left) and, as per MPEG-2, left-aligned chroma (right).](images/chroma_placement.png)
 
 There are two commonly used
-[chroma siting][subsampling] patterns,
+chroma siting patterns,
 as illustrated by the graphic above.
 Most digital video today
 uses the MPEG-2 variant,
@@ -491,7 +549,7 @@ shifting can be performed with the ``resize`` functions’ ``src_left`` paramete
 
 ```py
 u = core.std.ShufflePlanes(src, planes=1, colorfamily=vs.GRAY)
-shifted_scaled_u = core.resize.Spline16(u, 1920, 1080, src_left=0.25)
+shifted_scaled_u = core.resize.Spline16(u, 1920, 1080, src_left=0.25) #shifts the image to the left by 0.25 pixels
 ```
 
 [subsampling]: https://en.wikipedia.org/wiki/Chroma_subsampling
