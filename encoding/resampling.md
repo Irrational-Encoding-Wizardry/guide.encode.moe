@@ -29,6 +29,7 @@ for a layman to start.
 [PBRT]: https://www.pbrt.org/
 [ImageWorsener]: https://entropymine.com/imageworsener/resample/
 
+
 ### Filters
 
 All resampling kernels behave slightly differently
@@ -45,7 +46,14 @@ For a much more extensive explanation of the different filters,
 including details on the exact algorithms,
 see [ImageMagick’s guide][IM].
 
+Additionally,
+[ResampleHQ][RHQ]'s documentation features
+an excellent visual comparison of common filter kernels;
+a back-up is available [here][kernels].
+
 [IM]: http://www.imagemagick.org/Usage/filter/
+[RHQ]: https://forum.doom9.org/showthread.php?t=160038
+[kernels]: http://maven.whatbox.ca:11665/resample_kernels/kernels.html
 
 ##### Box filter / Nearest Neigbour
 
@@ -132,6 +140,10 @@ the various kinds of artifacts
 different B-C-configurations produce.
 
 ![Bicubic B-C parameters](images/cubic_survey.gif)
+
+Roughly speaking,
+raising B will cause blurring,
+and raising C will cause ringing.
 
 Mitchell-Netravali generalizes all smoothly fitting
 (continuous first derivative) piece-wise cubic filters,
