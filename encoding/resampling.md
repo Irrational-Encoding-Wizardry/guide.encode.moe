@@ -5,6 +5,7 @@ image processing tasks,
 most prominently scaling/resizing,
 but also shifting and rotation.
 
+
 ## Resizing
 
 The most common class of resampling algorithms
@@ -39,7 +40,7 @@ It should be noted that there is no “objectively best” resampling filter,
 so it is largely a matter of personal preference.
 There are no hard and fast rules about
 which resampler performs best for any given type of content,
-so it’s best to test for yourself.
+so it’s best to test them yourself.
 
 A short overview of the most common filters follows.
 For a much more extensive explanation of the different filters,
@@ -55,11 +56,12 @@ a back-up is available [here][kernels].
 [RHQ]: https://forum.doom9.org/showthread.php?t=160038
 [kernels]: http://maven.whatbox.ca:11665/resample_kernels/kernels.html
 
+
 #### Box filter / Nearest Neigbour
 
 When upscaling,
 the Box filter will behave just like
-[Nearest Neighbour interpolation][NN],
+[Nearest Neighbour (*NN*) interpolation][NN],
 that is,
 it will just pick the closest pixel in the input image
 for every output pixel.
@@ -68,14 +70,16 @@ without any smoothing or merging of adjacent pixels,
 providing a faithful representation of the original pixel grid.
 This is very useful when inspecting an image up close
 to examine the pixel structure,
-or when enlarging [pixel art][pixel art],
+or when enlarging [pixel art][],
 but not suitable for regular content
 due to the jagged lines and deformed details it causes.
 
 When downscaling,
-the Box filter behaves differently to Nearest Neighbour,
-which continues to just pick the closest pixel and be done with it,
-in that it merges adjacent pixels together.
+the Box filter behaves differently to
+NN—which continues to just
+pick the closest pixel and
+be done with it—in that it instead
+merges adjacent pixels together.
 Unlike most other filters, however,
 it averages them evenly
 instead of giving the central ones more weight.
@@ -98,12 +102,13 @@ Nearest Neighbour interpolation is part of the built-in ``resize`` plug-in:
 clip = core.resize.Point(src, w, h)
 ```
 
-Most script editors like VSEdit feature NN scaling in the preview;
+Most [script editors](preparation.md#the-editor) including VSEdit feature NN scaling in the preview;
 it is recommended to use it over Bilinear
 when making filtering decisions.
 
 [NN]: https://en.wikipedia.org/wiki/Nearest-neighbor_interpolation
 [pixel art]: https://en.wikipedia.org/wiki/Pixel_art
+
 
 #### Bilinear / Triangle
 
@@ -114,7 +119,7 @@ However,
 it generally creates all sorts of nasty artifacts
 and is inferior in quality to most other filters.
 The only advantage it offers is speed,
-so don’t use unless you’re sure you have to.
+so don’t use it unless you’re sure you have to.
 
 VapourSynth example:
 
@@ -122,9 +127,10 @@ VapourSynth example:
 clip = core.resize.Bilinear(src, w, h)
 ```
 
+
 #### Mitchell-Netravali / Bicubic
 
-The Mitchell-Netravali filter, 
+The Mitchell-Netravali filter,
 also known as Bicubic,
 is one of the most popular resampling algorithms,
 and the default for many image processing programs,
@@ -135,11 +141,11 @@ which can be used to tweak the filter’s behaviour.
 For upscaling, it is recommended to use values that satisfy the equation
 ``b + 2c = 1``.
 
-The graph below outlines 
+The graph below outlines
 the various kinds of artifacts
 different B-C-configurations produce.
 
-![Bicubic B-C parameters](images/cubic_survey.gif)
+![Bicubic B-C parameters](images/resample_cubic_survey.gif)
 
 Roughly speaking,
 raising B will cause blurring
@@ -164,21 +170,23 @@ at the cost of slight blurriness.
 VapourSynth example:
 
 ```py
-clip = core.resize.Bicubic(src, w, h, filter_param_a=0, filter_param_b=0.5) # “filter_param_a” and “filter_param_b” refer to B and C, respectively
+# 'filter_param_a' and 'filter_param_b' refer to B and C, respectively
+clip = core.resize.Bicubic(src, w, h, filter_param_a=0, filter_param_b=0.5)
 ```
+
 
 #### Lanczos
 
 Lanczos is generally considered
 a very high-quality resampler for upscaling,
-especially its [EWA version](#ewa-elliptical-weighted-averaging-also-cylindrical-polar-circular).
+especially its [EWA version](#elliptical-weighted-averaging-ewa-cylindrical-polar-circular).
 
 It is usually slightly sharper than Mitchell (Bicubic b=c=1/3),
 but might produce slightly more ringing.
 
 Lanczos takes an additional parameter
 that controls the filter’s number of lobes,
-also called taps.
+or *taps*.
 Increasing the number of lobes
 improves sharpness at the cost of increased ringing.
 You might occasionally see the tap count
@@ -189,11 +197,14 @@ For downscaling,
 higher tap counts might help in
 suppressing [Moiré effects][Moire].
 
-[Moire]: http://www.imagemagick.org/Usage/filter/#aliasing
 
 ```py
-clip = core.resize.Lanczos(src, w, h, filter_param_a=2) # “filter_param_a” specifies the tap count
+# 'filter_param_a' specifies the tap count
+clip = core.resize.Lanczos(src, w, h, filter_param_a=2)
 ```
+
+[Moire]: http://www.imagemagick.org/Usage/filter/#aliasing
+
 
 #### Spline
 
@@ -201,11 +212,11 @@ Spline is another high-quality resizer.
 
 Spline, like Lanczos,
 can be finetuned by configuring its number of lobes.
-Unlike Lanczos, 
+Unlike Lanczos,
 however,
 Splines with different tap counts are usually split
 into seperate functions,
-with ``(tap_count*2)**2`` appended to their name,
+with ``(tap_count∗2)^2`` appended to their name,
 e.g. Spline36 for 3 taps, Spline64 for 4, etc.
 (This number repesents the total amount of input pixels
 involved in the calculation of any given output pixel.)
@@ -228,12 +239,13 @@ Higher tap counts can be used via fmtconv:
 clip = core.fmtc.resample(src, w, h, kernel="spline", taps=6) # equivalent to Spline144
 ```
 
+
 #### Gauss
 
-The Gaussian filter is very special in that its [Fourier transform][^1]
+The Gaussian filter is very special in that its Fourier transform[^1]
 is another Gaussian
-whose width is antiproportional to the spatial function’s.
-This can be harnessed to remove and amplify high frequencies 
+whose width is inversely proportional to the spatial function’s.
+This can be harnessed to remove and amplify high frequencies
 in a very controllable way.
 Widening the filter,
 for example,
@@ -263,8 +275,8 @@ the sharper the image.
 
 ### Interpolation filters
 
-It is sometimes distinguished between 
-interpolation filters and non-interpolation filters.
+Some sources will categorize filters as either
+interpolation filters or non-interpolation filters.
 
 Interpolation filters are those that
 when applied “in-place”,
@@ -299,12 +311,14 @@ is when shifting an image by full pixel widths (integers),
 again because input pixel values aren’t changed
 but just relocated.
 
+
 ### Two-dimensional resampling
 
 There are two different ways to go about
 resampling in two dimensions.
 
-#### Tensor resampling (also: orthogonal, 2-pass, seperated)
+
+#### Tensor resampling (*orthogonal*, *2-pass*, *seperated*)
 
 The image is resampled in two seperate passes:
 First it is resampled horizontally, then vertically.
@@ -315,9 +329,10 @@ which is why it’s the much more common one;
 generally, unless indicated otherwise,
 this is what is used.
 
-#### EWA (Elliptical Weighted Averaging) (also: cylindrical, polar, circular)
 
-![Two-dimensional kernel. The radius is colored green.](images/polar.png)
+#### Elliptical Weighted Averaging (*"EWA"*, *cylindrical*, *polar*, *circular*)
+
+![Two-dimensional kernel. The radius is colored green.](images/resample_polar.png)
 
 All input samples whose [Euclidian distance][L2] to the pixel
 is within the filter’s radius contribute to its value.
@@ -326,10 +341,12 @@ This is a lot more costly than tensor resampling in terms of runtime.
 
 [L2]: https://en.wikipedia.org/wiki/Euclidean_distance
 
+
 ### Scaling in modified colorspaces
 
 The colorspace used when resampling
 can significantly impact the output’s subjective quality.
+
 
 #### Downscaling in linear light
 
@@ -338,7 +355,7 @@ can sometimes noticeably dim the image.
 To see why this happens,
 consider this gradient:
 
-![A grayscale gradient from 0 to 255.](images/gamma_shades.jpg)
+![A grayscale gradient from 0 to 255.](images/resample_gamma_shades.jpg)
 
 It is should be apparent
 that the brightness doesn’t scale linearly with the pixel values.
@@ -355,7 +372,7 @@ to their average perceived brightness.
 For example,
 if you wanted to merge black and white (0 and 255),
 you would expect to get grey,
-but since grey actually has a value of ca. 187,
+but since grey actually has a value of ~187,
 the output pixel would turn out substantially darker,
 if you were you to naively average the pixel values.
 
@@ -405,9 +422,10 @@ otherwise, they should be omitted.
 [gamma]: https://en.wikipedia.org/wiki/Gamma_correction
 [comp]: https://slowpics.org/comparison/8103b2d1-b9d4-4d7e-b7a7-3197ae999244
 
+
 #### Upscaling in sigmoidized light
 
-In order to attenuate both dark and white halos 
+In order to attenuate both dark and white halos
 introduced by upscaling,
 you can resize through a sigmoidized colorspace.
 
@@ -419,25 +437,33 @@ is decrease the image’s contrast
 by pushing extreme values of both dark and bright
 towards the middle.
 
-Quoting Nicholas Robidoux from ImageMagick[^2]:
+Quoting Nicholas Robidoux from ImageMagick:
 
 > You may decrease halos and increase perceptual sharpness by increasing the sigmoidal contrast (up to 11.5, say).
+
 > Higher contrasts are especially recommended with greyscale images (even "false RGB greyscale" that have three proportional color channels).
+
 > The downside of sigmoidization is that it sometimes produces "color bleed" artefacts that look a bit like cheap flexographic ("gummidruck") printing or chromatic aberration.
+
 > In addition, sigmoidization's "fattening" of extreme light and dark values may not work for your image content.
+
 > If such artefacts are obvious, push the contrast value down from 7.5 (to 5, for example, or even lower).
+
 > Setting the contrast to 0 is equivalent to enlarging through linear RGB.
+
+(Robidoux, 2012)[^2]
 
 Example code for VS:
 
 ```py
 import havsfunc as hf
 linear = core.resize.Bicubic(src, format=vs.RGBS, transfer_in_s="709", transfer_s="linear", matrix_in_s="709")
-sigmoidized = hf.SigmoidInverse(linear, thr=0.5, cont=6.5) # cont corresponds to the “sigmoidal contrast” mentioned above
+sigmoidized = hf.SigmoidInverse(linear, thr=0.5, cont=6.5) # 'cont' corresponds to the “sigmoidal contrast” mentioned above
 scaled_sigmoid = core.resize.Bicubic(sigmoidized, 640, 360)
 de_sigmoidized = hf.SigmoidDirect(scaled_sigmoid, thr=0.5, cont=6.5)
 scaled_gamma = core.resize.Bicubic(de_sigmoidized, format=src.format, transfer_s="709", transfer_in_s="linear", matrix_s="709")
 ```
+
 
 ### Neural network scalers
 
@@ -445,17 +471,18 @@ NN-based scalers have become
 increasingly popular in recent times.
 This is because
 they aren’t subject to the technical limitations
-of convolution-based resamplers,
-which beyond a certain point only trade one artifact for another,
-and thus produce much higher quality upscales.
+of convolution-based resamplers—which beyond a certain point
+only trade one artifact for another—and thus produce
+much higher quality upscales.
+
 
 ##### NNEDI3
 
 This is the current de-facto standard
-for high-quality upscaling,
-because it generally produces equally sharp or sharper
+for high-quality upscaling
+because it generally produces equally as sharp or sharper
 images than conventional scalers,
-but doesn’t exhibit any major artifacting
+while avoiding any major artifacting
 such as haloing, ringing or aliasing.
 
 Nnedi3 was originally conceived as a deinterlacer;
@@ -465,9 +492,9 @@ leaving the original pixel rows untouched
 and interpolating the missing ones.
 This, however, can trivially be leveraged
 to increase image dimensions by powers of two
-(by doubling n times,
+(by doubling *n* times,
 flipping the image,
-doubling n times again,
+doubling *n* times again,
 and flipping back).
 
 Upsampling to arbitrary dimensions can be achieved
@@ -475,7 +502,7 @@ by scaling by the smallest power of two
 that results in a bigger image than desired,
 and downscaling to the requested resolution
 with a conventional scaler
-(the most popular choice for this is Spline36).
+(the most popular choice for this is [Spline36](#spline)).
 
 However,
 you should note that
@@ -486,11 +513,12 @@ slower than conventional resamplers.
 VapourSynth usage example:
 
 ```py
-import nnedi3_rpow2
-up = nnedi3_rpow2.nnedi3_rpow2(src, width=1920, height=1080, kernel="spline36") # spline36 is technically redundant since it’s the default
+from nnedi3_rpow2 import *
+# 'spline36' here is technically redundant since it’s the default
+up = nnedi3_rpow2(src, width=1920, height=1080, kernel="spline36")
+
 ```
 
----
 
 ## Shifting
 
@@ -511,7 +539,7 @@ but as resampling at the input locations
 with a shifted kernel.
 
 
-### Chroma shifting 
+### Chroma shifting
 
 When going from 4:2:0 [subsampling][]
 to 4:4:4 (no subsampling),
@@ -519,7 +547,7 @@ it is important to take into account chroma placement
 and to shift the chroma accordingly
 to ensure it aligns with the luma.
 
-![YUV 4:2:0 subsampling with center-aligned chroma (left) and, as per MPEG-2, left-aligned chroma (right).](images/chroma_placement.png)
+![YUV 4:2:0 subsampling with center-aligned chroma (left) and, as per MPEG-2, left-aligned chroma (right).](images/resample_chroma_placement.png)
 
 There are two commonly used
 chroma siting patterns,
@@ -537,7 +565,7 @@ This is a consequence of the way
 output pixels are usually mapped onto the input grid
 during resampling:
 
-![Pixel mapping in common resampling algorithms (2 -> 4 upscale)](images/matchedges.png)
+![Pixel mapping in common resampling algorithms (2 -> 4 upscale).](images/resample_matchedges.png)
 
 Essentially,
 the output grid is scaled
@@ -551,8 +579,8 @@ when going from 4:2:0 to 4:4:4,
 the new chroma sample positions will
 match up with the luma sample positions.
 This would be the correct mapping
-if the resamplers’s assumption of center-alignment was true––if it isn’t,
-that is, in the case of MPEG-2 chroma placement,
+if the resamplers’s assumption of center-alignment was true—if it isn’t
+(like with MPEG-2 chroma placement)
 we have to compensate for the offset by shifting the input samples
 by a quarter pixel width to the left
 before calculating the output samples.
@@ -576,6 +604,9 @@ shifted_scaled_u = core.resize.Spline16(u, 1920, 1080, src_left=0.25) # shifts t
 [subsampling]: https://en.wikipedia.org/wiki/Chroma_subsampling
 
 ---
-[^1]: The Fourier transform is an ubiqitous concept in image processing, so we strongly advise familiarizing oneself with at least the basics. A very good resource for this topic is [ImageMagick’s guide](http://www.imagemagick.org/Usage/fourier/)
-[^2]: Source: <http://www.imagemagick.org/Usage/filter/nicolas/#upsampling>
-[^3]: If you don’t understand what this means, read the resources linked [above](#resizing).
+
+[^1]: The Fourier transform is an ubiqitous concept in image processing, so we strongly advise becoming familiar with at least the basics. A very good resource for this topic is [ImageMagick’s guide][].
+[^2]: Robidoux, N. (2012, October 21). Resampling — ImageMagick v6 Examples. Retrieved August 22, 2019, from https://www.imagemagick.org/Usage/filter/nicolas/#upsampling
+[^3]: If you don’t understand what this means, read the resources linked above in the [resizing section](#resizing).
+
+[ImageMagick’s guide]: http://www.imagemagick.org/Usage/fourier/
