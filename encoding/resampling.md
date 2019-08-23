@@ -363,7 +363,7 @@ consider this gradient:
 
 ![A grayscale gradient from 0 to 255.](images/resample_gamma_shades.jpg)
 
-It is should be apparent
+It should be apparent
 that the brightness doesn’t scale linearly with the pixel values.
 This is because most digital video
 uses [gamma-transformed][gamma] pixel values
