@@ -80,6 +80,12 @@ NN—which continues to just
 pick the closest pixel and
 be done with it—in that it instead
 merges adjacent pixels together.
+(This is because generally,
+filter kernels are widened
+in proportion to the scaling factor
+when downscaling,
+which, in effect, applies a [low-pass filter][]
+that serves to prevent aliasing.)
 Unlike most other filters, however,
 it averages them evenly
 instead of giving the central ones more weight.
@@ -108,7 +114,7 @@ when making filtering decisions.
 
 [NN]: https://en.wikipedia.org/wiki/Nearest-neighbor_interpolation
 [pixel art]: https://en.wikipedia.org/wiki/Pixel_art
-
+[low-pass filter]: https://en.wikipedia.org/wiki/Low-pass_filter
 
 #### Bilinear / Triangle
 
@@ -609,4 +615,4 @@ shifted_scaled_u = core.resize.Spline16(u, 1920, 1080, src_left=0.25) # shifts t
 [^2]: Robidoux, N. (2012, October 21). Resampling — ImageMagick v6 Examples. Retrieved August 22, 2019, from https://www.imagemagick.org/Usage/filter/nicolas/#upsampling
 [^3]: If you don’t understand what this means, read the resources linked above in the [resizing section](#resizing).
 
-[ImageMagick’s guide]: http://www.imagemagick.org/Usage/fourier/
+[ImageMagick’s guide]: http://www.fmwconcepts.com/imagemagick/fourier_transforms/fourier.html
