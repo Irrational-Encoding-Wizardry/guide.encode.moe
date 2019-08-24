@@ -58,7 +58,7 @@ This is the main function for masking
 that performs the actual merging.
 It takes three clips as input:
 clipa, clipb and one mask clip.
-The output will be a linear combination of the input clips,
+The output will be a convex combination of the input clips,
 where the weights are given by the brightness of the mask clip,
 like this
 (the variables refer to the value of the same pixel in each clip):
