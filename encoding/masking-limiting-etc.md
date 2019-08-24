@@ -1,6 +1,6 @@
 # Masking, Limiting, and Related Functions
 
-There are filters,
+There are filters
 which changes the video in various ways,
 and then there are ways to change the filtering itself.
 There are likely hundreds of different techniques at your disposal
@@ -22,9 +22,28 @@ This article will cover:
 
 Masking refers to a broad set of techniques used to merge multiple clips,
 usually one filtered clip merged with a source clip
-according to an overlay mask.
-A mask clip may contain any information
-generated from a pixel-wise operation.
+according to an overlay mask clip.
+A mask clip specifies the weight for each individual pixel
+according to which the two clips are merged;
+see [MaskedMerge](#std-MaskedMerge) for details.
+
+In practice,
+masks are usually used to protect details,
+texture, and/or edges
+from destructive filtering effects like smoothing;
+this is accomplished
+by masking the areas to protect,
+e.g. with an edgemask,
+and merging the filtered clip with the unfiltered clip
+according to the mask,
+such that the masked areas are taken from the unfiltered clip,
+and the unmasked areas are taken from the filtered clip.
+In effect,
+this applies the filtering only to the unmasked areas of the clip,
+leaving the masked details/edges intact.
+(In this context,
+“masked” means that the pixels in question are white in the mask clip.)
+
 Mask clips are usually grayscale,
 i.e. they consist of only one plane and thus contain no color information.
 In VapourSynth, such clips use the color family `GRAY`
@@ -33,8 +52,47 @@ and one of these formats:
 `GRAY16` (16 bits integer),
 or `GRAYS` (single precision floating point).
 
-Vapoursynth includes some basic tools for manipulating masks as well:
+#### [std.MaskedMerge][]
 
+This is the main function for masking
+that performs the actual merging.
+It takes three clips as input:
+clipa, clipb and one mask clip.
+The output will be a linear combination of the input clips,
+where the weights are given by the brightness of the mask clip,
+like this
+(the variables refer to the value of the same pixel in each clip):
+
+```py
+output = clipa * (MAX_VALUE - mask) + clipb * mask # in 8 bpp for example, MAX_VALUE would be 255
+```
+
+In simpler terms:
+for brighter areas in the mask,
+the output will come from clipb,
+and for the dark areas,
+it’ll come from clipa.
+Grey areas result in an average of clipa and clipb.
+
+If ``premultiplied`` is set to True,
+the equation changes as follows:
+
+```py
+output = clipa * (MAX_VALUE - mask) + clipb
+```
+
+[std.MaskedMerge]: http://www.vapoursynth.com/doc/functions/maskedmerge.html
+
+---
+
+
+### Manipulating Masks
+
+Building precise masks
+that cover exactly what you want
+is often rather tricky.
+VapourSynth provides basic tools for manipulating masks
+that can be used to bring them into the desired shape:
 
 #### [std.Minimum/std.Maximum][]
 
@@ -137,6 +195,34 @@ For more information about edgemasks,
 see [kageru's blog post][].
 
 [kageru's blog post]: https://kageru.moe/blog/article/edgemasks
+
+I would also lump the range mask
+(or in masktools,
+the "min/max" mask)
+into this category,
+which is a very simple masking method that
+returns a clip made up of the maximum value of a range of neighboring pixels
+minus the minimum value of the range,
+as so:
+
+```py
+clipmax = core.std.Maximum(clip)
+clipmin = core.std.Minimum(clip)
+
+minmax = core.std.Expr([clipmax, clipmin], 'x y -')
+```
+
+The most common use of this mask is within GradFun3.
+In theory,
+the neighborhood variance technique is the perfect fit for a debanding mask.
+Banding is the result of 8 bit color limits,
+so we mask any pixel with a neighbor higher or lower than one 8 bit color step,
+thus masking everything except potential banding.
+But alas,
+grain induces false positives
+and legitimate details within a single color step are smoothed out,
+therefore debanding will forever be a balancing act between
+detail loss and residual artifacts.
 
 
 #### Example: Build a simple dehalo mask
@@ -245,34 +331,6 @@ masked_dehalo = core.std.MaskedMerge(src, dehalo, halos)
 
 ---
 
-I would also lump the range mask
-(or in masktools,
-the "min/max" mask)
-into this category,
-which is a very simple masking method that
-returns a clip made up of the maximum value of a range of neighboring pixels
-minus the minimum value of the range,
-as so:
-
-```py
-clipmax = core.std.Maximum(clip)
-clipmin = core.std.Minimum(clip)
-
-minmax = core.std.Expr([clipmax, clipmin], 'x y -')
-```
-
-The most common use of this mask is within GradFun3.
-In theory,
-the neighborhood variance technique is the perfect fit for a debanding mask.
-Banding is the result of 8 bit color limits,
-so we mask any pixel with a neighbor higher or lower than one 8 bit color step,
-thus masking everything except potential banding.
-But alas,
-grain induces false positives
-and legitimate details within a single color step are smoothed out,
-therefore debanding will forever be a balancing act between
-detail loss and residual artifacts.
-
 
 ### Diff masks
 
@@ -368,20 +426,22 @@ smooth = core.std.MakeDiff(src, noise) # subtract diff clip to prevent clipping 
 [std.MakeDiff]: http://www.vapoursynth.com/doc/functions/makediff.html
 [std.MergeDiff]: http://www.vapoursynth.com/doc/functions/mergediff.html
 
-
 #### [std.Merge][]
 
-<kbd> TODO [<i class="fa fa-edit">](https://github.com/Irrational-Encoding-Wizardry/guide.encode.moe/edit/master/encoding/masking-limiting-etc.md)</kbd>
+This function is similiar to MaskedMerge,
+the main difference being
+that a constant weight is supplied
+instead of a mask clip to read the weight from for each pixel.
+The formula is thus just as simple:
+
+```py
+output = clipa * (MAX_VALUE - weight) + clipb * weight
+```
+
+It can be used to perform
+a weighted average of two clips or planes.
 
 [std.Merge]: http://www.vapoursynth.com/doc/functions/merge.html
-
-
-#### [std.MaskedMerge][]
-
-<kbd> TODO [<i class="fa fa-edit">](https://github.com/Irrational-Encoding-Wizardry/guide.encode.moe/edit/master/encoding/masking-limiting-etc.md)</kbd>
-
-[std.MaskedMerge]: http://www.vapoursynth.com/doc/functions/maskedmerge.html
-
 
 #### [std.Expr][]
 
