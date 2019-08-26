@@ -1,7 +1,7 @@
 # Masking, Limiting, and Related Functions
 
 There are filters
-which changes the video in various ways,
+which change the video in various ways,
 and then there are ways to change the filtering itself.
 There are likely hundreds of different techniques at your disposal
 for various situations,
@@ -20,8 +20,8 @@ This article will cover:
 
 ## Masking
 
-Masking refers to a broad set of techniques used to merge multiple clips,
-usually one filtered clip merged with a source clip
+Masking refers to a broad set of techniques used to merge multiple clips.
+Usually one filtered clip is merged with a source clip
 according to an overlay mask clip.
 A mask clip specifies the weight for each individual pixel
 according to which the two clips are merged;
@@ -57,24 +57,25 @@ or `GRAYS` (single precision floating point).
 This is the main function for masking
 that performs the actual merging.
 It takes three clips as input:
-clipa, clipb and one mask clip.
+two source clips and one mask clip.
 The output will be a convex combination of the input clips,
-where the weights are given by the brightness of the mask clip,
-like this
-(the variables refer to the value of the same pixel in each clip):
+where the weights are given by the brightness of the mask clip.
+The following formula
+describes these internals for each pixel:
 
 ```py
-output = clipa * (MAX_VALUE - mask) + clipb * mask # in 8 bpp for example, MAX_VALUE would be 255
+# in 8 bpp, MAX_VALUE would be 255
+output = clipa * (MAX_VALUE - mask) + clipb * mask 
 ```
 
 In simpler terms:
 for brighter areas in the mask,
-the output will come from clipb,
+the output will come from `clipb`,
 and for the dark areas,
-it’ll come from clipa.
-Grey areas result in an average of clipa and clipb.
+it’ll come from `clipa`.
+Grey areas result in an average of `clipa` and `clipb`.
 
-If ``premultiplied`` is set to True,
+If `premultiplied` is set to True,
 the equation changes as follows:
 
 ```py
@@ -428,7 +429,7 @@ smooth = core.std.MakeDiff(src, noise) # subtract diff clip to prevent clipping 
 
 #### [std.Merge][]
 
-This function is similiar to MaskedMerge,
+This function is similiar to [MaskedMerge](#std-MaskedMerge),
 the main difference being
 that a constant weight is supplied
 instead of a mask clip to read the weight from for each pixel.
