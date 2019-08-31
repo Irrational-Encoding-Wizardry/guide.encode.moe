@@ -25,7 +25,7 @@ Usually one filtered clip is merged with a source clip
 according to an overlay mask clip.
 A mask clip specifies the weight for each individual pixel
 according to which the two clips are merged;
-see [MaskedMerge](#std-MaskedMerge) for details.
+see [MaskedMerge](#stdmaskedmerge) for details.
 
 In practice,
 masks are usually used to protect details,
@@ -41,8 +41,6 @@ and the unmasked areas are taken from the filtered clip.
 In effect,
 this applies the filtering only to the unmasked areas of the clip,
 leaving the masked details/edges intact.
-(In this context,
-“masked” means that the pixels in question are white in the mask clip.)
 
 Mask clips are usually grayscale,
 i.e. they consist of only one plane and thus contain no color information.
@@ -65,7 +63,7 @@ describes these internals for each pixel:
 
 ```py
 # in 8 bpp, MAX_VALUE would be 255
-output = clipa * (MAX_VALUE - mask) + clipb * mask 
+output = clipa * (MAX_VALUE - mask) + clipb * mask
 ```
 
 In simpler terms:
@@ -171,22 +169,22 @@ focused in different directions,
 to create a clip containing what you might call a gradient vector map,
 or more simply a clip which has brighter values in pixels
 where the neighborhood dissimilarity is higher.
-The main ones I would recommend would be Prewitt (core),
-Sobel (core),
-and kirsch (kagefunc).
+Some commonly used examples would be **Prewitt** (core),
+**Sobel** (core),
+and **kirsch** (kagefunc).
 
 There are also some edge detection methods that use prefiltering
 when generating the mask.
-The most common of these would be TCanny,
+The most common of these would be **TCanny**,
 which applies a Gaussian blur before creating a 1-pixel-thick Sobel mask.
 The most noteworthy pre-processed edge mask would be kagefunc's
-retinex\_edgemask filter,
+**retinex\_edgemask** filter,
 which at least with cartoons and anime,
 is unmatched in its accuracy.
 This is the mask to use if you want edge
 masking with ALL of the edges and nothing BUT the edges.
 
-One more edge mask worth mentioning is the mask in dehalohmod,
+Another edge mask worth mentioning is the mask in dehalohmod,
 which is a black-lineart mask well-suited to dehalo masking.
 Internally it uses a mask called a Camembert to generate a larger mask
 and limits it to the area affected by a line-darkening script.
@@ -197,11 +195,11 @@ see [kageru's blog post][].
 
 [kageru's blog post]: https://kageru.moe/blog/article/edgemasks
 
-I would also lump the range mask
+The **range mask**
 (or in masktools,
 the "min/max" mask)
-into this category,
-which is a very simple masking method that
+also fits into this category.
+It is a very simple masking method that
 returns a clip made up of the maximum value of a range of neighboring pixels
 minus the minimum value of the range,
 as so:
@@ -209,7 +207,6 @@ as so:
 ```py
 clipmax = core.std.Maximum(clip)
 clipmin = core.std.Minimum(clip)
-
 minmax = core.std.Expr([clipmax, clipmin], 'x y -')
 ```
 
@@ -283,7 +280,7 @@ we need to erode it a little further.
 
 The reason we use `mask_outer` as the basis and shrink it thrice,
 instead of using `mask` and shrinking it once,
-which would result in a similiar outline,
+which would result in a similar outline,
 is that this way,
 small adjacent lines with gaps in them
 (i.e. areas of fine texture or details),
@@ -390,8 +387,8 @@ Vapoursynth's core contains many such filters,
 which can manipulate one to three different clips according to a math function.
 Most, if not all,
 can be done (though possibly slower) using std.Expr,
-which I will
-cover at the end of this
+which will be
+covered at the end of this
 sub-section.
 
 
@@ -429,7 +426,7 @@ smooth = core.std.MakeDiff(src, noise) # subtract diff clip to prevent clipping 
 
 #### [std.Merge][]
 
-This function is similiar to [MaskedMerge](#std-MaskedMerge),
+This function is similar to [MaskedMerge](#stdmaskedmerge),
 the main difference being
 that a constant weight is supplied
 instead of a mask clip to read the weight from for each pixel.
