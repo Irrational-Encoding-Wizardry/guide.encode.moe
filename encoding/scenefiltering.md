@@ -146,8 +146,30 @@ This step can take anywhere from a few minutes to hours, depending on
 the encoder and the source. Most of the time, the same filters can be
 reused every episode with some minor changes here and there.
 
-TODO: Talk about which editor to use and how (bookmarks, comparisons,
-etc.)
+
+### Editor shortcuts / tips
+
+If using VSEdit as your [editor](preparation.md#the-editor),
+it can be helpful to use the
+built-in bookmark functionality
+to find the frame ranges of each scene.
+There is a [small script][vsbookmark] that can generate
+these bookmarks from your clip inside of VSEdit.
+
+```py
+# Editing a script called 'example01.vpy'
+import ...
+from vsbookmark import generate
+
+generate(clip, 'example01')
+clip.set_output()
+```
+
+When previewing your clip,
+there will now be bookmarks generated on the timeline
+allowing you to skip to the next scene using the GUI buttons.
+
+---
 
 Now you might ask, "Why did I have to create base filters for
 everything?" The answer is that these base filters allow other filters
@@ -170,3 +192,5 @@ weak, faster filter multiple times.
 
 That should be all you need to know
 about scenefiltering.
+
+[vsbookmark]: https://gist.github.com/OrangeChannel/b9666b3650a3448589069d25dd6a394c
