@@ -55,13 +55,13 @@ core = vs.get_core()
 src = core.lsmas.LWLibavSource("source.mkv")
 filtered = default_filtering(src)
 
-light_denoise   = someDenoiseFilter(filtered)
-heavy_denoise   = someOtherDenoiseFilter(filtered)
+light_denoise = someDenoiseFilter(filtered)
+heavy_denoise = someOtherDenoiseFilter(filtered)
 
 aa = antialiasing(filtered)
 
 light_deband = deband1(filtered)
-med_deband = deband2(filtered)
+med_deband   = deband2(filtered)
 ```
 
 
