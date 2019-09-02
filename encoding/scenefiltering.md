@@ -31,13 +31,21 @@ core = vs.get_core()      # the following uses VSEdit's format
 src = core.lsmas.LWLibavSource("source.mkv")
 ```
 
-Next, you need to come up with a common set of filters that can be
-applied to most of the video. Usually, this filtering includes denoising
-and debanding. If you can't come up with anything suitable, don't fret;
+Next, you need to choose what filtering will be done to the entire clip.
+Some filtering—like resizing in this example—may
+need to be put before any other filtering.
+At this stage,
+you can also come up with the default filters
+that need to be in a certain order,
+but will still be applied to the entire clip.
+If you can't come up with anything suitable, don't fret;
 you'll have plenty more chances to filter later.
 
 ```py
-filtered = default_filtering(src)
+filtered = core.resize.Bilinear(src, width=1280, height=720)
+
+# will occur at the deband stage, but for entire clip
+default_deband = deband(filtered)
 ```
 
 Now that you have your common filtering down, you need to create some
