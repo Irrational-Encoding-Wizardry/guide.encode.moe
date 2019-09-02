@@ -93,7 +93,6 @@ and fvsfunc has the alias `rfs`.
 
 ```py
 import vapoursynth as vs
-import fvsfunc as fvf
 core = vs.core
 
 src = core.lsmas.LWLibavSource("source.m2ts")
