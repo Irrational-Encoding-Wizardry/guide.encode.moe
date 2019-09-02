@@ -84,7 +84,7 @@ debanded = ...
 
 Once you've done all of that, you're done with filtering your source—at
 least for the most part. Now all you need to do is add
-`ReplaceFramesSimple` calls. For this, you require the
+`ReplaceFramesSimple` calls. For this, you need either the
 plugin [RemapFrames](https://github.com/Irrational-Encoding-Wizardry/Vapoursynth-RemapFrames/releases) or
 the native Python version in
 [fvsfunc](https://github.com/Irrational-Encoding-Wizardry/fvsfunc/blob/master/fvsfunc.py)[^1].
@@ -163,7 +163,7 @@ reused every episode with some minor changes here and there.
 Now you might ask, "Why did I have to create base filters for
 everything?" The answer is that these base filters allow other filters
 to be added on top of them. Let's say a scene requires `light_denoise`
-but also needs `med_deband` on top of that. Just put the same frame
+but also needs `medium_deband` on top of that. Just put the same frame
 ranges in their Rfs calls and watch it happen. What if a scene requires
 denoising stronger than `heavier_denoise` ? Simple. Add another denoising
 filter instead of `heavier_denoise` like so:
