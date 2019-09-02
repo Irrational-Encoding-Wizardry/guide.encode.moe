@@ -26,7 +26,7 @@ your video source:
 
 ```py
 import vapoursynth as vs  # this can look different based on your editor
-core = vs.get_core()      # the following uses VSEdit's format
+core = vs.core
 
 src = core.lsmas.LWLibavSource("source.m2ts")
 ```
@@ -58,7 +58,7 @@ time. At this point, your script should look something like this:
 
 ```py
 import vapoursynth as vs
-core = vs.get_core()
+core = vs.core
 
 src = core.lsmas.LWLibavSource("source.m2ts")
 filtered = core.resize.Bilinear(src, width=1280, height=720)
@@ -88,7 +88,7 @@ and fvsfunc has the alias `rfs`.
 ```py
 import vapoursynth as vs
 import fvsfunc as fvf
-core = vs.get_core()
+core = vs.core
 
 src = core.lsmas.LWLibavSource("source.m2ts")
 filtered = core.resize.Bilinear(src, width=1280, height=720)
