@@ -28,7 +28,7 @@ your video source:
 import vapoursynth as vs  # this can look different based on your editor
 core = vs.get_core()      # the following uses VSEdit's format
 
-src = core.lsmas.LWLibavSource("source.mkv")
+src = core.lsmas.LWLibavSource("source.m2ts")
 ```
 
 Next, you need to choose what filtering will be done to the entire clip.
@@ -60,16 +60,17 @@ time. At this point, your script should look something like this:
 import vapoursynth as vs
 core = vs.get_core()
 
-src = core.lsmas.LWLibavSource("source.mkv")
-filtered = default_filtering(src)
+src = core.lsmas.LWLibavSource("source.m2ts")
+filtered = core.resize.Bilinear(src, width=1280, height=720)
 
-light_denoise = someDenoiseFilter(filtered)
-heavy_denoise = someOtherDenoiseFilter(filtered)
+light_denoise = some_denoise_filter(filtered)
+heavy_denoise = some_other_denoise_filter(filtered)
 
 aa = antialiasing(filtered)
 
-light_deband = deband1(filtered)
-med_deband   = deband2(filtered)
+default_deband = deband(filtered)
+light_deband   = deband1(filtered)
+medium_deband  = deband2(filtered)
 ```
 
 
@@ -89,21 +90,19 @@ import vapoursynth as vs
 import fvsfunc as fvf
 core = vs.get_core()
 
-src = core.lsmas.LWLibavSource("source.mkv")
-filtered = defaultFiltering(src)
+src = core.lsmas.LWLibavSource("source.m2ts")
+filtered = core.resize.Bilinear(src, width=1280, height=720)
 
 ### Denoising
-
-light_denoise   = someDenoiseFilter(filtered)
-heavy_denoise   = someOtherDenoiseFilter(filtered)
-heavier_denoise = someStrongerDenoiseFilter(filtered)
+light_denoise   = some_denoise_filter(filtered)
+heavy_denoise   = some_other_denoise_filter(filtered)
+heavier_denoise = some_stronger_denoise_filter(filtered)
 
 denoised = fvf.rfs(filtered, light_denoise, mappings="")
 denoised = fvf.rfs(denoised, heavy_denoise, mappings="")
 denoised = fvf.rfs(denoised, heavier_denoise, mappings="")
 
 ### Anti-aliasing
-
 eedi2_aa  = eedi2_aa_filter(denoised)
 nnedi3_aa = nnedi3_aa_filter(denoised)
 
@@ -111,11 +110,12 @@ aa = fvf.rfs(denoised, eedi2_aa, mappings="")
 aa = fvf.rfs(aa, nnedi3_aa, mappings="")
 
 ### Debanding
+default_deband = default_deband(aa)
+light_deband   = deband1(aa)
+medium_deband  = deband2(aa)
 
-light_deband = deband1(aa)
-med_deband   = deband2(aa)
-
-debanded = fvf.rfs(aa, light_deband, mappings="")
+debanded = default_deband  # will apply filter to the entire clip
+debanded = fvf.rfs(debanded, light_deband, mappings="")
 debanded = fvf.rfs(debanded, med_deband, mappings="")
 ```
 
@@ -154,31 +154,6 @@ This step can take anywhere from a few minutes to hours, depending on
 the encoder and the source. Most of the time, the same filters can be
 reused every episode with some minor changes here and there.
 
-
-### Editor shortcuts / tips
-
-If using VSEdit as your [editor](preparation.md#the-editor),
-it can be helpful to use the
-built-in bookmark functionality
-to find the frame ranges of each scene.
-There is a [small script][vsbookmark] that can generate
-these bookmarks from your clip inside of VSEdit.
-
-```py
-# Editing a script called 'example01.vpy'
-import ...
-from vsbookmark import generate
-
-generate(clip, 'example01')
-clip.set_output()
-```
-
-When previewing your clip,
-there will now be bookmarks generated on the timeline
-allowing you to skip to the next scene using the GUI buttons.
-
----
-
 Now you might ask, "Why did I have to create base filters for
 everything?" The answer is that these base filters allow other filters
 to be added on top of them. Let's say a scene requires `light_denoise`
@@ -198,7 +173,31 @@ always consider the impacts on performance. Calling a strong, slow
 denoise filter might still be faster (and better-looking) than calling a
 weak, faster filter multiple times.
 
-That should be all you need to know
-about scenefiltering.
+
+### Editor shortcuts / tips
+
+If using VSEdit as your [editor](preparation.md#the-editor),
+it can be helpful to use the
+built-in bookmark functionality
+to find the frame ranges of each scene.
+There is a [small script][vsbookmark] that can generate
+these bookmarks from your clip inside of VSEdit.
+If you already have a keyframe file
+(WWXD qp-file or Xvid keyframes)
+you can instead use the `convert` function.
+
+```py
+# Editing a script called 'example01.vpy'
+import ...
+from vsbookmark import generate
+
+generate(clip, 'example01')
+#convert('keyframes.txt', 'example01')
+clip.set_output()
+```
+
+When previewing your clip,
+there will now be bookmarks generated on the timeline
+allowing you to skip to the next scene using the GUI buttons.
 
 [vsbookmark]: https://gist.github.com/OrangeChannel/b9666b3650a3448589069d25dd6a394c
