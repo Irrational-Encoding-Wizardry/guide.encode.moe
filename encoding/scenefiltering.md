@@ -66,11 +66,17 @@ resized = core.resize.Bilinear(src, width=1280, height=720)
 light_denoise = some_denoise_filter(resized)
 heavy_denoise = some_other_denoise_filter(resized)
 
+denoised = ...
+
 aa = antialiasing(denoised)
+
+aa = ...
 
 default_deband = deband(aa)
 light_deband   = deband1(aa)
 medium_deband  = deband2(aa)
+
+debanded = ...
 ```
 
 
@@ -98,16 +104,16 @@ light_denoise   = some_denoise_filter(resized)
 heavy_denoise   = some_other_denoise_filter(resized)
 heavier_denoise = some_stronger_denoise_filter(resized)
 
-denoised = fvf.rfs(resized, light_denoise, mappings="")
-denoised = fvf.rfs(denoised, heavy_denoise, mappings="")
-denoised = fvf.rfs(denoised, heavier_denoise, mappings="")
+denoised = core.remap.Rfs(resized, light_denoise, mappings="")
+denoised = core.remap.Rfs(denoised, heavy_denoise, mappings="")
+denoised = core.remap.Rfs(denoised, heavier_denoise, mappings="")
 
 ### Anti-aliasing
 eedi2_aa  = eedi2_aa_filter(denoised)
 nnedi3_aa = nnedi3_aa_filter(denoised)
 
-aa = fvf.rfs(denoised, eedi2_aa, mappings="")
-aa = fvf.rfs(aa, nnedi3_aa, mappings="")
+aa = core.remap.Rfs(denoised, eedi2_aa, mappings="")
+aa = core.remap.Rfs(aa, nnedi3_aa, mappings="")
 
 ### Debanding
 default_deband = default_deband(aa)
@@ -115,8 +121,8 @@ light_deband   = deband1(aa)
 medium_deband  = deband2(aa)
 
 debanded = default_deband  # will apply filter to the entire clip
-debanded = fvf.rfs(debanded, light_deband, mappings="")
-debanded = fvf.rfs(debanded, med_deband, mappings="")
+debanded = core.remap.Rfs(debanded, light_deband, mappings="")
+debanded = core.remap.Rfs(debanded, med_deband, mappings="")
 ```
 
 So you created all your base filters and added Rfs calls. Now what? You
@@ -141,7 +147,7 @@ quite simple:
     ```py
     # The following replaces frames 30 to 40 (inclusive) and frame 50
     # of the base clip with the filtered clip.
-    filtered = fvf.rfs(base, filtered, mappings="[30 40] 50")
+    filtered = core.remap.Rfs(base, filtered, mappings="[30 40] 50")
     ```
 
 3.  Repeat with the next scene.
@@ -165,7 +171,7 @@ filter instead of `heavier_denoise` like so:
 ```py
 super_heavy_denoise = ultra_mega_super_heavy_denoise(filtered)
 
-filtered = fvf.rfs(filtered, super_heavy_denoise, mappings="[x y]")
+filtered = core.remap.Rfs(filtered, super_heavy_denoise, mappings="[x y]")
 ```
 
 Using different denoisers on that same frame range is also possible, but
@@ -204,4 +210,4 @@ allowing you to skip to the next scene using the GUI buttons.
 
 ---
 
-[^1]: The python script may be slower / less efficient than the plug-in, because of the way it reiterates calling std.Splice to combine multiple frame ranges. The plug-in on the other hand, directly serves the frames of the second clip, with no calls to splice. The speed difference and resource usage still need to be thoroughly tested.
+[^1]: The python script may be slower than the plug-in due to the way it calls std.Splice to combine multiple re-mappings. The plug-in on the other hand, directly serves the frames of the second clip, with no calls to Splice. The speed difference will likely only be noticeable with a large amount of re-mappings. So, for the average script, it should be unnoticeable.
