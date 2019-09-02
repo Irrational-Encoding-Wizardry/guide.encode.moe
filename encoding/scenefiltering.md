@@ -61,16 +61,16 @@ import vapoursynth as vs
 core = vs.core
 
 src = core.lsmas.LWLibavSource("source.m2ts")
-filtered = core.resize.Bilinear(src, width=1280, height=720)
+resized = core.resize.Bilinear(src, width=1280, height=720)
 
-light_denoise = some_denoise_filter(filtered)
-heavy_denoise = some_other_denoise_filter(filtered)
+light_denoise = some_denoise_filter(resized)
+heavy_denoise = some_other_denoise_filter(resized)
 
-aa = antialiasing(filtered)
+aa = antialiasing(denoised)
 
-default_deband = deband(filtered)
-light_deband   = deband1(filtered)
-medium_deband  = deband2(filtered)
+default_deband = deband(aa)
+light_deband   = deband1(aa)
+medium_deband  = deband2(aa)
 ```
 
 
@@ -91,14 +91,14 @@ import fvsfunc as fvf
 core = vs.core
 
 src = core.lsmas.LWLibavSource("source.m2ts")
-filtered = core.resize.Bilinear(src, width=1280, height=720)
+resized = core.resize.Bilinear(src, width=1280, height=720)
 
 ### Denoising
-light_denoise   = some_denoise_filter(filtered)
-heavy_denoise   = some_other_denoise_filter(filtered)
-heavier_denoise = some_stronger_denoise_filter(filtered)
+light_denoise   = some_denoise_filter(resized)
+heavy_denoise   = some_other_denoise_filter(resized)
+heavier_denoise = some_stronger_denoise_filter(resized)
 
-denoised = fvf.rfs(filtered, light_denoise, mappings="")
+denoised = fvf.rfs(resized, light_denoise, mappings="")
 denoised = fvf.rfs(denoised, heavy_denoise, mappings="")
 denoised = fvf.rfs(denoised, heavier_denoise, mappings="")
 
