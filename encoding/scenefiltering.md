@@ -81,7 +81,7 @@ least for the most part. Now all you need to do is add
 `ReplaceFramesSimple` calls. For this, you require the
 plugin [RemapFrames](https://github.com/Irrational-Encoding-Wizardry/Vapoursynth-RemapFrames/releases) or
 the native Python version in
-[fvsfunc](https://github.com/Irrational-Encoding-Wizardry/fvsfunc/blob/master/fvsfunc.py).
+[fvsfunc](https://github.com/Irrational-Encoding-Wizardry/fvsfunc/blob/master/fvsfunc.py)[^1].
 `Rfs` is a shorthand for `ReplaceFramesSimple`
 and fvsfunc has the alias `rfs`.
 
@@ -201,3 +201,7 @@ there will now be bookmarks generated on the timeline
 allowing you to skip to the next scene using the GUI buttons.
 
 [vsbookmark]: https://gist.github.com/OrangeChannel/b9666b3650a3448589069d25dd6a394c
+
+---
+
+[^1]: The python script may be slower / less efficient than the plug-in, because of the way it reiterates calling std.Splice to combine multiple frame ranges. The plug-in on the other hand, directly serves the frames of the second clip, with no calls to splice. The speed difference and resource usage still need to be thoroughly tested.
