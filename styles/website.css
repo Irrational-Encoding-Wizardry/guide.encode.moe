@@ -508,16 +508,42 @@ figcaption {
     margin-top: 1px;
 }
 
-/* image hovering shadow */
+/* image hovering shadow/zoom */
 img:hover {
-    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 100;
+    /* will dim entire display except picture and sidebar */
+    /* box-shadow: 0px 0px 10000px 10000px rgba(0, 0, 0, 0.4);*/
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.8);
+    max-width: 100% !important;
+    transition-delay: 300ms;
+    transition-duration: 300ms;
+    transition-timing-function: ease-in;
 }
 
 /* centering images with CSS instead of in-line HTML */
+/* also reverses hovering shadow/zoom transition */
 img {
+    position: relative;
     display: block;
     margin-left: auto;
     margin-right: auto;
+    transition-delay: 50ms;
+    transition-duration: 150ms;
+    transition-timing-function: ease-out;
+}
+
+/* scaling down images to a sensible size based on .page-inner */
+.markdown-section img {
+    max-width: 70%;
+}
+@media (max-width: 1240px) {
+    .markdown-section img {
+        max-width: 100%
+    }
+    img:hover {
+        box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+    }
 }
 
 /* Glossary terms formatting */
