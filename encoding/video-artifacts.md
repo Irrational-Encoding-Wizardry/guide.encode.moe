@@ -123,6 +123,8 @@ are the only two options.
 
 ### Banding
 
+![Banding](images/banding.png)
+
 Due to with its many flat areas and smooth gradients,
 banding is a frequent problem in anime,
 which is caused by caused by the limits of 8-bit color depth
