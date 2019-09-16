@@ -232,6 +232,22 @@ or a manual filtering of dehalo\_alpha with dhhmask
 
 [![field-noise.jpg](images/3cnvimage103.png)](https://diff.pics/84URvW5IYSdO/1)
 
+### Underflow/Overflow
+
+While almost all of the anime we watch are made under YUV 8bit limit range(Y:[16,235],UV:[16,240]),
+we can find some of them have "limited range" flag
+but also contain full range content.
+It often result in oversaturated color and weird brightness.
+
+![Underflow](images/underflow.jpg)
+
+![Overflow](images/overflow.jpg)
+
+To fix this problem,
+simply use mvf.Depth(input,fulls=True, fulld=False) or set the video with "full range" flag.
+If this problem is more complicated(like:[16-255]to[16-235]),
+the use of std.Expr() is encouraged.
+
 ---
 
 [^1]: At least, in digital anime. Actual grain is different but you most likely aren't encoding shows from the 90s so who cares.
