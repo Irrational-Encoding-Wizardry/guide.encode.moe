@@ -240,6 +240,7 @@ While almost all of the anime we watch are made under YUV 8bit limit range(Y:[16
 we can find some of them have "limited range" flag
 but also contain full range content.
 It often result in oversaturated color and weird brightness.
+So it's strongly recommended to use hist.Levels() to check if the brightness is OK.
 
 [![Underflow](images/underflow.jpg)](https://slowpics.org/comparison/f125e799-fdff-4c4c-8c9d-707af021bd88)
 
