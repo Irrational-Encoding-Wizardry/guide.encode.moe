@@ -234,14 +234,15 @@ or a manual filtering of dehalo\_alpha with dhhmask
 
 [![field-noise.jpg](images/3cnvimage103.png)](https://diff.pics/84URvW5IYSdO/1)
 
+
 ### Underflow/Overflow
 
-While almost all of the anime produced
-use the YUV 8-bit limited range (Y: \[16,235\], UV: \[16,240\]),
-we occasionally find some of them having the "limited range" flag
+While most of the anime produced
+use the YUV 8-bit limited range[^4],
+we occasionally find some videos having the "limited range" flag set
 while containing full range content.
 This often results in oversaturated colors and weird brightness.
-Thus, it is strongly recommended 
+Thus, it is strongly recommended
 to check the brightness levels with `hist.Levels()`.
 
 [![Example of underflow (click for comparison)](images/underflow.jpg)](https://slowpics.org/comparison/f125e799-fdff-4c4c-8c9d-707af021bd88)
@@ -249,10 +250,11 @@ to check the brightness levels with `hist.Levels()`.
 [![Example of overflow (click for comparison)](images/overflow.jpg)](https://slowpics.org/comparison/6e24ffe9-e068-4f33-b2e7-639031d512f2)
 
 To fix this problem,
-simply use `mvf.Depth(input, fulls=True, fulld=False)` 
-or set the video with "full range" flag.
-If this problem is more complicated,
-e.g. going from \[16-255\] to \[16-235\],
+simply use `mvf.Depth(input, fulls=True, fulld=False)`
+or set the "full range" flag on the video,
+so the values can be interpreted accordingly.
+If the range conversion is more complicated,
+e.g. from \[16-255\] to \[16-235\],
 the use of `std.Expr()` is encouraged.
 
 ---
@@ -262,5 +264,7 @@ the use of `std.Expr()` is encouraged.
 [^2]: Urban, J. (2017, February 16). Understanding Video Compression Artifacts. Retrieved from http://blog.biamp.com/understanding-video-compression-artifacts/
 
 [^3]: Blocking may also occur for other reasons other than compression data loss. [Image re-construction with padding][waifu2x238] can cause very similar looking effects, although this is irrelevant for fansubbing source videos.
+
+[^4]: The limited range is used in rec.601 and rec.709 and allows values in \[16,235\] for the Y and \[16,240\] for the U and V planes. This means that Y=16 is considered full black and Y=235 full white, while any values outside of that range are clamped. U and V behave analogously.
 
 [waifu2x238]: https://github.com/nagadomi/waifu2x/issues/238
