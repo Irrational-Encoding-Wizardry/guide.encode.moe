@@ -236,20 +236,24 @@ or a manual filtering of dehalo\_alpha with dhhmask
 
 ### Underflow/Overflow
 
-While almost all of the anime we watch are made under YUV 8bit limit range(Y:[16,235],UV:[16,240]),
-we can find some of them have "limited range" flag
-but also contain full range content.
-It often result in oversaturated color and weird brightness.
-So it's strongly recommended to use hist.Levels() to check if the brightness is OK.
+While almost all of the anime produced
+use the YUV 8-bit limited range (Y: \[16,235\], UV: \[16,240\]),
+we occasionally find some of them having the "limited range" flag
+while containing full range content.
+This often results in oversaturated colors and weird brightness.
+Thus, it is strongly recommended 
+to check the brightness levels with `hist.Levels()`.
 
-[![Underflow](images/underflow.jpg)](https://slowpics.org/comparison/f125e799-fdff-4c4c-8c9d-707af021bd88)
+[![Example of underflow (click for comparison)](images/underflow.jpg)](https://slowpics.org/comparison/f125e799-fdff-4c4c-8c9d-707af021bd88)
 
-[![Overflow](images/overflow.jpg)](https://slowpics.org/comparison/6e24ffe9-e068-4f33-b2e7-639031d512f2)
+[![Example of overflow (click for comparison)](images/overflow.jpg)](https://slowpics.org/comparison/6e24ffe9-e068-4f33-b2e7-639031d512f2)
 
 To fix this problem,
-simply use mvf.Depth(input,fulls=True, fulld=False) or set the video with "full range" flag.
-If this problem is more complicated(like:[16-255]to[16-235]),
-the use of std.Expr() is encouraged.
+simply use `mvf.Depth(input, fulls=True, fulld=False)` 
+or set the video with "full range" flag.
+If this problem is more complicated,
+e.g. going from \[16-255\] to \[16-235\],
+the use of `std.Expr()` is encouraged.
 
 ---
 
