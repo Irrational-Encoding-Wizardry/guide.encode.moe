@@ -256,6 +256,10 @@ so the values can be interpreted accordingly.
 If the range conversion is more complicated,
 e.g. from \[16-255\] to \[16-235\],
 the use of `std.Expr()` is encouraged.
+What's more, if you consider using Expr,
+it's better to do this under 16bit to avoid precision problems.
+
+![](images/overflow_notice.jpg)
 
 ---
 
