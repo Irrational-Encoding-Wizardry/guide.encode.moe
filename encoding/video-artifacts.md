@@ -261,6 +261,17 @@ it's better to do this under 16bit to avoid precision problems.
 
 ![](images/overflow_notice.jpg)
 
+Here's some examples if you want to use `std.Expr()`.
+
+```py
+# We suppose "src16" is a 16bit video clip and we only process Y plane in this example as well as bypass the UV planes.
+# I have to underline that this example is processed under 16bit and I don't recommend to do this at any lower precisions.
+# If you want to process UV plane, you need to take care of these linear map expressions because the upper and lower limits in UV planes are different.
+YC = core.std.Expr(src16, expr=["x 255 / 219 * 4096 +",""], format=vs.YUV)   #this makes [0-255] to [16-235] at y plane
+YC = core.std.Expr(src16, expr=["x 4096 - 219 239 / * 4096 +",""], format=vs.YUV)   #this makes [16-255] to [16-235] at y plane
+YC = core.std.Expr(src16, expr=["x 219 255 / * 4096 +",""], format=vs.YUV)   #this makes [0-235] to [16-235] at y plane
+```
+
 ---
 
 [^1]: At least, in digital anime. Actual grain is different but you most likely aren't encoding shows from the 90s so who cares.
