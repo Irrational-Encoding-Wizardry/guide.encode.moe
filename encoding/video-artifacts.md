@@ -261,6 +261,10 @@ it's better to do this under 16bit to avoid precision problems.
 
 ![](images/overflow_notice.jpg)
 
+In this case, the process under 8bit may lead to
+banding and other weird artifact.
+We should avoid doing these scaling under low precision.
+
 Here's some examples if you want to use `std.Expr()`.
 
 ```py
