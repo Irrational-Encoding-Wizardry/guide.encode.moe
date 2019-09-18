@@ -273,7 +273,7 @@ Here's some examples if you want to use `std.Expr()`.
 # If you want to process UV plane, you need to take care of these linear map expressions because the upper and lower limits in UV planes are different.
 YC = core.std.Expr(src16, expr=["x 255 / 219 * 4096 +",""], format=vs.YUV)   #this makes [0-255] to [16-235] at y plane
 YC = core.std.Expr(src16, expr=["x 4096 - 219 239 / * 4096 +",""], format=vs.YUV)   #this makes [16-255] to [16-235] at y plane
-YC = core.std.Expr(src16, expr=["x 219 255 / * 4096 +",""], format=vs.YUV)   #this makes [0-235] to [16-235] at y plane
+YC = core.std.Expr(src16, expr=["x 219 235 / * 4096 +",""], format=vs.YUV)   #this makes [0-235] to [16-235] at y plane
 ```
 
 ---
