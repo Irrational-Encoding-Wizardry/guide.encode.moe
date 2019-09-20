@@ -11,7 +11,7 @@ Feichtetstraße 27
 
 ## Contact Information
 
-Telephone: +4917661093606
+Telephone: +49 8157 5971694
 
 E-Mail: stuxcrystal@encode.moe [<i class="fa fa-envelope"></i>](mailto:stuxcrystal@encode.moe)
 
