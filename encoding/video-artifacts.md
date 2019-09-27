@@ -123,7 +123,7 @@ are the only two options.
 
 ### Banding
 
-![Banding](images/banding.png)
+![Example image for banding](images/banding.png)
 
 Due to with its many flat areas and smooth gradients,
 banding is a frequent problem in anime,
@@ -281,8 +281,8 @@ you would use the following[^5]:
 
 ```py
 # 16 bit
-clip = clip.std.Levels(min_in=0, max_in=255 * 2**8, min_out=16 * 2**8, max_out=235 * 2**8, planes=0)      # y plane
-clip = clip.std.Levels(min_in=0, max_in=255 * 2**8, min_out=16 * 2**8, max_out=240 * 2**8, planes=[1,2])  # u&v planes
+clip = clip.std.Levels(min_in=0, max_in=2**16 - 1, min_out=16 << 8, max_out=235 << 8, planes=0)      # y plane
+clip = clip.std.Levels(min_in=0, max_in=2**16 - 1, min_out=16 << 8, max_out=240 << 8, planes=[1,2])  # u&v planes
 
 # float
 clip = clip.std.Levels(min_in=0, max_in=255 / 255.0 min_out=16 / 255.0, max_out=235 / 255.0, planes=0)      # y plane
@@ -311,8 +311,8 @@ simply adjust the `min/max_in/out` parameters accordingly.
 
 [^3]: Blocking may also occur for other reasons other than compression data loss. [Image re-construction with padding][waifu2x238] can cause very similar looking effects, although this is irrelevant for fansubbing source videos.
 
-[^4]: The 8-bit limited range (used in rec.601 and rec.709) (and also BT.2020/2100) only defines values within \[16,235\] for the Y and \[16,240\] for the U and V planes. This means that Y=16 is considered full black and Y=235 full white, while any values outside of that range are clamped. U and V behave analogously. 
+[^4]: The 8-bit limited range (used in rec.601 and rec.709) (and also BT.2020/2100) only defines values within \[16,235\] for the Y and \[16,240\] for the U and V planes. This means that Y=16 is considered full black and Y=235 full white, while any values outside of that range are clamped virtually (during rendering). U and V behave analogously. 
 
-[^5]: The limited ranges in different precisions are multiplied by 2 to the power of added bits. For 12-bit, for example, you muliply by 2\^(12-8), resulting in \[256,3760\] and \[256-3840\] respectively.
+[^5]: The limited ranges in different precisions are shifted by (multiplied by 2 to the power of) the added bits. For 12-bit, for example, you muliply by 2\^(12-8), resulting in \[256,3760\] and \[256-3840\] respectively. The maximum value in full range is obviously the highest unsigned integer value, so 2\*\*12-1.
 
 [waifu2x238]: https://github.com/nagadomi/waifu2x/issues/238
