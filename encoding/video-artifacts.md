@@ -234,8 +234,10 @@ or a manual filtering of dehalo\_alpha with dhhmask
 
 [![field-noise.jpg](images/3cnvimage103.png)](https://diff.pics/84URvW5IYSdO/1)
 
+TODO
 
-### Underflow/Overflow
+
+### Underflow / Overflow
 
 While most of the anime produced
 use the YUV 8-bit limited range[^4],
@@ -243,38 +245,63 @@ we occasionally find some videos having the "limited range" flag set
 while containing full range content.
 This often results in oversaturated colors and weird brightness.
 Thus, it is strongly recommended
-to check the brightness levels with `hist.Levels()`.
+to check the brightness levels
+of the 8-bit source with `hist.Levels()`.
 
 [![Example of underflow (click for comparison)](images/underflow.jpg)](https://slowpics.org/comparison/f125e799-fdff-4c4c-8c9d-707af021bd88)
 
 [![Example of overflow (click for comparison)](images/overflow.jpg)](https://slowpics.org/comparison/6e24ffe9-e068-4f33-b2e7-639031d512f2)
 
 To fix this problem,
-simply use `mvf.Depth(input, fulls=True, fulld=False)`
-or set the "full range" flag on the video,
-so the values can be interpreted accordingly.
-If the range conversion is more complicated,
-e.g. from \[16-255\] to \[16-235\],
-the use of `std.Expr()` is encouraged.
-What's more, if you consider using Expr,
-it's better to do this under 16bit to avoid precision problems.
-
-![](images/overflow_notice.jpg)
-
-In this case, the process under 8bit may lead to
-banding and other weird artifact.
-We should avoid doing these scaling under low precision.
-
-Here's some examples if you want to use `std.Expr()`.
+simply use [`std.Levels()`][std-Levels] like so:
 
 ```py
-# We suppose "src16" is a 16bit video clip and we only process Y plane in this example as well as bypass the UV planes.
-# I have to underline that this example is processed under 16bit and I don't recommend to do this at any lower precisions.
-# If you want to process UV plane, you need to take care of these linear map expressions because the upper and lower limits in UV planes are different.
-YC = core.std.Expr(src16, expr=["x 255 / 219 * 4096 +",""], format=vs.YUV)   #this makes [0-255] to [16-235] at y plane
-YC = core.std.Expr(src16, expr=["x 4096 - 219 239 / * 4096 +",""], format=vs.YUV)   #this makes [16-255] to [16-235] at y plane
-YC = core.std.Expr(src16, expr=["x 219 235 / * 4096 +",""], format=vs.YUV)   #this makes [0-235] to [16-235] at y plane
+# This only applies to 8 bit clips!
+clip = clip.std.Levels(min_in=0, max_in=255, min_out=16, max_out=235, planes=0)      # y plane
+clip = clip.std.Levels(min_in=0, max_in=255, min_out=16, max_out=240, planes=[1,2])  # u&v planes
 ```
+
+or set the "full range" flag on the video,
+so the values can be interpreted accordingly.
+Limited range video is more widely supported
+and players may ignore the "full range" flag,
+which results in interpreting full range content 
+in a limited context.
+
+[std-Levels]: http://www.vapoursynth.com/doc/functions/levels.html
+
+Because limited precision with only 8 bit per channel
+may lead to rounding errors quickly,
+we prefer adjusting the levels
+(and our filtering in general)
+with higher precision, 
+such as 16 bit or float (32 bit).
+For these clips,
+you would use the following[^5]:
+
+```py
+# 16 bit
+clip = clip.std.Levels(min_in=0, max_in=255 * 2**8, min_out=16 * 2**8, max_out=235 * 2**8, planes=0)      # y plane
+clip = clip.std.Levels(min_in=0, max_in=255 * 2**8, min_out=16 * 2**8, max_out=240 * 2**8, planes=[1,2])  # u&v planes
+
+# float
+clip = clip.std.Levels(min_in=0, max_in=255 / 255.0 min_out=16 / 255.0, max_out=235 / 255.0, planes=0)      # y plane
+clip = clip.std.Levels(min_in=0, max_in=255 / 255.0, min_out=16 / 255.0, max_out=240 / 255.0, planes=[1,2])  # u&v planes
+```
+
+An example for a case,
+where shifting the levels with 8 bit precision
+leads to rounding errors 
+that may result in banding
+and other weird artifacts,
+can be seen below.
+
+![When you see a histogram like this, increase precision.](images/overflow_notice.jpg)
+
+If the range conversion is non-standard[^4]
+or only required on one side,
+simply adjust the `min/max_in/out` parameters accordingly.
+
 
 ---
 
@@ -284,6 +311,8 @@ YC = core.std.Expr(src16, expr=["x 219 235 / * 4096 +",""], format=vs.YUV)   #th
 
 [^3]: Blocking may also occur for other reasons other than compression data loss. [Image re-construction with padding][waifu2x238] can cause very similar looking effects, although this is irrelevant for fansubbing source videos.
 
-[^4]: The limited range is used in rec.601 and rec.709 and allows values in \[16,235\] for the Y and \[16,240\] for the U and V planes. This means that Y=16 is considered full black and Y=235 full white, while any values outside of that range are clamped. U and V behave analogously.
+[^4]: The 8-bit limited range (used in rec.601 and rec.709) (and also BT.2020/2100) only defines values within \[16,235\] for the Y and \[16,240\] for the U and V planes. This means that Y=16 is considered full black and Y=235 full white, while any values outside of that range are clamped. U and V behave analogously. 
+
+[^5]: The limited ranges in different precisions are multiplied by 2 to the power of added bits. For 12-bit, for example, you muliply by 2\^(12-8), resulting in \[256,3760\] and \[256-3840\] respectively.
 
 [waifu2x238]: https://github.com/nagadomi/waifu2x/issues/238
