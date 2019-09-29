@@ -270,12 +270,12 @@ The same is true for experimental codecs like [Daala][] and [AV-1][].
 Encoders made for distributed server encoding,
 such as Intel's [SVT-AV1][] will also not be included.
 
-[x264vlan]: https://download.videolan.org/pub/videolan/x264/binaries/
-[x264vlan-git]: https://git.videolan.org/?p=x264.git;a=summary
+[x264vlan]: https://artifacts.videolan.org/x264/
+[x264vlan-git]: https://code.videolan.org/videolan/x264
 [Daala]: https://xiph.org/daala/
 [AV-1]: https://aomediacodec.github.io/av1-spec/
 [SVT-AV1]: https://github.com/OpenVisualCloud/SVT-AV1
-[unification-commit]: https://git.videolan.org/?p=x264.git;a=commit;h=71ed44c7312438fac7c5c5301e45522e57127db4
+[unification-commit]: https://code.videolan.org/videolan/x264/commit/71ed44c7
 
 
 ## Audio
