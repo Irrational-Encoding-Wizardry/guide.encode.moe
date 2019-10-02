@@ -593,8 +593,18 @@ before calculating the output samples.
 This way,
 the left-alignment is restored.
 
-This quarter-pixel shifting is performed
+Similiarly,
+when resizing left-aligned 4:2:0 material
+while keeping the subsampling,
+a slight shift needs to be applied
+to preserve the alignment.
+Specifically,
+the chroma needs to be shifted by
+`0.25 - 0.25 * src_width/dst_width`.[^4]
+
+Chroma shifting is performed
 automatically under the hood by most format conversion software
+(including zimg, VapourSynth’s resizing library)
 and media players.
 Thus, we only need to take care of it
 if we handle the chroma upscaling seperately by hand.
@@ -614,5 +624,6 @@ shifted_scaled_u = core.resize.Spline16(u, 1920, 1080, src_left=0.25) # shifts t
 [^1]: The Fourier transform is an ubiqitous concept in image processing, so we strongly advise becoming familiar with at least the basics. A very good resource for this topic is [ImageMagick’s guide][].
 [^2]: Robidoux, N. (2012, October 21). Resampling — ImageMagick v6 Examples. Retrieved August 22, 2019, from https://www.imagemagick.org/Usage/filter/nicolas/#upsampling
 [^3]: If you don’t understand what this means, read the resources linked above in the [resizing section](#resizing).
+[^4]: This is derived as follows: The shift is the distance between the position of the first luma sample and the position of the first chroma sample (both mapped onto the input grid and given in terms of input chroma pixel widths). The former is located at `0.25 + (src_width/dst_width)/4`, the latter at `(src_width/dst_width)/2`. This yields `0.25 + (src_width/dst_width)/4 - (src_width/dst_width)/2 = 0.25 + (src_width/dst_width) * (1/4 - 1/2) = 0.25 + (src_width/dst_width) * -0.25` for the shift.
 
 [ImageMagick’s guide]: http://www.fmwconcepts.com/imagemagick/fourier_transforms/fourier.html
