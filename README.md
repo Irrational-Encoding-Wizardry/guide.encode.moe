@@ -1,9 +1,5 @@
 # Fansubbing Guide
 
-*This project is not finished by any means.
-Please help by improving the articles
-and filling in the TODO entries on various pages.*
-
 This project aims to become a public guide
 for aspiring as well as veteran fansubbers
 that everyone can contribute to.
@@ -11,6 +7,9 @@ It is currently under construction
 as many topics are still missing,
 but will hopefully cover all important areas
 and roles that go into the fansubbing process.
+(*Please help by improving the pages
+and filling in TODO entries.
+More details are provided on the next page.*)
 
 To start reading,
 you can click on the arrow on the right
