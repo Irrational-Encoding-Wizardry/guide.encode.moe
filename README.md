@@ -1,6 +1,6 @@
 # Fansubbing Guide
 
-*This project is not officially published yet.
+*This project is not finished by any means.
 Please help by improving the articles
 and filling in the TODO entries on various pages.*
 
