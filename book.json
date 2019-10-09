@@ -11,7 +11,8 @@
         "code",
         "edit-link",
         "image-captions",
-        "term"
+        "term",
+        "katex"
     ],
     "pluginsConfig": {
         "edit-link": {
