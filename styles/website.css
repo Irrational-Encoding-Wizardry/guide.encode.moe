@@ -453,6 +453,13 @@ li.header:nth-child(1) {
         padding: 1.5em 1.5em 3em 1.5em;
     }
 }
+@media screen and (orientation: portrait) {
+    .btn.pull-right.js-toolbar-action {
+        /* prioritizes getting rid of the social media buttons
+        this fixes a weird issue on iPhone 6/7/8 where the 'A' is 5% visible and shifts the title to the right */
+        display: none;
+    }
+}
 
 /* fonts */
 .book.font-family-0 {
@@ -539,7 +546,7 @@ img {
 }
 @media (max-width: 1240px) {
     .markdown-section img {
-        max-width: 100%
+        max-width: 100%;
     }
     img:hover {
         box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
