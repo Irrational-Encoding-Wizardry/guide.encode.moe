@@ -362,10 +362,49 @@ and per-page unique number.
 must all be written one line per footnote.
 Line breaks **cannot** be used.
 
+
+### Mathematics with TeX
+
+This guide has KaTeX support,
+so in-line or block mathematics can be rendered with TeX.
+This obviously requires knowledge of TeX syntax and the supported functions
+listed in the [KaTeX documentation][].
+To start in-line formulas, the syntax is `$$...$$`.
+Similarly, the block formulas' syntax is:
+
+```md
+$$
+...
+$$
+```
+
+Similar to \`\`\` fenced code blocks,
+separate these blocks with one blank line on either side.
+
+In-line examples *should* be split from the surrounding text
+with a delimiter for clarity,
+but this is not 100% necessary.
+Examples using `\big(` and `\left[` can be found on the
+[masking page](encoding/masking-limiting-etc.md#stdmakediff-and-stdmergediff)
+and in the
+[resampling page's footnotes](encoding/resampling.md#fn_4).
+
+**Note:** both `{% math %}` and `{% endmath %}` templates
+can be entirely replaced by two `$`'s,
+so any math between \$\$ ... \$\$ will render with KaTeX[^3].
+However, using "\$\$" within in-line \`code\` or blocks
+will change these into the templates above
+(making printing "\$\$" in code impossible).
+
+[KaTeX documentation]: https://katex.org/docs/supported.html
+
 ---
 
 [^1]: The new gitbook spec is very different than the version this book is using. Almost none of the information from [gitbook's new website][new-gitbook] applies.
 
 [^2]: This is different from how github.com's markdown preview behaves.
 
+[^3]: Please view the [markdown of this page][contrib-md] for an example of KaTeX math using `$` symbols.
+
 [new-gitbook]: https://www.gitbook.com/
+[contrib-md]: https://github.com/Irrational-Encoding-Wizardry/guide.encode.moe/edit/master/CONTRIBUTING.md
