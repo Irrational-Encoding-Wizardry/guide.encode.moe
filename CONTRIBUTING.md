@@ -212,7 +212,8 @@ Unordered list lines should be indented **once**,
 while ordered lists are indented **twice**.
 The text of an unordered item should have one space after the `-`,
 while the text of an ordered item
-should start four columns after the number.
+should start on the fourth column
+(start every line with the number 1).
 
 ```md
 - This is an unordered list
@@ -221,11 +222,10 @@ should start four columns after the number.
 ```
 
 ```md
-1.  This is an ordered list.
-    Consecutive lines are indented with four spaces.
-2.  Another list item
+1. This is an ordered list
+1. Another list item
 …
-10. Now only one space after the item number.
+1. Last entry of the list
 ```
 
 
