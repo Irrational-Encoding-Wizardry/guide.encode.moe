@@ -19,6 +19,7 @@
 - [Descaling](encoding/descaling.md)
 - [Resampling](encoding/resampling.md)
 - [Codecs](encoding/video-encoding.md)
+  - [x264](encoding/codecs/x264.md)
 
 
 ## Typesetting
