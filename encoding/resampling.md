@@ -145,7 +145,7 @@ because it is usually considered a good neutral default.
 It takes two parameters, B and C,
 which can be used to tweak the filter’s behaviour.
 For upscaling, it is recommended to use values that satisfy the equation
-$$(\mathrm{b} + 2\mathrm{c} = 1)$$.
+$$\mathrm{b} + 2\mathrm{c} = 1$$.
 
 The graph below outlines
 the various kinds of artifacts
@@ -600,7 +600,7 @@ a slight shift needs to be applied
 to preserve the alignment.
 Specifically,
 the chroma needs to be shifted by
-$$\left( 0.25 - 0.25 \times \frac{\mathrm{src~width}}{\mathrm{dst~width}} \right)$$.[^4]
+$$0.25 - 0.25 \times \frac{\mathrm{src~width}}{\mathrm{dst~width}}$$.[^4]
 
 Chroma shifting is performed
 automatically under the hood by most format conversion software
@@ -624,6 +624,6 @@ shifted_scaled_u = core.resize.Spline16(u, 1920, 1080, src_left=0.25) # shifts t
 [^1]: The Fourier transform is an ubiqitous concept in image processing, so we strongly advise becoming familiar with at least the basics. A very good resource for this topic is [ImageMagick’s guide][].
 [^2]: Robidoux, N. (2012, October 21). Resampling — ImageMagick v6 Examples. Retrieved August 22, 2019, from https://www.imagemagick.org/Usage/filter/nicolas/#upsampling
 [^3]: If you don’t understand what this means, read the resources linked above in the [resizing section](#resizing).
-[^4]: This is derived as follows: The shift is the distance between the position of the first luma sample and the position of the first chroma sample (both mapped onto the input grid and given in terms of input chroma pixel widths). The former is located at $$\left( 0.25 + \frac{\mathrm{src~width}}{4 \times \mathrm{dst~width}} \right)$$, the latter at $$\left( \frac{\mathrm{src~width}}{2 \times \mathrm{dst~width}} \right)$$. This yields $$0.25 + \frac{\mathrm{src~width}}{4 \times \mathrm{dst~width}} - \frac{\mathrm{src~width}}{2 \times \mathrm{dst~width}} = 0.25 + \frac{\mathrm{src~width}}{\mathrm{dst~width}} \times (^1/_4 -\,^1/_2) = 0.25 + \frac{\mathrm{src~width}}{\mathrm{dst~width}} \times (-0.25)$$ for the shift.
+[^4]: This is derived as follows: The shift is the distance between the position of the first luma sample and the position of the first chroma sample (both mapped onto the input grid and given in terms of input chroma pixel widths). The former is located at $$0.25 + \frac{\mathrm{src~width}}{4 \times \mathrm{dst~width}}$$, the latter at $$\frac{\mathrm{src~width}}{2 \times \mathrm{dst~width}}$$. This yields $$0.25 + \frac{\mathrm{src~width}}{4 \times \mathrm{dst~width}} - \frac{\mathrm{src~width}}{2 \times \mathrm{dst~width}} = 0.25 + \frac{\mathrm{src~width}}{\mathrm{dst~width}} \times \left( ^1/_4 -\,^1/_2 \right) = 0.25 + \frac{\mathrm{src~width}}{\mathrm{dst~width}} \times (-0.25)$$ for the shift.
 
 [ImageMagick’s guide]: http://www.fmwconcepts.com/imagemagick/fourier_transforms/fourier.html

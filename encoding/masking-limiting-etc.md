@@ -62,7 +62,7 @@ The following formula
 describes these internals for each pixel:
 
 $$
-\mathrm{output} = \mathrm{clip\, a} \times \left( \mathit{max~value} - \mathrm{mask} \right) + \left( \mathrm{clip\, b} \times \mathrm{mask} \right)
+\mathrm{output} = \mathrm{clip\, a} \times (\mathit{max~value} - \mathrm{mask}) + (\mathrm{clip\, b} \times \mathrm{mask})
 $$
 
 where *max value* is 255 for 8-bit.
@@ -78,7 +78,7 @@ If `premultiplied` is set to True,
 the equation changes as follows:
 
 $$
-\mathrm{output} = \mathrm{clip\, a} \times \left( \mathit{max~value} - \mathrm{mask} \right) + \mathrm{clip\, b}
+\mathrm{output} = \mathrm{clip\, a} \times (\mathit{max~value} - \mathrm{mask}) + \mathrm{clip\, b}
 $$
 
 [std.MaskedMerge]: http://www.vapoursynth.com/doc/functions/maskedmerge.html
@@ -434,7 +434,7 @@ instead of a mask clip to read the weight from for each pixel.
 The formula is thus just as simple:
 
 $$
-\mathrm{output} = \mathrm{clip\,a} \times (\mathit{max~value} - \mathrm{weight}) + \left( \mathrm{clip\,b} \times \mathrm{weight} \right)
+\mathrm{output} = \mathrm{clip\,a} \times (\mathit{max~value} - \mathrm{weight}) + (\mathrm{clip\,b} \times \mathrm{weight})
 $$
 
 It can be used to perform
