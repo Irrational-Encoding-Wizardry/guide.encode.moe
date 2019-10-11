@@ -381,14 +381,6 @@ $$
 Similar to \`\`\` fenced code blocks,
 separate these blocks with one blank line on either side.
 
-In-line examples *should* be split from the surrounding text
-with a delimiter for clarity,
-but this is not 100% necessary.
-Examples using `\big(` and `\left[` can be found on the
-[masking page](encoding/masking-limiting-etc.md#stdmakediff-and-stdmergediff)
-and in the
-[resampling page's footnotes](encoding/resampling.md#fn_4).
-
 **Note:** both `{% math %}` and `{% endmath %}` templates
 can be entirely replaced by two `$`'s,
 so any math between \$\$ ... \$\$ will render with KaTeX[^3].
