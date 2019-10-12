@@ -61,24 +61,25 @@ where the weights are given by the brightness of the mask clip.
 The following formula
 describes these internals for each pixel:
 
-```py
-# in 8 bpp, MAX_VALUE would be 255
-output = clipa * (MAX_VALUE - mask) + clipb * mask
-```
+$$
+\mathrm{output} = \mathrm{clip\, a} \times (\mathit{max~value} - \mathrm{mask}) + (\mathrm{clip\, b} \times \mathrm{mask})
+$$
+
+where *max value* is 255 for 8-bit.
 
 In simpler terms:
 for brighter areas in the mask,
-the output will come from `clipb`,
+the output will come from **clip b**,
 and for the dark areas,
-it’ll come from `clipa`.
-Grey areas result in an average of `clipa` and `clipb`.
+it’ll come from **clip a**.
+Grey areas result in an average of **clip a** and **clip b**.
 
 If `premultiplied` is set to True,
 the equation changes as follows:
 
-```py
-output = clipa * (MAX_VALUE - mask) + clipb
-```
+$$
+\mathrm{output} = \mathrm{clip\, a} \times (\mathit{max~value} - \mathrm{mask}) + \mathrm{clip\, b}
+$$
 
 [std.MaskedMerge]: http://www.vapoursynth.com/doc/functions/maskedmerge.html
 
@@ -400,12 +401,12 @@ integer and float formats,
 so for more complex filtering
 float is recommended whenever possible.
 In 8 bit integer format where neutral luminance (gray) is 128,
-the function is `clip1 - clip2 + 128` for MakeDiff
-and `clip1 + clip2 - 128` for MergeDiff,
+the function is $$\mathrm{clip\, a} - \mathrm{clip\, b} + 128$$ for MakeDiff
+and $$\mathrm{clip\, a} + \mathrm{clip\, b} - 128$$ for MergeDiff,
 so pixels with no change will be gray.
 
 The same is true of 16 bit and 32768.
-The float version is simply `clip1 - clip2` so in 32 bit
+The float version is simply $$\mathrm{clip\, a} - \mathrm{clip\, b}$$ so in 32 bit
 the difference is defined normally,
 negative for dark differences,
 positive for bright differences,
@@ -432,9 +433,9 @@ that a constant weight is supplied
 instead of a mask clip to read the weight from for each pixel.
 The formula is thus just as simple:
 
-```py
-output = clipa * (MAX_VALUE - weight) + clipb * weight
-```
+$$
+\mathrm{output} = \mathrm{clip\,a} \times (\mathit{max~value} - \mathrm{weight}) + (\mathrm{clip\,b} \times \mathrm{weight})
+$$
 
 It can be used to perform
 a weighted average of two clips or planes.
