@@ -51,7 +51,7 @@ Here is a list of tools you will want to download:
 [Mocha Pro standalone app]: https://www.imagineersystems.com/products/mocha-pro/
 [Quicktime]: https://support.apple.com/kb/DL837?locale=en_US
 [quicktimeFAQ]: https://borisfx.com/faq/quicktime-on-windows/
-[x264 binary]: https://download.videolan.org/x264/binaries/
+[x264 binary]: https://artifacts.videolan.org/x264/
 [Adobe Photoshop and Illustrator]: https://www.adobe.com/creativecloud.html
 [Gimp]: https://www.gimp.org
 [Inkscape]: https://inkscape.org/en/
