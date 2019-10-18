@@ -29,10 +29,10 @@ If you don't have a reliable way to get raws
 and if your group doesn't provide them,
 try finding a source first.
 Private bittorrent trackers like [u2][]
-or [AsianDVDClub][] are good starting points.
+or [SkyeySnow][] are good starting points.
 
 [u2]: https://u2.dmhy.org "u2"
-[AsianDVDClub]: https://asiandvdclub.org "ADC"
+[SkyeySnow]: https://skyeysnow.com "SkyeySnow"
 
 
 ## Processing and Filtering
