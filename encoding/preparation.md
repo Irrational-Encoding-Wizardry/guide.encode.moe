@@ -245,10 +245,16 @@ You can also build it locally from [the public repository][x264vlan-git].
 
 It used to be that different versions,
 namely kmod and tmod,
-were required for certain exclusive encoding features
-such as "aq-mode 3".
-However, all relevant features have been included in the upstream
-x264 builds since August 2018.
+were required for certain encoding features
+such as `aq-mode 3`.
+However, most relevant features have been
+added to the upstream x264 builds.
+Because of this, kmod is now unmaintained.
+tmod is still being updated with changes from new x264 versions,
+and it provides some potentially useful parameters such as `--fade-compensate`
+or `--fgo` (film grain optimization), as well as additional AQ algorithms
+(`aq2-mode`, `aq3-mode`, and parameters for these),
+which are generally regarded as useless for almost all sources.
 
 A newer, more efficient alternative is HEVC,
 with x265 being the most popular encoder.
