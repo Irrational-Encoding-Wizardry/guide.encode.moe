@@ -255,6 +255,7 @@ and it provides some potentially useful parameters such as `--fade-compensate`
 or `--fgo` (film grain optimization), as well as additional AQ algorithms
 (`aq2-mode`, `aq3-mode`, and parameters for these),
 which are generally regarded as useless for almost all sources.
+The current tmod release can be downloaded from [the github page][tmod-git-releases].
 
 A newer, more efficient alternative is HEVC,
 with x265 being the most popular encoder.
@@ -278,6 +279,7 @@ such as Intel's [SVT-AV1][] will also not be included.
 
 [x264vlan]: https://artifacts.videolan.org/x264/
 [x264vlan-git]: https://code.videolan.org/videolan/x264
+[tmod-git-releases]: https://github.com/jpsdr/x264/releases
 [Daala]: https://xiph.org/daala/
 [AV-1]: https://aomediacodec.github.io/av1-spec/
 [SVT-AV1]: https://github.com/OpenVisualCloud/SVT-AV1
