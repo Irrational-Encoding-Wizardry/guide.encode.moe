@@ -172,7 +172,7 @@ As a sidenote,
 it's important to keep in mind that this script
 can't find native 1080p elements.
 This is because it descales the frame
-and reupscales it afterwards
+and re-upscales it afterwards
 to determine the relative error.
 You can't descale to 1080p
 if the frame is already 1080p.
@@ -296,7 +296,7 @@ For bicubic,
 it is important
 to keep in mind that
 you will typically find that
-the values match the following mathmatical expressions:
+the values match the following mathematical expressions:
 
 * `b + 2c = 1`
 * `b = 0, c = X`

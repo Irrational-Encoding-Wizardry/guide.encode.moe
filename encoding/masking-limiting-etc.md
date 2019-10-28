@@ -15,7 +15,7 @@ This article will cover:
 - Reference clips
 - Expressions and Lookup Tables
 - Runtime functions
-- Prefiltering
+- Pre-filtering
 
 
 ## Masking
@@ -174,7 +174,7 @@ Some commonly used examples would be **Prewitt** (core),
 **Sobel** (core),
 and **kirsch** (kagefunc).
 
-There are also some edge detection methods that use prefiltering
+There are also some edge detection methods that use pre-filtering
 when generating the mask.
 The most common of these would be **TCanny**,
 which applies a Gaussian blur before creating a 1-pixel-thick Sobel mask.
@@ -240,7 +240,7 @@ Fortunately, there is a well-established script that does just that:
 
 However, we must be cautious in applying that filter,
 since, while removing halos reliably,
-it’s extremly destructive to the lineart as well.
+it’s extremely destructive to the lineart as well.
 Therefore we must use a **dehalo mask**
 to protect the lineart and limit the filtering to halos.
 
@@ -295,7 +295,7 @@ mask_inner = vsutil.iterate(mask_outer, core.std.Minimum, 3)
 
 ![mask_inner](images/mask_inner0.png)
 
-Now we substract the outer mask covering the halos
+Now we subtract the outer mask covering the halos
 and the lineart from the inner mask covering only the lineart.
 This yields a mask covering only the halos,
 which is what we originally wanted:
@@ -384,7 +384,7 @@ output = muvf.MergeChroma(output, standard_scale)
 
 ## Single and multi-clip adjustments with std.Expr and friends
 
-Vapoursynth's core contains many such filters,
+VapourSynth's core contains many such filters,
 which can manipulate one to three different clips according to a math function.
 Most, if not all,
 can be done (though possibly slower) using std.Expr,
@@ -510,7 +510,7 @@ out = core.std.FrameEval(src, partial(scsmooth, clip=src, ref=ref), prop_src=pro
 ```
 
 
-## Prefilters
+## Pre-filters
 
 <kbd> TODO [<i class="fa fa-edit">](https://github.com/Irrational-Encoding-Wizardry/guide.encode.moe/edit/master/encoding/masking-limiting-etc.md)</kbd>
 

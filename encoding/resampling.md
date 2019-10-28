@@ -57,7 +57,7 @@ a back-up is available [here][kernels].
 [kernels]: http://maven.whatbox.ca:11665/resample_kernels/kernels.html
 
 
-#### Box filter / Nearest Neigbour
+#### Box filter / Nearest Neighbour
 
 When upscaling,
 the Box filter will behave just like
@@ -159,7 +159,7 @@ and raising C will cause ringing.
 
 Mitchell-Netravali generalizes all smoothly fitting
 (continuous first derivative) piece-wise cubic filters,
-so any of them can be expressed with the appropiate parameters.
+so any of them can be expressed with the appropriate parameters.
 Below you can find a list of common cubic filters
 and their corresponding parameters in Mitchell-Netravali.
 
@@ -217,20 +217,20 @@ clip = core.resize.Lanczos(src, w, h, filter_param_a=2)
 Spline is another high-quality resizer.
 
 Spline, like Lanczos,
-can be finetuned by configuring its number of lobes.
+can be fine-tuned by configuring its number of lobes.
 Unlike Lanczos,
 however,
 Splines with different tap counts are usually split
-into seperate functions,
+into separate functions,
 with $$(\mathrm{tap~count} \times 2)^2$$ appended to their name,
 e.g. Spline36 for 3 taps, Spline64 for 4, etc.
-(This number repesents the total amount of input pixels
+(This number represents the total amount of input pixels
 involved in the calculation of any given output pixel.)
 
 Spline36 is a very popular choice for downscaling,
 since it is fairly artifact-free yet decently sharp.
 For upscaling,
-it looks similiar to Lanczos3,
+it looks similar to Lanczos3,
 though arguably slightly less artifacted.
 
 VS example:
@@ -304,7 +304,7 @@ and Triangle/Bilinear.
 
 This can be a beneficial property in some cases,
 for example the No-Op case.
-No-Op means that no scaling, shifting or similiar is performed,
+No-Op means that no scaling, shifting or similar is performed,
 that is, the input is resampled at exactly the same positions.
 In this case,
 an interpolation filter will return the input image untouched,
@@ -324,13 +324,13 @@ There are two different ways to go about
 resampling in two dimensions.
 
 
-#### Tensor resampling (*orthogonal*, *2-pass*, *seperated*)
+#### Tensor resampling (*orthogonal*, *2-pass*, *separated*)
 
-The image is resampled in two seperate passes:
+The image is resampled in two separate passes:
 First it is resampled horizontally, then vertically.
 This allows images to be treated 1-dimensionally
-since each pixel row/column can be resampled seperately.
-The main advantage of this method is that it's extremly fast,
+since each pixel row/column can be resampled separately.
+The main advantage of this method is that it's extremely fast,
 which is why it’s the much more common one;
 generally, unless indicated otherwise,
 this is what is used.
@@ -340,9 +340,9 @@ this is what is used.
 
 ![Two-dimensional kernel. The radius is colored green.](images/resample_polar.png)
 
-All input samples whose [Euclidian distance][L2] to the pixel
+All input samples whose [Euclidean distance][L2] to the pixel
 is within the filter’s radius contribute to its value.
-The Euclidian distance is passed to the filter kernel.
+The Euclidean distance is passed to the filter kernel.
 This is a lot more costly than tensor resampling in terms of runtime.
 
 [L2]: https://en.wikipedia.org/wiki/Euclidean_distance
@@ -436,7 +436,7 @@ introduced by upscaling,
 you can resize through a sigmoidized colorspace.
 
 This means converting the linear RGB version of an image
-to a custom colorspace with an S-shaped intensitiy curve
+to a custom colorspace with an S-shaped intensity curve
 before scaling and converting it back afterwards.
 What this does, essentially,
 is decrease the image’s contrast
@@ -593,7 +593,7 @@ before calculating the output samples.
 This way,
 the left-alignment is restored.
 
-Similiarly,
+Similarly,
 when resizing left-aligned 4:2:0 material
 while keeping the subsampling,
 a slight shift needs to be applied
@@ -607,7 +607,7 @@ automatically under the hood by most format conversion software
 (including zimg, VapourSynth’s resizing library)
 and media players.
 Thus, we only need to take care of it
-if we handle the chroma upscaling seperately by hand.
+if we handle the chroma upscaling separately by hand.
 
 In VS,
 shifting can be performed with the ``resize`` functions’ ``src_left`` parameter:
@@ -621,7 +621,7 @@ shifted_scaled_u = core.resize.Spline16(u, 1920, 1080, src_left=0.25) # shifts t
 
 ---
 
-[^1]: The Fourier transform is an ubiqitous concept in image processing, so we strongly advise becoming familiar with at least the basics. A very good resource for this topic is [ImageMagick’s guide][].
+[^1]: The Fourier transform is an ubiquitous concept in image processing, so we strongly advise becoming familiar with at least the basics. A very good resource for this topic is [ImageMagick’s guide][].
 [^2]: Robidoux, N. (2012, October 21). Resampling — ImageMagick v6 Examples. Retrieved August 22, 2019, from https://www.imagemagick.org/Usage/filter/nicolas/#upsampling
 [^3]: If you don’t understand what this means, read the resources linked above in the [resizing section](#resizing).
 [^4]: This is derived as follows: The shift is the distance between the position of the first luma sample and the position of the first chroma sample (both mapped onto the input grid and given in terms of input chroma pixel widths). The former is located at $$0.25 + \frac{\mathrm{src~width}}{4 \times \mathrm{dst~width}}$$, the latter at $$\frac{\mathrm{src~width}}{2 \times \mathrm{dst~width}}$$. This yields $$0.25 + \frac{\mathrm{src~width}}{4 \times \mathrm{dst~width}} - \frac{\mathrm{src~width}}{2 \times \mathrm{dst~width}} = 0.25 + \frac{\mathrm{src~width}}{\mathrm{dst~width}} \times \left( ^1/_4 -\,^1/_2 \right) = 0.25 + \frac{\mathrm{src~width}}{\mathrm{dst~width}} \times (-0.25)$$ for the shift.

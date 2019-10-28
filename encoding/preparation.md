@@ -47,12 +47,12 @@ usually based on a script that defines various filters
 which will be applied to the video.
 
 Currently, only two widely-known frameservers exist:
-Avisynth and VapourSynth.
+AviSynth and VapourSynth.
 
-While many (especially older) encoders still use Avisynth,
+While many (especially older) encoders still use AviSynth,
 there is no reason to use it
 if you're just starting to learn encoding.[^1]
-Most Avisynth users only use it because
+Most AviSynth users only use it because
 they have years of experience and
 don't want to switch.
 
@@ -60,7 +60,7 @@ Since this guide is aimed towards new encoders,
 and the author has no qualms about imposing his own
 opinions onto the host of people willing to listen,
 the guide will focus on VapourSynth.
-Avisynth equivalents are provided for certain
+AviSynth equivalents are provided for certain
 functions where applicable,
 but the sample code will always be written for VapourSynth.
 
@@ -299,7 +299,7 @@ in the form of either DTS-HD Master Audio, Dolby TrueHD, or PCM.
 DTS-HD MA and Dolby THD are proprietary codecs that use lossless compression,
 while PCM is simply raw, uncompressed PCM data.
 The usual way to handle these
-is to reencode them to other formats—either lossless or lossy,
+is to re-encode them to other formats—either lossless or lossy,
 depending on your taste.
 But first, you need to decode them.
 The recommended tool for that is FFmpeg.
@@ -307,13 +307,13 @@ You can find Windows builds and Linux packages
 on [FFmpeg's official site][ffmpeg].
 It doesn't need to be installed—you can just extract it somewhere.
 But, since it is useful for many different tasks,
-adding it to the system PATH is recommeded.
+adding it to the system PATH is recommended.
 
 When working with WEB and TV sources,
 you will most likely have only lossy audio available.
 The most common codecs here are AC-3, E-AC-3 and AAC.
 Lossily compressed files should generally
-not be reencoded—the proper way to handle them
+not be re-encoded—the proper way to handle them
 is to remux (i.e. copy) them to the final file.
 
 [ffmpeg]: https://www.ffmpeg.org/download.html
@@ -407,4 +407,4 @@ due to its versatility and compatibility.
 
 ---
 
-[^1]: It should be noted that the author strongly disagrees with this sentiment. The two have a lot in common, and any capable Avisynth encoder could reach a similar level in Vapoursynth within a few months, maybe even weeks. At least I'm honest, okay?
+[^1]: It should be noted that the author strongly disagrees with this sentiment. The two have a lot in common, and any capable AviSynth encoder could reach a similar level in Vapoursynth within a few months, maybe even weeks. At least I'm honest, okay?

@@ -12,6 +12,7 @@ But you will still need to communicate with the other
 members of your chosen fansub group,
 and a language barrier can make that difficult.
 
+
 ### Hardware
 
 Every fansubber will need a computer.
@@ -76,6 +77,7 @@ Probably, but it could make your job much harder than it needs to be.
       to retain these files for a long time.
   - **Internet**: 25 Mbps download, 25 Mbps upload
 
+
 ### Software
 
 Every role will have different required software,
@@ -91,6 +93,7 @@ into the official application.
 More specifics will be presented in the chapters devoted to each role.
 
 <TODO - pages for each role ^>
+
 
 ### Programming
 
