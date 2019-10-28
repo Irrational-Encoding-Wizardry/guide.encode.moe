@@ -33,12 +33,16 @@ an [audio-cutting python script][acsuite.py],
 and a [script to change frame numbers into timestamps][f2ts.py].
 
 What we will be doing:
+1. Trimming audio to match our VapourSynth video trims
 1. Creating mkv files from individual tracks
 1. Creating chapters for said files
 1. Creating virtual timelines with ordered chapters
 1. Using multiple audio codecs in the same 'apparent file'
-1. Creating a playall file with ordered chapters
 1. Using editions to change between NCOP and OP
+1. Creating a playall file with ordered chapters
+
+*Most of the example files can be found in [this repository][mkvtricks]
+if you'd like to follow along.*
 
 [toolnix]: https://mkvtoolnix.download/downloads.html
 [tsMuxeR]: https://www.videohelp.com/software/tsMuxeR
@@ -48,6 +52,7 @@ What we will be doing:
 [mpv]: https://mpv.io/installation/
 [acsuite.py]: https://github.com/OrangeChannel/acsuite/blob/04194ad6d4e65e491b5c09219d3f9e832651f2c0/acsuite.py
 [f2ts.py]: https://gist.githubusercontent.com/OrangeChannel/330a032e4d6cf9265b8b007c41112937/raw/frame-to-timestamp.py
+[mkvtricks]: https://github.com/OrangeChannel/mastroka-tricks-files
 
 
 ## Starting with trimming the video
@@ -120,8 +125,8 @@ Now, either in a new python instance
 or from within our VapourSynth script above,
 we will use `acsuite.py` to trim our audio,
 and generate chapter timings.
-(The lines should be run one at a time,
-and commented out when not in use. If running from within VSEdit,
+(The lines should be commented out when not in use.
+If running from within VSEdit,
 you must name and save the script first if you do not specify full paths
 for the `outfile` and/or `chapter_file`.)
 
@@ -170,9 +175,9 @@ and MKVToolNix GUI will open the following OGM chapter files:
 - [ep2_chapters.txt][ep2txt]
 - [ep3_chapters.txt][ep3txt]
 
-[ep1txt]: https://github.com/OrangeChannel/mastroka-tricks-files/blob/cd1968bcb7bd73e720f8822c9c8375a563635e1b/ep1_chapters.txt
-[ep2txt]: https://github.com/OrangeChannel/mastroka-tricks-files/blob/cd1968bcb7bd73e720f8822c9c8375a563635e1b/ep2_chapters.txt
-[ep3txt]: https://github.com/OrangeChannel/mastroka-tricks-files/blob/cd1968bcb7bd73e720f8822c9c8375a563635e1b/ep3_chapters.txt
+[ep1txt]: https://github.com/OrangeChannel/mastroka-tricks-files/blob/b9a079b04efd7e3891c05251a1dc6ccf3a1671ba/ep1_chapters.txt
+[ep2txt]: https://github.com/OrangeChannel/mastroka-tricks-files/blob/b9a079b04efd7e3891c05251a1dc6ccf3a1671ba/ep2_chapters.txt
+[ep3txt]: https://github.com/OrangeChannel/mastroka-tricks-files/blob/b9a079b04efd7e3891c05251a1dc6ccf3a1671ba/ep3_chapters.txt
 
 
 ### Encoding the audio
@@ -213,7 +218,7 @@ we've encoded only the OP/EDs with FLAC.
 This leaves the episode to be compressed more efficiently with a lossy codec
 such as opus, for those who don't like 'wasting' space with lossless audio.
 Since we are encoding around 90%[^2] of the show with opus,
-and only have the OP/ED + NCOP/NCED files occuring once,
+and only have the OP/ED + NCOP/NCED files occurring once,
 the filesize difference and lossless music should satisfy both groups.
 Normal dialogue should be nearly transparent at 128 kbps with opus,
 but this comes with some caveats.
@@ -353,11 +358,26 @@ meaning it can be played separately on its own.
 [f2ts.py]: https://gist.githubusercontent.com/OrangeChannel/330a032e4d6cf9265b8b007c41112937/raw/frame-to-timestamp.py
 
 
+#### Episode 2 and 3 Example
+
+*If you are comfortable with how to create ordered chapters now,
+you can skip this section.
+This is just going to continue the same process above for
+episodes 2 and 3.*
+
+Example files can be found in the [repo][] mentioned above.
+
+<!TODO - add some screenshots here of the other episodes' chapters>
+
+[repo]: https://github.com/OrangeChannel/mastroka-tricks-files
+
+
 ### Using editions to add in an NCOP
 
 Similar to adding in the OP,
 we will find the timestamp for the NCOP clip.
-`ncop = bdmv_NCOP[:2158]` > $$2158-0=2158$$ therefore, `2158 > 00:01:30.006583333`.
+`ncop = bdmv_NCOP[:2158]` > $$2158-0=2158$$ therefore,
+`2158 > 00:01:30.006583333`.
 
 Using the same *Chapter editor* GUI,
 duplicate our first *Edition entry*.
@@ -380,6 +400,13 @@ so we will *Chapter editor > Save to Mastroka or WebM file*
 and select our already muxed `01.mkv`.
 On playback, you should now see the OP chapter
 inserted towards the end of the episode seamlessly.
+
+To create a playall file later,
+it is best to also save these chapters to external xml files.
+
+- `ep1.xml`
+- `ep2.xml`
+- `ep3.xml`
 
 ---
 
@@ -453,12 +480,193 @@ ep1_A + OP + ep1_B + ep2_A + ep2_B + ep2_C + ep3_A + ep3_B + ED + ep3_C
 and the ED occurring at the same point it last happened in the source.
 In reality, if we had all 12 episodes to work with,
 we could put the ED at the *real* last time it plays
-(likely towards the end of ep12).
+(likely towards the end of episode 12).
+
+In order to create our playable file,
+we need a small mkv in the same format as our other files,
+with the tracks in the same order.
+A quick way to do this is cropping the entire file with FFmpeg.
+
+```sh
+ffmpeg -i ep1.mkv -c copy -fs 5M playall.mkv
+```
+
+`-fs 5M` will 'limit' the output file to around 5 MiB,
+while `-c copy` ensures all tracks and relevant headers are copied.
+
+If we were to play this file now,
+it would likely be the first 1 or 2 seconds of our episode 1.
+In order for this file to become entirely a virtual timeline,
+*all* of the chapters must be ordered
+and point to other files in the folder.
+
+Using the GUI, we can speed up this process somewhat.
+In the chapter editor,
+open our three chapter files,
+`ep1.xml`, `ep2.xml`, `ep3.xml`,
+and open a new blank chapter file.
+
+On this new file,
+delete the top edition entry.
+
+On our episode 1 tab,
+right-click our top *Edition entry*,
+and *Copy to other tab* into our blank file.
+On our blank file,
+we will now need to add segment UIDs to every episode 1 chapter.
+We can do this by opening the folder icon to our ep1.mkv file
+for every chapter that will be referencing our episode 1 file.
+
+The OP chapter should already have the SUID to the op.mkv file,
+so it does not need to be changed.
+
+Sadly, there is no further shortcuts for copying our other two episodes'
+chapters into this new blank file,
+so they will need to be copied over by hand.
+The name, start timestamp, end timestamp, and segment UID
+are the only fields we need. (For chapters coming from episode 2,
+the segment UID must be from our `ep2.mkv` file, etc.)
+
+![playall chapters without cutting](images/mkv/play_chapters.png)
+
+Once we have all of these chapters ordered and using the correct SUIDs,
+we can save this to our `playall.mkv` file.
+
+It is also possible to create a better timeline as stated above,
+that skips previews, and only plays the OP/ED once over the entire series.
+We will create a copy of our `playall.mkv` file
+and rename it `playall-skip.mkv`.
+Since we already have a timeline of all (3 currently) of our episodes' chapters,
+we only need to cut out the chapters titled *Preview*
+and any extra times the OP/ED play.
+Since we only have 3 example files,
+we'll be playing the OP on its first occurrence,
+and the ED on its last occurrence.
+
+![playall chapters skipping the previews and OP/ED](images/mkv/play_chapters_skip.png)
+
+Saving this to our playall-skip file results in the following...
+
+- `playall.mkv      - 01:10:57.880` virtual timeline in player
+- `playall-skip.mkv - 01:05:43.774` virtual timeline in player
+
+...despite each file only being ~5 MiB.
+
+
+#### Note about playall files
+
+Although in our example,
+we are referencing files that they themselves reference other files,
+this doesn't have to be the case.
+If you prefer not to use ordered-chapters in your release
+for splicing in the OP/ED,
+**you can still create a playall file simply referencing your normal files**.
+In the same way as the example above,
+you can simply remove the OP/ED and previews from your playall timeline
+by simply not including those chapter timings from each episode.
+
+
+### Final notes
+
+Editions mixed with ordered chapters can be used for a myriad of purposes
+besides those shown here.
+Although these are likely the most common uses in the fansubbing scene,
+editions can also be used for shows with multiple 'play orders'.
+Ordered chapters can link together multiple seasons of the same show,
+or can be used to hide certain sections of a file
+(maybe for creating an easter egg in your release).
+Similar to how our playall file only plays content from *other* files,
+parts of a file can be skipped over
+(or in the case of playall, entire files become completely removed).
+Obviously, simply removing the chapters will reveal the real tracks
+of the source file,
+in our case just a couple of frames from our first episode.
+
+Notes about playback issues and possible artifacts:
+
+- Because some subtitle information within Sub Station Alpha files
+is [privately stored in the mkv's header][mastroka-ass],
+**all styles** and information under `[Script Info]`
+that are present in **all** referenced files
+(i.e. styles only used in the OP not main episode)
+must also be present in the single file containing the chapters
+that references the other files.
+(i.e. ep#.mkv in our case).
+  - This means that all relevant styles **must** be included in the playall file for proper playback.
+  - Fonts however only need to be included
+    in the file that uses them ** [citation needed]
+- Subtitles stretching over ordered chapters boundaries may cause some issues,
+including in our playall file.
+In our playall file,
+a way to circumvent some of this problem
+would be to combine all consecutive chapters
+from the same file into one large chapter simply named "Episode 1" or similar.
+- Audio *should* be (close to) silent at the exact moment
+the timeline changes between different files it's referencing.
+Although this shouldn't cause sync issues,
+an abrupt cut in audio may not be something you'd want in your release.
+
+[mastroka-ass]: https://www.matroska.org/technical/specs/subtitles/ssa.html
 
 ---
 
-[^1]: the `fd` utility can be installed from its [GitHub repo][fd]
 
-[^2]: This number is actually much higher as we only encode the music once. Assuming a 12 episode show, with 24 minutes per episode and 3 minutes of OP/ED music in each episode, we would be encoding 255 minutes total, with only 3 minutes (1.2%) being the lossless music.
+#### Some boring math
+
+We are going to use some basic assumptions here[^3].
+- The series we are encoding is 13 episodes long
+- 24 minutes per episode
+  - with a 90 sec OP + ED that plays each episode
+- FLAC audio will be around 950 kbps, opus will be 128 kbps.
+
+**Our first goal will be to keep the release under 12 GB total:**
+
+The FLAC audio track for each episode will be 171 MB,
+leaving 752 MB (**4,178 kbps**) for the video.
+If we were to encode the audio entirely in opus,
+the audio track for each episode will be 23 MB,
+leaving 900 MB (**5,000 kbps**) for the video.
+
+Changing from FLAC to opus gives us an *extra 19.7% bitrate for our video*,
+at the cost of audio quality.
+
+Instead, if we used ordered chapters:
+
+The total amount of video time decreases from 312 min
+to 273 min for main episodes and 3 min for the OP/ED.
+(If you are applying heavy filtering to this series,
+and encoding time is a important factor,
+this would result in a *11.5% reduction in encoding time*).
+FLAC for the OP + ED results in 21.4 MB total for our lossless audio tracks.
+opus for the main episodes (273 min)
+results in 262 MB total for our lossy audio tracks.
+Assuming the OP/ED are kept at the same bitrate as the rest of our video,
+we are left with 11.7 GB for our 276 minutes of video (**5,660 kbps**).
+
+Using ordered chapters in this case,
+gives us an *extra 35.5% bitrate for our video*,
+with the benefit of still having lossless audio for the OP/ED music.
+
+**If instead we are aiming to save on space:**
+
+Without using ordered chapters,
+and keeping the video bitrate at **4,178 kbps**,
+encoding all audio as lossy gives us a *16% filesize reduction*
+(12 GB to 10.1 GB).
+
+With ordered chapters,
+at the same video bitrate of **4,178 kbps** from before,
+we reduce our video tracks to 8.65 GB from 9.78 GB (*11.5% reduction*).
+We reduce our audio tracks to 283.4 MB from 2.22 GB (*87.2% reduction*).
+Total filesize gets reduced from 12 GB to 8.93 GB, a *25.6% reduction*.
+
+---
+
+[^1]: the `fd` utility can be installed from its [GitHub repo][fd].
+
+[^2]: This number is actually much higher as we only encode the music once. For a 12 episode show, with 24 minutes per episode and 3 minutes of OP/ED music in each episode, we would be encoding 255 minutes total, with only 3 minutes (1.2%) being the lossless music.
+
+[^3]: These calculations can be checked with this [bitrate and filesize calculator script][brate-fsize].
 
 [fd]: https://github.com/sharkdp/fd/releases
+[brate-fsize]: https://gist.githubusercontent.com/OrangeChannel/816a87cf760d9be19bde18db8818d4bc/raw/bitrate_filesize.py
