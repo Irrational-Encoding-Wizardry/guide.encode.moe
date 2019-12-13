@@ -127,7 +127,7 @@ are the only two options.
 
 Due to with its many flat areas and smooth gradients,
 banding is a frequent problem in anime,
-which is caused by caused by the limits of 8-bit color depth
+which is caused by the limits of 8-bit color depth
 and (especially in low bitrate sources) truncation.
 The filter GradFun3 is the most common tool for removing it,
 and is the right tool for the job in average cases.
