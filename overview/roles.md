@@ -68,7 +68,9 @@ The entrance and exit times of the subtitles,
 or a fluid transition from one line to the next,
 can make a large impact on the "watchability" of the episode as a whole.
 Take, for example,
-[this clip from Eromanga-sensei](https://www.youtube.com/watch?v=DFYvoGVFfX4).
+the following clip from Eromanga-sensei:
+
+<div style="width:100%;height:0px;position:relative;padding-bottom:28.125%;"><iframe src="https://streamable.com/s/5kylp/abmmlr" frameborder="0" width="100%" height="100%" allowfullscreen style="width:100%;height:100%;position:absolute;left:0px;top:0px;overflow:hidden;"></iframe></div>
 
 On the left are the official subtitles from Amazon's AnimeStrike,
 and on the right is a fansub release.
@@ -111,8 +113,10 @@ have to deal with.
 It is *static*, meaning it does not move,
 and has plenty of room around it to place the translation.
 Other signs will be much more difficult.
-Take for example [this scene from Kobayashi-san Chi no
-Maid Dragon](https://www.youtube.com/watch?v=4BVgygZe7WY).
+Take for example this scene from Kobayashi-san Chi no
+Maid Dragon:
+
+<div style="width:100%;height:0px;position:relative;padding-bottom:28.125%;"><iframe src="https://streamable.com/s/d21iq/aqaodi" frameborder="0" width="100%" height="100%" allowfullscreen style="width:100%;height:100%;position:absolute;left:0px;top:0px;overflow:hidden;"></iframe></div>
 
 Though it may be hard to believe,
 the typesetting on the right side of the screen was done entirely
