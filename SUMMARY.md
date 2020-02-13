@@ -20,6 +20,7 @@
 - [Resampling](encoding/resampling.md)
 - [Codecs](encoding/video-encoding.md)
   - [x264](encoding/codecs/x264.md)
+- [Mastroka Tricks](encoding/mkv.md)
 
 
 ## Typesetting
