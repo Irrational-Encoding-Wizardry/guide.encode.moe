@@ -319,6 +319,15 @@ with a blank line above and below,
 as this will align them correctly
 and allow for the caption to be displayed.
 
+Try to avoid adding lossy images to the guide
+(all screenshots should be lossless from the source).
+Also, make sure your image is compressed as much as possible
+**before committing** it.
+This can be done with [pingo][]'s lossless PNG compression:
+`pingo -sa file.png`.
+
+[pingo]: https://www.css-ig.net/pingo
+
 
 ### Citations
 
