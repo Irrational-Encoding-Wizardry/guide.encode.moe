@@ -326,6 +326,31 @@ Also, make sure your image is compressed as much as possible
 This can be done with [pingo][]'s lossless PNG compression:
 `pingo -sa file.png`.
 
+<!-- TODO: put this in a infobox? -->
+When extracting frames directly from a VapourSynth pipline
+where the format might be `vs.YUV420P16` (YUV 4:2:0, 16-bit),
+convert your image to `vs.RGB24` (RGB 8-bit) before saving as a PNG.[^3]
+This is because many, if not all, browsers don't support
+images with bit-depths higher than 8 bpp,
+and the dithering behavior of some browsers may be different from others
+or poorly executed.
+If you are trying to replicate media player chroma behavior
+in your screenshot or comparison,
+upscale the chroma planes using:
+
+```py
+clip = core.resize.Bicubic(clip, clip.width, clip.height, filter_param_a_uv=0.33, filter_param_b_uv=0.33, format=clip.format.replace(subsampling_w=0, subsampling_h=0))
+```
+
+You can change the format and bit-depth
+while saving to a PNG file with the following lines:
+
+```py
+# replace `{frame}` with the frame number of the clip you are extracting
+out = core.imwri.Write(clip[{frame}].resize.Point(format=vs.RGB24, matrix_in_s='709', range=0, range_in=0, dither_type='error_diffusion'), 'PNG', '%06d.png', firstnum={frame})
+out.get_frame(0)
+```
+
 [pingo]: https://www.css-ig.net/pingo
 
 
@@ -438,7 +463,11 @@ will change these into the templates above
 
 [^2]: This is different from how github.com's markdown preview behaves.
 
-[^3]: Please view the [markdown of this page][contrib-md] for an example of KaTeX math using `$` symbols.
+[^3]: There is a [Python script][vscompare] designed to automate this process for image saving and comparison websites (i.e. [slowpics][]).
+
+[^4]: Please view the [markdown of this page][contrib-md] for an example of KaTeX math using `$` symbols.
 
 [new-gitbook]: https://www.gitbook.com/
+[vscompare]: https://github.com/OrangeChannel/my-python-scripts/blob/master/VapourSynth/vscompare.py
+[slowpics]: https://slow.pics/
 [contrib-md]: https://github.com/Irrational-Encoding-Wizardry/guide.encode.moe/edit/master/CONTRIBUTING.md
