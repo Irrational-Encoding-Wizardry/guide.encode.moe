@@ -358,9 +358,11 @@ separated by a horizontal rule `---`,
 where `#` is to be replaced with an increasing
 and per-page unique number.
 
-**Note**: The footnote text at the bottom of the page
+<div class="infobox"><p>
+The footnote text at the bottom of the page
 must all be written one line per footnote.
-Line breaks **cannot** be used.
+Line breaks <strong>cannot</strong> be used.
+</p></div>
 
 
 ### Info boxes
@@ -400,12 +402,13 @@ $$
 Similar to \`\`\` fenced code blocks,
 separate these blocks with one blank line on either side.
 
-**Note:** both `{% math %}` and `{% endmath %}` templates
-can be entirely replaced by two `$`'s,
-so any math between \$\$ ... \$\$ will render with KaTeX[^3].
-However, using "\$\$" within in-line \`code\` or blocks
+<div class="infobox"><p>
+Both {<code>% math %</code>} and {<code>% endmath %</code>} templates
+can be entirely replaced by two <code>$</code>'s,
+so any math between \$\$ ... \$\$ will render with KaTeX<sup><a href="#fn_3" id="reffn_3">3</a></sup>.
+However, using \$\$ within in-line `code`, code blocks, or info boxes
 will change these into the templates above
-(making printing "\$\$" in code impossible).
+(making printing "\$\$" in code impossible).</p></div>
 
 [KaTeX documentation]: https://katex.org/docs/supported.html
 
@@ -418,4 +421,4 @@ will change these into the templates above
 [^3]: Please view the [markdown of this page][contrib-md] for an example of KaTeX math using `$` symbols.
 
 [new-gitbook]: https://www.gitbook.com/
-[contrib-md]: https://github.com/Irrational-Encoding-Wizardry/guide.encode.moe/edit/master/CONTRIBUTING.md
+[contrib-md]: https://github.com/Irrational-Encoding-Wizardry/guide.encode.moe/edit/master/CONTRIBUTING.md#mathematics-with-tex
