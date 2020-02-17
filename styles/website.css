@@ -1431,9 +1431,6 @@ kbd {
 .dropdown-menu .buttons .button {
     transition: color 150ms ease
 }
-.fa.fa-clone.t-copy:hover {
-    opacity: 1
-}
 .book-body,.markdown-section,.normal.markdown-section {
     background-color: #fff;
     color: #0c0c0c
@@ -1706,8 +1703,8 @@ img {
 .book.color-theme-2 .katex-display {
     background: #2d3143
 }
-.fa.fa-clone.t-copy:hover {
-    opacity: 1;
+.fa-clone::before {
+    content: none
 }
 @media screen and (orientation: portrait) {
     .btn.pull-right.js-toolbar-action {
