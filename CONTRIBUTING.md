@@ -334,20 +334,13 @@ This is because many, if not all, browsers don't support
 images with bit-depths higher than 8 bpp,
 and the dithering behavior of some browsers may be different from others
 or poorly executed.
-If you are trying to replicate media player chroma behavior
-in your screenshot or comparison,
-upscale the chroma planes using:
-
-```py
-clip = core.resize.Bicubic(clip, clip.width, clip.height, filter_param_a_uv=0.33, filter_param_b_uv=0.33, format=clip.format.replace(subsampling_w=0, subsampling_h=0))
-```
 
 You can change the format and bit-depth
 while saving to a PNG file with the following lines:
 
 ```py
 # replace `{frame}` with the frame number of the clip you are extracting
-out = core.imwri.Write(clip[{frame}].resize.Point(format=vs.RGB24, matrix_in_s='709', range=0, range_in=0, dither_type='error_diffusion'), 'PNG', '%06d.png', firstnum={frame})
+out = core.imwri.Write(clip[{frame}].resize.Bicubic(format=vs.RGB24, matrix_in_s='709', dither_type='error_diffusion', filter_param_a_uv=0.33, filter_param_b_uv=0.33), 'PNG', '%06d.png', firstnum={frame})
 out.get_frame(0)
 ```
 
