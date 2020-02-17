@@ -363,6 +363,25 @@ must all be written one line per footnote.
 Line breaks **cannot** be used.
 
 
+### Info boxes
+
+Info boxes can be used similarly to footnotes,
+but for information that is important for the reader to understand
+before continuing to read the rest of the page.
+
+The current syntax uses in-line HTML to render these paragraphs with a
+different CSS style.
+These paragraphs must be separated with a blank line above and below similar
+to images or code blocks.
+
+```md
+<div class="infobox"><p>
+Text here as usual, using semantic linefeed rules.
+If you need text-formatting, you <strong>must</strong> use in-line HTML.
+</p></div>
+```
+
+
 ### Mathematics with TeX
 
 This guide has KaTeX support,

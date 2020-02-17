@@ -1713,3 +1713,33 @@ img {
         display: none;
     }
 }
+.infobox {
+    display: inline-flex;
+    border-left: .4em solid;
+    border-top: .1em dashed;
+    border-bottom: .1em dashed;
+    border-bottom-left-radius: .2em;
+    border-top-left-radius: .2em;
+    border-bottom-right-radius: .2em;
+    border-top-right-radius: .2em;
+    border-color: inherit;
+    opacity: 80%;
+    border-right: .1em dashed;
+    padding: .5em .5em .5em 0;
+    background: 0 0;
+    width: 100%
+}
+.infobox p {
+    padding-top: .5em;
+    font-size: .95em;
+    margin-bottom: 0;
+    padding-bottom: .5em
+}
+.infobox::before {
+    content: "";
+    display: inline-flex;
+    font: 14px/1 FontAwesome;
+    font-size: 1.75em;
+    margin: 0 .5em 0 .8em;
+    align-self: center
+}
