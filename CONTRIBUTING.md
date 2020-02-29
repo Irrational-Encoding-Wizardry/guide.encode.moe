@@ -358,17 +358,21 @@ separated by a horizontal rule `---`,
 where `#` is to be replaced with an increasing
 and per-page unique number.
 
-<div class="infobox"><p>
+<div class="warningbox"><p>
 The footnote text at the bottom of the page
 must all be written one line per footnote.
 Line breaks <strong>cannot</strong> be used.
 </p></div>
 
 
-### Info boxes
+### Info/Warning boxes
 
 Info boxes can be used similarly to footnotes,
-but for information that is important for the reader to understand
+but for information that the reader might want to know
+before continuing to read the rest of the page.
+
+Warning boxes are similar but are for information
+that is necessary for the reader to know
 before continuing to read the rest of the page.
 
 The current syntax uses in-line HTML to render these paragraphs with a
@@ -380,6 +384,12 @@ to images or code blocks.
 <div class="infobox"><p>
 Text here as usual, using semantic linefeed rules.
 If you need text-formatting, you <strong>must</strong> use in-line HTML.
+</p></div>
+```
+
+```md
+<div class="warningbox"><p>
+This class should be used for important information.
 </p></div>
 ```
 

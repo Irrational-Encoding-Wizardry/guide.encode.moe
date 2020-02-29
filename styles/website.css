@@ -1713,28 +1713,32 @@ img {
         display: none;
     }
 }
-.infobox {
+.infobox,.warningbox {
     display: inline-flex;
-    border-left: .4em solid;
-    border-top: .1em dashed;
-    border-bottom: .1em dashed;
-    border-bottom-left-radius: .2em;
-    border-top-left-radius: .2em;
-    border-bottom-right-radius: .2em;
-    border-top-right-radius: .2em;
-    border-color: inherit;
-    opacity: 80%;
-    border-right: .1em dashed;
-    padding: .5em .5em .5em 0;
+    padding: .25em .75em .25em 0;
     background: 0 0;
+    border-left: .4em solid!important;
     width: 100%
 }
+.infobox {
+    border: .1em dashed;
+    border-radius: .2em;
+    opacity: 80%;
+    font-size: .95em
 }
-.infobox::before {
+.infobox::before,.warningbox::before {
     content: "";
     display: inline-flex;
     font: 14px/1 FontAwesome;
     font-size: 1.75em;
-    margin: 0 .5em 0 .8em;
+    margin: 0 .5em 0 .75em;
     align-self: center
+}
+.warningbox::before {
+    content: ""
+}
+.warningbox {
+    border: .2em outset;
+    border-radius: .5em;
+    box-shadow: 0 0 .2em rgba(0,0,0,.8)
 }
