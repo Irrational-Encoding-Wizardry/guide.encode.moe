@@ -632,7 +632,7 @@ table {
     font-style: italic
 }
 #book-search-results .search-results .has-results .search-results-item dl,#book-search-results .search-results .has-results .search-results-item p,#book-search-results .search-results .has-results .search-results-item table,.markdown-section dl,.markdown-section p,.markdown-section table {
-    margin-top: 0;
+    margin-top: .85em;
     margin-bottom: .85em
 }
 #book-search-results .search-results .has-results .search-results-item a,.markdown-section a {
@@ -1729,11 +1729,6 @@ img {
     background: 0 0;
     width: 100%
 }
-.infobox p {
-    padding-top: .5em;
-    font-size: .95em;
-    margin-bottom: 0;
-    padding-bottom: .5em
 }
 .infobox::before {
     content: "";
