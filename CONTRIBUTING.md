@@ -421,4 +421,4 @@ will change these into the templates above
 [^3]: Please view the [markdown of this page][contrib-md] for an example of KaTeX math using `$` symbols.
 
 [new-gitbook]: https://www.gitbook.com/
-[contrib-md]: https://github.com/Irrational-Encoding-Wizardry/guide.encode.moe/edit/master/CONTRIBUTING.md#mathematics-with-tex
+[contrib-md]: https://github.com/Irrational-Encoding-Wizardry/guide.encode.moe/edit/master/CONTRIBUTING.md
