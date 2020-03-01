@@ -418,7 +418,8 @@ can be entirely replaced by two <code>$</code>'s,
 so any math between \$\$ ... \$\$ will render with KaTeX<sup><a href="#fn_3" id="reffn_3">3</a></sup>.
 However, using \$\$ within in-line `code`, code blocks, or info boxes
 will change these into the templates above
-(making printing "\$\$" in code impossible).</p></div>
+(making printing "\$\$" in code impossible).
+</p></div>
 
 [KaTeX documentation]: https://katex.org/docs/supported.html
 
