@@ -358,7 +358,7 @@ separated by a horizontal rule `---`,
 where `#` is to be replaced with an increasing
 and per-page unique number.
 
-<div class="warningbox"><p>
+<div class="warning box"><p>
 The footnote text at the bottom of the page
 must all be written one line per footnote.
 Line breaks <strong>cannot</strong> be used.
@@ -381,14 +381,14 @@ These paragraphs must be separated with a blank line above and below similar
 to images or code blocks.
 
 ```md
-<div class="infobox"><p>
+<div class="info box"><p>
 Text here as usual, using semantic linefeed rules.
 If you need text-formatting, you <strong>must</strong> use in-line HTML.
 </p></div>
 ```
 
 ```md
-<div class="warningbox"><p>
+<div class="warning box"><p>
 This class should be used for important information.
 </p></div>
 ```
@@ -412,7 +412,7 @@ $$
 Similar to \`\`\` fenced code blocks,
 separate these blocks with one blank line on either side.
 
-<div class="infobox"><p>
+<div class="info box"><p>
 Both {<code>% math %</code>} and {<code>% endmath %</code>} templates
 can be entirely replaced by two <code>$</code>'s,
 so any math between \$\$ ... \$\$ will render with KaTeX<sup><a href="#fn_3" id="reffn_3">3</a></sup>.
