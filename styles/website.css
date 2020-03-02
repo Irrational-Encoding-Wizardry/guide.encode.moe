@@ -632,7 +632,7 @@ table {
     font-style: italic
 }
 #book-search-results .search-results .has-results .search-results-item dl,#book-search-results .search-results .has-results .search-results-item p,#book-search-results .search-results .has-results .search-results-item table,.markdown-section dl,.markdown-section p,.markdown-section table {
-    margin-top: 0;
+    margin-top: .85em;
     margin-bottom: .85em
 }
 #book-search-results .search-results .has-results .search-results-item a,.markdown-section a {
@@ -1431,9 +1431,6 @@ kbd {
 .dropdown-menu .buttons .button {
     transition: color 150ms ease
 }
-.fa.fa-clone.t-copy:hover {
-    opacity: 1
-}
 .book-body,.markdown-section,.normal.markdown-section {
     background-color: #fff;
     color: #0c0c0c
@@ -1706,8 +1703,8 @@ img {
 .book.color-theme-2 .katex-display {
     background: #2d3143
 }
-.fa.fa-clone.t-copy:hover {
-    opacity: 1;
+.fa-clone::before {
+    content: none
 }
 @media screen and (orientation: portrait) {
     .btn.pull-right.js-toolbar-action {
@@ -1715,4 +1712,30 @@ img {
         this fixes a weird issue on iPhone 6/7/8 where the 'A' is 5% visible and shifts the title to the right */
         display: none;
     }
+}
+.box {
+    display: inline-flex;
+    padding: .25em .75em .25em 0;
+    border-left: .4em solid!important;
+    border-radius: .25em;
+    width: 100%
+}
+.box::before {
+    content: "";
+    font: 14px/1 FontAwesome;
+    font-size: 1.75em;
+    margin: 0 .5em 0 .75em;
+    align-self: center
+}
+.box.info {
+    border: .1em dashed;
+    opacity: 80%;
+    font-size: .95em
+}
+.box.warning {
+    border: .2em outset;
+    box-shadow: 0 0 .2em rgba(0,0,0,.8)
+}
+.box.warning::before {
+    content: ""
 }

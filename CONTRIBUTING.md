@@ -358,9 +358,40 @@ separated by a horizontal rule `---`,
 where `#` is to be replaced with an increasing
 and per-page unique number.
 
-**Note**: The footnote text at the bottom of the page
+<div class="warning box"><p>
+The footnote text at the bottom of the page
 must all be written one line per footnote.
-Line breaks **cannot** be used.
+Line breaks <strong>cannot</strong> be used.
+</p></div>
+
+
+### Info/Warning boxes
+
+Info boxes can be used similarly to footnotes,
+but for information that the reader might want to know
+before continuing to read the rest of the page.
+
+Warning boxes are similar but are for information
+that is necessary for the reader to know
+before continuing to read the rest of the page.
+
+The current syntax uses in-line HTML to render these paragraphs with a
+different CSS style.
+These paragraphs must be separated with a blank line above and below similar
+to images or code blocks.
+
+```md
+<div class="info box"><p>
+Text here as usual, using semantic linefeed rules.
+If you need text-formatting, you <strong>must</strong> use in-line HTML.
+</p></div>
+```
+
+```md
+<div class="warning box"><p>
+This class should be used for important information.
+</p></div>
+```
 
 
 ### Mathematics with TeX
@@ -381,12 +412,14 @@ $$
 Similar to \`\`\` fenced code blocks,
 separate these blocks with one blank line on either side.
 
-**Note:** both `{% math %}` and `{% endmath %}` templates
-can be entirely replaced by two `$`'s,
-so any math between \$\$ ... \$\$ will render with KaTeX[^3].
-However, using "\$\$" within in-line \`code\` or blocks
+<div class="info box"><p>
+Both {<code>% math %</code>} and {<code>% endmath %</code>} templates
+can be entirely replaced by two <code>$</code>'s,
+so any math between \$\$ ... \$\$ will render with KaTeX<sup><a href="#fn_3" id="reffn_3">3</a></sup>.
+However, using \$\$ within in-line `code`, code blocks, or info boxes
 will change these into the templates above
 (making printing "\$\$" in code impossible).
+</p></div>
 
 [KaTeX documentation]: https://katex.org/docs/supported.html
 
