@@ -442,7 +442,7 @@ separate these blocks with one blank line on either side.
 <div class="info box"><p>
 Both {<code>% math %</code>} and {<code>% endmath %</code>} templates
 can be entirely replaced by two <code>$</code>'s,
-so any math between \$\$ ... \$\$ will render with KaTeX<sup><a href="#fn_3" id="reffn_3">3</a></sup>.
+so any math between \$\$ ... \$\$ will render with KaTeX<sup><a href="#fn_4" id="reffn_4">4</a></sup>.
 However, using \$\$ within in-line `code`, code blocks, or info boxes
 will change these into the templates above
 (making printing "\$\$" in code impossible).
