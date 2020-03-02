@@ -1717,6 +1717,7 @@ img {
     display: inline-flex;
     padding: .25em .75em .25em 0;
     border-left: .4em solid!important;
+    border-radius: .25em;
     width: 100%
 }
 .box::before {
@@ -1728,13 +1729,11 @@ img {
 }
 .box.info {
     border: .1em dashed;
-    border-radius: .2em;
     opacity: 80%;
     font-size: .95em
 }
 .box.warning {
     border: .2em outset;
-    border-radius: .5em; /* this can be changed */
     box-shadow: 0 0 .2em rgba(0,0,0,.8)
 }
 .box.warning::before {
