@@ -204,7 +204,7 @@ stubborn ringing in H.264 encodes.
 In these cases,
 a simple smoothing based edge-scrubber like HQDeringmod,
 or a warpsharp-based scrubber *similar to* EdgeCleaner
-it has a shitty mask) should all work just fine
+(it has a shitty mask) should all work just fine
 without too many drawbacks.
 
 In the case of heavily compressed H.264 sources,
