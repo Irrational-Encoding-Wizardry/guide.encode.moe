@@ -319,14 +319,15 @@ with a blank line above and below,
 as this will align them correctly
 and allow for the caption to be displayed.
 
+<div class="warning box"><p>
 Try to avoid adding lossy images to the guide
 (all screenshots should be lossless from the source).
 Also, make sure your image is compressed as much as possible
-**before committing** it.
-This can be done with [pingo][]'s lossless PNG compression:
-`pingo -sa file.png`.
+<strong>before committing</strong> it.
+This can be done with <a href="https://www.css-ig.net/pingo" target="_blank">pingo</a>'s
+lossless PNG compression: <code>pingo -sa file.png</code>.
+</p></div>
 
-<!-- TODO: put this in a infobox? -->
 When extracting frames directly from a VapourSynth pipline
 where the format might be `vs.YUV420P16` (YUV 4:2:0, 16-bit),
 convert your image to `vs.RGB24` (RGB 8-bit) before saving as a PNG.[^3]
@@ -343,8 +344,6 @@ while saving to a PNG file with the following lines:
 out = core.imwri.Write(clip[{frame}].resize.Bicubic(format=vs.RGB24, matrix_in_s='709', dither_type='error_diffusion', filter_param_a_uv=0.33, filter_param_b_uv=0.33), 'PNG', '%06d.png', firstnum={frame})
 out.get_frame(0)
 ```
-
-[pingo]: https://www.css-ig.net/pingo
 
 
 ### Citations
