@@ -1,477 +1,318 @@
 # Descaling
 
-The ability to descale is a wonderful tool
-to have in any encoder's arsenal.
-You may have heard before that
-most anime are not native 1080p,
-but a lower resolution.
-But how do we make use of that?
-How do you find the native resolution
-and reverse the upscale?
+Among the many tools available in an encoder's arsenal,
+the ability to descale might arguably be one of the best.
+But what does descaling actually mean?
+In what way does it differ from normal downscaling?
+How do you actually descale properly?
+This guide will explain the groundwork for you
+to start descaling effectively.
+
+## Descaling vs. Downscaling
+
+What the difference between downscaling and descaling is
+is a question that gets asked fairly frequently.
+Simply put,
+downscaling is the act of resizing an image
+to a smaller resolution than the original image,
+while with descaling you are actively reversing the math
+applied to an upscale,
+reconstructing the original image before upscaling
+(which coincidentally also means you get a smaller image).
+
+For a more thorough explanation on the intrinsics of descaling,
+please refer to the [vapoursynth-descale Github page][vapoursynth-descale].
+
+Descaling is generally the preferred method
+of handling upscaled content whenever possible.
+When performing a simple downscale,
+information will be lost in the process.
+A proper descale will, on the other hand,
+(theoretically) preserve all the *actual* detail in an image.
+
+That said, if you can't perform a good descale,
+you will usually end up with haloing/ringing artifacting,
+as illustrated below:
+
+![](images/descale/descale_ubw_00_bad.png)
+
+<div class="warning box"><p>
+Only descale if you can be sure,
+beyond reasonable doubt,
+that you have figured out the correct resolution and kernel.
+</p></div>
 
 
-## When and where to descale
+[vapoursynth-descale]: https://github.com/Irrational-Encoding-Wizardry/vapoursynth-descale
 
-There are many circumstances
-where descaling might prove beneficial.
-For example,
-say you've got
-a very blurry Blu-ray source.
-Rather than sharpening it,
-you might want to consider
-checking if it's possible to descale it
-and maybe alleviate a lot of
-the blur that way.
-Or the opposite:
-say you've got a source full of ringing.
-It might have been upscaled
-using a very sharp kernel,
-so it's worth a try
-to see if it can be descaled.
-It's no surprise that descaling tends to
-offer far better lineart
-than usual rescaling does.
+# Discerning the native resolution
 
-However, descaling is not always an option.
-The worse your source is,
-the less likely it is that
-descaling will yield better results
-than a simple resample.
-If you've got a source
-full of broken gradients
-or noise patterns,
-like your average simulcast stream,
-descaling might only hurt the overall quality.
-Sadly, sources with a lot of post-processing
-might also prove tough to properly descale
-without dabbling with specific masks.
-However, as long as you've got
-a source with nice, clean lineart,
-descaling might be a viable option,
-and possibly nullify the need
-for a lot of other filtering.
+The first step to descaling is to figure out
+what the native resolution of a frame is.
+One way to do this is by descaling to a bunch of resolutions,
+upscaling the descaled image with the same kernel,
+and comparing the two.
+The artifacts created by descaling to a wrong resolution
+are generally more obvious than
+the artifacts created by using the wrong kernel.
+Luckily for us,
+there's already a tool out there
+you can use for this.
 
+[getnative.py][getnative] is a common tool
+used for figuring out the native resolution of an image.
+It will return a graph showcasing all the resolutions
+it tried to descale to,
+as well as a txt file
+with all the relative errors listed.
+Here's an example:
 
-## Preparation
+![](images/descale/descale_owari_01_frame.png)
+![getnative.py -k bicubic -b 0 -c 1/2](images/descale/descale_owari_01_graph.png)
 
-To prepare for figuring out the native resolution,
-you'll want to use [getnative][],
-a Python script designed for
-figuring out the resolution
-a show was animated at.
-For the actual descaling,
-make sure to grab BluBb-mADe's [descale][].
+What you want to look out for are very clear spikes.
+You can spot one of those here,
+pointing towards a height of 720.
+When trying to run getnative,
+you ideally want to get a relatively bright frame
+with very clearly defined lineart
+and as little effects or filtering applied to it,
+like for example blur or glow.
 
-One important thing
-to keep in mind when descaling
-is that you will never find
-"the perfect descaling settings".
-Even if you find the exact settings
-that the studio used,
-you won't be able to get a frame-perfect replica
-of the original frame.
-This is because the best available sources to consumers,
-usually Blu-rays,
-aren't lossless.
-There are always going to be some differences
-from the original masters
-which makes it impossible
-to perfectly descale something.
-However, usually those differences
-are so small that they're negligible.
-If you run into a case where
-you can't find any low relative error spikes,
-descaling can be highly destructive.
-It's instead recommended to resize
-as you would normally,
-or to not mess with scaling at all.
+If you've got a graph without any clear spikes,
+it's usually a bad idea to try descaling that.
+It's likely that you're either working with native 1080p content,
+an already-descaled encode,
+or a source that has been too warped to properly descale.
+
+![](images/descale/descaled_fgo_op_encoded_frame.png)
+![Running getnative on frame of a already-rescaled encode](images/descale/descaled_fgo_op_encoded_graph.png)
+
+Also of note is that you should be careful
+to not pick a frame with credits to run getscaler on.
+Credits are usually added at the very end,
+after the clip has already been upscaled.
+Those will need to be handled separately.
+
+![](images/descale/descaled_yaiba_17_credits_frame.png)
+![Credits and other native 1080p elements mess with the graph](images/descale/descaled_yaiba_17_credits_graph.png)
+
+And last but not least,
+we have letterboxing.
+Letterboxing is what we call the black bars surrounding the video.
+As an added bonus,
+this example is also from a blu-ray release
+that was brutally post-processed,
+making it impossible to descale.
+
+![](images/descale/descale_paniponidash_op2_letterbox&qtec_frame.png)
+![A murder scene](images/descale/descale_paniponidash_op2_letterbox&qtec_graph.png)
 
 [getnative]: https://github.com/Infiziert90/getnative
-[descale]: https://github.com/BluBb-mADe/vapoursynth-descale
 
+# Filterchains
 
-## Finding out the native resolution
+Once you've figured out the native resolution,
+you can move on to the actual descaling.
+There's two common ways to do this.
+The first one is by using [descale][descale].
+The other is by using `invks` from [fmtc][fmtc].
+For convenience's sake,
+we'll be keeping it to just `descale` for this guide.
 
-To figure out what
-the native resolution of an anime is,
-first you need a good frame to test.
-Ideally,
-you'll want a bright frame
-with as little blur as possible of high quality
-(Blu-ray or very good webstreams).
-It also helps to not have
-too many post-processed elements in the picture.
-Whilst it is most definitely possible
-to get pretty good results with "bad" frames,
-it's generally better to use
-good frames whenever possible.
-
-Here are some examples of "bad" frames.
-
-![Manaria Friends — 01 (frame 1)](images/descale_manaria01.png)
-
-This picture is dark.
-It also has some effects over it.
-
-![Manaria Friends — 01 (frame 2)](images/descale_manaria02.png)
-
-This picture is also very dark
-and has even more effects over it.
-
-![Manaria Friends — 01 (frame 3)](images/descale_manaria03.png)
-
-Heavy dynamic grain will almost always give bad results.
-
-![Manaria Friends — 01 (frame 4)](images/descale_manaria04.png)
-
-This is a nice frame to use as reference.
-The background is a bit blurry,
-but it isn't full of effects
-and is fairly bright.
-The lineart is very clear.
-
-We will now make use of the getnative.py script
-to figure out what resolution
-this anime was produced at.
-Run the following in your terminal:
-
-```bash
-$ python getnative.py "descale_manaria04.png"
-```
-
-It should show the following:
-
-```
-Using imwri as source filter
-501/501
-Kernel: bicubic AR: 1.78 B: 0.33 C: 0.33
-Native resolution(s) (best guess): 878p
-done in 18.39s
-```
-
-If you check the directory
-where you executed the script,
-you will find a new folder
-called "getnative".
-You can find the following graph
-in there as well:
-
-![Manaria Friends — 01 (frame 4 getnative graph)](images/descale_graph.png)
-
-
-The X-axis shows the resolutions that were checked,
-and the Y-axis shows the relative error.
-The relative error refers to
-the difference between the original frame
-and the rescaled frame.
-What you're looking for are
-the spikes that show a low relative error.
-In this case it very clearly points to 878p.
-
-As a sidenote,
-it's important to keep in mind that this script
-can't find native 1080p elements.
-This is because it descales the frame
-and re-upscales it afterwards
-to determine the relative error.
-You can't descale to 1080p
-if the frame is already 1080p.
-If you have reason to believe
-that your show might be native 1080p,
-you've got to go with your gut.
-
-![Date A Live III — 01 (getnative graph)](images/descale_native1080_graph.png)
-
-An example of a graph for a native 1080p show.
-
-You may notice that the line swerves a bit
-in the first graph.
-There are going to be cases where
-you will get odd graphs like these,
-so it's important to know
-when the results are safe enough to descale
-or when they're too risky.
-Here is an example of
-a "bad" graph:
-
-![Miru Tights — 02 (getnative graph)](images/descale_bad_graph1.png)
-
-```
-Output:
-Kernel: bicubic AR: 1.78 B: 0.33 C: 0.33
-Native resolution(s) (best guess): 869p, 848p
-```
-
-The script has determined that
-it's likely either 848p
-or 869p.
-However,
-there are no clear spikes in this graph
-like there was in the Manaria Friends one.
-The results are not clear enough
-to work off of.
-Here's another example:
-
-![Black Lagoon (getnative graph)](images/descale_bad_graph2.png)
-
-```
-Output:
-Kernel: bicubic AR: 1.78 B: 0.33 C: 0.33
-Native resolution(s) (best guess): 1000p, 974p, 810p
-```
-
-This graph has a lot of unnatural swerves
-and it's impossible to determine
-what the native resolution is.
-
-Another pitfall you've got
-to watch out for
-is checking the results of a frame
-with letterboxing.
-
-![Kizumonogatari I](images/descale_ararararagi.png)
-
-![Kizumonogatari I (getnative graph)](images/descale_ararararagi_graph.png)
-
-You will have to crop them beforehand
-or they will return odd graphs like this.
-
-For a change of pace,
-let's look at a good graph.
-
-![Aikatsu Friends! — NCOP (getnative graph)](images/descale_good_graph.png)
-
-```
-Output:
-Kernel: bicubic AR: 1.78 B: 0.33 C: 0.33
-Native resolution(s) (best guess): 810p
-```
-The results are very clear.
-There are a couple of deviations,
-but there's a very clear spike
-going down to 810p.
-This is a good result
-for testing out varying kernels.
-
-
-## Descaling
-
-Now it's time to actually start descaling.
-Open up your VapourSynth editor of choice,
-and import the clip:
-
-```Py
-src = core.lsmas.LWLibavSource("BDMV/[BDMV][190302][マナリアフレンズ I]/BD/BDMV/STREAM/00007.m2ts")
-```
-
-The next issue is figuring out
-what was used to [upscale](resampling.md#upsampling) the show.
-By default,
-getnative.py checks with Mitchell-Netravali
-(bicubic b=1/3, c=1/3).
-However, it might have also been upscaled
-using other kernels.
-
-Here is a list
-of some common kernels and values.
-
-* Lanczos
-* Spline16
-* Spline36
+There are a couple very common kernels
+used in anime production:
 * Bilinear
-* Bicubic b=1, c=0 (B-Spline)
-* Bicubic b=0, c=0 (Hermite)
 * Bicubic b=1/3, c=1/3 (Mitchell-Netravali)
 * Bicubic b=0, c=0.5 (Catmull-Rom)
-* Bicubic b=0, c=1 (Sharp Bicubic)
 
-The best way to figure out
-what is used is to simply try out
-a bunch of different kernels
-and use your eyes.
-Check for common scaling-related artifacting,
-like haloing, ringing, aliasing, etc.
+Occasionally, although rare,
+you may also run into the following kernels:
+* Lanczos taps=3
+* Lanczos taps=4
+* Spline16
+* Spline36
+* Bicubic b=1, c=0 (B-Spline)
+* Bicubic b=0, c=0 (Hermite)
+* Bicubic b=0, c=0 (Hermite)
+* Bicubic b=0.3782, c=0.3109 (Robidoux)
+* Bicubic b=0.2620, c=0.3690 (Robidoux Sharp)
+* Bicubic b=0.6796, c=0.1602 (Robidoux Soft)
 
-For bicubic,
-it is important
-to keep in mind that
-you will typically find that
-the values match the following mathematical expressions:
-
-* `b + 2c = 1`
-* `b = 0, c = X`
-* `b = 1, c = 0`
-
-Whilst this isn't a 100% guarantee,
-it is the most common approach
-to rescaling using bicubic,
-so it's worth keeping in mind.
-
-Here's an example of the previous frame
-when descaled using various kernels and settings
-(note that descale requires either GrayS, RGBS, or YUV444PS.
-I'll be using `split` and `join` from `kagefunc` to split the planes
-and then join them again in this example,
-and `get_w` from `vsutil` to calculate the width)[^1]:
-
-[Comparison between frames][manaria_compare]
-
-```Py
-from vapoursynth import core
-import vsutil
-import kagefunc as kgf
-import fvsfunc as fvf
-
-src = core.lsmas.LWLibavSource("BDMV/[BDMV][190302][マナリアフレンズ I]/BD/BDMV/STREAM/00007.m2ts")
-src = fvf.Depth(src, 32)
-
-y, u, v = kgf.split(src)
-height = 878
-width = vsutil.get_w(height)
-
-# Bilinear
-descale_a = core.descale.Debilinear(y, width, height).resize.Bilinear(1920, 1080)
-descale_a = kgf.join([descale_a, u, v])
-# Mitchell-Netravali
-descale_b = core.descale.Debicubic(y, width, height, b=1/3, c=1/3).resize.Bicubic(1920, 1080, filter_param_a=1/3, filter_param_b=1/3)
-descale_b = kgf.join([descale_b, u, v])
-# Sharp Bicubic
-descale_c = core.descale.Debicubic(y, width, height, b=0, c=1).resize.Bicubic(1920, 1080, filter_param_a=0, filter_param_b=1)
-descale_c = kgf.join([descale_c, u, v])
-# B-Spline
-descale_d = core.descale.Debicubic(y, width, height, b=1, c=0).resize.Bicubic(1920, 1080, filter_param_a=1, filter_param_b=0)
-descale_d = kgf.join([descale_d, u, v])
-# Catmull-rom
-descale_e = core.descale.Debicubic(y, width, height, b=0, c=1/2).resize.Bicubic(1920, 1080, filter_param_a=0, filter_param_b=1/2)
-descale_e = kgf.join([descale_e, u, v])
-# Spline36
-descale_f = core.descale.Despline36(y, width, height).resize.Spline36(1920, 1080)
-descale_f = kgf.join([descale_f, u, v])
-```
-
-You might realize that after descaling,
-we are immediately upscaling the frame
-with the same kernel and values again.
-This is done so we can compare the before and after.
-The closer the new frame is to the old one,
-the more likely it is that you've got the correct kernel.
-Zooming in on the frame at 4x magnification or higher
-using Nearest Neighbor
-will help immensely.
-An alternative that you can use
-is to simply descale until
-you've got what you believe to be the best result.
-It's faster to do it this way,
-but might be less accurate.
-
-[manaria_compare]: https://slowpics.org/comparison/61e39e1e-d074-4d83-b7c9-b0f4e1861855
-
-
-## Credits and other native 1080p elements
-
-There is one very, very important thing
-to keep in mind when descaling:
-
-*Credits are usually done in 1080p*.
-
-There are various masks you can use
-to help with dealing with that issue,
-but it might be better
-to make use of existing wrappers instead.
-For this example I'll
-be using `inverse_scale` from `kagefunc`.
-
-```Py
-descaled = kgf.inverse_scale(src, height=878, kernel='bicubic', b=0, c=1/2, mask_detail=True)
-```
-
-We can make use of the mask
-that `inverse_scale` uses internally
-as well.
-
-```Py
-descaled = kgf.inverse_scale(src, height=874, kernel='bicubic', b=0, c=1/2)
-descaled_mask = kgf._generate_descale_mask(vsutil.get_y(core.resize.Spline36(src, descaled.width, descaled.height)), vsutil.get_y(descaled), kernel='bicubic', b=0, c=1/2)
-```
-
-![Kaguya-sama: Love Is War — OP (credits mask)](images/descale_credits_mask.png)
-
-![Kaguya-sama: Love Is War — OP (descaled)](images/descale_credits.png)
-
-Note that if you see the mask
-catching a lot of other stuff,
-you might want to consider *not* descaling
-that particular frame,
-or trying a different kernel/values.
-Chances are that you're either
-using the wrong kernel
-or that the frames you're looking at are native 1080p.
-
-![Manaria Friends — 01 (end card)](images/descale_native1080.png)
-
-![(Don't descale this)](images/descale_dontdescalethis.png)
-
-
-## Dealing with bad descaling
-
-There are various things you can do
-to deal with scenes that have issues
-even after descaling.
-`Eedi3` stands out in particular
-as a fantastic AA filter
-that really nails down bad lineart
-caused by bad descaling.
-It's at best a "cheat code",
-however.
-While it might fix up some issues,
-it won't fix everything.
-It's also incredibly slow,
-so you might want to
-[use it on just a couple of frames at a time](scenefiltering.md)
-rather than over the entire clip.
-
-Other than Eedi3,
-usually the results of bad descaling
-are so destructive that
-there isn't much you can do.
-If you have an encode that's
-badly descaled,
-you're better off
-finding a different one.
-If you've got bad results
-after descaling yourself,
-try a different kernel or values.
-Alternatively,
-try not descaling at all.
-
-At the end of the day,
-as mentioned in the introduction,
-you can't descale everything perfectly.
-Sometimes it's better to think of it
-as a magical anti-ringing/haloing/aliasing filter
-rather than a scaler.
-
-For example,
-here it was used
-specifically to fix up
-some bad aliasing
-in the source.
-
-![Akanesasu Shoujo — 01 (src)](images/descale_akanesasu_src.png)
-
-![Akanesasu Shoujo — 01 (rescaled)](images/descale_akanesasu_rescaled.png)
+The most reliable way to discern
+which kernel was used is by descaling the clip,
+upscaling it again with the same kernel,
+and then comparing it with the original frame.
+Here is an example script using `compare` from `lvsfunc`
+to easily compare frames from two clips:
 
 ```py
-scaled = kgf.inverse_scale(src, height=900, kernel='bicubic', b=0.25, c=0.45, mask_detail=True)
-scaled = nnedi3_rpow2(scaled).resize.Spline36(1920, 1080)
+import lvsfunc as lvf
+
+clip = core.lsmas.LWLibavSource(r"PATH/TO/VIDEO.m2ts")
+clip = fvf.Depth(clip, 32) # Important to note: descale requires a GRAYS clip (or 444, but don't do that).
+
+clip_y = core.std.ShufflePlanes(clip, 0, vs.GRAY)
+descaled = core.descale.Debicubic(clip_y, width=1280, height=720, b=1/3, c=1/3)
+reupscaled = core.resize.Bicubic(descaled, width=1920, height=1080, filter_param_a=1/3, filter_param_b=1/3)
+merged = core.std.ShufflePlanes([reupscaled, clip], [0, 1, 2], vs.YUV)
+
+comp = lvf.compare(clip, merged)
+comp.set_output()
 ```
 
-Note how this fixed
-most of the aliasing
-on the CGI model.
+The most reliable way to check for differences is
+by zooming in 4x with Nearest Neighbor
+and switching between the frames
+with the left and right arrow buttons.
+You can enable the zoom here:
 
-***
+![](images/descale/descale_zoom_a.png)
 
-[^1]: Most, if not all, relevant VapourSynth scripts/plug-ins and their functions can be found in the [VapourSynth Database][vsdb].
+Clip "No zoom" and select "Fixed ratio".
+You can set the zoom level next to it,
+and the scaler used next to that.
+Make sure to set it to Nearest!
 
-[vsdb]: http://vsdb.top/
+Figuring out what to look out for
+is a case of trial and error.
+The best thing to keep an eye on
+is lineart as well as small detail like stars.
+It isn't uncommon for noise to become weaker after a rescale
+(since that's usually added after upscaling, too),
+so try not to be too distracted by that.
+
+[descale]: https://github.com/Irrational-Encoding-Wizardry/vapoursynth-descale
+[fmtc]: https://forum.doom9.org/showthread.php?t=166504
+
+# Re-scaling
+
+A fairly common practice is
+to upscale the descaled clip to a standard resolution whenever possible
+(if it isn't already one, like for example 720p).
+There's a couple scalers that are generally recommended.
+
+The most common scaler for re-scaling is [nnedi3_rpow2][nnedi3_rpow2].
+It returns consistently good-looking lines
+without damaging other detail.
+Since it's an image doubler,
+it's important to remember that you'll have to scale it down afterwards.
+
+```py
+from nnedi3_rpow2 import nnedi3_rpow2
+
+upscaled = nnedi3_rpow2(descaled, width=1920, height=1080)
+```
+
+Similarly, [nnedi3_resample][nnedi3_resample] is also used by some people
+and might give better results
+with some additional tweaking of the settings.
+Like nnedi3_rpow2, it's an image doubler
+and needs to be downscaled after.
+
+```py
+from nnedi3_resample import nnedi3_resample
+
+upscaled = nnedi3_resample(descaled, width=1920, height=1080)
+```
+
+Of course you can still opt for more generic scalers,
+like Spline36 or Lanczos.
+
+```py
+upscaled = core.resize.Spline36(descaled, width=1920, height=1080)
+```
+```py
+upscaled = core.resize.Lanczos(descaled, width=1920, height=1080, filter_param_a=3)
+```
+
+A couple more extreme examples
+would be using [waifu2x][waifu2x] or [upscaled_sraa][upscaled_sraa]
+to upscale it back to 1080p.
+These are far more destructive
+and take much longer,
+but depending on your source,
+might yield overall better results.
+
+```py
+upscaled = core.caffe.Waifu2x(descaled, noise=-1, scale=2, model=6, cudnn=True)
+upscaled = core.resize.Spline36(upscaled, width=1920, height=1080)
+```
+```py
+import lvsfunc as lvf
+
+upscaled = lvf.upscaled_sraa(descaled, h=1080)
+```
+
+[nnedi3_rpow2]: https://github.com/darealshinji/vapoursynth-plugins/blob/master/scripts/nnedi3_rpow2.py
+[nnedi3_resample]: https://github.com/mawen1250/VapourSynth-script/blob/master/nnedi3_resample.py
+[waifu2x]: https://github.com/HomeOfVapourSynthEvolution/VapourSynth-Waifu2x-caffe
+[upscaled_sraa]: https://github.com/Irrational-Encoding-Wizardry/lvsfunc/blob/master/lvsfunc.py#L515-L582
+
+# Handling native 1080p content
+
+When descaling,
+it's important to be wary of native 1080p elements.
+A common example of this is credits,
+which are generally added after upscaling.
+These will require being masked.
+The easiest way to do this
+is by using the re-upscaled clip
+used for checking for the kernel
+and using an expression to get the absolute difference between the two
+and then tweaking the mask further to properly catch everything.
+Then the mask is binarized
+so it doesn't catch every small extra bit
+it happened to catch.
+This should work fine for most of the frame
+(given that you descaled it correctly).
+Here is an example of that:
+
+```py
+import vsutil
+import kagefunc as kgf
+
+clip_y = vsutil.get_y(clip)
+descaled = core.descale.Debicubic(clip_y, 1550, 872, b=1/3, c=1/3)
+upscaled = core.resize.Spline36(descaled, 1920, 1080, filter_param_a=1/3, filter_param_b=1/3)
+credit_mask = core.std.Expr([clip_y, upscaled], 'x y - abs')
+credit_mask = kgf.iterate(credit_mask, core.std.Maximum, 4)
+credit_mask = kgf.iterate(credit_mask, core.std.Inflate, 2)
+credit_mask = credit_mask.std.Binarize(0.05)
+
+rescaled = nnedi3_resample(descaled, 1920, 1080)
+merged = core.std.MaskedMerge(rescaled, planes[0], credit_mask)
+
+merged = core.std.ShufflePlanes([merged, clip], [0, 1, 2], vs.YUV)
+```
+
+![](images/descale/descaled_symphoxv_credits_frame_non-masked.png)
+![A mask to catch the credits in Symphogear XV's OP](images/descale/descaled_symphoxv_credits_mask.png)
+![Merge the original credits with a re-upscaled frame (using nnedi3_resample)](images/descale/descaled_symphoxv_credits_frame_masked.png)
+
+This can also be done when descaling
+to a resolution that you plan to stick with.
+Since the credits will still be messed up,
+you will need to replace them with a downscaled clip.
+
+```py
+y, u, v = vsutil.split(clip)
+descaled = core.descale.Debicubic(y, 1280, 720, b=0, c=1/2)
+upscaled = core.resize.Bicubic(descaled, 1920, 1080, filter_param_a=0, filter_param_b=1/2)
+downscaled = core.resize.Spline36(y, 1280, 720)
+credit_mask = core.std.Expr([y, upscaled], 'x y - abs')
+credit_mask = kgf.iterate(credit_mask, core.std.Maximum, 6)
+credit_mask = kgf.iterate(credit_mask, core.std.Inflate, 2)
+credit_mask = core.std.Binarize(credit_mask, 0.05)
+credit_mask = core.resize.Spline36(credit_mask, 1280, 720)
+
+y_scaled = core.std.MaskedMerge(descaled, downscaled, credit_mask)
+u_scaled = core.resize.Bicubic(u, 1280, 720)
+v_scaled = core.resize.Bicubic(v, 1280, 720)
+
+merged = core.std.ShufflePlanes([y_scaled, u_scaled, v_scaled], [0, 0, 0], vs.YUV)
+```
+
+![](images/descale/descale_casefiles_ed_credits_frame_non-masked.png)
+![Downscaled mask that catches all the credits](images/descale/descale_casefiles_ed_credits_mask.png)
+![Merge downscaled credits with descaled clip](images/descale/descale_casefiles_ed_credits_frame_masked.png)
