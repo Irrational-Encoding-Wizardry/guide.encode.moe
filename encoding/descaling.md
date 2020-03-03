@@ -256,7 +256,7 @@ upscaled = lvf.upscaled_sraa(descaled, h=1080)
 [nnedi3_rpow2]: https://github.com/darealshinji/vapoursynth-plugins/blob/master/scripts/nnedi3_rpow2.py
 [nnedi3_resample]: https://github.com/mawen1250/VapourSynth-script/blob/master/nnedi3_resample.py
 [waifu2x]: https://github.com/HomeOfVapourSynthEvolution/VapourSynth-Waifu2x-caffe
-[upscaled_sraa]: https://github.com/Irrational-Encoding-Wizardry/lvsfunc/blob/master/lvsfunc.py#L515-L582
+[upscaled_sraa]: https://github.com/Irrational-Encoding-Wizardry/lvsfunc/blob/d4bdfa76f9aa94a49bd038d98e8b28876ab7332c/lvsfunc.py#L515-L582
 
 
 # Handling native 1080p content
