@@ -8,6 +8,7 @@ How do you actually descale properly?
 This guide will explain the groundwork for you
 to start descaling effectively.
 
+
 ## Descaling vs. Downscaling
 
 What the difference between downscaling and descaling is
@@ -42,8 +43,8 @@ beyond reasonable doubt,
 that you have figured out the correct resolution and kernel.
 </p></div>
 
-
 [vapoursynth-descale]: https://github.com/Irrational-Encoding-Wizardry/vapoursynth-descale
+
 
 # Discerning the native resolution
 
@@ -68,6 +69,7 @@ with all the relative errors listed.
 Here's an example:
 
 ![](images/descale/descale_owari_01_frame.png)
+
 ![getnative.py -k bicubic -b 0 -c 1/2](images/descale/descale_owari_01_graph.png)
 
 What you want to look out for are very clear spikes.
@@ -86,6 +88,7 @@ an already-descaled encode,
 or a source that has been too warped to properly descale.
 
 ![](images/descale/descaled_fgo_op_encoded_frame.png)
+
 ![Running getnative on frame of a already-rescaled encode](images/descale/descaled_fgo_op_encoded_graph.png)
 
 Also of note is that you should be careful
@@ -95,6 +98,7 @@ after the clip has already been upscaled.
 Those will need to be handled separately.
 
 ![](images/descale/descaled_yaiba_17_credits_frame.png)
+
 ![Credits and other native 1080p elements mess with the graph](images/descale/descaled_yaiba_17_credits_graph.png)
 
 And last but not least,
@@ -106,9 +110,11 @@ that was brutally post-processed,
 making it impossible to descale.
 
 ![](images/descale/descale_paniponidash_op2_letterbox&qtec_frame.png)
+
 ![A murder scene](images/descale/descale_paniponidash_op2_letterbox&qtec_graph.png)
 
 [getnative]: https://github.com/Infiziert90/getnative
+
 
 # Filterchains
 
@@ -185,6 +191,7 @@ so try not to be too distracted by that.
 [descale]: https://github.com/Irrational-Encoding-Wizardry/vapoursynth-descale
 [fmtc]: https://forum.doom9.org/showthread.php?t=166504
 
+
 # Re-scaling
 
 A fairly common practice is
@@ -222,6 +229,7 @@ like Spline36 or Lanczos.
 ```py
 upscaled = core.resize.Spline36(descaled, width=1920, height=1080)
 ```
+
 ```py
 upscaled = core.resize.Lanczos(descaled, width=1920, height=1080, filter_param_a=3)
 ```
@@ -238,6 +246,7 @@ might yield overall better results.
 upscaled = core.caffe.Waifu2x(descaled, noise=-1, scale=2, model=6, cudnn=True)
 upscaled = core.resize.Spline36(upscaled, width=1920, height=1080)
 ```
+
 ```py
 import lvsfunc as lvf
 
@@ -248,6 +257,7 @@ upscaled = lvf.upscaled_sraa(descaled, h=1080)
 [nnedi3_resample]: https://github.com/mawen1250/VapourSynth-script/blob/master/nnedi3_resample.py
 [waifu2x]: https://github.com/HomeOfVapourSynthEvolution/VapourSynth-Waifu2x-caffe
 [upscaled_sraa]: https://github.com/Irrational-Encoding-Wizardry/lvsfunc/blob/master/lvsfunc.py#L515-L582
+
 
 # Handling native 1080p content
 
@@ -287,7 +297,9 @@ merged = core.std.ShufflePlanes([merged, clip], [0, 1, 2], vs.YUV)
 ```
 
 ![](images/descale/descaled_symphoxv_credits_frame_non-masked.png)
+
 ![A mask to catch the credits in Symphogear XV's OP](images/descale/descaled_symphoxv_credits_mask.png)
+
 ![Merge the original credits with a re-upscaled frame (using nnedi3_resample)](images/descale/descaled_symphoxv_credits_frame_masked.png)
 
 This can also be done when descaling
@@ -314,5 +326,7 @@ merged = core.std.ShufflePlanes([y_scaled, u_scaled, v_scaled], [0, 0, 0], vs.YU
 ```
 
 ![](images/descale/descale_casefiles_ed_credits_frame_non-masked.png)
+
 ![Downscaled mask that catches all the credits](images/descale/descale_casefiles_ed_credits_mask.png)
+
 ![Merge downscaled credits with descaled clip](images/descale/descale_casefiles_ed_credits_frame_masked.png)
