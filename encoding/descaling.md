@@ -121,8 +121,8 @@ making it impossible to descale.
 Once you've figured out the native resolution,
 you can move on to the actual descaling.
 There's two common ways to do this.
-The first one is by using [descale][descale].
-The other is by using `invks` from [fmtc][fmtc].
+The first one is by using [descale][].
+The other is by using `invks` from [fmtc][].
 For convenience's sake,
 we'll be keeping it to just `descale` for this guide.
 
@@ -199,7 +199,7 @@ to upscale the descaled clip to a standard resolution whenever possible
 (if it isn't already one, like for example 720p).
 There's a couple scalers that are generally recommended.
 
-The most common scaler for re-scaling is [nnedi3_rpow2][nnedi3_rpow2].
+The most common scaler for re-scaling is [nnedi3_rpow2][].
 It returns consistently good-looking lines
 without damaging other detail.
 Since it's an image doubler,
@@ -211,7 +211,7 @@ from nnedi3_rpow2 import nnedi3_rpow2
 upscaled = nnedi3_rpow2(descaled, width=1920, height=1080)
 ```
 
-Similarly, [nnedi3_resample][nnedi3_resample] is also used by some people
+Similarly, [nnedi3_resample][] is also used by some people
 and might give better results
 with some additional tweaking of the settings.
 Like nnedi3_rpow2, it's an image doubler
@@ -235,7 +235,7 @@ upscaled = core.resize.Lanczos(descaled, width=1920, height=1080, filter_param_a
 ```
 
 A couple more extreme examples
-would be using [waifu2x][waifu2x] or [upscaled_sraa][upscaled_sraa]
+would be using [waifu2x][] or [upscaled_sraa][]
 to upscale it back to 1080p.
 These are far more destructive
 and take much longer,
