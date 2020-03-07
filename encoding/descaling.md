@@ -144,6 +144,7 @@ you can move on to the actual descaling.
 There's two common ways to do this.
 
 1. Using the [descale][] plugin.
+1. Using the [descale Python wrapper][descale.py] .
 1. Using `invks` from the [fmtc][] plugin.
 
 For convenience's sake,
@@ -210,6 +211,7 @@ It isn't uncommon for noise to become weaker after a rescale
 so try not to be too distracted by that.
 
 [descale]: https://github.com/Irrational-Encoding-Wizardry/vapoursynth-descale
+[descale.py]: https://github.com/Irrational-Encoding-Wizardry/vapoursynth-descale/blob/master/descale.py
 [fmtc]: https://forum.doom9.org/showthread.php?t=166504
 [lvsfunc]: https://github.com/Irrational-Encoding-Wizardry/lvsfunc
 
