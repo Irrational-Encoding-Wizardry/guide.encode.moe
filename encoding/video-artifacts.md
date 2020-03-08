@@ -253,12 +253,11 @@ of the 8-bit source with `hist.Levels()`.
 [![Example of overflow (click for comparison)](images/overflow.jpg)](https://slowpics.org/comparison/6e24ffe9-e068-4f33-b2e7-639031d512f2)
 
 To fix this problem,
-simply use [`std.Levels()`][std-Levels] like so:
+simply use [`resize`][resize] like so:
 
 ```py
-# This only applies to 8 bit clips!
-clip = clip.std.Levels(min_in=0, max_in=255, min_out=16, max_out=235, planes=0)      # y plane
-clip = clip.std.Levels(min_in=0, max_in=255, min_out=16, max_out=240, planes=[1,2])  # u&v planes
+# Only applies to integer pixel formats, since floating point clips are always full range.
+clip = clip.resize.Spline36(range_in_s="full", range_s="limited")
 ```
 
 or set the "full range" flag on the video,
@@ -268,7 +267,20 @@ and players may ignore the "full range" flag,
 which results in interpreting full range content 
 in a limited context.
 
-[std-Levels]: http://www.vapoursynth.com/doc/functions/levels.html
+In rare cases,
+the issue may be more complicated.
+For example,
+a video may use faulty levels like 0-235 or 16-255
+which are neither full nor limited range.
+In such cases or similar,
+[`std.Levels`][std-Levels] can be utilized to correct the range:
+
+```py
+# This only applies to 8 bit clips!
+# In this example, the input clip uses 0-235 for luma and 0-240 for chroma.
+clip = clip.std.Levels(min_in=0, max_in=235, min_out=16, max_out=235, planes=0)      # y plane
+clip = clip.std.Levels(min_in=0, max_in=240, min_out=16, max_out=240, planes=[1,2])  # u&v planes
+```
 
 Because limited precision with only 8 bit per channel
 may lead to rounding errors quickly,
@@ -276,17 +288,13 @@ we prefer adjusting the levels
 (and our filtering in general)
 with higher precision, 
 such as 16 bit or float (32 bit).
-For these clips,
+In the example above,
 you would use the following[^5]:
 
 ```py
 # 16 bit
-clip = clip.std.Levels(min_in=0, max_in=2**16 - 1, min_out=16 << 8, max_out=235 << 8, planes=0)      # y plane
-clip = clip.std.Levels(min_in=0, max_in=2**16 - 1, min_out=16 << 8, max_out=240 << 8, planes=[1,2])  # u&v planes
-
-# float
-clip = clip.std.Levels(min_in=0, max_in=255 / 255.0 min_out=16 / 255.0, max_out=235 / 255.0, planes=0)      # y plane
-clip = clip.std.Levels(min_in=0, max_in=255 / 255.0, min_out=16 / 255.0, max_out=240 / 255.0, planes=[1,2])  # u&v planes
+clip = clip.std.Levels(min_in=0, max_in=235 << 8, min_out=16 << 8, max_out=235 << 8, planes=0)      # y plane
+clip = clip.std.Levels(min_in=0, max_in=240 << 8, min_out=16 << 8, max_out=240 << 8, planes=[1,2])  # u&v planes
 ```
 
 An example for a case,
@@ -298,10 +306,8 @@ can be seen below.
 
 ![When you see a histogram like this, increase precision.](images/overflow_notice.jpg)
 
-If the range conversion is non-standard[^4]
-or only required on one side,
-simply adjust the `min/max_in/out` parameters accordingly.
-
+[resize]: http://www.vapoursynth.com/doc/functions/resize.html
+[std-Levels]: http://www.vapoursynth.com/doc/functions/levels.html
 
 ---
 
