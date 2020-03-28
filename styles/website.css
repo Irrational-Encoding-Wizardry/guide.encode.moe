@@ -1,0 +1,1741 @@
+/*! normalize.css v2.1.0 | MIT License | git.io/normalize */
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary {
+    display: block
+}
+audio,canvas,video {
+    display: inline-block
+}
+audio:not([controls]) {
+    display: none;
+    height: 0
+}
+[hidden] {
+    display: none
+}
+html {
+    font-family: san-serif;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%
+}
+body,figure {
+    margin: 0
+}
+a:focus {
+    outline: thin dotted
+}
+a:active,a:hover {
+    outline: 0
+}
+h1 {
+    font-size: 2em;
+    margin: .67em 0
+}
+abbr[title] {
+    border-bottom: 1px dotted
+}
+b,strong {
+    font-weight: 700
+}
+dfn {
+    font-style: italic
+}
+hr {
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 0
+}
+mark {
+    background: #ff0;
+    color: #000
+}
+code,kbd,pre,samp {
+    font-family: monospace,serif;
+    font-size: 1em
+}
+pre {
+    white-space: pre-wrap
+}
+q {
+    quotes: "\201C" "\201D" "\2018" "\2019"
+}
+small {
+    font-size: 80%
+}
+sub,sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline
+}
+sup {
+    top: -.5em
+}
+sub {
+    bottom: -.25em
+}
+img {
+    border: 0
+}
+svg:not(:root) {
+    overflow: hidden
+}
+fieldset {
+    border: 1px solid silver;
+    margin: 0 2px;
+    padding: .35em .625em .75em
+}
+legend {
+    border: 0;
+    padding: 0
+}
+button,input,select,textarea {
+    font-family: inherit;
+    font-size: 100%;
+    margin: 0
+}
+button,input {
+    line-height: normal
+}
+button,select {
+    text-transform: none
+}
+button,html input[type=button],input[type=reset],input[type=submit] {
+    -webkit-appearance: button;
+    cursor: pointer
+}
+button[disabled],html input[disabled] {
+    cursor: default
+}
+input[type=checkbox],input[type=radio] {
+    box-sizing: border-box;
+    padding: 0
+}
+input[type=search] {
+    -webkit-appearance: textfield;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box
+}
+input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration {
+    -webkit-appearance: none
+}
+button::-moz-focus-inner,input::-moz-focus-inner {
+    border: 0;
+    padding: 0
+}
+textarea {
+    overflow: auto;
+    vertical-align: top
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+.link-inherit {
+    color: inherit
+}
+.link-inherit:focus,.link-inherit:hover {
+    color: inherit
+}
+.hidden {
+    display: none
+}
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    color: #444;
+    background: #eee;
+    border-bottom: 5px solid #ddd
+}
+.alert-success {
+    background: #dff0d8;
+    border-color: #d6e9c6;
+    color: #3c763d
+}
+.alert-info {
+    background: #d9edf7;
+    border-color: #bce8f1;
+    color: #31708f
+}
+.alert-danger {
+    background: #f2dede;
+    border-color: #ebccd1;
+    color: #a94442
+}
+.alert-warning {
+    background: #fcf8e3;
+    border-color: #faebcc;
+    color: #8a6d3b
+}
+/*!
+ *  Font Awesome 4.6.3 by @davegandy - http://fontawesome.io - @fontawesome
+ *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
+ */
+@-webkit-keyframes fa-spin {
+    0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0)
+    }
+    to {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg)
+    }
+}
+@keyframes fa-spin {
+    0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0)
+    }
+    to {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg)
+    }
+}
+@font-face {
+    font-family:FontAwesome;src:url(fonts/fontawesome/fontawesome-webfont.eot?v=4.6.3);src:url(fonts/fontawesome/fontawesome-webfont.eot?#iefix&v=4.6.3) format('embedded-opentype'),url(fonts/fontawesome/fontawesome-webfont.woff2?v=4.6.3) format('woff2'),url(fonts/fontawesome/fontawesome-webfont.woff?v=4.6.3) format('woff'),url(fonts/fontawesome/fontawesome-webfont.ttf?v=4.6.3) format('truetype'),url(fonts/fontawesome/fontawesome-webfont.svg?v=4.6.3#fontawesomeregular) format('svg');font-weight:400;font-style:normal
+}
+.pull-left {
+    float: left
+}
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0
+}
+.sr-only-focusable:active,.sr-only-focusable:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    clip: auto
+}
+/*!
+ * Preboot v2
+ *
+ * Open sourced under MIT license by @mdo.
+ * Some variables and mixins from Bootstrap (Apache 2 license).
+ */
+.book-langs-index {
+    width: 100%;
+    height: 100%;
+    padding: 40px 0;
+    margin: 0;
+    overflow: auto
+}
+@media (max-width:600px) {
+    .book-langs-index {
+        padding: 0
+    }
+}
+.book-langs-index .inner {
+    max-width: 4000px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 30px;
+    background: #fff;
+    border-radius: 3px
+}
+.book-langs-index .inner h3 {
+    margin: 0
+}
+.book-langs-index .inner .languages {
+    list-style: none;
+    padding: 20px 30px;
+    margin-top: 20px;
+    border-top: 1px solid #eee
+}
+.book-langs-index .inner .languages:after,.book-langs-index .inner .languages:before,.buttons:after,.buttons:before,.dropdown-menu .buttons:after,.dropdown-menu .buttons:before {
+    content: " ";
+    display: table;
+    line-height: 0
+}
+.book-langs-index .inner .languages:after,.buttons:after,.dropdown-menu .buttons:after {
+    clear: both
+}
+.book-langs-index .inner .languages li {
+    width: 50%;
+    float: left;
+    padding: 10px 5px;
+    font-size: 16px
+}
+@media (max-width:600px) {
+    .book-langs-index .inner .languages li {
+        width: 100%;
+        max-width: 100%
+    }
+}
+.book-header {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    overflow: visible;
+    height: 50px;
+    padding: 0 8px;
+    z-index: 2;
+    font-size: .85em;
+    color: #7e888b;
+    background: 0 0
+}
+.book-header .btn {
+    display: block;
+    height: 50px;
+    padding: 0 15px;
+    border-bottom: none;
+    text-transform: uppercase;
+    line-height: 50px;
+    -webkit-box-shadow: none!important;
+    box-shadow: none!important;
+    position: relative;
+    font-size: 14px
+}
+.book-header .btn:hover {
+    position: relative;
+    text-decoration: none;
+    background: 0 0
+}
+.book-header .btn:focus,.dropdown-menu .buttons .button:focus,.dropdown-menu .buttons .button:hover {
+    outline: 0
+}
+.book-header h1 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 200;
+    text-align: center;
+    line-height: 50px;
+    opacity: 0;
+    padding-right: 200px;
+    -webkit-transition: opacity .2s ease;
+    -moz-transition: opacity .2s ease;
+    -o-transition: opacity .2s ease;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+.book-header h1 a,.book-header h1 a:hover {
+    color: inherit;
+    text-decoration: none
+}
+@media (max-width:1000px) {
+    .book-header h1 {
+        display: none
+    }
+}
+#book-search-results .search-results,.book-header h1 i,.book.is-loading .book-header h1 a,body.with-search .navigation {
+    display: none
+}
+.book-header:hover h1 {
+    opacity: 1
+}
+.book.is-loading .book-header h1 i,h1:hover a.plugin-anchor,h2:hover a.plugin-anchor,h3:hover a.plugin-anchor,h4:hover a.plugin-anchor,h5:hover a.plugin-anchor,h6:hover a.plugin-anchor {
+    display: inline-block
+}
+.dropdown,h1,h2,h3,h4,h5,h6 {
+    position: relative
+}
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 100;
+    display: none;
+    float: left;
+    min-width: 160px;
+    padding: 0;
+    margin: 2px 0 0;
+    list-style: none;
+    font-size: 14px;
+    border: 1px solid rgba(0,0,0,.07);
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    background-clip: padding-box
+}
+.dropdown-menu.open,pre.term span.t-line {
+    display: block
+}
+.dropdown-menu.dropdown-left {
+    left: auto;
+    right: 4%
+}
+.dropdown-menu.dropdown-left .dropdown-caret {
+    right: 14px;
+    left: auto
+}
+.dropdown-menu .dropdown-caret {
+    position: absolute;
+    top: -8px;
+    left: 14px;
+    width: 18px;
+    height: 10px;
+    float: left;
+    overflow: hidden
+}
+.dropdown-menu .dropdown-caret .caret-inner,.dropdown-menu .dropdown-caret .caret-outer {
+    position: absolute;
+    display: inline-block;
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent
+}
+.dropdown-menu .dropdown-caret .caret-outer {
+    border-bottom: 9px solid rgba(0,0,0,.1);
+    height: auto;
+    left: 0;
+    width: auto;
+    margin-left: -1px;
+    top: 0
+}
+.dropdown-menu .dropdown-caret .caret-inner {
+    margin-top: -1px;
+    top: 1px
+}
+.dropdown-menu .buttons {
+    border-bottom: 1px solid rgba(0,0,0,.07)
+}
+.dropdown-menu .buttons:last-child {
+    border-bottom: none
+}
+.dropdown-menu .buttons .button {
+    border: 0;
+    background-color: transparent;
+    width: 100%;
+    text-align: center;
+    float: left;
+    line-height: 1.42857143;
+    padding: 8px 4px
+}
+.dropdown-menu .buttons .button.size-2 {
+    width: 50%
+}
+.dropdown-menu .buttons .button.size-3 {
+    width: 33%
+}
+.book-summary {
+    position: absolute;
+    top: 0;
+    left: -300px;
+    bottom: 0;
+    z-index: 1;
+    overflow-y: auto;
+    width: 300px;
+    color: #364149;
+    background: #fafafa;
+    border-right: 1px solid rgba(0,0,0,.07);
+    -webkit-transition: left 250ms ease;
+    -moz-transition: left 250ms ease;
+    -o-transition: left 250ms ease;
+    transition: left 250ms ease
+}
+.book-summary ul.summary {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    -webkit-transition: top .5s ease;
+    -moz-transition: top .5s ease;
+    -o-transition: top .5s ease;
+    transition: top .5s ease
+}
+.book-summary ul.summary li {
+    list-style: none
+}
+.book-summary ul.summary li.header {
+    padding: 20px 15px 10px;
+    text-transform: uppercase
+}
+.book-summary ul.summary li.divider {
+    height: 1px;
+    margin: 7px 0;
+    overflow: hidden;
+    background: rgba(0,0,0,.07);
+    background-color: #d8d8d8
+}
+.book-summary ul.summary li i.fa-check {
+    display: none;
+    position: absolute;
+    right: 9px;
+    top: 16px;
+    font-size: 9px;
+    color: #3c3
+}
+.book-summary ul.summary li.done>a {
+    color: #364149;
+    font-weight: 400
+}
+.book-summary ul.summary li.done>a i {
+    display: inline
+}
+.book-summary ul.summary li a,.book-summary ul.summary li span {
+    display: block;
+    padding: 10px 15px;
+    border-bottom: none;
+    background: 0 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    transition: box-shadow 75ms ease
+}
+.book-summary ul.summary li a:focus {
+    outline: 0
+}
+.book-summary ul.summary li.active>a {
+    background: 0 0;
+    text-decoration: none
+}
+.book-summary ul.summary li ul {
+    padding-left: 20px
+}
+@media (max-width:600px) {
+    .book-summary {
+        width: calc(100% - 60px);
+        bottom: 0;
+        left: -100%
+    }
+}
+.book.with-summary .book-summary {
+    left: 0
+}
+.book.without-animation .book-summary {
+    -webkit-transition: none!important;
+    -moz-transition: none!important;
+    -o-transition: none!important;
+    transition: none!important
+}
+.book {
+    position: relative;
+    width: 100%;
+    height: 100%
+}
+@media (min-width:600px) {
+    .book.with-summary .book-body {
+        left: 300px
+    }
+}
+@media (max-width:600px) {
+    .book.with-summary {
+        overflow: hidden
+    }
+    .book.with-summary .book-body {
+        -webkit-transform: translate(calc(100% - 60px),0);
+        -moz-transform: translate(calc(100% - 60px),0);
+        -ms-transform: translate(calc(100% - 60px),0);
+        -o-transform: translate(calc(100% - 60px),0);
+        transform: translate(calc(100% - 60px),0)
+    }
+}
+.book.without-animation .book-body {
+    -webkit-transition: none!important;
+    -moz-transition: none!important;
+    -o-transition: none!important;
+    transition: none!important
+}
+.book-body {
+    background: #fff;
+    -webkit-transition: left 250ms ease;
+    -moz-transition: left 250ms ease;
+    -o-transition: left 250ms ease;
+    transition: left 250ms ease
+}
+.book-body,.book-body .body-inner {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    overflow-y: auto
+}
+@media (max-width:1240px) {
+    .book-body {
+        -webkit-transition: -webkit-transform 250ms ease;
+        -moz-transition: -moz-transform 250ms ease;
+        -o-transition: -o-transform 250ms ease;
+        transition: transform 250ms ease;
+        padding-bottom: 20px
+    }
+    .book-body .body-inner {
+        position: static;
+        min-height: calc(100% - 50px)
+    }
+}
+.page-wrapper {
+    position: relative;
+    outline: 0
+}
+.page-inner {
+    position: relative;
+    margin: 0 auto
+}
+.page-inner .btn-group .btn {
+    border-radius: 0;
+    background: #eee;
+    border: 0
+}
+.button {
+    border: 0;
+    background-color: transparent;
+    background: #eee;
+    color: #666;
+    width: 100%;
+    text-align: center;
+    float: left;
+    line-height: 1.42857143;
+    padding: 8px 4px
+}
+.button:hover {
+    color: #444
+}
+.button:focus,.button:hover {
+    outline: 0
+}
+.button.size-2 {
+    width: 50%
+}
+.button.size-3 {
+    width: 33%
+}
+#book-search-results .search-results .has-results .search-results-item,.markdown-section {
+    display: block;
+    word-wrap: break-word;
+    overflow: hidden;
+    line-height: 1.7;
+    text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%
+}
+#book-search-results .search-results .has-results .search-results-item *,.markdown-section * {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    font-size: inherit
+}
+#book-search-results .search-results .has-results .search-results-item>:first-child,.markdown-section>:first-child {
+    margin-top: 0!important
+}
+#book-search-results .search-results .has-results .search-results-item>:last-child,.markdown-section>:last-child {
+    margin-bottom: 0!important
+}
+#book-search-results .search-results .has-results .search-results-item blockquote,#book-search-results .search-results .has-results .search-results-item code,#book-search-results .search-results .has-results .search-results-item figure,#book-search-results .search-results .has-results .search-results-item img,#book-search-results .search-results .has-results .search-results-item pre,#book-search-results .search-results .has-results .search-results-item table,#book-search-results .search-results .has-results .search-results-item tr,.markdown-section blockquote,.markdown-section code,.markdown-section figure,.markdown-section img,.markdown-section pre,.markdown-section table,.markdown-section tr {
+    page-break-inside: avoid
+}
+#book-search-results .search-results .has-results .search-results-item h2,#book-search-results .search-results .has-results .search-results-item h3,#book-search-results .search-results .has-results .search-results-item h4,#book-search-results .search-results .has-results .search-results-item h5,#book-search-results .search-results .has-results .search-results-item p,.markdown-section h2,.markdown-section h3,.markdown-section h4,.markdown-section h5,.markdown-section p {
+    orphans: 3;
+    widows: 3
+}
+#book-search-results .search-results .has-results .search-results-item h1,#book-search-results .search-results .has-results .search-results-item h2,#book-search-results .search-results .has-results .search-results-item h3,#book-search-results .search-results .has-results .search-results-item h4,#book-search-results .search-results .has-results .search-results-item h5,.markdown-section h1,.markdown-section h2,.markdown-section h3,.markdown-section h4,.markdown-section h5 {
+    page-break-after: avoid
+}
+.markdown-section b,.markdown-section strong {
+    font-weight: 700
+}
+#book-search-results .search-results .has-results .search-results-item em,.markdown-section em {
+    font-style: italic
+}
+#book-search-results .search-results .has-results .search-results-item dl,#book-search-results .search-results .has-results .search-results-item p,#book-search-results .search-results .has-results .search-results-item table,.markdown-section dl,.markdown-section p,.markdown-section table {
+    margin-top: .85em;
+    margin-bottom: .85em
+}
+#book-search-results .search-results .has-results .search-results-item a,.markdown-section a {
+    text-decoration: none;
+    background: 0 0
+}
+#book-search-results .search-results .has-results .search-results-item a:active,#book-search-results .search-results .has-results .search-results-item a:focus,#book-search-results .search-results .has-results .search-results-item a:hover,.markdown-section a:active,.markdown-section a:focus,.markdown-section a:hover {
+    outline: 0;
+    text-decoration: underline
+}
+#book-search-results .search-results .has-results .search-results-item img {
+    border: 0;
+    max-width: 100%
+}
+.markdown-section img {
+    border: 0
+}
+#book-search-results .search-results .has-results .search-results-item hr,.markdown-section hr {
+    height: 4px;
+    padding: 0;
+    margin: 1.7em 0;
+    overflow: hidden;
+    background-color: #e7e7e7;
+    border: 0
+}
+.markdown-section hr {
+    background-color: #d8d8d8
+}
+#book-search-results .search-results .has-results .search-results-item hr:after,#book-search-results .search-results .has-results .search-results-item hr:before,.markdown-section hr:after,.markdown-section hr:before {
+    display: table;
+    content: " "
+}
+#book-search-results .search-results .has-results .search-results-item hr:after,.markdown-section hr:after {
+    clear: both
+}
+#book-search-results .search-results .has-results .search-results-item h1,#book-search-results .search-results .has-results .search-results-item h2,#book-search-results .search-results .has-results .search-results-item h4,#book-search-results .search-results .has-results .search-results-item h5,#book-search-results .search-results .has-results .search-results-item h6,.markdown-section h1,.markdown-section h2,.markdown-section h3,.markdown-section h4,.markdown-section h5,.markdown-section h6 {
+    margin-top: 1.275em;
+    margin-bottom: .85em;
+    font-weight: 700
+}
+#book-search-results .search-results .has-results .search-results-item h3 {
+    font-weight: 700;
+    font-size: 1.5em
+}
+#book-search-results .search-results .has-results .search-results-item h1 {
+    font-size: 2em
+}
+#book-search-results .search-results .has-results .search-results-item h2 {
+    font-size: 1.75em
+}
+.markdown-section h3 {
+    font-size: 1.5em
+}
+#book-search-results .search-results .has-results .search-results-item h4,.markdown-section h4 {
+    font-size: 1.25em
+}
+#book-search-results .search-results .has-results .search-results-item h5,.markdown-section h5 {
+    font-size: 1em
+}
+#book-search-results .search-results .has-results .search-results-item h6,.markdown-section h6 {
+    font-size: 1em;
+    color: #777
+}
+#book-search-results .search-results .has-results .search-results-item code,#book-search-results .search-results .has-results .search-results-item pre {
+    font-family: Consolas,"Liberation Mono",Menlo,Courier,monospace;
+    direction: ltr;
+    border: 0;
+    color: inherit
+}
+.markdown-section code,.markdown-section pre {
+    direction: ltr;
+    border: 0;
+    color: inherit
+}
+#book-search-results .search-results .has-results .search-results-item pre,.markdown-section pre {
+    overflow: auto;
+    word-wrap: normal;
+    padding: .85em 1em;
+    margin: 0 0 1.275em;
+    background: #f7f7f7
+}
+#book-search-results .search-results .has-results .search-results-item pre>code,.markdown-section pre>code {
+    display: inline;
+    max-width: initial;
+    padding: 0;
+    margin: 0;
+    overflow: initial;
+    line-height: inherit;
+    font-size: .85em;
+    white-space: pre;
+    background: 0 0
+}
+#book-search-results .search-results .has-results .search-results-item pre>code:after,#book-search-results .search-results .has-results .search-results-item pre>code:before,.markdown-section pre>code:after,.markdown-section pre>code:before {
+    content: normal
+}
+#book-search-results .search-results .has-results .search-results-item code {
+    padding: .2em;
+    margin: 0;
+    font-size: .85em;
+    background-color: #f7f7f7
+}
+.markdown-section .katex,.markdown-section .katex-display,.markdown-section code {
+    padding: .2em;
+    margin: 0;
+    background-color: #f7f7f7
+}
+#book-search-results .search-results .has-results .search-results-item code:after,#book-search-results .search-results .has-results .search-results-item code:before,.markdown-section code:after,.markdown-section code:before {
+    letter-spacing: -.2em;
+    content: "\00a0"
+}
+#book-search-results .search-results .has-results .search-results-item table,.markdown-section table {
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    overflow: auto
+}
+#book-search-results .search-results .has-results .search-results-item table td,#book-search-results .search-results .has-results .search-results-item table th,.markdown-section table td,.markdown-section table th {
+    padding: 6px 13px;
+    border: 1px solid #ddd
+}
+#book-search-results .search-results .has-results .search-results-item table tr,.markdown-section table tr {
+    background-color: #fff;
+    border-top: 1px solid #ccc
+}
+#book-search-results .search-results .has-results .search-results-item table tr:nth-child(2n),.markdown-section table tr:nth-child(2n) {
+    background-color: #f8f8f8
+}
+#book-search-results .search-results .has-results .search-results-item b,#book-search-results .search-results .has-results .search-results-item strong,#book-search-results .search-results .has-results .search-results-item table th,.markdown-section table th,pre.term.t-black .t-prompt {
+    font-weight: 700
+}
+#book-search-results .search-results .has-results .search-results-item ol,#book-search-results .search-results .has-results .search-results-item ul,.markdown-section ol,.markdown-section ul {
+    margin: 0 0 .85em;
+    padding: 0 0 0 2em
+}
+#book-search-results .search-results .has-results .search-results-item h3,#book-search-results .search-results .has-results .search-results-item ol ol,#book-search-results .search-results .has-results .search-results-item ol ul,#book-search-results .search-results .has-results .search-results-item ul ol,#book-search-results .search-results .has-results .search-results-item ul ul,.markdown-section ol ol,.markdown-section ol ul,.markdown-section ul ol,.markdown-section ul ul {
+    margin-top: 0;
+    margin-bottom: 0
+}
+#book-search-results .search-results .has-results .search-results-item ol ol,.markdown-section ol ol {
+    list-style-type: lower-roman
+}
+#book-search-results .search-results .has-results .search-results-item blockquote,.markdown-section blockquote {
+    margin: 0 0 .85em;
+    padding: 0 15px;
+    color: #858585;
+    border-left: 4px solid #e5e5e5
+}
+.markdown-section blockquote {
+    border-left: 4px solid #d8d8d8;
+    color: rgba(0,0,0,.66)
+}
+#book-search-results .search-results .has-results .search-results-item blockquote:first-child,.markdown-section blockquote:first-child {
+    margin-top: 0
+}
+#book-search-results .search-results .has-results .search-results-item blockquote:last-child,.markdown-section blockquote:last-child {
+    margin-bottom: 0
+}
+#book-search-results .search-results .has-results .search-results-item dl,.markdown-section dl {
+    padding: 0
+}
+#book-search-results .search-results .has-results .search-results-item dl dt,.markdown-section dl dt {
+    padding: 0;
+    margin-top: .85em;
+    font-style: italic;
+    font-weight: 700
+}
+#book-search-results .search-results .has-results .search-results-item dl dd,.markdown-section dl dd {
+    padding: 0 .85em;
+    margin-bottom: .85em
+}
+#book-search-results .search-results .has-results .search-results-item dd,.markdown-section dd {
+    margin-left: 0
+}
+.markdown-section .glossary-term {
+    cursor: help
+}
+.navigation {
+    position: absolute;
+    top: 50px;
+    bottom: 0;
+    margin: 0;
+    max-width: 150px;
+    min-width: 90px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    font-size: 40px;
+    text-align: center;
+    -webkit-transition: all 350ms ease;
+    -moz-transition: all 350ms ease;
+    -o-transition: all 350ms ease
+}
+.book-summary ul.summary li a:hover,.navigation:hover,a {
+    text-decoration: none
+}
+.navigation.navigation-next {
+    right: 0
+}
+.navigation.navigation-prev {
+    left: 0
+}
+@media (max-width:1240px) {
+    .navigation {
+        position: static;
+        top: auto;
+        max-width: 50%;
+        width: 50%;
+        display: inline-block;
+        float: left
+    }
+    .navigation.navigation-unique {
+        max-width: 100%;
+        width: 100%
+    }
+}
+#book-search-input {
+    padding: 6px;
+    background: 0 0;
+    transition: top .5s ease;
+    background: #fff;
+    border-bottom: 1px solid rgba(0,0,0,.07);
+    border-top: 1px solid rgba(0,0,0,.07);
+    margin-top: -1px
+}
+#book-search-input input,#book-search-input input:focus,#book-search-input input:hover {
+    width: 100%;
+    background: 0 0;
+    border: 1px solid transparent;
+    box-shadow: none;
+    outline: 0;
+    line-height: 22px;
+    padding: 7px;
+    color: inherit
+}
+#book-search-results,pre.term:hover>button.t-copy,pre.term:hover>i.t-copy {
+    opacity: 1
+}
+#book-search-results .search-results .search-results-title {
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 200;
+    margin-bottom: 35px;
+    opacity: .6
+}
+#book-search-results .search-results .no-results {
+    padding: 40px 0;
+    display: none
+}
+body.search-loading #book-search-results {
+    opacity: .3
+}
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-overflow-scrolling: touch;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-text-size-adjust: none;
+    -webkit-touch-callout: none;
+    -webkit-font-smoothing: antialiased
+}
+body,html {
+    height: 100%
+}
+html {
+    font-size: 62.5%
+}
+body {
+    text-rendering: optimizeLegibility;
+    font-smoothing: antialiased;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    letter-spacing: .2px;
+    text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%
+}
+a.plugin-anchor {
+    color: inherit!important;
+    display: none;
+    margin-left: -30px;
+    padding-left: 40px;
+    cursor: pointer;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    top: -3px
+}
+a.plugin-anchor i {
+    margin-left: -30px;
+    font-size: 15px!important
+}
+.book .book-body .page-wrapper .page-inner section.normal {
+    overflow: visible
+}
+#code-textarea,#t-textarea {
+    height: 0;
+    position: fixed;
+    top: -1000px;
+    width: 0
+}
+.code-wrapper,img,img:hover {
+    position: relative
+}
+.code-wrapper i {
+    cursor: pointer;
+    font-weight: 700;
+    position: absolute;
+    right: 1em;
+    top: 1em;
+    color: inherit;
+    font-size: .9em;
+    opacity: .5;
+    transition: all 150ms ease
+}
+.code-wrapper pre {
+    border-radius: 3px;
+    counter-reset: line;
+    font-size: 15px
+}
+.code-wrapper pre>code>span.code-line:before {
+    counter-increment: line;
+    color: #c1c7cd;
+    content: counter(line);
+    display: inline-block;
+    font-size: 12px;
+    margin-right: 1.5em;
+    width: 1em
+}
+figure {
+    margin: 1.5em 0;
+    padding: 10px 0
+}
+figcaption {
+    clear: left;
+    text-align: center;
+    font-style: italic;
+    line-height: 1.5em;
+    margin: 1px 0 .75em
+}
+.left {
+    text-align: left
+}
+.right {
+    text-align: right
+}
+pre.term {
+    font-family: Consolas,"Liberation Mono",Menlo,Courier,monospace;
+    overflow-x: hidden;
+    padding: .85em 1em;
+    font-size: .85em;
+    position: relative
+}
+pre code.lang-term pre.term {
+    margin: 0;
+    padding: 0;
+    font-size: 1em
+}
+pre.term code {
+    display: block;
+    margin: 1em 2em 0 1em;
+    padding-bottom: 1em;
+    overflow-x: auto
+}
+pre.term.t-fade span.t-delimiter,pre.term.t-fade span.t-line:not(.t-prompt-line),pre.term.t-fade span.t-path,pre.term.t-fade span.t-pathsep,pre.term.t-fade span.t-prompt {
+    transition: opacity .3s ease-in-out
+}
+pre.term.t-fade:hover span.t-delimiter,pre.term.t-fade:hover span.t-line:not(.t-prompt-line),pre.term.t-fade:hover span.t-path,pre.term.t-fade:hover span.t-pathsep,pre.term.t-fade:hover span.t-prompt {
+    opacity: .3
+}
+pre.term>button.t-copy,pre.term>i.t-copy {
+    cursor: pointer;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    right: .4em;
+    transition: opacity .3s ease-in-out;
+    margin-top: 0
+}
+pre.term.t-black {
+    background-color: #222;
+    color: #dedede
+}
+pre.term.t-classic {
+    background-color: #000;
+    color: #7cfc00
+}
+pre.term.t-classic .t-error {
+    color: red
+}
+pre.term.t-classic .t-warning {
+    color: orange
+}
+pre.term.t-flat {
+    background-color: #2b3d50;
+    color: #dedede
+}
+pre.term.t-flat .t-delimiter {
+    color: #60b0e5
+}
+pre.term.t-flat .t-error {
+    color: #f55
+}
+pre.term.t-flat .t-prompt {
+    color: #28c66e
+}
+pre.term.t-flat .t-warning {
+    color: #d93
+}
+pre.term.t-ubuntu {
+    background-color: #300b24;
+    color: #b8c4c5
+}
+pre.term.t-ubuntu .t-error {
+    color: #e22227
+}
+pre.term.t-ubuntu .t-path {
+    color: #475ca0
+}
+pre.term.t-ubuntu .t-prompt {
+    color: #84cc40
+}
+pre.term.t-ubuntu .t-warning {
+    color: #d93
+}
+pre.term.t-white {
+    background-color: #fff;
+    color: #333
+}
+pre.term.t-white .t-error {
+    color: #e22227
+}
+pre.term.t-white .t-path {
+    color: #475ca0
+}
+pre.term.t-white .t-prompt {
+    color: #4caf50
+}
+pre.term.t-white .t-warning {
+    color: #d93
+}
+pre.term.t-default {
+    background-color: #f7f7f7;
+    color: #333
+}
+pre.term.t-default .t-error {
+    color: #e22227
+}
+pre.term.t-default .t-path {
+    color: #475ca0
+}
+pre.term.t-default .t-prompt {
+    color: #4caf50
+}
+pre.term.t-default .t-warning {
+    color: #d93
+}
+pre.term.t-default .t-delimiter {
+    color: #4090b5
+}
+.book .book-body .page-wrapper .page-inner section.normal code .hljs-comment,.book .book-body .page-wrapper .page-inner section.normal code .hljs-title,.book .book-body .page-wrapper .page-inner section.normal pre .hljs-comment,.book .book-body .page-wrapper .page-inner section.normal pre .hljs-title {
+    color: #8e908c
+}
+.book .book-body .page-wrapper .page-inner section.normal code .css .hljs-class,.book .book-body .page-wrapper .page-inner section.normal code .css .hljs-id,.book .book-body .page-wrapper .page-inner section.normal code .css .hljs-pseudo,.book .book-body .page-wrapper .page-inner section.normal code .hljs-attribute,.book .book-body .page-wrapper .page-inner section.normal code .hljs-deletion,.book .book-body .page-wrapper .page-inner section.normal code .hljs-regexp,.book .book-body .page-wrapper .page-inner section.normal code .hljs-tag,.book .book-body .page-wrapper .page-inner section.normal code .hljs-variable,.book .book-body .page-wrapper .page-inner section.normal code .html .hljs-doctype,.book .book-body .page-wrapper .page-inner section.normal code .ruby .hljs-constant,.book .book-body .page-wrapper .page-inner section.normal code .xml .hljs-doctype,.book .book-body .page-wrapper .page-inner section.normal code .xml .hljs-pi,.book .book-body .page-wrapper .page-inner section.normal code .xml .hljs-tag .hljs-title,.book .book-body .page-wrapper .page-inner section.normal pre .css .hljs-class,.book .book-body .page-wrapper .page-inner section.normal pre .css .hljs-id,.book .book-body .page-wrapper .page-inner section.normal pre .css .hljs-pseudo,.book .book-body .page-wrapper .page-inner section.normal pre .hljs-attribute,.book .book-body .page-wrapper .page-inner section.normal pre .hljs-deletion,.book .book-body .page-wrapper .page-inner section.normal pre .hljs-regexp,.book .book-body .page-wrapper .page-inner section.normal pre .hljs-tag,.book .book-body .page-wrapper .page-inner section.normal pre .hljs-variable,.book .book-body .page-wrapper .page-inner section.normal pre .html .hljs-doctype,.book .book-body .page-wrapper .page-inner section.normal pre .ruby .hljs-constant,.book .book-body .page-wrapper .page-inner section.normal pre .xml .hljs-doctype,.book .book-body .page-wrapper .page-inner section.normal pre .xml .hljs-pi,.book .book-body .page-wrapper .page-inner section.normal pre .xml .hljs-tag .hljs-title {
+    color: #c82829
+}
+.book .book-body .page-wrapper .page-inner section.normal code .hljs-built_in,.book .book-body .page-wrapper .page-inner section.normal code .hljs-constant,.book .book-body .page-wrapper .page-inner section.normal code .hljs-literal,.book .book-body .page-wrapper .page-inner section.normal code .hljs-number,.book .book-body .page-wrapper .page-inner section.normal code .hljs-params,.book .book-body .page-wrapper .page-inner section.normal code .hljs-pragma,.book .book-body .page-wrapper .page-inner section.normal code .hljs-preprocessor,.book .book-body .page-wrapper .page-inner section.normal pre .hljs-built_in,.book .book-body .page-wrapper .page-inner section.normal pre .hljs-constant,.book .book-body .page-wrapper .page-inner section.normal pre .hljs-literal,.book .book-body .page-wrapper .page-inner section.normal pre .hljs-number,.book .book-body .page-wrapper .page-inner section.normal pre .hljs-params,.book .book-body .page-wrapper .page-inner section.normal pre .hljs-pragma,.book .book-body .page-wrapper .page-inner section.normal pre .hljs-preprocessor {
+    color: #f5871f
+}
+.book .book-body .page-wrapper .page-inner section.normal code .css .hljs-rules .hljs-attribute,.book .book-body .page-wrapper .page-inner section.normal code .ruby .hljs-class .hljs-title,.book .book-body .page-wrapper .page-inner section.normal pre .css .hljs-rules .hljs-attribute,.book .book-body .page-wrapper .page-inner section.normal pre .ruby .hljs-class .hljs-title {
+    color: #eab700
+}
+.book .book-body .page-wrapper .page-inner section.normal code .hljs-addition,.book .book-body .page-wrapper .page-inner section.normal code .hljs-header,.book .book-body .page-wrapper .page-inner section.normal code .hljs-inheritance,.book .book-body .page-wrapper .page-inner section.normal code .hljs-string,.book .book-body .page-wrapper .page-inner section.normal code .hljs-value,.book .book-body .page-wrapper .page-inner section.normal code .ruby .hljs-symbol,.book .book-body .page-wrapper .page-inner section.normal code .xml .hljs-cdata,.book .book-body .page-wrapper .page-inner section.normal pre .hljs-addition,.book .book-body .page-wrapper .page-inner section.normal pre .hljs-header,.book .book-body .page-wrapper .page-inner section.normal pre .hljs-inheritance,.book .book-body .page-wrapper .page-inner section.normal pre .hljs-string,.book .book-body .page-wrapper .page-inner section.normal pre .hljs-value,.book .book-body .page-wrapper .page-inner section.normal pre .ruby .hljs-symbol,.book .book-body .page-wrapper .page-inner section.normal pre .xml .hljs-cdata {
+    color: #718c00
+}
+.book .book-body .page-wrapper .page-inner section.normal code .css .hljs-hexcolor,.book .book-body .page-wrapper .page-inner section.normal pre .css .hljs-hexcolor {
+    color: #3e999f
+}
+.book .book-body .page-wrapper .page-inner section.normal code .coffeescript .hljs-title,.book .book-body .page-wrapper .page-inner section.normal code .hljs-function,.book .book-body .page-wrapper .page-inner section.normal code .javascript .hljs-title,.book .book-body .page-wrapper .page-inner section.normal code .perl .hljs-sub,.book .book-body .page-wrapper .page-inner section.normal code .python .hljs-decorator,.book .book-body .page-wrapper .page-inner section.normal code .python .hljs-title,.book .book-body .page-wrapper .page-inner section.normal code .ruby .hljs-function .hljs-title,.book .book-body .page-wrapper .page-inner section.normal code .ruby .hljs-title .hljs-keyword,.book .book-body .page-wrapper .page-inner section.normal pre .coffeescript .hljs-title,.book .book-body .page-wrapper .page-inner section.normal pre .hljs-function,.book .book-body .page-wrapper .page-inner section.normal pre .javascript .hljs-title,.book .book-body .page-wrapper .page-inner section.normal pre .perl .hljs-sub,.book .book-body .page-wrapper .page-inner section.normal pre .python .hljs-decorator,.book .book-body .page-wrapper .page-inner section.normal pre .python .hljs-title,.book .book-body .page-wrapper .page-inner section.normal pre .ruby .hljs-function .hljs-title,.book .book-body .page-wrapper .page-inner section.normal pre .ruby .hljs-title .hljs-keyword {
+    color: #4271ae
+}
+.book .book-body .page-wrapper .page-inner section.normal code .hljs-keyword,.book .book-body .page-wrapper .page-inner section.normal code .javascript .hljs-function,.book .book-body .page-wrapper .page-inner section.normal pre .hljs-keyword,.book .book-body .page-wrapper .page-inner section.normal pre .javascript .hljs-function {
+    color: #8959a8
+}
+.book .book-body .page-wrapper .page-inner section.normal code .hljs,.book .book-body .page-wrapper .page-inner section.normal pre .hljs {
+    display: block;
+    background: #fff;
+    color: #4d4d4c;
+    padding: .5em
+}
+.book .book-body .page-wrapper .page-inner section.normal code .coffeescript .javascript,.book .book-body .page-wrapper .page-inner section.normal code .javascript .xml,.book .book-body .page-wrapper .page-inner section.normal code .tex .hljs-formula,.book .book-body .page-wrapper .page-inner section.normal code .xml .css,.book .book-body .page-wrapper .page-inner section.normal code .xml .hljs-cdata,.book .book-body .page-wrapper .page-inner section.normal code .xml .javascript,.book .book-body .page-wrapper .page-inner section.normal code .xml .vbscript,.book .book-body .page-wrapper .page-inner section.normal pre .coffeescript .javascript,.book .book-body .page-wrapper .page-inner section.normal pre .javascript .xml,.book .book-body .page-wrapper .page-inner section.normal pre .tex .hljs-formula,.book .book-body .page-wrapper .page-inner section.normal pre .xml .css,.book .book-body .page-wrapper .page-inner section.normal pre .xml .hljs-cdata,.book .book-body .page-wrapper .page-inner section.normal pre .xml .javascript,.book .book-body .page-wrapper .page-inner section.normal pre .xml .vbscript {
+    opacity: .5
+}
+.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .hljs,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .hljs {
+    display: block;
+    padding: .5em;
+    background: #fdf6e3;
+    color: #657b83
+}
+.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .diff .hljs-header,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .hljs-comment,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .hljs-doctype,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .hljs-javadoc,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .hljs-pi,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .hljs-template_comment,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .lisp .hljs-string,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .diff .hljs-header,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .hljs-comment,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .hljs-doctype,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .hljs-javadoc,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .hljs-pi,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .hljs-template_comment,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .lisp .hljs-string {
+    color: #93a1a1
+}
+.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .css .hljs-tag,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .hljs-addition,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .hljs-keyword,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .hljs-request,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .hljs-status,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .hljs-winutils,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .method,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .nginx .hljs-title,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .css .hljs-tag,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .hljs-addition,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .hljs-keyword,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .hljs-request,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .hljs-status,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .hljs-winutils,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .method,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .nginx .hljs-title {
+    color: #859900
+}
+.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .hljs-command,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .hljs-hexcolor,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .hljs-link_url,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .hljs-number,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .hljs-phpdoc,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .hljs-regexp,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .hljs-rules .hljs-value,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .hljs-string,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .hljs-tag .hljs-value,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .tex .hljs-formula,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .hljs-command,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .hljs-hexcolor,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .hljs-link_url,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .hljs-number,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .hljs-phpdoc,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .hljs-regexp,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .hljs-rules .hljs-value,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .hljs-string,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .hljs-tag .hljs-value,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .tex .hljs-formula {
+    color: #2aa198
+}
+.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .css .hljs-function,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .hljs-built_in,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .hljs-chunk,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .hljs-decorator,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .hljs-id,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .hljs-identifier,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .hljs-localvars,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .hljs-title,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .vhdl .hljs-literal,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .css .hljs-function,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .hljs-built_in,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .hljs-chunk,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .hljs-decorator,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .hljs-id,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .hljs-identifier,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .hljs-localvars,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .hljs-title,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .vhdl .hljs-literal {
+    color: #268bd2
+}
+.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .haskell .hljs-type,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .hljs-attribute,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .hljs-class .hljs-title,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .hljs-constant,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .hljs-link_reference,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .hljs-parent,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .hljs-variable,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .lisp .hljs-body,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .smalltalk .hljs-number,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .haskell .hljs-type,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .hljs-attribute,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .hljs-class .hljs-title,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .hljs-constant,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .hljs-link_reference,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .hljs-parent,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .hljs-variable,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .lisp .hljs-body,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .smalltalk .hljs-number {
+    color: #b58900
+}
+.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .clojure .hljs-title,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .css .hljs-pseudo,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .diff .hljs-change,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .hljs-attr_selector,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .hljs-cdata,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .hljs-header,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .hljs-pragma,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .hljs-preprocessor,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .hljs-preprocessor .hljs-keyword,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .hljs-shebang,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .hljs-special,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .hljs-subst,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .hljs-symbol,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .hljs-symbol .hljs-string,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .clojure .hljs-title,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .css .hljs-pseudo,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .diff .hljs-change,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .hljs-attr_selector,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .hljs-cdata,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .hljs-header,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .hljs-pragma,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .hljs-preprocessor,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .hljs-preprocessor .hljs-keyword,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .hljs-shebang,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .hljs-special,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .hljs-subst,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .hljs-symbol,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .hljs-symbol .hljs-string {
+    color: #cb4b16
+}
+.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .hljs-deletion,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .hljs-important,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .hljs-deletion,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .hljs-important {
+    color: #dc322f
+}
+.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .hljs-link_label,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .hljs-link_label {
+    color: #6c71c4
+}
+.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code .tex .hljs-formula,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre .tex .hljs-formula {
+    background: #eee8d5
+}
+.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal code .hljs-comment,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal code .hljs-title,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal pre .hljs-comment,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal pre .hljs-title {
+    color: #969896
+}
+.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal code .css .hljs-class,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal code .css .hljs-id,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal code .css .hljs-pseudo,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal code .hljs-attribute,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal code .hljs-deletion,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal code .hljs-regexp,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal code .hljs-tag,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal code .hljs-variable,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal code .html .hljs-doctype,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal code .ruby .hljs-constant,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal code .xml .hljs-doctype,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal code .xml .hljs-pi,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal code .xml .hljs-tag .hljs-title,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal pre .css .hljs-class,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal pre .css .hljs-id,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal pre .css .hljs-pseudo,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal pre .hljs-attribute,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal pre .hljs-deletion,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal pre .hljs-regexp,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal pre .hljs-tag,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal pre .hljs-variable,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal pre .html .hljs-doctype,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal pre .ruby .hljs-constant,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal pre .xml .hljs-doctype,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal pre .xml .hljs-pi,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal pre .xml .hljs-tag .hljs-title {
+    color: #d54e53
+}
+.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal code .hljs-built_in,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal code .hljs-constant,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal code .hljs-literal,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal code .hljs-number,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal code .hljs-params,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal code .hljs-pragma,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal code .hljs-preprocessor,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal pre .hljs-built_in,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal pre .hljs-constant,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal pre .hljs-literal,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal pre .hljs-number,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal pre .hljs-params,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal pre .hljs-pragma,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal pre .hljs-preprocessor {
+    color: #e78c45
+}
+.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal code .css .hljs-rules .hljs-attribute,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal code .ruby .hljs-class .hljs-title,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal pre .css .hljs-rules .hljs-attribute,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal pre .ruby .hljs-class .hljs-title {
+    color: #e7c547
+}
+.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal code .hljs-addition,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal code .hljs-header,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal code .hljs-inheritance,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal code .hljs-string,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal code .hljs-value,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal code .ruby .hljs-symbol,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal code .xml .hljs-cdata,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal pre .hljs-addition,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal pre .hljs-header,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal pre .hljs-inheritance,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal pre .hljs-string,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal pre .hljs-value,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal pre .ruby .hljs-symbol,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal pre .xml .hljs-cdata {
+    color: #b9ca4a
+}
+.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal code .css .hljs-hexcolor,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal pre .css .hljs-hexcolor {
+    color: #70c0b1
+}
+.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal code .coffeescript .hljs-title,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal code .hljs-function,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal code .javascript .hljs-title,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal code .perl .hljs-sub,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal code .python .hljs-decorator,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal code .python .hljs-title,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal code .ruby .hljs-function .hljs-title,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal code .ruby .hljs-title .hljs-keyword,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal pre .coffeescript .hljs-title,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal pre .hljs-function,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal pre .javascript .hljs-title,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal pre .perl .hljs-sub,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal pre .python .hljs-decorator,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal pre .python .hljs-title,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal pre .ruby .hljs-function .hljs-title,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal pre .ruby .hljs-title .hljs-keyword {
+    color: #7aa6da
+}
+.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal code .hljs-keyword,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal code .javascript .hljs-function,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal pre .hljs-keyword,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal pre .javascript .hljs-function {
+    color: #c397d8
+}
+.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal code .hljs,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal pre .hljs {
+    display: block;
+    background: #000;
+    color: #eaeaea;
+    padding: .5em
+}
+.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal code .coffeescript .javascript,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal code .javascript .xml,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal code .tex .hljs-formula,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal code .xml .css,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal code .xml .hljs-cdata,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal code .xml .javascript,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal code .xml .vbscript,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal pre .coffeescript .javascript,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal pre .javascript .xml,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal pre .tex .hljs-formula,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal pre .xml .css,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal pre .xml .hljs-cdata,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal pre .xml .javascript,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal pre .xml .vbscript {
+    opacity: .5
+}
+#book-search-results .search-results ul.search-results-list {
+    list-style-type: none;
+    padding-left: 0
+}
+#book-search-results .search-results ul.search-results-list li {
+    margin-bottom: 1.5rem;
+    padding-bottom: .5rem
+}
+#book-search-results .search-results ul.search-results-list li p em {
+    background-color: rgba(255,220,0,.4);
+    font-style: normal
+}
+#book-search-results.open .search-results {
+    display: block
+}
+#book-search-results.no-results .search-results .has-results,#book-search-results.open .search-noresults {
+    display: none
+}
+#book-search-results.no-results .search-results .no-results {
+    display: block
+}
+.color-theme-1 .dropdown-menu {
+    background-color: #111;
+    border-color: #7e888b
+}
+.color-theme-1 .dropdown-menu .dropdown-caret .caret-inner {
+    border-bottom: 9px solid #111
+}
+.color-theme-1 .dropdown-menu .buttons {
+    border-color: #7e888b
+}
+.color-theme-1 .dropdown-menu .button {
+    color: #afa790
+}
+.color-theme-1 .dropdown-menu .button:hover {
+    color: #73553c
+}
+.color-theme-2 .dropdown-menu {
+    background-color: #2d3143;
+    border-color: #272a3a
+}
+.color-theme-2 .dropdown-menu .buttons {
+    border-color: #272a3a
+}
+.color-theme-2 .dropdown-menu .button {
+    color: #62677f
+}
+.color-theme-2 .dropdown-menu .button:hover {
+    color: #f4f4f5
+}
+.book .book-header .font-settings .font-enlarge {
+    line-height: 30px;
+    font-size: 1.4em
+}
+.book .book-header .font-settings .font-reduce {
+    line-height: 30px;
+    font-size: 1em
+}
+.book.color-theme-1 .book-body,.book.color-theme-1 .book-body .page-wrapper .page-inner section {
+    background: #f3eacb
+}
+.book.color-theme-2 .book-body,.book.color-theme-2 .book-body .page-wrapper .page-inner section {
+    background: #1c1f2b
+}
+.book.font-size-0 .book-body .page-inner section {
+    font-size: 1.2rem
+}
+.book.font-size-1 .book-body .page-inner section {
+    font-size: 1.4rem
+}
+.book.font-size-2 .book-body .page-inner section {
+    font-size: 1.6rem
+}
+.book.font-size-3 .book-body .page-inner section {
+    font-size: 2.2rem
+}
+.book.font-size-4 .book-body .page-inner section {
+    font-size: 4rem
+}
+.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal h1,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal h2,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal h3,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal h4,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal h5,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal h6 {
+    color: inherit
+}
+.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal blockquote,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal h1,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal h2 {
+    border-color: inherit
+}
+.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal .highlight {
+    background-color: inherit
+}
+.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal .katex,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal .katex-display,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal code,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre {
+    background: #fdf6e3;
+    color: #657b83;
+    border-color: #f8df9c
+}
+.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal table td,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal table th {
+    border-color: #f5d06c
+}
+.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal table tr {
+    color: inherit;
+    background-color: #fdf6e3;
+    border-color: #444
+}
+.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal table tr:nth-child(2n) {
+    background-color: #fbeecb
+}
+.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal a {
+    color: #3eb1d0
+}
+.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal blockquote,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal h1,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal h2 {
+    border-color: #373b4e
+}
+.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal hr {
+    background-color: #373b4e
+}
+.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal code,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal pre,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal pre .katex,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal pre .katex-display {
+    color: #9dbed8;
+    background: #2d3143;
+    border-color: #2d3143
+}
+.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal .highlight {
+    background-color: #282a39
+}
+.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal table td,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal table th {
+    border-color: #3b3f54
+}
+.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal table tr {
+    color: #b6c2d2;
+    background-color: #2d3143;
+    border-color: #3b3f54
+}
+.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal table tr:nth-child(2n) {
+    background-color: #35394b
+}
+.book.color-theme-1 .book-header {
+    color: #afa790;
+    background: 0 0
+}
+.book.color-theme-1 .book-header .btn:hover,.book.color-theme-2 .book-header .btn:hover {
+    background: 0 0
+}
+.book.color-theme-2 .book-header {
+    color: #7e888b;
+    background: 0 0
+}
+.book.color-theme-1 .book-body .navigation,.book.color-theme-1 .book-header .btn {
+    color: #afa790
+}
+.book.color-theme-1 .book-body .navigation:hover {
+    color: #73553c
+}
+.book.color-theme-2 .book-body .navigation {
+    color: #383f52
+}
+.book.color-theme-2 .book-body .navigation:hover {
+    color: #fffff5
+}
+.book.color-theme-1 .book-summary {
+    background: #111;
+    border-right: 1px solid rgba(0,0,0,.07)
+}
+.book.color-theme-1 .book-summary .book-search,.book.color-theme-2 .book-summary .book-search {
+    background: 0 0
+}
+.book.color-theme-1 .book-summary .book-search input,.book.color-theme-1 .book-summary .book-search input:focus,.book.color-theme-2 .book-summary .book-search input,.book.color-theme-2 .book-summary .book-search input:focus {
+    border: 1px solid transparent
+}
+.book.color-theme-1 .book-summary ul.summary li.divider {
+    background: #7e888b;
+    box-shadow: none
+}
+.book.color-theme-1 .book-summary ul.summary li i.fa-check,.book.color-theme-2 .book-summary ul.summary li i.fa-check {
+    color: #3c3
+}
+.book.color-theme-1 .book-summary ul.summary li.done>a {
+    color: #877f6a
+}
+.book.color-theme-1 .book-summary ul.summary li a,.book.color-theme-1 .book-summary ul.summary li a:hover,.book.color-theme-1 .book-summary ul.summary li span,.book.color-theme-1 .book-summary ul.summary li.active>a {
+    background: 0 0;
+    font-weight: 400
+}
+.book.color-theme-2 .book-summary ul.summary li.divider {
+    background: #272a3a;
+    box-shadow: none
+}
+.book.color-theme-2 .book-summary ul.summary li.done>a {
+    color: #62687f
+}
+.book.color-theme-2 .book-summary ul.summary li a {
+    background: 0 0
+}
+.book.color-theme-2 .book-summary ul.summary li span {
+    background: 0 0;
+    font-weight: 600
+}
+.book.color-theme-2 .book-summary ul.summary li a:hover,.book.color-theme-2 .book-summary ul.summary li.active>a {
+    background: #252737
+}
+.markdown-section sub,.markdown-section sup {
+    font-size: 75%
+}
+.book.color-theme-1 #book-search-results .search-results .has-results .search-results-item a,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal a,.book.color-theme-1 .markdown-section a {
+    color: #d11a4e
+}
+.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal hr {
+    background-color: #957c76
+}
+.book.color-theme-2 .book-summary ul.summary li a,.book.color-theme-2 .book-summary ul.summary li a:hover,.book.color-theme-2 .book-summary ul.summary li.active>a {
+    font-weight: 400
+}
+.book-header h1 {
+    transition: opacity .15s ease
+}
+.book-header .btn,.book-header .btn:hover,.navigation {
+    transition: all 150ms ease
+}
+.dropdown-menu .buttons .button:focus,.dropdown-menu .buttons .button:hover {
+    transition: all 150ms ease
+}
+.book-summary ul.summary li a:hover,.book-summary ul.summary li.active>a {
+    box-shadow: 0 2px 5px 1px rgba(0,0,0,.2)
+}
+kbd {
+    background-color: #fafbfc;
+    border-radius: 3px;
+    border: #d1d5da solid 1px;
+    box-shadow: #c6cbd1 0 -1px 0 0 inset;
+    color: #454a50;
+    display: inline-block;
+    font-size: .9em;
+    font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+    font-weight: 400;
+    padding: .07em .3em;
+    line-height: 1em;
+    vertical-align: middle
+}
+.dropdown-menu .buttons .button {
+    transition: color 150ms ease
+}
+.book-body,.markdown-section,.normal.markdown-section {
+    background-color: #fff;
+    color: #0c0c0c
+}
+.book-summary {
+    background-color: #f2f2f2
+}
+#book-search-results .search-results .has-results .search-results-item,.book-header .btn:hover,.book-header h1,.book-summary ul.summary li a,.book-summary ul.summary li span,.book-summary ul.summary li.active>a,.dropdown-menu .buttons .button:hover,.navigation:hover {
+    color: #0c0c0c
+}
+.book-summary ul.summary li.header {
+    color: #8f8f8f;
+    padding-top: 32px;
+    padding-bottom: 7px
+}
+li.header:nth-child(1) {
+    padding-top: 15px!important
+}
+.book-header .btn,.navigation {
+    color: #d8d8d8
+}
+#book-search-input {
+    background-color: #fff;
+    margin-bottom: 0;
+    color: #0c0c0c
+}
+.dropdown-menu {
+    background-color: #f2f2f2;
+    border: 0;
+    border-radius: 2px;
+    box-shadow: 0 3px 5px 0 rgba(0,0,0,.2)
+}
+.dropdown-menu .buttons .button {
+    color: #8f8f8f
+}
+.dropdown-menu .dropdown-caret .caret-inner {
+    border-bottom: 9px solid #f2f2f2
+}
+.markdown-section h1 {
+    font-size: 2em;
+    border-bottom: 2px solid #d8d8d8
+}
+.markdown-section h2 {
+    font-size: 1.75em;
+    border-bottom: 1px solid #d8d8d8
+}
+.code-wrapper pre {
+    background: #f7f8f9
+}
+#book-search-results .search-results .has-results .search-results-item a,.markdown-section a {
+    color: #2f77bf
+}
+.book.color-theme-1 .book-body,.book.color-theme-1 .book-body .page-wrapper .page-inner section,.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal {
+    background-color: #f3eacb;
+    color: #663a0f
+}
+.book.color-theme-1 .book-summary,.book.color-theme-1 .book-summary ul.summary li a,.book.color-theme-1 .book-summary ul.summary li span {
+    color: #42260a;
+    background: #be9470
+}
+.book.color-theme-1 .book-summary ul.summary li a:hover,.book.color-theme-1 .book-summary ul.summary li.active>a {
+    background: #a68162;
+    box-shadow: 0 2px 5px 1px rgba(0,0,0,.2);
+    color: #42260a;
+    z-index: 100
+}
+.book.color-theme-1 .book-summary ul.summary li.divider {
+    background-color: #a68162
+}
+.book.color-theme-1 #book-search-results .search-results .has-results .search-results-item,.book.color-theme-1 .book-header .btn:hover,.book.color-theme-1 .book-header h1,.book.color-theme-1 .dropdown-menu .buttons .button:hover,.book.color-theme-1 .navigation:hover {
+    color: #663a0f
+}
+.book.color-theme-1 .book-header .btn,.book.color-theme-1 .navigation {
+    color: rgba(149,124,118,.5)
+}
+.book.color-theme-1 #book-search-input {
+    background-color: #f2f2da;
+    color: #663a0f
+}
+.book.color-theme-1 .dropdown-menu {
+    background-color: #be9470
+}
+.book.color-theme-1 .dropdown-menu .buttons {
+    border-color: #a68162
+}
+.book.color-theme-1 .book-summary ul.summary li.header,.book.color-theme-1 .dropdown-menu .buttons .button {
+    color: #f2f2da
+}
+.book.color-theme-1 .dropdown-menu .dropdown-caret .caret-inner {
+    border-bottom: 9px solid #be9470
+}
+.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal h1,.book.color-theme-1 .markdown-section h1 {
+    border-bottom: 2px solid #957c76
+}
+.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal h2,.book.color-theme-1 .markdown-section h2 {
+    border-bottom: 1px solid #957c76
+}
+.book.color-theme-1 .code-wrapper pre {
+    background: #957c76
+}
+.book.color-theme-2 #book-search-input,.book.color-theme-2 .book-body,.book.color-theme-2 .book-body .page-wrapper .page-inner section,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal {
+    background-color: #1c1f2b;
+    color: #dfebf5
+}
+.book.color-theme-2 .book-summary {
+    color: #dfebf5;
+    background: #2d3143
+}
+.book.color-theme-2 #book-search-results .search-results .has-results .search-results-item,.book.color-theme-2 .book-header .btn:hover,.book.color-theme-2 .book-header h1,.book.color-theme-2 .book-summary ul.summary li a,.book.color-theme-2 .book-summary ul.summary li span,.book.color-theme-2 .dropdown-menu .buttons .button:hover {
+    color: #dfebf5
+}
+.book.color-theme-2 .book-summary ul.summary li a:hover,.book.color-theme-2 .book-summary ul.summary li.active>a {
+    color: #dfebf5;
+    background: #3e435c
+}
+.book.color-theme-2 .book-summary ul.summary li.divider {
+    background-color: #272a3a
+}
+.book.color-theme-2 .book-summary ul.summary li.header {
+    color: #b3bfff
+}
+.book.color-theme-2 .navigation {
+    color: #a0a9a6!important
+}
+.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal h1,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal h2,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal h3,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal h4,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal h5,.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal h6,.book.color-theme-2 .navigation:hover {
+    color: #dfebf5!important
+}
+.book.color-theme-2 .book-header .btn,.book.color-theme-2 .dropdown-menu .buttons .button {
+    color: #595f7f
+}
+.book.color-theme-2 .dropdown-menu {
+    background-color: #2d3143
+}
+.color-theme-2 .dropdown-menu .dropdown-caret .caret-inner {
+    border-bottom: 9px solid #2d3143
+}
+.book.color-theme-2 .markdown-section h1 {
+    border-bottom: 2px solid #a0a9a6
+}
+.book.color-theme-2 .markdown-section h2 {
+    border-bottom: 1px solid #a0a9a6
+}
+.book.color-theme-2 .markdown-section hr {
+    background-color: #a0a9a6
+}
+.book.color-theme-2 .code-wrapper pre {
+    background: #a0a9a6
+}
+.book.color-theme-2 #book-search-results .search-results .has-results .search-results-item a,.book.color-theme-2 .markdown-section a {
+    color: #3eb1d0
+}
+.page-inner {
+    max-width: 90em;
+    padding: 1.5em 5em 3em
+}
+@media (max-width:1240px) {
+    .page-inner {
+        padding: 1.5em 1.5em 3em
+    }
+}
+.book.font-family-0 {
+    font-family: "Noto Serif",serif!important
+}
+.book-summary,.book.font-family-1 {
+    font-family: "Fira Sans",sans-serif!important
+}
+.markdown-section code,.markdown-section pre {
+    font-family: "Fira Mono",monospace!important;
+    font-size: 1em
+}
+.code-wrapper pre>code>span.code-line::before {
+    color: inherit;
+    opacity: .75;
+    font-size: 1em
+}
+.book.with-summary .book-summary {
+    box-shadow: 0 0 6px 0 rgba(0,0,0,.2)
+}
+.book-summary,.book.color-theme-1 .book-summary,.book.color-theme-2 .book-summary {
+    border-right: none
+}
+.book-header h1 {
+    padding-left: 79px
+}
+.markdown-section figure {
+    padding-top: 0;
+    padding-bottom: 0
+}
+img:hover {
+    z-index: 100;
+    box-shadow: 0 0 6px 0 rgba(0,0,0,.8);
+    max-width: 100%!important;
+    transition-delay: 300ms;
+    transition-duration: 300ms;
+    transition-timing-function: ease-in
+}
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    transition-delay: 50ms;
+    transition-duration: 150ms;
+    transition-timing-function: ease-out
+}
+.markdown-section img {
+    max-width: 70%
+}
+@media (max-width:1240px) {
+    .markdown-section img {
+        max-width: 100%
+    }
+    img:hover {
+        box-shadow: 0 0 0 0 transparent
+    }
+}
+.markdown-section .glossary-term {
+    text-decoration: none!important;
+    border-bottom: .1em dashed
+}
+.markdown-section .glossary-term:hover {
+    cursor: help;
+    position: relative;
+    text-decoration: none!important
+}
+.book.color-theme-1 .markdown-section blockquote {
+    border-left: 4px solid #957c76!important;
+    color: rgba(102,58,15,.66)
+}
+.book.color-theme-2 .markdown-section blockquote {
+    border-left: 4px solid #373b4e;
+    color: rgba(255,255,255,.66)
+}
+.gitbook-link {
+    margin-bottom: 40px;
+    text-align: center;
+    transition: none!important;
+    box-shadow: 0 0 0 0!important;
+    font-size: 90%
+}
+.katex::after,.katex::before {
+    content: "\00a0"
+}
+.katex-display {
+    box-sizing: border-box;
+    display: block;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: .85em!important;
+    padding-bottom: .85em!important;
+    margin-bottom: 1.275em;
+    border-radius: 3px
+}
+.katex {
+    font: inherit!important;
+    padding: .3em 0!important
+}
+.book.color-theme-1 .katex {
+    background: #fdf6e3;
+    color: #657b83;
+    border-color: #f8df9c
+}
+.book.color-theme-2 .katex {
+    color: #9dbed8;
+    background: #2d3143;
+    border-color: #2d3143
+}
+.book.color-theme-1 .katex-display {
+    background: #fdf6e3
+}
+.book.color-theme-2 .katex-display {
+    background: #2d3143
+}
+.fa-clone::before {
+    content: none
+}
+@media screen and (orientation: portrait) {
+    .btn.pull-right.js-toolbar-action {
+        /* prioritizes getting rid of the social media buttons
+        this fixes a weird issue on iPhone 6/7/8 where the 'A' is 5% visible and shifts the title to the right */
+        display: none;
+    }
+}
+.box {
+    display: inline-flex;
+    padding: .25em .75em .25em 0;
+    border-left: .4em solid!important;
+    border-radius: .25em;
+    width: 100%
+}
+.box::before {
+    content: "";
+    font: 14px/1 FontAwesome;
+    font-size: 1.75em;
+    margin: 0 .5em 0 .75em;
+    align-self: center
+}
+.box.info {
+    border: .1em dashed;
+    opacity: 80%;
+    font-size: .95em
+}
+.box.warning {
+    border: .2em outset;
+    box-shadow: 0 0 .2em rgba(0,0,0,.8)
+}
+.box.warning::before {
+    content: ""
+}

@@ -1,0 +1,570 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Colorspaces · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-image-captions/image-captions.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-term/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../impressum.html" />
+    
+    
+    <link rel="prev" href="../typesetting/aegisub.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Overview</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../CONTRIBUTING.html">
+            
+                <a href="../CONTRIBUTING.html">
+            
+                    
+                    Contributing to the Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../overview/preface.html">
+            
+                <a href="../overview/preface.html">
+            
+                    
+                    Preface
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../overview/roles.html">
+            
+                <a href="../overview/roles.html">
+            
+                    
+                    Roles
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../overview/requirements.html">
+            
+                <a href="../overview/requirements.html">
+            
+                    
+                    Requirements
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Encoding</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../encoding/preparation.html">
+            
+                <a href="../encoding/preparation.html">
+            
+                    
+                    Preparations and Necessary Software
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../encoding/basics-and-workflow.html">
+            
+                <a href="../encoding/basics-and-workflow.html">
+            
+                    
+                    Basics and General Workflow
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../encoding/video-artifacts.html">
+            
+                <a href="../encoding/video-artifacts.html">
+            
+                    
+                    Recognizing Video Artifacts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="../encoding/scenefiltering.html">
+            
+                <a href="../encoding/scenefiltering.html">
+            
+                    
+                    Scenefiltering
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="../encoding/masking-limiting-etc.html">
+            
+                <a href="../encoding/masking-limiting-etc.html">
+            
+                    
+                    Masking, Limiting, and Related Functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="../encoding/descaling.html">
+            
+                <a href="../encoding/descaling.html">
+            
+                    
+                    Descaling
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="../encoding/resampling.html">
+            
+                <a href="../encoding/resampling.html">
+            
+                    
+                    Resampling
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8" data-path="../encoding/video-encoding.html">
+            
+                <a href="../encoding/video-encoding.html">
+            
+                    
+                    Codecs
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.8.1" data-path="../encoding/codecs/x264.html">
+            
+                <a href="../encoding/codecs/x264.html">
+            
+                    
+                    x264
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Typesetting</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../typesetting/aegisub.html">
+            
+                <a href="../typesetting/aegisub.html">
+            
+                    
+                    Aegisub and Other Tools
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Resources and References</li>
+        
+        
+    
+        <li class="chapter active" data-level="4.1" data-path="bt601-vs-bt709.html">
+            
+                <a href="bt601-vs-bt709.html">
+            
+                    
+                    Colorspaces
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Legal</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../impressum.html">
+            
+                <a href="../impressum.html">
+            
+                    
+                    Impressum
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="../privacy-policy.html">
+            
+                <a href="../privacy-policy.html">
+            
+                    
+                    Privacy Policy
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Colorspaces</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <p>Note: this is an archived version of a webpage,
+the full webpage may still be up at the link at the bottom.</p>
+<hr>
+<p>We&#x2019;re in 2016 yet our computers insist on shipping with atrocious
+default video decoding settings. The first cardinal sin, which is
+immediately noticeable, is having a 16-235 range instead of 0-255.
+Blacks become grey, and pure white is slightly dim.</p>
+<p>...</p>
+<p>BT.601
+is a standard from 1982 which, among other things, defines how RGB color
+primaries get turned into the YCbCr channels used by modern
+codecs. BT.709
+is a standard from 1990 which does the same thing, but the transfer
+coefficients are slightly different. And unlike its older counterpart,
+it was not thought of with standard definition in mind, but HD television.</p>
+<p>Here&#x2019;s the problem: a lot of consumer-grade software is either not aware
+of the difference between the two, or encodes and/or decodes with the
+wrong one. There are also assumptions being made; video tends to be
+decoded as 709 if it&#x2019;s above 720 pixels in height, and 601 if below,
+<strong>regardless</strong> of the coefficients it was actually originally encoded with.</p>
+<p>...</p>
+<p>Anyway, generally speaking:</p>
+<ul>
+<li><em>Red too orange, green too dark?</em> 601 is being decoded as 709.</li>
+<li><em>Red too dark, green too yellowish?</em> 709 is being decoded as 601.</li>
+</ul>
+<p>What can you do about this?</p>
+<p>Figure a way for your video pipeline to properly handle both.</p>
+<p>Adobe Media Encoder may not be as bitrate-efficient as your
+run-of-the-mill x264+GUI combo, but it does all the righti things and
+writes all the right metadata to make a fully compliant file. And I
+would argue in this day and age, when you&#x2019;re encoding to send a file to
+YouTube, it doesn&#x2019;t really matter if you&#x2019;re picking a less
+bitrate-efficient encoder because if you care about quality to begin
+with, you&#x2019;ll be sending a file as high bitrate as possible (probably
+reaching above 0.4 bits per pixel).</p>
+<p><em>In fact, I just double-checked as I was writing this post: Adobe Media
+Encoder is the only software I know of which actually encodes video with
+its proper YCbCR transfer coefficients</em>.</p>
+<p>...</p>
+<hr>
+<p>Lebled, M. (2016, August 02). BT.601 vs BT.709. Retrieved from <a href="http://blog.maxofs2d.net/post/148346073513/bt601-vs-bt709" target="_blank">http://blog.maxofs2d.net/post/148346073513/bt601-vs-bt709</a></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../typesetting/aegisub.html" class="navigation navigation-prev " aria-label="Previous page: Aegisub and Other Tools">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../impressum.html" class="navigation navigation-next " aria-label="Next page: Impressum">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Colorspaces","level":"4.1","depth":1,"next":{"title":"Impressum","level":"5.1","depth":1,"path":"impressum.md","ref":"impressum.md","articles":[]},"previous":{"title":"Aegisub and Other Tools","level":"3.1","depth":1,"path":"typesetting/aegisub.md","ref":"typesetting/aegisub.md","articles":[]},"dir":"ltr"},"config":{"plugin_comments":{"anchors":"adds anchors (and links) to headings","code":"adds line numbers and copy buttons","edit-link":"link to edit page on github in top bar","image-captions":"turns images into figures","term":"{% term %} blocks with different highlighting and copy buttons per command, not whole output"},"plugins":["anchors","code","edit-link","image-captions","term","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"search":{},"term":{"copyButtons":true,"fade":false,"lineStyles":true,"prompt":"(?<prompt>[^\\$^#^:]*)(?<pathsep>:?)(?<path>[^\\$^#]*?)(?<delimiter>[\\$#] )(?<command>.*)$","style":"default"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/Irrational-Encoding-Wizardry/guide.encode.moe/edit/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"image-captions":{"caption":"Image _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","variable_name":"_pictures"}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[{"backlink":"overview/roles.html#fig1.4.1","level":"1.4","list_caption":"Figure: [DameDesuYo] Eromanga-sensei - 01 (1920x1080 10bit AAC) [05CB518E].mkv_snapshot_03.11_[2017.08.18_21.14.55].jpg","alt":"[DameDesuYo] Eromanga-sensei - 01 (1920x1080 10bit AAC) [05CB518E].mkv_snapshot_03.11_[2017.08.18_21.14.55].jpg","nro":1,"url":"images/cnvimage100.png","index":1,"caption_template":"Image _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"[DameDesuYo] Eromanga-sensei - 01 (1920x1080 10bit AAC) [05CB518E].mkv_snapshot_03.11_[2017.08.18_21.14.55].jpg","attributes":{},"skip":false,"key":"1.4.1"},{"backlink":"overview/roles.html#fig1.4.2","level":"1.4","list_caption":"Figure: [DameDesuYo] Eromanga-sensei - 01 (1920x1080 10bit AAC) [05CB518E].mkv_snapshot_03.11_[2017.08.18_21.14.43].jpg","alt":"[DameDesuYo] Eromanga-sensei - 01 (1920x1080 10bit AAC) [05CB518E].mkv_snapshot_03.11_[2017.08.18_21.14.43].jpg","nro":2,"url":"images/cnvimage101.png","index":2,"caption_template":"Image _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"[DameDesuYo] Eromanga-sensei - 01 (1920x1080 10bit AAC) [05CB518E].mkv_snapshot_03.11_[2017.08.18_21.14.43].jpg","attributes":{},"skip":false,"key":"1.4.2"},{"backlink":"encoding/preparation.html#fig2.1.1","level":"2.1","list_caption":"Figure: The main window of VSEdit.","alt":"The main window of VSEdit.","nro":3,"url":"images/cnvimage100.png","index":1,"caption_template":"Image _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"The main window of VSEdit.","attributes":{},"skip":false,"key":"2.1.1"},{"backlink":"encoding/preparation.html#fig2.1.2","level":"2.1","list_caption":"Figure: A Jupyter Notebook.","alt":"A Jupyter Notebook.","nro":4,"url":"images/cnvimage101.png","index":2,"caption_template":"Image _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"A Jupyter Notebook.","attributes":{},"skip":false,"key":"2.1.2"},{"backlink":"encoding/preparation.html#fig2.1.3","level":"2.1","list_caption":"Figure: VS Multi-Viewer’s editing window.","alt":"VS Multi-Viewer’s editing window.","nro":5,"url":"images/VS-Multi-Viewer_Preview.png","index":3,"caption_template":"Image _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"VS Multi-Viewer’s editing window.","attributes":{},"skip":false,"key":"2.1.3"},{"backlink":"encoding/preparation.html#fig2.1.4","level":"2.1","list_caption":"Figure: VS Multi-Viewer’s preview window.","alt":"VS Multi-Viewer’s preview window.","nro":6,"url":"images/VS-Multi-Viewer_Editor.png","index":4,"caption_template":"Image _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"VS Multi-Viewer’s preview window.","attributes":{},"skip":false,"key":"2.1.4"},{"backlink":"encoding/video-artifacts.html#fig2.3.1","level":"2.3","list_caption":"Figure: Rakudai-Kishi-no-Cavalry-ep.01.png","alt":"Rakudai-Kishi-no-Cavalry-ep.01.png","nro":7,"url":"images/3cnvimage100.png","index":1,"caption_template":"Image _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Rakudai-Kishi-no-Cavalry-ep.01.png","attributes":{},"skip":false,"key":"2.3.1"},{"backlink":"encoding/video-artifacts.html#fig2.3.2","level":"2.3","list_caption":"Figure: Have I been staring at my monitor for too long?","alt":"Have I been staring at my monitor for too long?","nro":8,"url":"images/3cnvimage101.png","index":2,"caption_template":"Image _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Have I been staring at my monitor for too long?","attributes":{},"skip":false,"key":"2.3.2"},{"backlink":"encoding/video-artifacts.html#fig2.3.3","level":"2.3","list_caption":"Figure: notevenonce.jpg","alt":"notevenonce.jpg","nro":9,"url":"images/3cnvimage102.png","index":3,"caption_template":"Image _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"notevenonce.jpg","attributes":{},"skip":false,"key":"2.3.3"},{"backlink":"encoding/video-artifacts.html#fig2.3.4","level":"2.3","list_caption":"Figure: Blocky Compression","alt":"Blocky Compression","nro":10,"url":"images/blocky2.png","index":4,"caption_template":"Image _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Blocky Compression","attributes":{},"skip":false,"key":"2.3.4"},{"backlink":"encoding/video-artifacts.html#fig2.3.5","level":"2.3","list_caption":"Figure: Blocky Exaggeration","alt":"Blocky Exaggeration","nro":11,"url":"images/blocky1.jpg","index":5,"caption_template":"Image _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Blocky Exaggeration","attributes":{},"skip":false,"key":"2.3.5"},{"backlink":"encoding/video-artifacts.html#fig2.3.6","level":"2.3","list_caption":"Figure: Example image for banding","alt":"Example image for banding","nro":12,"url":"images/banding.png","index":6,"caption_template":"Image _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Example image for banding","attributes":{},"skip":false,"key":"2.3.6"},{"backlink":"encoding/video-artifacts.html#fig2.3.7","level":"2.3","list_caption":"Figure: Mosquito Noise","alt":"Mosquito Noise","nro":13,"url":"images/mosquito1.png","index":7,"caption_template":"Image _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Mosquito Noise","attributes":{},"skip":false,"key":"2.3.7"},{"backlink":"encoding/video-artifacts.html#fig2.3.8","level":"2.3","list_caption":"Figure: field-noise.jpg","alt":"field-noise.jpg","nro":14,"url":"images/3cnvimage103.png","index":8,"caption_template":"Image _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"field-noise.jpg","attributes":{},"skip":false,"key":"2.3.8"},{"backlink":"encoding/video-artifacts.html#fig2.3.9","level":"2.3","list_caption":"Figure: Example of underflow (click for comparison)","alt":"Example of underflow (click for comparison)","nro":15,"url":"images/underflow.jpg","index":9,"caption_template":"Image _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Example of underflow (click for comparison)","attributes":{},"skip":false,"key":"2.3.9"},{"backlink":"encoding/video-artifacts.html#fig2.3.10","level":"2.3","list_caption":"Figure: Example of overflow (click for comparison)","alt":"Example of overflow (click for comparison)","nro":16,"url":"images/overflow.jpg","index":10,"caption_template":"Image _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Example of overflow (click for comparison)","attributes":{},"skip":false,"key":"2.3.10"},{"backlink":"encoding/video-artifacts.html#fig2.3.11","level":"2.3","list_caption":"Figure: When you see a histogram like this, increase precision.","alt":"When you see a histogram like this, increase precision.","nro":17,"url":"images/overflow_notice.jpg","index":11,"caption_template":"Image _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"When you see a histogram like this, increase precision.","attributes":{},"skip":false,"key":"2.3.11"},{"backlink":"encoding/masking-limiting-etc.html#fig2.5.1","level":"2.5","list_caption":"Figure: Illustration of the 3x3 neighborhood","alt":"Illustration of the 3x3 neighborhood","nro":18,"url":"images/3x3.png","index":1,"caption_template":"Image _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Illustration of the 3x3 neighborhood","attributes":{},"skip":false,"key":"2.5.1"},{"backlink":"encoding/masking-limiting-etc.html#fig2.5.2","level":"2.5","list_caption":"Figure: Screenshot of the source.","alt":"Screenshot of the source.","nro":19,"url":"images/halos.png","index":2,"caption_template":"Image _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Screenshot of the source.","attributes":{},"skip":false,"key":"2.5.2"},{"backlink":"encoding/masking-limiting-etc.html#fig2.5.3","level":"2.5","list_caption":"Figure: Point-enlargement of the halo area.","alt":"Point-enlargement of the halo area.","nro":20,"url":"images/src0.png","index":3,"caption_template":"Image _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Point-enlargement of the halo area.","attributes":{},"skip":false,"key":"2.5.3"},{"backlink":"encoding/masking-limiting-etc.html#fig2.5.4","level":"2.5","list_caption":"Figure: luma","alt":"luma","nro":21,"url":"images/luma0.png","index":4,"caption_template":"Image _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"luma","attributes":{},"skip":false,"key":"2.5.4"},{"backlink":"encoding/masking-limiting-etc.html#fig2.5.5","level":"2.5","list_caption":"Figure: mask_outer","alt":"mask_outer","nro":22,"url":"images/mask_outer0.png","index":5,"caption_template":"Image _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"mask_outer","attributes":{},"skip":false,"key":"2.5.5"},{"backlink":"encoding/masking-limiting-etc.html#fig2.5.6","level":"2.5","list_caption":"Figure: mask_inner","alt":"mask_inner","nro":23,"url":"images/mask_inner0.png","index":6,"caption_template":"Image _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"mask_inner","attributes":{},"skip":false,"key":"2.5.6"},{"backlink":"encoding/masking-limiting-etc.html#fig2.5.7","level":"2.5","list_caption":"Figure: halos","alt":"halos","nro":24,"url":"images/halos0.png","index":7,"caption_template":"Image _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"halos","attributes":{},"skip":false,"key":"2.5.7"},{"backlink":"encoding/masking-limiting-etc.html#fig2.5.8","level":"2.5","list_caption":"Figure: dehalo","alt":"dehalo","nro":25,"url":"images/dh0.png","index":8,"caption_template":"Image _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"dehalo","attributes":{},"skip":false,"key":"2.5.8"},{"backlink":"encoding/masking-limiting-etc.html#fig2.5.9","level":"2.5","list_caption":"Figure: masked_dehalo","alt":"masked_dehalo","nro":26,"url":"images/dehalod0.png","index":9,"caption_template":"Image _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"masked_dehalo","attributes":{},"skip":false,"key":"2.5.9"},{"backlink":"encoding/descaling.html#fig2.6.1","level":"2.6","list_caption":"Figure: Manaria Friends — 01 (frame 1)","alt":"Manaria Friends — 01 (frame 1)","nro":27,"url":"images/descale_manaria01.png","index":1,"caption_template":"Image _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Manaria Friends — 01 (frame 1)","attributes":{},"skip":false,"key":"2.6.1"},{"backlink":"encoding/descaling.html#fig2.6.2","level":"2.6","list_caption":"Figure: Manaria Friends — 01 (frame 2)","alt":"Manaria Friends — 01 (frame 2)","nro":28,"url":"images/descale_manaria02.png","index":2,"caption_template":"Image _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Manaria Friends — 01 (frame 2)","attributes":{},"skip":false,"key":"2.6.2"},{"backlink":"encoding/descaling.html#fig2.6.3","level":"2.6","list_caption":"Figure: Manaria Friends — 01 (frame 3)","alt":"Manaria Friends — 01 (frame 3)","nro":29,"url":"images/descale_manaria03.png","index":3,"caption_template":"Image _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Manaria Friends — 01 (frame 3)","attributes":{},"skip":false,"key":"2.6.3"},{"backlink":"encoding/descaling.html#fig2.6.4","level":"2.6","list_caption":"Figure: Manaria Friends — 01 (frame 4)","alt":"Manaria Friends — 01 (frame 4)","nro":30,"url":"images/descale_manaria04.png","index":4,"caption_template":"Image _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Manaria Friends — 01 (frame 4)","attributes":{},"skip":false,"key":"2.6.4"},{"backlink":"encoding/descaling.html#fig2.6.5","level":"2.6","list_caption":"Figure: Manaria Friends — 01 (frame 4 getnative graph)","alt":"Manaria Friends — 01 (frame 4 getnative graph)","nro":31,"url":"images/descale_graph.png","index":5,"caption_template":"Image _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Manaria Friends — 01 (frame 4 getnative graph)","attributes":{},"skip":false,"key":"2.6.5"},{"backlink":"encoding/descaling.html#fig2.6.6","level":"2.6","list_caption":"Figure: Date A Live III — 01 (getnative graph)","alt":"Date A Live III — 01 (getnative graph)","nro":32,"url":"images/descale_native1080_graph.png","index":6,"caption_template":"Image _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Date A Live III — 01 (getnative graph)","attributes":{},"skip":false,"key":"2.6.6"},{"backlink":"encoding/descaling.html#fig2.6.7","level":"2.6","list_caption":"Figure: Miru Tights — 02 (getnative graph)","alt":"Miru Tights — 02 (getnative graph)","nro":33,"url":"images/descale_bad_graph1.png","index":7,"caption_template":"Image _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Miru Tights — 02 (getnative graph)","attributes":{},"skip":false,"key":"2.6.7"},{"backlink":"encoding/descaling.html#fig2.6.8","level":"2.6","list_caption":"Figure: Black Lagoon (getnative graph)","alt":"Black Lagoon (getnative graph)","nro":34,"url":"images/descale_bad_graph2.png","index":8,"caption_template":"Image _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Black Lagoon (getnative graph)","attributes":{},"skip":false,"key":"2.6.8"},{"backlink":"encoding/descaling.html#fig2.6.9","level":"2.6","list_caption":"Figure: Kizumonogatari I","alt":"Kizumonogatari I","nro":35,"url":"images/descale_ararararagi.png","index":9,"caption_template":"Image _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Kizumonogatari I","attributes":{},"skip":false,"key":"2.6.9"},{"backlink":"encoding/descaling.html#fig2.6.10","level":"2.6","list_caption":"Figure: Kizumonogatari I (getnative graph)","alt":"Kizumonogatari I (getnative graph)","nro":36,"url":"images/descale_ararararagi_graph.png","index":10,"caption_template":"Image _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Kizumonogatari I (getnative graph)","attributes":{},"skip":false,"key":"2.6.10"},{"backlink":"encoding/descaling.html#fig2.6.11","level":"2.6","list_caption":"Figure: Aikatsu Friends! — NCOP (getnative graph)","alt":"Aikatsu Friends! — NCOP (getnative graph)","nro":37,"url":"images/descale_good_graph.png","index":11,"caption_template":"Image _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Aikatsu Friends! — NCOP (getnative graph)","attributes":{},"skip":false,"key":"2.6.11"},{"backlink":"encoding/descaling.html#fig2.6.12","level":"2.6","list_caption":"Figure: Kaguya-sama: Love Is War — OP (credits mask)","alt":"Kaguya-sama: Love Is War — OP (credits mask)","nro":38,"url":"images/descale_credits_mask.png","index":12,"caption_template":"Image _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Kaguya-sama: Love Is War — OP (credits mask)","attributes":{},"skip":false,"key":"2.6.12"},{"backlink":"encoding/descaling.html#fig2.6.13","level":"2.6","list_caption":"Figure: Kaguya-sama: Love Is War — OP (descaled)","alt":"Kaguya-sama: Love Is War — OP (descaled)","nro":39,"url":"images/descale_credits.png","index":13,"caption_template":"Image _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Kaguya-sama: Love Is War — OP (descaled)","attributes":{},"skip":false,"key":"2.6.13"},{"backlink":"encoding/descaling.html#fig2.6.14","level":"2.6","list_caption":"Figure: Manaria Friends — 01 (end card)","alt":"Manaria Friends — 01 (end card)","nro":40,"url":"images/descale_native1080.png","index":14,"caption_template":"Image _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Manaria Friends — 01 (end card)","attributes":{},"skip":false,"key":"2.6.14"},{"backlink":"encoding/descaling.html#fig2.6.15","level":"2.6","list_caption":"Figure: (Don't descale this)","alt":"(Don't descale this)","nro":41,"url":"images/descale_dontdescalethis.png","index":15,"caption_template":"Image _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"(Don't descale this)","attributes":{},"skip":false,"key":"2.6.15"},{"backlink":"encoding/descaling.html#fig2.6.16","level":"2.6","list_caption":"Figure: Akanesasu Shoujo — 01 (src)","alt":"Akanesasu Shoujo — 01 (src)","nro":42,"url":"images/descale_akanesasu_src.png","index":16,"caption_template":"Image _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Akanesasu Shoujo — 01 (src)","attributes":{},"skip":false,"key":"2.6.16"},{"backlink":"encoding/descaling.html#fig2.6.17","level":"2.6","list_caption":"Figure: Akanesasu Shoujo — 01 (rescaled)","alt":"Akanesasu Shoujo — 01 (rescaled)","nro":43,"url":"images/descale_akanesasu_rescaled.png","index":17,"caption_template":"Image _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Akanesasu Shoujo — 01 (rescaled)","attributes":{},"skip":false,"key":"2.6.17"},{"backlink":"encoding/resampling.html#fig2.7.1","level":"2.7","list_caption":"Figure: Bicubic B-C parameters","alt":"Bicubic B-C parameters","nro":44,"url":"images/resample_cubic_survey.gif","index":1,"caption_template":"Image _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Bicubic B-C parameters","attributes":{},"skip":false,"key":"2.7.1"},{"backlink":"encoding/resampling.html#fig2.7.2","level":"2.7","list_caption":"Figure: Two-dimensional kernel. The radius is colored green.","alt":"Two-dimensional kernel. The radius is colored green.","nro":45,"url":"images/resample_polar.png","index":2,"caption_template":"Image _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Two-dimensional kernel. The radius is colored green.","attributes":{},"skip":false,"key":"2.7.2"},{"backlink":"encoding/resampling.html#fig2.7.3","level":"2.7","list_caption":"Figure: A grayscale gradient from 0 to 255.","alt":"A grayscale gradient from 0 to 255.","nro":46,"url":"images/resample_gamma_shades.jpg","index":3,"caption_template":"Image _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"A grayscale gradient from 0 to 255.","attributes":{},"skip":false,"key":"2.7.3"},{"backlink":"encoding/resampling.html#fig2.7.4","level":"2.7","list_caption":"Figure: YUV 4:2:0 subsampling with center-aligned chroma (left) and, as per MPEG-2, left-aligned chroma (right).","alt":"YUV 4:2:0 subsampling with center-aligned chroma (left) and, as per MPEG-2, left-aligned chroma (right).","nro":47,"url":"images/resample_chroma_placement.png","index":4,"caption_template":"Image _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"YUV 4:2:0 subsampling with center-aligned chroma (left) and, as per MPEG-2, left-aligned chroma (right).","attributes":{},"skip":false,"key":"2.7.4"},{"backlink":"encoding/resampling.html#fig2.7.5","level":"2.7","list_caption":"Figure: Pixel mapping in common resampling algorithms (2 -> 4 upscale).","alt":"Pixel mapping in common resampling algorithms (2 -> 4 upscale).","nro":48,"url":"images/resample_matchedges.png","index":5,"caption_template":"Image _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Pixel mapping in common resampling algorithms (2 -> 4 upscale).","attributes":{},"skip":false,"key":"2.7.5"},{"backlink":"typesetting/aegisub.html#fig3.1.1","level":"3.1","list_caption":"Figure: Aegisub 8975-master-8d77da3 preferences 1","alt":"Aegisub 8975-master-8d77da3 preferences 1","nro":49,"url":"images/preferences-1.png","index":1,"caption_template":"Image _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Aegisub 8975-master-8d77da3 preferences 1","attributes":{},"skip":false,"key":"3.1.1"},{"backlink":"typesetting/aegisub.html#fig3.1.2","level":"3.1","list_caption":"Figure: Aegisub 8975-master-8d77da3 preferences 2","alt":"Aegisub 8975-master-8d77da3 preferences 2","nro":50,"url":"images/preferences-2.png","index":2,"caption_template":"Image _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Aegisub 8975-master-8d77da3 preferences 2","attributes":{},"skip":false,"key":"3.1.2"},{"backlink":"typesetting/aegisub.html#fig3.1.3","level":"3.1","list_caption":"Figure: Aegisub 8975-master-8d77da3 preferences 3","alt":"Aegisub 8975-master-8d77da3 preferences 3","nro":51,"url":"images/preferences-3.png","index":3,"caption_template":"Image _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Aegisub 8975-master-8d77da3 preferences 3","attributes":{},"skip":false,"key":"3.1.3"},{"backlink":"typesetting/aegisub.html#fig3.1.4","level":"3.1","list_caption":"Figure: Aegisub 8975-master-8d77da3 script properties 1","alt":"Aegisub 8975-master-8d77da3 script properties 1","nro":52,"url":"images/script_properties-1.png","index":4,"caption_template":"Image _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_","label":"Aegisub 8975-master-8d77da3 script properties 1","attributes":{},"skip":false,"key":"3.1.4"}]},"gitbook":"*"},"file":{"path":"archived-websites/bt601-vs-bt709.md","mtime":"2020-03-28T01:51:57.959Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-28T01:53:02.786Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-term/clipboard.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-term/initclip.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-term/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

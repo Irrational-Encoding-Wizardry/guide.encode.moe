@@ -1,0 +1,13 @@
+language: node_js
+node_js: node
+
+install:
+  - npm install
+  - $(npm bin)/gitbook install
+
+script: $(npm bin)/gitbook build
+
+git:
+  depth: 1
+
+after_success: bash .travis/deploy.sh
