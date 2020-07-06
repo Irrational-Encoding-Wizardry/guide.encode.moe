@@ -33,9 +33,7 @@ Here is a list of tools you will want to download:
         - On Windows, Mocha **requires** [Quicktime][] to be installed.
           More information can be found [here][quicktimeFAQ].
   - [x264 binary][][^2]
-      - Download the latest binary for your platform.
-      - For example: `x264-r2935-545de2f.exe` for win64
-        **not** `x264-10b-r2851-ba24899.exe`
+      - Download the latest binary for your platform. (`x264-r3015-4c2aafd` at the time of this edit.)
   - [Adobe Photoshop and Illustrator][]
       - Look for it on *certain websites*.
       - Alternatively, free software like
