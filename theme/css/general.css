@@ -172,6 +172,19 @@ blockquote {
     margin: 5px 0px;
     font-weight: bold;
 }
+
+kbd {
+    background-color: #fafbfc;
+    border-radius: 3px;
+    border: #d1d5da solid 1px;
+    box-shadow: #c6cbd1 0 -1px 0 0 inset;
+    color: #454a50;
+    display: inline-block;
+    font-size: .9em;
+    padding: .07em .3em;
+    line-height: 1.45rem;
+}
+
 .content p img {
     display: block;
     margin-left: auto;
