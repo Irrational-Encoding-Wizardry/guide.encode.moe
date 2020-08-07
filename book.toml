@@ -1,0 +1,27 @@
+[book]
+authors = [
+    "a-vrma",
+    "cshmnyfy",
+    "FichteFoll",
+    "kageru",
+    "LightArrowsEXE",
+    "Lypheo",
+    "OrangeChannel",
+    "rokweom",
+    "shssoichiro",
+    "stuxcrystal",
+    "Velvetine"
+]
+language = "en"
+multilingual = false
+src = "src"
+
+[build]
+create-missing = false
+
+[output.html]
+default-theme = "rust"
+curly-quotes = true
+mathjax-support = true
+# additional-css = [""]
+git-repository-url = "https://github.com/Irrational-Encoding-Wizardry/guide.encode.moe"
