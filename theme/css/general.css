@@ -172,3 +172,40 @@ blockquote {
     margin: 5px 0px;
     font-weight: bold;
 }
+.content p img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+img + em {
+    display: block;
+    text-align: center;
+}
+
+.box {
+    display: inline-flex;
+    padding: .25em .75em .25em 0;
+    border-left: .4em solid!important;
+    border-radius: .25em;
+    width: 100%
+}
+.box::before {
+    content: "";
+    font: 14px/1 FontAwesome;
+    font-size: 1.75em;
+    margin: 0 .5em 0 .75em;
+    align-self: center
+}
+.box.info {
+    border: .1em dashed;
+    opacity: 80%;
+    font-size: .95em
+}
+.box.warning {
+    border: .2em outset;
+    box-shadow: 0 0 .2em rgba(0,0,0,.8)
+}
+.box.warning::before {
+    content: ""
+}
