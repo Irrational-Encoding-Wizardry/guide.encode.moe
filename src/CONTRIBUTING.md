@@ -48,7 +48,54 @@ why it only applies to a specific language.
 
 ### Technology
 
-TODO - Update with mdbook info
+This guide is written in [Markdown][] and uses [Rust's mdBook][mdbook] to compile
+the static HTML pages.
+
+In order to build and preview the guide locally,
+you only need to [install mdBook][],
+which can be done via the provided binaries
+or directly installing via [Crates.io][], Rust's package registry:
+
+```
+$ cargo install mdbook
+Updating crates.io index
+Installing mdbook v0.4.1
+Downloaded syn v1.0.38
+...
+Downloaded 4 crates (501.9 KB) in 0.42s
+Compiling libc v0.2.74
+...
+Compiling mdbook v0.4.1
+Finished release [optimized] target(s) in 2m 56s
+```
+
+Once an `mdbook` executable is installed,
+running `mdbook serve` in the root directory of the guide's repository
+and opening `http://localhost:3000` with your browser
+will show a preview of the book.
+Any changes you make to the source `.md` files
+will cause your browser to be refreshed and automatically reloaded.
+
+```
+$ mdbook serve
+[INFO] (mdbook::book): Book building has started
+[INFO] (mdbook::book): Running the html backend
+[INFO] (mdbook::cmd::serve): Serving on: http://localhost:3000
+[INFO] (warp::server): Server::run; addr=V6([::1]:3000)
+[INFO] (warp::server): listening on http://[::1]:3000 
+[INFO] (mdbook::cmd::watch): Listening for changes...
+```
+
+Changes to the theme can be done by editing the `.css` files in `/theme/css/`.
+For information on adding plug-ins or changing the way the book is built,
+see the [mdBook User Guide][].
+
+[Markdown]: https://en.wikipedia.org/wiki/Markdown
+[mdbook]: https://github.com/rust-lang/mdBook
+[install mdBook]: https://github.com/rust-lang/mdBook/tree/a00e7d17695d43af1f7999008b08a75bcb0c134f#installation
+[Crates.io]: https://crates.io/
+[mdBook User Guide]: https://rust-lang.github.io/mdBook/
+
 
 ### Adding a New Page
 
