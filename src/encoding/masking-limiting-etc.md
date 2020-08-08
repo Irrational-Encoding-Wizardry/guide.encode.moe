@@ -102,7 +102,8 @@ The 3x3 neighbourhood of a pixel
 are the 8 pixels directly adjacent to the pixel in question
 plus the pixel itself.
 
-![Illustration of the 3x3 neighborhood](images/3x3.png)
+![](images/3x3.png)
+*Illustration of the 3x3 neighborhood*
 
 The Minimum/Maximum filters
 look at the 3x3 neighbourhood of each pixel in the input image
@@ -228,9 +229,11 @@ detail loss and residual artifacts.
 
 Suppose you want to remove these halos:
 
-![Screenshot of the source.](images/halos.png)
+![](images/halos.png)
+*Screenshot of the source.*
 
-![Point-enlargement of the halo area.](images/src0.png)
+![](images/src0.png)
+*Point-enlargement of the halo area.*
 
 (Note that the images shown in your browser are likely resized poorly;
 you can view them at full size in [this comparison][halo-comparison].)
@@ -259,7 +262,8 @@ mask = core.std.Sobel(src, 0)
 luma = core.std.ShufflePlanes(mask, 0, colorfamily=vs.GRAY)
 ```
 
-![luma](images/luma0.png)
+![](images/luma0.png)
+*`luma`*
 
 Next, we expand the mask twice, so that it covers the halos.
 `vsutil.iterate` is a [function in vsutil][vsutil iterate]
@@ -270,7 +274,8 @@ to a clip—in this case it runs `std.Maximum` 2 times.
 mask_outer = vsutil.iterate(luma, core.std.Maximum, 2)
 ```
 
-![mask_outer](images/mask_outer0.png)
+![](images/mask_outer0.png)
+*`mask_outer`*
 
 Now we shrink the expanded clip back
 to cover only the lineart.
@@ -293,7 +298,8 @@ preventing detail loss.
 mask_inner = vsutil.iterate(mask_outer, core.std.Minimum, 3)
 ```
 
-![mask_inner](images/mask_inner0.png)
+![](images/mask_inner0.png)
+*`mask_inner`*
 
 Now we subtract the outer mask covering the halos
 and the lineart from the inner mask covering only the lineart.
@@ -304,7 +310,8 @@ which is what we originally wanted:
 halos = core.std.Expr([mask_outer, mask_inner], 'x y -')
 ```
 
-![halos](images/halos0.png)
+![](images/halos0.png)
+*`halos`*
 
 Next, we do the actual dehaloing:
 
@@ -312,7 +319,8 @@ Next, we do the actual dehaloing:
 dehalo = hf.DeHalo_alpha(src)
 ```
 
-![dehalo](images/dh0.png)
+![](images/dh0.png)
+*`dehalo`*
 
 Lastly, we use MaskedMerge to merge only the filtered halos
 into the source clip,
@@ -322,7 +330,8 @@ leaving the lineart mostly untouched:
 masked_dehalo = core.std.MaskedMerge(src, dehalo, halos)
 ```
 
-![masked_dehalo](images/dehalod0.png)
+![](images/dehalod0.png)
+*`masked_dehalo`*
 
 [halo-comparison]: https://slowpics.org/comparison/96cbeca4-b4be-4dfc-82b1-631bbc85cdb0
 [DeHalo_alpha]: https://github.com/HomeOfVapourSynthEvolution/havsfunc/blob/8b2cd62a20faf0b410c742c95e7c7848894628d4/havsfunc.py#L370
