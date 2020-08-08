@@ -95,12 +95,14 @@ presentation of translated text on-screen. These are generally called *signs*.
 
 For example, given this scene and a translation of "Adachi Fourth Public High School"…
 
-![[DameDesuYo] Eromanga-sensei - 01 (1920x1080 10bit AAC) [05CB518E].mkv_snapshot_03.11_[2017.08.18_21.14.55].jpg](images/cnvimage100.png)
+![](images/cnvimage100.png)
+*[DameDesuYo] Eromanga-sensei - 01 (1920x1080 10bit AAC) [05CB518E].mkv_snapshot_03.11_[2017.08.18_21.14.55].jpg*
 
 the Typesetter would be expected to produce something like
 this:
 
-![[DameDesuYo] Eromanga-sensei - 01 (1920x1080 10bit AAC) [05CB518E].mkv_snapshot_03.11_[2017.08.18_21.14.43].jpg](images/cnvimage101.png)
+![](images/cnvimage101.png)
+*[DameDesuYo] Eromanga-sensei - 01 (1920x1080 10bit AAC) [05CB518E].mkv_snapshot_03.11_[2017.08.18_21.14.43].jpg*
 
 Almost every sign the Typesetter works on will be unique,
 requiring ingenuity,
