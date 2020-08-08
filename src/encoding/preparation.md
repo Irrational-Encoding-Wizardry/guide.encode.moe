@@ -411,4 +411,8 @@ due to its versatility and compatibility.
 
 ---
 
-[^1]: It should be noted that the author strongly disagrees with this sentiment. The two have a lot in common, and any capable AviSynth encoder could reach a similar level in Vapoursynth within a few months, maybe even weeks. At least I'm honest, okay?
+[^1]: It should be noted that the author strongly disagrees with this sentiment.
+The two have a lot in common,
+and any capable AviSynth encoder could reach a similar level in Vapoursynth
+within a few months, maybe even weeks.
+At least I'm honest, okay?
