@@ -89,9 +89,7 @@ is streamed over a low bandwidth connection
 (imagine a golf ball being passed through a garden hose).
 At decompression,
 the output of certain decoded blocks makes surrounding pixels
-appear averaged together to look like larger blocks." \(Urban, 2017\)
-
-
+appear averaged together to look like larger blocks." (Urban, 2017)
 
 Thankfully most blocking in BDs and web streams nowadays isn’t
 nearly as bad,
