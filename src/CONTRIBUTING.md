@@ -278,7 +278,7 @@ lossless PNG compression: <code>pingo -sa file.png</code>.
 
 When extracting frames directly from a VapourSynth pipline
 where the format might be `vs.YUV420P16` (YUV 4:2:0, 16-bit),
-convert your image to `vs.RGB24` (RGB 8-bit) before saving as a PNG.[^2]
+convert your image to `vs.RGB24` (RGB 8-bit) before saving as a PNG.
 This is because many, if not all, browsers don't support
 images with bit-depths higher than 8 bpp,
 and the dithering behavior of some browsers may be different from others
