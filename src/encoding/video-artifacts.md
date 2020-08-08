@@ -315,14 +315,33 @@ can be seen below.
 
 ---
 
-[^1]: At least, in digital anime. Actual grain is different but you most likely aren't encoding shows from the 90s so who cares.
+[^1]: At least, in digital anime.
+Actual grain is different but you most likely aren't encoding shows from the 90s
+so who cares.
 
-[^2]: Urban, J. (2017, February 16). Understanding Video Compression Artifacts. Retrieved from http://blog.biamp.com/understanding-video-compression-artifacts/
+[^2]: Urban, J. (2017, February 16).
+Understanding Video Compression Artifacts.
+Retrieved from http://blog.biamp.com/understanding-video-compression-artifacts/
 
-[^3]: Blocking may also occur for other reasons other than compression data loss. [Image re-construction with padding][waifu2x238] can cause very similar looking effects, although this is irrelevant for fansubbing source videos.
+[^3]: Blocking may also occur for other reasons
+other than compression data loss.
+[Image re-construction with padding][waifu2x238]
+can cause very similar looking effects,
+although this is irrelevant for fansubbing source videos.
 
-[^4]: The 8-bit limited range (used in rec.601 and rec.709) (and also BT.2020/2100) only defines values within $$[16,~235]$$ for the Y and $$[16,~240]$$ for the U and V planes. This means that Y=16 is considered full black and Y=235 full white, while any values outside of that range are clamped virtually (during rendering). U and V behave analogously.
+[^4]: The 8-bit limited range
+(used in rec.601, rec.709, and BT.2020/2100)
+only defines values within \\([16,~235]\\) for the Y
+and \\([16,~240]\\) for the U and V planes.
+This means that Y=16 is considered full black and Y=235 full white,
+while any values outside of that range are clamped virtually (during rendering).
+U and V behave analogously.
 
-[^5]: The limited ranges in different precisions are shifted by (multiplied by 2 to the power of) the added bits. For 12-bit, for example, you multiply by $$2^{12-8}$$, resulting in $$[256,~3760]$$ and $$[256,~3840]$$ respectively. The maximum value in full range is obviously the highest unsigned integer value, so $$2^{12}-1$$.
+[^5]: The limited ranges in different precisions are shifted by
+(multiplied by 2 to the power of) the added bits.
+For 12-bit, for example, you multiply by \\(2^{12-8}\\),
+resulting in \\([256,~3760]\\) and \\([256,~3840]\\) respectively.
+The maximum value in full range is obviously the highest unsigned integer value,
+so \\(2^{12}-1\\).
 
 [waifu2x238]: https://github.com/nagadomi/waifu2x/issues/238
