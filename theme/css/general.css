@@ -89,7 +89,6 @@ h4 a.header:target {
 .content ul { line-height: 1.45em; }
 .content a { text-decoration: none; }
 .content a:hover { text-decoration: underline; }
-.content img { max-width: 100%; }
 .content .header:link,
 .content .header:visited {
     color: var(--fg);
@@ -184,18 +183,6 @@ kbd {
     padding: .07em .3em;
     line-height: 1.45rem;
 }
-
-.content p img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-img + em {
-    display: block;
-    text-align: center;
-}
-
 .box {
     display: inline-flex;
     padding: .25em .75em .25em 0;
@@ -221,4 +208,30 @@ img + em {
 }
 .box.warning::before {
     content: ""
+}
+img:hover {
+    z-index: 100;
+    box-shadow: 0 0 6px 0 rgba(0,0,0,.8);
+    max-width: 100%!important
+}
+.content p img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 70%;
+    transition-delay: 50ms;
+    transition-duration: 300ms;
+    transition-timing-function: ease-in-out
+}
+@media (max-width:1240px) {
+    .content img {
+        max-width: 100%
+    }
+    img:hover {
+        box-shadow: 0 0 0 0 transparent
+    }
+}
+img + em {
+    display: block;
+    text-align: center;
 }
