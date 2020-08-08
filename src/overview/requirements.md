@@ -92,7 +92,7 @@ into the official application.
 
 More specifics will be presented in the chapters devoted to each role.
 
-<TODO - pages for each role ^>
+TODO - pages for each role
 
 
 ### Programming
