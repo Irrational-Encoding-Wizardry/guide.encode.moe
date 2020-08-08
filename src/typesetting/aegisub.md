@@ -181,13 +181,19 @@ and move on for now.
 
 ---
 
-[^1]: A long outstanding bug has made the recent versions of Aegisub unstable. The latest stable version as of writing this, r8903+1, can be found on [GoodJobMedia's website][].
+[^1]: A long outstanding bug has made the recent versions of Aegisub unstable.
+The latest stable version as of writing this, r8903+1,
+can be found on [GoodJobMedia's website][].
 
 [^2]: 32-bit builds on Windows may be more stable.
 
-[^3]: For further reading on this, visit the Wikipedia pages for [Standard Definition][] video, [High Definition][] video, and the [BT.601][] and [BT.709][] color spaces.
+[^3]: For further reading on this,
+visit the Wikipedia pages for [Standard Definition][] video,
+[High Definition][] video,
+and the [BT.601][] and [BT.709][] color spaces.
 
-[^4]: With the development of [mpv][], codec packs and player add-ons are no longer required.
+[^4]: With the development of [mpv][],
+codec packs and player add-ons are no longer required.
 
 [Standard Definition]: https://en.wikipedia.org/wiki/Standard-definition_television
 [High Definition]: https://en.wikipedia.org/wiki/High-definition_video
