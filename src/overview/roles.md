@@ -20,6 +20,7 @@ most or all of the roles in order to recognize errors.
 This page serves as just an overview of the work
 various roles will be expected to complete.
 
+
 ## Encoder
 
 Time commitment per episode: 20 minutes - 2 hours active (4-12 hours
@@ -54,7 +55,8 @@ theories,
 and scripts.
 It's important to keep in mind that a disagreement is not always an insult,
 and more experienced encoders often just want to help and provide feedback.
-The important part is the result\!
+The important part is the result!
+
 
 ## Timer
 
@@ -81,6 +83,7 @@ and not separating dialogue based on speaking character.
 These problems detract from the viewing experience,
 drawing attention to the appearance of the subtitles
 and distracting from the story and video.
+
 
 ## Typesetter
 
@@ -137,6 +140,7 @@ do not match the original well,
 are difficult to read,
 or are too *heavy* (meaning computer resource intensive).
 
+
 ## Editor
 
 Time commitment per episode: 2-4+ hours
@@ -157,6 +161,7 @@ and number of changes made.
 The Editor may also be responsible
 for making corrections recommended by the Quality Checkers.
 
+
 ## Quality Checker
 
 Time commitment per episode: 30 minutes to 4 hours (depending on your
@@ -175,6 +180,7 @@ with recommended changes and required fixes,
 while other groups may prefer the Quality
 Checker to make changes directly to the script whenever possible.
 
+
 ## Translator & Translation Checker
 
 Time commitment per episode: 1-3 hours for translation check,
@@ -192,11 +198,12 @@ In these cases, some fansub groups may choose to edit
 and check the simulcast script rather than translate it from scratch.
 This depends almost entirely on the quality of the simulcast.
 Fixing a bad simulcast script may be harder than doing an 
-*original translation* (abbreviated OTL).
+*original translation* (abbreviated *OTL*).
 Finally, translators are responsible for transcribing and translating
 opening,
 ending,
 and insert songs as well.
+
 
 ## Karaoke Effect Creator
 
