@@ -46,18 +46,20 @@ Bad lines happen,
 but its hard to say whether it's worth it to try to fix it.
 Using awarpsharp or sangnom to fix it will surely lead to disaster.
 
-![Rakudai-Kishi-no-Cavalry-ep.01.png](images/3cnvimage100.png)
+![](images/3cnvimage100.png)
+*Rakudai-Kishi-no-Cavalry-ep.01.png*
 
 
 ### Chromatic Aberration
 
-![Have I been staring at my monitor for too long?](images/3cnvimage101.png)
+![](images/3cnvimage101.png)
+*Have I been staring at my monitor for too long?*
 
 
 ### …and please don't do this
 
-![notevenonce.jpg](images/3cnvimage102.png)
-
+![](images/3cnvimage102.png)
+*notevenonce.jpg*
 
 
 ## Artifacts
@@ -69,11 +71,11 @@ If you happen to be encoding an MPEG2 TV station
 or a DVD from a previous decade,
 you will likely come across something like this:
 
-![Blocky Compression](images/blocky2.png)
+![](images/blocky2.png)
+*Blocky Compression*
 
-![Blocky Exaggeration](images/blocky1.jpg)
-
-<p align="center">(Urban, 2017)</p>
+![](images/blocky1.jpg)
+*Blocky Exaggeration[^2]*
 
 From Biamp's Blog[^2]:
 "Blocking is known by several names – including tiling,
@@ -123,7 +125,8 @@ are the only two options.
 
 ### Banding
 
-![Example image for banding](images/banding.png)
+![](images/banding.png)
+*Example image for banding*
 
 Due to with its many flat areas and smooth gradients,
 banding is a frequent problem in anime,
@@ -184,9 +187,8 @@ edge enhancement artifacts,
 overshoot,
 or actual ring-like ringing caused by the Gibbs phenomenon.
 
-![Mosquito Noise](images/mosquito1.png)
-
-<p align="center">(Urban, 2017)</p>
+![](images/mosquito1.png)
+*Mosquito Noise[^2]*
 
 In Blu-ray encodes,
 the only ringing you’ll be likely to see is
@@ -232,7 +234,8 @@ or a manual filtering of dehalo\_alpha with dhhmask
 
 ### Cross-Field Noise
 
-[![field-noise.jpg](images/3cnvimage103.png)](https://diff.pics/84URvW5IYSdO/1)
+![](images/3cnvimage103.png)
+*field-noise.jpg*
 
 TODO
 
@@ -248,9 +251,11 @@ Thus, it is strongly recommended
 to check the brightness levels
 of the 8-bit source with `hist.Levels()`.
 
-[![Example of underflow (click for comparison)](images/underflow.jpg)](https://slowpics.org/comparison/f125e799-fdff-4c4c-8c9d-707af021bd88)
+![](images/underflow.jpg)
+*Example of underflow ([click for comparison](https://slowpics.org/comparison/f125e799-fdff-4c4c-8c9d-707af021bd88))*
 
-[![Example of overflow (click for comparison)](images/overflow.jpg)](https://slowpics.org/comparison/6e24ffe9-e068-4f33-b2e7-639031d512f2)
+![](images/overflow.jpg)
+*Example of overflow ([click for comparison](https://slowpics.org/comparison/6e24ffe9-e068-4f33-b2e7-639031d512f2))*
 
 To fix this problem,
 simply use [`resize`][resize] like so:
@@ -304,7 +309,8 @@ that may result in banding
 and other weird artifacts,
 can be seen below.
 
-![When you see a histogram like this, increase precision.](images/overflow_notice.jpg)
+![](images/overflow_notice.jpg)
+*When you see a histogram like this, increase precision.*
 
 [resize]: http://www.vapoursynth.com/doc/functions/resize.html
 [std-Levels]: http://www.vapoursynth.com/doc/functions/levels.html
