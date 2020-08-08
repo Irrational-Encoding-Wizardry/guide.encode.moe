@@ -1,6 +1,6 @@
 # Roles
 
- There are 8 (sometimes 9) major roles in every fansub group. They are:
+There are 8 (sometimes 9) major roles in every fansub group. They are:
 
 1.  [**Encoder**](#encoder)
 2.  [**Timer**](#timer)
@@ -31,7 +31,7 @@ and video.
 They will generally be provided with one or more video sources
 and are expected to produce the best video possible within reason.
 
-This is done with a **frame-by-frame video processor** such as AviSynth
+This is done with a **frame-by-frame video processor** such as AviSynth
 and VapourSynth[^1],
 a **video encoder** such as x264 or x265[^2],
 and **audio tools** such as eac3to,
@@ -90,7 +90,7 @@ and distracting from the story and video.
 Time commitment per episode: 20 minutes - 8+ hours (dependent on number
 and difficulty of signs)
 
-Typesetters (abbreviated *TS*) are responsible for the visual
+Typesetters (abbreviated *TS*) are responsible for the visual
 presentation of translated text on-screen. These are generally called *signs*.
 
 For example, given this scene and a translation of "Adachi Fourth Public High School"…
@@ -115,19 +115,19 @@ part of the subtitles.
 
 The sign above is actually one of the more simple kinds that the Typesetter might
 have to deal with.
-It is *static*, meaning it does not move,
+It is *static*, meaning it does not move,
 and has plenty of room around it to place the translation.
 Other signs will be much more difficult.
-Take for example this scene from Kobayashi-san Chi no
+Take for example this scene from Kobayashi-san Chi no
 Maid Dragon:
 
 <div style="width:100%;height:0px;position:relative;padding-bottom:28.125%;"><iframe src="https://streamable.com/s/d21iq/aqaodi" frameborder="0" width="100%" height="100%" allowfullscreen style="width:100%;height:100%;position:absolute;left:0px;top:0px;overflow:hidden;"></iframe></div>
 
 Though it may be hard to believe,
 the typesetting on the right side of the screen was done entirely
-with *softsubs* (using Aegisub),
+with *softsubs* (using Aegisub),
 subtitles that can be turned on and off in the video player
-as compared to *hardsubs* (using Adobe After Effects) which are burned in.
+as compared to *hardsubs* (using Adobe After Effects) which are burned in.
 Each group and language "scene" will have different standards
 in regards to soft and hardsubs.
 For example, in the English scene,
@@ -169,7 +169,7 @@ for making corrections recommended by the Quality Checkers.
 Time commitment per episode: 30 minutes to 4 hours (depending on your
 own standards)
 
-Quality Checkers (abbreviated *QC*) are often the last eyes on an
+Quality Checkers (abbreviated *QC*) are often the last eyes on an
 episode before it is released.
 They are responsible for ensuring that the overall quality
 of the release is up to par with the group's standards.
@@ -199,7 +199,7 @@ meaning scripts will be available either immediately or soon after airing in Jap
 In these cases, some fansub groups may choose to edit
 and check the simulcast script rather than translate it from scratch.
 This depends almost entirely on the quality of the simulcast.
-Fixing a bad simulcast script may be harder than doing an 
+Fixing a bad simulcast script may be harder than doing an 
 *original translation* (abbreviated *OTL*).
 Finally, translators are responsible for transcribing and translating
 opening,

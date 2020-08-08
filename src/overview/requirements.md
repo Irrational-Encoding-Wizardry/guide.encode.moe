@@ -30,10 +30,10 @@ Probably, but it could make your job much harder than it needs to be.
   - **CPU**: dual-core \>2Ghz
     - Computer should be able to playback HD anime with
       subtitles.
-  - **Memory**: 4GB
+  - **Memory**: 4GB
     - Aegisub loads the entire video into memory. With larger HD
       videos being standard today, this could be up to several GB.
-  - **Storage**: 50GB available
+  - **Storage**: 50GB available
   - **Mouse**: recommended
   - **Internet**: 25 Mbps download
 - **Typesetter, Quality Checker**
@@ -71,7 +71,7 @@ Probably, but it could make your job much harder than it needs to be.
   - **Memory**: 8GB
     - Memory can be a bottleneck when encoding. More, faster
       memory is always better for encoding rigs.
-  - **Storage**: 500GB available
+  - **Storage**: 500GB available
     - Encoders sometimes deal with files up to 40GB each and
       regularly with ones between 1GB and 8GB and may be required
       to retain these files for a long time.
@@ -81,7 +81,7 @@ Probably, but it could make your job much harder than it needs to be.
 ### Software
 
 Every role will have different required software,
-but it is recommended for every role to have installed [Aegisub][].
+but it is recommended for every role to have installed [Aegisub][].
 It is **highly** recommended to use [CoffeeFlux's builds][].
 They come pre-equipped with Dependency Control
 and several *critical* fixes to Aegisub that have not been merged

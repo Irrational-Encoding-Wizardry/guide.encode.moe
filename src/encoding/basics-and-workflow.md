@@ -20,7 +20,7 @@ $ vspipe.exe script.vpy -y - | x264.exe --demuxer y4m --some example --parameter
 ```
 
 Editors for VapourSynth usually have inbuilt support for encoding
-scripts you wrote. Use `%encode --y4m <clip_variable>` in Yuuno or the GUI
+scripts you wrote. Use `%encode --y4m <clip_variable>` in Yuuno or the GUI
 provided by VSEdit.
 
 

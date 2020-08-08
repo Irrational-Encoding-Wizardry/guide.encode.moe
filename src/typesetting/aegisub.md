@@ -131,8 +131,8 @@ It used to be that [VSFilter][]
 was the only supported renderer by most fansub groups.
 VSFilter, being the first of its kind,
 is considered the original subtitle renderer.
-However, it was eventually replaced with [xy-VSFilter][],
-and then later replaced with [xySubFilter][]
+However, it was eventually replaced with [xy-VSFilter][],
+and then later replaced with [xySubFilter][]
 because VSFilter and xy-vsfilter were not performing as well
 with the resource requirements of newer subtitles.
 However, VSFilter,

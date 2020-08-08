@@ -505,15 +505,15 @@ last = core.std.DuplicateFrames(first, src.num_frames - 1).std.DeleteFrames(0)
 propclip = core.std.ModifyFrame(first, clips=[first, last], selector=shiftback)
 
 def shiftback(n, f):
-    both = f[0].copy()
-    if f[1].props.SceneChange == 1:
-        both.props.SceneChange = 1
-    return both
+    both = f[0].copy()
+    if f[1].props.SceneChange == 1:
+        both.props.SceneChange = 1
+    return both
 
 def scsmooth(n, f, clip, ref):
-    if f.props.SceneChange == 1:
-        clip = core.dfttest.DFTTest(ref, tbsize=1)
-    return clip
+    if f.props.SceneChange == 1:
+        clip = core.dfttest.DFTTest(ref, tbsize=1)
+    return clip
 
 out = core.std.FrameEval(src, partial(scsmooth, clip=src, ref=ref), prop_src=propclip)
 ```
