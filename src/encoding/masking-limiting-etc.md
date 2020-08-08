@@ -62,10 +62,10 @@ The following formula
 describes these internals for each pixel:
 
 $$
-\mathrm{output} = \mathrm{clip\, a} \times (\mathit{max~value} - \mathrm{mask}) + (\mathrm{clip\, b} \times \mathrm{mask})
+\mathrm{output} = \mathrm{clip~a} \times (\mathit{max~value} - \mathrm{mask}) + (\mathrm{clip~b} \times \mathrm{mask})
 $$
 
-where *max value* is 255 for 8-bit.
+where \\(\mathit{max~value}\\) is 255 for 8-bit.
 
 In simpler terms:
 for brighter areas in the mask,
@@ -78,7 +78,7 @@ If `premultiplied` is set to True,
 the equation changes as follows:
 
 $$
-\mathrm{output} = \mathrm{clip\, a} \times (\mathit{max~value} - \mathrm{mask}) + \mathrm{clip\, b}
+\mathrm{output} = \mathrm{clip~a} \times (\mathit{max~value} - \mathrm{mask}) + \mathrm{clip~b}
 $$
 
 [std.MaskedMerge]: http://www.vapoursynth.com/doc/functions/maskedmerge.html
@@ -401,12 +401,12 @@ integer and float formats,
 so for more complex filtering
 float is recommended whenever possible.
 In 8 bit integer format where neutral luminance (gray) is 128,
-the function is $$\mathrm{clip\, a} - \mathrm{clip\, b} + 128$$ for MakeDiff
-and $$\mathrm{clip\, a} + \mathrm{clip\, b} - 128$$ for MergeDiff,
+the function is \\(\mathrm{clip~a} - \mathrm{clip~b} + 128\\) for MakeDiff
+and \\(\mathrm{clip~a} + \mathrm{clip~b} - 128\\) for MergeDiff,
 so pixels with no change will be gray.
 
 The same is true of 16 bit and 32768.
-The float version is simply $$\mathrm{clip\, a} - \mathrm{clip\, b}$$ so in 32 bit
+The float version is simply \\(\mathrm{clip~a} - \mathrm{clip~b}\\) so in 32 bit
 the difference is defined normally,
 negative for dark differences,
 positive for bright differences,
@@ -434,7 +434,7 @@ instead of a mask clip to read the weight from for each pixel.
 The formula is thus just as simple:
 
 $$
-\mathrm{output} = \mathrm{clip\,a} \times (\mathit{max~value} - \mathrm{weight}) + (\mathrm{clip\,b} \times \mathrm{weight})
+\mathrm{output} = \mathrm{clip~a} \times (\mathit{max~value} - \mathrm{weight}) + (\mathrm{clip~b} \times \mathrm{weight})
 $$
 
 It can be used to perform
