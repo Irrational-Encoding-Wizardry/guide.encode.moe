@@ -73,6 +73,7 @@ or with the hotkey *Alt + O*.
 ![Aegisub 8975-master-8d77da3 preferences 2](images/preferences-2.png)
 
 ![Aegisub 8975-master-8d77da3 preferences 3](images/preferences-3.png)
+*Aegisub 8975-master-8d77da3 preferences*
 
 Under *File \> Properties*,
 there is an additional option for the *YCbCr Matrix* of the script.
@@ -84,7 +85,8 @@ If you are subtitling with a video present
 this option as well as the script resolution
 will automatically be set to match the video source.
 
-![Aegisub 8975-master-8d77da3 script properties 1](images/script_properties-1.png)
+![](images/script_properties-1.png)
+*Aegisub 8975-master-8d77da3 script properties*
 
 For most cases with modern fansubbing,
 the BT.709 color space will be used
