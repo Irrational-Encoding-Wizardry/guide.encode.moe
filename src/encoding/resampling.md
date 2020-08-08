@@ -151,7 +151,8 @@ The graph below outlines
 the various kinds of artifacts
 different B-C-configurations produce.
 
-![Bicubic B-C parameters](images/resample_cubic_survey.gif)
+![](images/resample_cubic_survey.gif)
+*Bicubic B-C parameters*
 
 Roughly speaking,
 raising B will cause blurring
@@ -338,7 +339,8 @@ this is what is used.
 
 #### Elliptical Weighted Averaging (*"EWA"*, *cylindrical*, *polar*, *circular*)
 
-![Two-dimensional kernel. The radius is colored green.](images/resample_polar.png)
+![](images/resample_polar.png)
+*Two-dimensional kernel. The radius is colored green.*
 
 All input samples whose [Euclidean distance][L2] to the pixel
 is within the filter’s radius contribute to its value.
@@ -361,7 +363,8 @@ can sometimes noticeably dim the image.
 To see why this happens,
 consider this gradient:
 
-![A grayscale gradient from 0 to 255.](images/resample_gamma_shades.jpg)
+![](images/resample_gamma_shades.jpg)
+*A grayscale gradient from 0 to 255.*
 
 It should be apparent
 that the brightness doesn’t scale linearly with the pixel values.
@@ -553,7 +556,8 @@ it is important to take into account chroma placement
 and to shift the chroma accordingly
 to ensure it aligns with the luma.
 
-![YUV 4:2:0 subsampling with center-aligned chroma (left) and, as per MPEG-2, left-aligned chroma (right).](images/resample_chroma_placement.png)
+![](images/resample_chroma_placement.png)
+*YUV 4:2:0 subsampling with center-aligned chroma (left) and, as per MPEG-2, left-aligned chroma (right).*
 
 There are two commonly used
 chroma siting patterns,
@@ -571,7 +575,8 @@ This is a consequence of the way
 output pixels are usually mapped onto the input grid
 during resampling:
 
-![Pixel mapping in common resampling algorithms (2 -> 4 upscale).](images/resample_matchedges.png)
+![](images/resample_matchedges.png)
+*Pixel mapping in common resampling algorithms (2 -> 4 upscale).*
 
 Essentially,
 the output grid is scaled
