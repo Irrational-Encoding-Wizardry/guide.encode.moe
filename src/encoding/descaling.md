@@ -327,7 +327,7 @@ and `get_w` from `vsutil` to calculate the width)[^1]:
 
 [Comparison between frames][manaria_compare]
 
-```Py
+```py
 from vapoursynth import core
 import vsutil
 import kagefunc as kgf
