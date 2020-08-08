@@ -446,21 +446,14 @@ is decrease the image’s contrast
 by pushing extreme values of both dark and bright
 towards the middle.
 
-Quoting Nicholas Robidoux from ImageMagick:
+Quoting Nicholas Robidoux from ImageMagick[^2]:
 
 > You may decrease halos and increase perceptual sharpness by increasing the sigmoidal contrast (up to 11.5, say).
-
-> Higher contrasts are especially recommended with greyscale images (even "false RGB greyscale" that have three proportional color channels).
-
-> The downside of sigmoidization is that it sometimes produces "color bleed" artefacts that look a bit like cheap flexographic ("gummidruck") printing or chromatic aberration.
-
-> In addition, sigmoidization's "fattening" of extreme light and dark values may not work for your image content.
-
-> If such artefacts are obvious, push the contrast value down from 7.5 (to 5, for example, or even lower).
-
-> Setting the contrast to 0 is equivalent to enlarging through linear RGB.
-
-(Robidoux, 2012)[^2]
+>Higher contrasts are especially recommended with greyscale images (even "false RGB greyscale" that have three proportional color channels).
+>The downside of sigmoidization is that it sometimes produces "color bleed" artefacts that look a bit like cheap flexographic ("gummidruck") printing or chromatic aberration.
+>In addition, sigmoidization's "fattening" of extreme light and dark values may not work for your image content.
+>If such artefacts are obvious, push the contrast value down from 7.5 (to 5, for example, or even lower).
+>Setting the contrast to 0 is equivalent to enlarging through linear RGB. *(Robidoux, 2012)*
 
 Example code for VS:
 
@@ -525,7 +518,6 @@ VapourSynth usage example:
 from nnedi3_rpow2 import *
 # 'spline36' here is technically redundant since it’s the default
 up = nnedi3_rpow2(src, width=1920, height=1080, kernel="spline36")
-
 ```
 
 
@@ -627,7 +619,9 @@ shifted_scaled_u = core.resize.Spline16(u, 1920, 1080, src_left=0.25) # shifts t
 ---
 
 [^1]: The Fourier transform is an ubiquitous concept in image processing, so we strongly advise becoming familiar with at least the basics. A very good resource for this topic is [ImageMagick’s guide][].
+
 [^2]: Robidoux, N. (2012, October 21). Resampling — ImageMagick v6 Examples. Retrieved August 22, 2019, from https://www.imagemagick.org/Usage/filter/nicolas/#upsampling
+
 [^3]: If you don’t understand what this means, read the resources linked above in the [resizing section](#resizing).
 
 [^4]: This is derived as follows: The shift is the distance between the position of the first luma sample and the position of the first chroma sample (both mapped onto the input grid and given in terms of input chroma pixel widths). The former is located at \\(0.25 + \frac{\mathrm{src~width}}{4 \times \mathrm{dst~width}}\\), the latter at \\(\frac{\mathrm{src~width}}{2 \times \mathrm{dst~width}}\\). This yields \\(0.25 + \frac{\mathrm{src~width}}{4 \times \mathrm{dst~width}} - \frac{\mathrm{src~width}}{2 \times \mathrm{dst~width}} = 0.25 + \frac{\mathrm{src~width}}{\mathrm{dst~width}} \times \left( ^1/_4 -\,^1/_2 \right) = 0.25 + \frac{\mathrm{src~width}}{\mathrm{dst~width}} \times (-0.25)\\) for the shift.
