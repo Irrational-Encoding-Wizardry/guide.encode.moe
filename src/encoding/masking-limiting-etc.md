@@ -137,7 +137,7 @@ However, these functions are significantly slower than
 
 #### [std.Inflate/std.Deflate][]
 
-<kbd> TODO [<i class="fa fa-edit">](https://github.com/Irrational-Encoding-Wizardry/guide.encode.moe/edit/master/encoding/masking-limiting-etc.md)</kbd>
+TODO
 
 [std.Inflate/std.Deflate]: http://www.vapoursynth.com/doc/functions/deflate_inflate.html
 
@@ -453,7 +453,7 @@ a weighted average of two clips or planes.
 
 #### [std.Expr][]
 
-<kbd> TODO [<i class="fa fa-edit">](https://github.com/Irrational-Encoding-Wizardry/guide.encode.moe/edit/master/encoding/masking-limiting-etc.md)</kbd>
+TODO
 
 [std.Expr]: http://www.vapoursynth.com/doc/functions/expr.html
 
@@ -472,17 +472,17 @@ See link for usage information.
 
 ## Limiting
 
-<kbd> TODO [<i class="fa fa-edit">](https://github.com/Irrational-Encoding-Wizardry/guide.encode.moe/edit/master/encoding/masking-limiting-etc.md)</kbd>
+TODO
 
 
 ## Referencing
 
-<kbd> TODO [<i class="fa fa-edit">](https://github.com/Irrational-Encoding-Wizardry/guide.encode.moe/edit/master/encoding/masking-limiting-etc.md)</kbd> - probably just merge with "Limiting"
+TODO
 
 
 ## Runtime filtering with FrameEval
 
-<kbd> TODO [<i class="fa fa-edit">](https://github.com/Irrational-Encoding-Wizardry/guide.encode.moe/edit/master/encoding/masking-limiting-etc.md)</kbd>
+TODO
 
 
 #### Example: Strong smoothing on scene changes (i.e. for MPEG-2 transport streams)
@@ -521,7 +521,7 @@ out = core.std.FrameEval(src, partial(scsmooth, clip=src, ref=ref), prop_src=pro
 
 ## Pre-filters
 
-<kbd> TODO [<i class="fa fa-edit">](https://github.com/Irrational-Encoding-Wizardry/guide.encode.moe/edit/master/encoding/masking-limiting-etc.md)</kbd>
+TODO
 
 
 #### Example: Deband a grainy clip with f3kdb (16 bit input)
