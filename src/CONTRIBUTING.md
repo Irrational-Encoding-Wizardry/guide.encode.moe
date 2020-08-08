@@ -161,10 +161,10 @@ The following are the style guidelines
 for various aspects of this guide.
 The most important aspect is having **Semantic Linefeeds**.
 The other points may serve as guidelines for formatting future pages.
-Refer to [gitbook's markdown documentation][gitbookMarkdown][^1]
+Refer to the [Markdown Guide][]
 for guidelines on visual formatting.
 
-[gitbookMarkdown]: https://gitbookio.gitbooks.io/documentation/content/format/markdown.html
+[Markdown Guide]: https://www.markdownguide.org/basic-syntax
 
 
 ### Semantic Linefeeds (!)
@@ -193,8 +193,6 @@ any other sentence terminating punctuation,
 parenthesized sentences (not words),
 or new items in a long list
 (such as the one you are reading right now).
-
-[Footnotes](#footnotes) are an exception and must be written all on one line.
 
 [Semantic Linefeeds]: https://rhodesmill.org/brandon/2012/one-sentence-per-line/
 
@@ -296,13 +294,18 @@ If you are linking to a section on the same page,
 An example of this is [the hyperlink section you are reading](#hyperlinking).
 In markdown, this is simply `[the hyperlink section you are reading](#hyperlinking)`.
 
-TODO - find new format for page html names
+Section names are converted to all lowercase,
+replacing spaces with a `-` dash,
+while disregarding all non-alphanumeric characters
+with the exception of the literal `-` dash being kept.
+Therefore, a section named `$aFoo-Bar b2 !` can be referenced
+as `foobar.md#afoo-bar-b2-`.
 
 
 ### Adding Images
 
 When adding images to your paragraphs,
-use the following syntax:
+use the following syntax[^1]:
 
 ```
 ![](images/filename.png)
@@ -406,8 +409,8 @@ This guide has MathJax support,
 so in-line or block mathematics can be rendered with TeX.
 This obviously requires knowledge of TeX syntax and the supported functions
 listed in the [MathJax documentation][].
-To start in-line formulas, the syntax is `$$...$$`.
-Similarly, the block formulas' syntax is:
+To start in-line formulas, the syntax is `\\( ... \\)`.
+On the other hand, the block formulas' syntax is:
 
 ```md
 $$
@@ -422,11 +425,7 @@ separate these blocks with one blank line on either side.
 
 ---
 
-[^1]: As the book is now using Rust's [mdbook][], almost none of the information from [gitbook's new website][new-gitbook] applies.
-
-[^2]: There is a [Python script][vscompare] designed to automate this process for image saving and comparison websites (i.e. [slowpics][]).
-
-[mdbook]: https://github.com/rust-lang/mdBook
-[new-gitbook]: https://www.gitbook.com/
-[vscompare]: https://github.com/OrangeChannel/my-python-scripts/blob/master/VapourSynth/vscompare.py
-[slowpics]: https://slow.pics/
+[^1]: This differs from normal Markdown image syntax,
+by abusing CSS tags to render the `Visual caption text`
+centered and under the image.
+This may be changed in the future with a plug-in.
