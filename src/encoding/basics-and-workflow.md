@@ -142,7 +142,7 @@ and place the whole command after the `ffmpeg` command:
 ffmpeg -i "input.dtshd" -c:a pcm_s24le -f wav - | qaac64 --tvbr 91 --ignorelength --no-delay - -o "output.m4a"
 ```
 
-[itunes]: https://secure-appldnld.apple.com/itunes12/031-69284-20160802-7E7B2D20-552B-11E6-B2B9-696CECD541CE/iTunes64Setup.exe
+[itunes]: https://secure-appldnld.apple.com/itunes12/001-37026-20200915-5CBD39A0-F7A0-11EA-BB8F-8EB5DD073FF6/iTunes64Setup.exe
 [qaac]: https://sites.google.com/site/qaacpage/cabinet
 [^1]: Read why in this [HydrogenAudio forum post](https://hydrogenaud.io/index.php/topic,85135.msg921707.html#msg921707).
 
