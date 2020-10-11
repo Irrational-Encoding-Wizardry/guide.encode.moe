@@ -53,15 +53,15 @@ ffmpeg -i "input.dtshd" -c:a pcm_s24le "output.wav"
 
 The `-c:a pcm_s24le` parameter will tell `ffmpeg` to encode its output with a depth of 24 bits.
 The default is 16 bits.
-If your source file is 16 bits, change this parameter to `pcm_s16le`
-or simply skip it.
+If your source file is 16 bits,
+change this parameter to `pcm_s16le` or simply skip it.
 
 The command above will decode the source file
 and save a resulting WAVE file on your drive.
 You can then encode this WAVE file to a FLAC or AAC file,
 but there is a faster and more convenient way to do that: piping.
 Piping skips the process of writing
-and reading the data from the drive
+and reading the data to and from a file
 and simply sends the data straight from one program to another.
 
 To pipe from `ffmpeg`, specify the output format as WAVE using the `-f` option,
@@ -128,8 +128,8 @@ and sets the desired quality.
 `qaac` has only 15 actual quality steps in intervals of 9 (0, 9, 18, ... 127).
 The higher the number, the higher the resulting bitrate will be.
 The recommended value is 91, which will result in a bitrate
-of about 192 kbps, enough for complete transparency
-in the vast majority of cases.
+of about 192 kbps on 2.0 channel files,
+enough for complete transparency in the vast majority of cases.
 
 `--ignorelength` performs the same function as `--ignore-chunk-sizes` in FLAC.  
 `--no-delay` is needed for proper audio/video sync[^1].
@@ -149,11 +149,15 @@ ffmpeg -i "input.dtshd" -c:a pcm_s24le -f wav - | qaac64 --tvbr 91 --ignorelengt
 
 ### Encoding to Opus
 
-Encoding from a file with `opusenc` will look like this:
+Encoding a file with `opusenc` will look like this:
 
 ```sh
-opusenc --bitrate 160 --vbr --ignorelength "input.wav" "output.opus"
+opusenc --vbr --bitrate 160 --ignorelength "input.wav" "output.opus"
 ```
+
+`--vbr` sets the encoding mode to Variable Bitrate (which is the default but it
+never hurts to be explicit),
+while `--ignorelength` does the same thing as in `qaac`.
 
 As you may have noticed,
 `opusenc` uses bitrate control
@@ -165,9 +169,8 @@ This makes choosing the proper target quality
 a little bit funky: you will have to set a different bitrate for stereo and multichannel files.
 The recommended bitrate is 160 kbps for 2.0 channels
 and 320 kbps for 5.1.
-`--vbr` sets the encoding mode to Variable Bitrate, while `--ignorelength` does the same thing as in `qaac`.
 
-Encoding stream piped from `ffmpeg` works the same as for previous encoders—just replace the input filename with a hyphen:
+Encoding audio piped from `ffmpeg` works the same as for previous encoders—just replace the input filename with a hyphen:
 
 ```sh
 ffmpeg -i "input.dtshd" -c:a pcm_s24le -f wav - | opusenc --vbr --bitrate 160 --ignorelength - "output.opus"
