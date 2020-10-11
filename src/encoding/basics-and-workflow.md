@@ -161,12 +161,10 @@ while `--ignorelength` does the same thing as in `qaac`.
 
 As you may have noticed,
 `opusenc` uses bitrate control
-instead of some kind of constant quality mode, like in `qaac`.
-This doesn't mean it works in constant bitrate mode,
-instead the given bitrate is matched with an internal constant quality target such that
-the output file will have an average bitrate similar to the given bitrate[^2].
-This makes choosing the proper target quality
-a little bit funky: you will have to set a different bitrate for stereo and multichannel files.
+rather than some kind of constant quality mode[^2].
+Instead of an abstract number that corresponds to a quality target
+like with `x264`'s CRF mode and `qaac`'s TVBR mode,
+you give the encoder your preferred resulting bitrate and it chooses the constant quality target itself.
 The recommended bitrate is 160 kbps for 2.0 channels
 and 320 kbps for 5.1.
 
