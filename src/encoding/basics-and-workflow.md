@@ -38,17 +38,17 @@ Basic `ffmpeg` usage is simple.
 You just need to specify your input file and your desired output file, like this:
 
 ```sh
-ffmpeg -i "input.dts" "output.wav"
+ffmpeg -i "input.dtshd" "output.wav"
 ```
 
-This command will decode the DTS audio file and encode it as a WAV file.
+This command will decode the DTS-HD MA audio file and encode it as a WAVE file.
 This command doesn't specify any options so `ffmpeg` will resort to using its defaults.
 
-For transcoding audio,
-only one option will be needed:
+For transcoding from DTS-HD MA
+only one option is needed:
 
 ```sh
-ffmpeg -i "input.dts" -c:a pcm_s24le "output.wav"
+ffmpeg -i "input.dtshd" -c:a pcm_s24le "output.wav"
 ```
 
 The `-c:a pcm_s24le` parameter will tell `ffmpeg` to encode its output with a depth of 24 bits.
@@ -57,20 +57,20 @@ If your source file is 16 bits, change this parameter to `pcm_s16le`
 or simply skip it.
 
 The command above will decode the source file
-and save a resulting WAV file on your drive.
-You can then encode this WAV file to a FLAC or AAC file,
+and save a resulting WAVE file on your drive.
+You can then encode this WAVE file to a FLAC or AAC file,
 but there is a faster and more convenient way to do that: piping.
 Piping skips the process of writing
 and reading the data from the drive
 and simply sends the data straight from one program to another.
 
-To pipe from `ffmpeg`, specify the output format as WAV using the `-f` option,
+To pipe from `ffmpeg`, specify the output format as WAVE using the `-f` option,
 replace the output filename with a hyphen and place a pipe symbol at the end,
 which will be used to separate the `ffmpeg` command from your encoder command,
 like this:
 
 ```sh
-ffmpeg -i "input.dts" -c:a pcm_s24le -f wav - | {encoder command}
+ffmpeg -i "input.dtshd" -c:a pcm_s24le -f wav - | {encoder command}
 ```
 
 
@@ -88,9 +88,9 @@ although at the expense of encoding speed.
 FLAC encoding is fast, so just stick with level 8.
 
 `--ignore-chunk-sizes` is needed
-because the WAV format only supports audio data up to 4 GiB.
+because the WAVE format only supports audio data up to 4 GiB.
 This is a way to work around that limitation.
-It will ignore the length field in the header of the WAV file,
+It will ignore the length field in the header of the WAVE file,
 allowing the FLAC encoder to read files of any size.
 
 To encode audio piped from `ffmpeg`,
@@ -99,7 +99,7 @@ and place the whole command after the `ffmpeg` command,
 like this:
 
 ```sh
-ffmpeg -i "input.dts" -c:a pcm_s24le -f wav - | flac -8 --ignore-chunk-sizes - -o "output.flac"
+ffmpeg -i "input.dtshd" -c:a pcm_s24le -f wav - | flac -8 --ignore-chunk-sizes - -o "output.flac"
 ```
 
 
@@ -139,7 +139,7 @@ replace the input filename with a hyphen
 and place the whole command after the `ffmpeg` command:
 
 ```sh
-ffmpeg -i "input.dts" -c:a pcm_s24le -f wav - | qaac64 --tvbr 91 --ignorelength --no-delay - -o "output.m4a"
+ffmpeg -i "input.dtshd" -c:a pcm_s24le -f wav - | qaac64 --tvbr 91 --ignorelength --no-delay - -o "output.m4a"
 ```
 
 [itunes]: https://secure-appldnld.apple.com/itunes12/031-69284-20160802-7E7B2D20-552B-11E6-B2B9-696CECD541CE/iTunes64Setup.exe
@@ -170,7 +170,7 @@ and 320 kbps for 5.1.
 Encoding stream piped from `ffmpeg` works the same as for previous encoders—just replace the input filename with a hyphen:
 
 ```sh
-ffmpeg -i "input.dts" -acodec pcm_s24le -f wav - | opusenc --bitrate 160 --vbr --ignorelength - "output.opus"
+ffmpeg -i "input.dtshd" -c:a pcm_s24le -f wav - | opusenc --vbr --bitrate 160 --ignorelength - "output.opus"
 ```
 
 [^2]: [A more in-depth explanation on HydrogenAudio](https://wiki.hydrogenaud.io/index.php?title=Opus#Characteristics)
