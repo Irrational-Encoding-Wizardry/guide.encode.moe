@@ -370,7 +370,7 @@ error_light = core.resize.Spline36(error_light, 1280, 720)
 
 #create large error mask for credits, limiting the area to white spots
 #masks are always full-range, so manually set fulls/fulld to True or range_in/range to 1 when changing bitdepth
-credits = core.std.Expr([src16, error], 'x 55800 &gt; y 2500 &gt; and 255 0 ?', vs.GRAY8)
+credits = core.std.Expr([src16, error], 'x 55800 > y 2500 > and 255 0 ?', vs.GRAY8)
 credits = core.resize.Bilinear(credits, 1280, 720)
 credits = core.std.Maximum(credits).std.Inflate().std.Inflate()
 credits = fvf.Depth(credits, 16, range_in=1, range=1)
