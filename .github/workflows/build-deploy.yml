@@ -5,12 +5,10 @@ on:
   - pull_request
   - workflow_dispatch
 
-defaults:
-  runs-on: ubuntu-20.04
-
 jobs:
   build:
     name: Build
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
 
@@ -32,6 +30,7 @@ jobs:
     name: Deploy
     needs: build
     if: github.ref == 'refs/heads/master'
+    runs-on: ubuntu-20.04
     steps:
       - name: Fetch build artifact
         uses: actions/download-artifact@v2
