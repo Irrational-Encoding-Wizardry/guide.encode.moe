@@ -1,0 +1,46 @@
+name: Build (and deploy)
+
+on:
+  - push
+  - pull_request
+  - workflow_dispatch
+
+defaults:
+  runs-on: ubuntu-20.04
+
+jobs:
+  build:
+    name: Build
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup mdBook
+        uses: peaceiris/actions-mdbook@v1
+        with:
+          mdbook-version: '0.4.6'
+          # mdbook-version: 'latest'
+
+      - run: mdbook build
+
+      - name: Create artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: book
+          path: book
+
+  deploy:
+    name: Deploy
+    needs: build
+    if: github.ref == 'refs/heads/master'
+    steps:
+      - name: Fetch build artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: book
+
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: book
+          cname: guide.encode.moe
