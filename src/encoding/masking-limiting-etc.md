@@ -62,10 +62,10 @@ The following formula
 describes these internals for each pixel:
 
 $$
-\mathrm{output} = \mathrm{clip\, a} \times (\mathit{max~value} - \mathrm{mask}) + (\mathrm{clip\, b} \times \mathrm{mask})
+\mathrm{output} = \mathrm{clip~a} \times (\mathit{max~value} - \mathrm{mask}) + (\mathrm{clip~b} \times \mathrm{mask})
 $$
 
-where *max value* is 255 for 8-bit.
+where \\(\mathit{max~value}\\) is 255 for 8-bit.
 
 In simpler terms:
 for brighter areas in the mask,
@@ -78,7 +78,7 @@ If `premultiplied` is set to True,
 the equation changes as follows:
 
 $$
-\mathrm{output} = \mathrm{clip\, a} \times (\mathit{max~value} - \mathrm{mask}) + \mathrm{clip\, b}
+\mathrm{output} = \mathrm{clip~a} \times (\mathit{max~value} - \mathrm{mask}) + \mathrm{clip~b}
 $$
 
 [std.MaskedMerge]: http://www.vapoursynth.com/doc/functions/maskedmerge.html
@@ -102,7 +102,8 @@ The 3x3 neighbourhood of a pixel
 are the 8 pixels directly adjacent to the pixel in question
 plus the pixel itself.
 
-![Illustration of the 3x3 neighborhood](images/3x3.png)
+![](images/3x3.png)
+*Illustration of the 3x3 neighborhood*
 
 The Minimum/Maximum filters
 look at the 3x3 neighbourhood of each pixel in the input image
@@ -136,7 +137,7 @@ However, these functions are significantly slower than
 
 #### [std.Inflate/std.Deflate][]
 
-<kbd> TODO [<i class="fa fa-edit">](https://github.com/Irrational-Encoding-Wizardry/guide.encode.moe/edit/master/encoding/masking-limiting-etc.md)</kbd>
+TODO
 
 [std.Inflate/std.Deflate]: http://www.vapoursynth.com/doc/functions/deflate_inflate.html
 
@@ -228,9 +229,11 @@ detail loss and residual artifacts.
 
 Suppose you want to remove these halos:
 
-![Screenshot of the source.](images/halos.png)
+![](images/halos.png)
+*Screenshot of the source.*
 
-![Point-enlargement of the halo area.](images/src0.png)
+![](images/src0.png)
+*Point-enlargement of the halo area.*
 
 (Note that the images shown in your browser are likely resized poorly;
 you can view them at full size in [this comparison][halo-comparison].)
@@ -259,7 +262,8 @@ mask = core.std.Sobel(src, 0)
 luma = core.std.ShufflePlanes(mask, 0, colorfamily=vs.GRAY)
 ```
 
-![luma](images/luma0.png)
+![](images/luma0.png)
+*`luma`*
 
 Next, we expand the mask twice, so that it covers the halos.
 `vsutil.iterate` is a [function in vsutil][vsutil iterate]
@@ -270,7 +274,8 @@ to a clip—in this case it runs `std.Maximum` 2 times.
 mask_outer = vsutil.iterate(luma, core.std.Maximum, 2)
 ```
 
-![mask_outer](images/mask_outer0.png)
+![](images/mask_outer0.png)
+*`mask_outer`*
 
 Now we shrink the expanded clip back
 to cover only the lineart.
@@ -293,7 +298,8 @@ preventing detail loss.
 mask_inner = vsutil.iterate(mask_outer, core.std.Minimum, 3)
 ```
 
-![mask_inner](images/mask_inner0.png)
+![](images/mask_inner0.png)
+*`mask_inner`*
 
 Now we subtract the outer mask covering the halos
 and the lineart from the inner mask covering only the lineart.
@@ -304,7 +310,8 @@ which is what we originally wanted:
 halos = core.std.Expr([mask_outer, mask_inner], 'x y -')
 ```
 
-![halos](images/halos0.png)
+![](images/halos0.png)
+*`halos`*
 
 Next, we do the actual dehaloing:
 
@@ -312,7 +319,8 @@ Next, we do the actual dehaloing:
 dehalo = hf.DeHalo_alpha(src)
 ```
 
-![dehalo](images/dh0.png)
+![](images/dh0.png)
+*`dehalo`*
 
 Lastly, we use MaskedMerge to merge only the filtered halos
 into the source clip,
@@ -322,7 +330,8 @@ leaving the lineart mostly untouched:
 masked_dehalo = core.std.MaskedMerge(src, dehalo, halos)
 ```
 
-![masked_dehalo](images/dehalod0.png)
+![](images/dehalod0.png)
+*`masked_dehalo`*
 
 [halo-comparison]: https://slowpics.org/comparison/96cbeca4-b4be-4dfc-82b1-631bbc85cdb0
 [DeHalo_alpha]: https://github.com/HomeOfVapourSynthEvolution/havsfunc/blob/8b2cd62a20faf0b410c742c95e7c7848894628d4/havsfunc.py#L370
@@ -401,12 +410,12 @@ integer and float formats,
 so for more complex filtering
 float is recommended whenever possible.
 In 8 bit integer format where neutral luminance (gray) is 128,
-the function is $$\mathrm{clip\, a} - \mathrm{clip\, b} + 128$$ for MakeDiff
-and $$\mathrm{clip\, a} + \mathrm{clip\, b} - 128$$ for MergeDiff,
+the function is \\(\mathrm{clip~a} - \mathrm{clip~b} + 128\\) for MakeDiff
+and \\(\mathrm{clip~a} + \mathrm{clip~b} - 128\\) for MergeDiff,
 so pixels with no change will be gray.
 
 The same is true of 16 bit and 32768.
-The float version is simply $$\mathrm{clip\, a} - \mathrm{clip\, b}$$ so in 32 bit
+The float version is simply \\(\mathrm{clip~a} - \mathrm{clip~b}\\) so in 32 bit
 the difference is defined normally,
 negative for dark differences,
 positive for bright differences,
@@ -434,7 +443,7 @@ instead of a mask clip to read the weight from for each pixel.
 The formula is thus just as simple:
 
 $$
-\mathrm{output} = \mathrm{clip\,a} \times (\mathit{max~value} - \mathrm{weight}) + (\mathrm{clip\,b} \times \mathrm{weight})
+\mathrm{output} = \mathrm{clip~a} \times (\mathit{max~value} - \mathrm{weight}) + (\mathrm{clip~b} \times \mathrm{weight})
 $$
 
 It can be used to perform
@@ -444,7 +453,7 @@ a weighted average of two clips or planes.
 
 #### [std.Expr][]
 
-<kbd> TODO [<i class="fa fa-edit">](https://github.com/Irrational-Encoding-Wizardry/guide.encode.moe/edit/master/encoding/masking-limiting-etc.md)</kbd>
+TODO
 
 [std.Expr]: http://www.vapoursynth.com/doc/functions/expr.html
 
@@ -463,17 +472,17 @@ See link for usage information.
 
 ## Limiting
 
-<kbd> TODO [<i class="fa fa-edit">](https://github.com/Irrational-Encoding-Wizardry/guide.encode.moe/edit/master/encoding/masking-limiting-etc.md)</kbd>
+TODO
 
 
 ## Referencing
 
-<kbd> TODO [<i class="fa fa-edit">](https://github.com/Irrational-Encoding-Wizardry/guide.encode.moe/edit/master/encoding/masking-limiting-etc.md)</kbd> - probably just merge with "Limiting"
+TODO
 
 
 ## Runtime filtering with FrameEval
 
-<kbd> TODO [<i class="fa fa-edit">](https://github.com/Irrational-Encoding-Wizardry/guide.encode.moe/edit/master/encoding/masking-limiting-etc.md)</kbd>
+TODO
 
 
 #### Example: Strong smoothing on scene changes (i.e. for MPEG-2 transport streams)
@@ -496,15 +505,15 @@ last = core.std.DuplicateFrames(first, src.num_frames - 1).std.DeleteFrames(0)
 propclip = core.std.ModifyFrame(first, clips=[first, last], selector=shiftback)
 
 def shiftback(n, f):
-    both = f[0].copy()
-    if f[1].props.SceneChange == 1:
-        both.props.SceneChange = 1
-    return both
+    both = f[0].copy()
+    if f[1].props.SceneChange == 1:
+        both.props.SceneChange = 1
+    return both
 
 def scsmooth(n, f, clip, ref):
-    if f.props.SceneChange == 1:
-        clip = core.dfttest.DFTTest(ref, tbsize=1)
-    return clip
+    if f.props.SceneChange == 1:
+        clip = core.dfttest.DFTTest(ref, tbsize=1)
+    return clip
 
 out = core.std.FrameEval(src, partial(scsmooth, clip=src, ref=ref), prop_src=propclip)
 ```
@@ -512,7 +521,7 @@ out = core.std.FrameEval(src, partial(scsmooth, clip=src, ref=ref), prop_src=pro
 
 ## Pre-filters
 
-<kbd> TODO [<i class="fa fa-edit">](https://github.com/Irrational-Encoding-Wizardry/guide.encode.moe/edit/master/encoding/masking-limiting-etc.md)</kbd>
+TODO
 
 
 #### Example: Deband a grainy clip with f3kdb (16 bit input)

@@ -1,6 +1,6 @@
 # Roles
 
- There are 8 (sometimes 9) major roles in every fansub group. They are:
+There are 8 (sometimes 9) major roles in every fansub group. They are:
 
 1.  [**Encoder**](#encoder)
 2.  [**Timer**](#timer)
@@ -20,6 +20,7 @@ most or all of the roles in order to recognize errors.
 This page serves as just an overview of the work
 various roles will be expected to complete.
 
+
 ## Encoder
 
 Time commitment per episode: 20 minutes - 2 hours active (4-12 hours
@@ -30,7 +31,7 @@ and video.
 They will generally be provided with one or more video sources
 and are expected to produce the best video possible within reason.
 
-This is done with a **frame-by-frame video processor** such as AviSynth
+This is done with a **frame-by-frame video processor** such as AviSynth
 and VapourSynth[^1],
 a **video encoder** such as x264 or x265[^2],
 and **audio tools** such as eac3to,
@@ -54,7 +55,8 @@ theories,
 and scripts.
 It's important to keep in mind that a disagreement is not always an insult,
 and more experienced encoders often just want to help and provide feedback.
-The important part is the result\!
+The important part is the result!
+
 
 ## Timer
 
@@ -82,22 +84,25 @@ These problems detract from the viewing experience,
 drawing attention to the appearance of the subtitles
 and distracting from the story and video.
 
+
 ## Typesetter
 
 Time commitment per episode: 20 minutes - 8+ hours (dependent on number
 and difficulty of signs)
 
-Typesetters (abbreviated *TS*) are responsible for the visual
+Typesetters (abbreviated *TS*) are responsible for the visual
 presentation of translated text on-screen. These are generally called *signs*.
 
 For example, given this scene and a translation of "Adachi Fourth Public High School"…
 
-![[DameDesuYo] Eromanga-sensei - 01 (1920x1080 10bit AAC) [05CB518E].mkv_snapshot_03.11_[2017.08.18_21.14.55].jpg](images/cnvimage100.png)
+![](images/cnvimage100.png)
+*[DameDesuYo] Eromanga-sensei - 01 (1920x1080 10bit AAC) [05CB518E].mkv_snapshot_03.11_[2017.08.18_21.14.55].jpg*
 
 the Typesetter would be expected to produce something like
 this:
 
-![[DameDesuYo] Eromanga-sensei - 01 (1920x1080 10bit AAC) [05CB518E].mkv_snapshot_03.11_[2017.08.18_21.14.43].jpg](images/cnvimage101.png)
+![](images/cnvimage101.png)
+*[DameDesuYo] Eromanga-sensei - 01 (1920x1080 10bit AAC) [05CB518E].mkv_snapshot_03.11_[2017.08.18_21.14.43].jpg*
 
 Almost every sign the Typesetter works on will be unique,
 requiring ingenuity,
@@ -110,19 +115,19 @@ part of the subtitles.
 
 The sign above is actually one of the more simple kinds that the Typesetter might
 have to deal with.
-It is *static*, meaning it does not move,
+It is *static*, meaning it does not move,
 and has plenty of room around it to place the translation.
 Other signs will be much more difficult.
-Take for example this scene from Kobayashi-san Chi no
+Take for example this scene from Kobayashi-san Chi no
 Maid Dragon:
 
 <div style="width:100%;height:0px;position:relative;padding-bottom:28.125%;"><iframe src="https://streamable.com/s/d21iq/aqaodi" frameborder="0" width="100%" height="100%" allowfullscreen style="width:100%;height:100%;position:absolute;left:0px;top:0px;overflow:hidden;"></iframe></div>
 
 Though it may be hard to believe,
 the typesetting on the right side of the screen was done entirely
-with *softsubs* (using Aegisub),
+with *softsubs* (using Aegisub),
 subtitles that can be turned on and off in the video player
-as compared to *hardsubs* (using Adobe After Effects) which are burned in.
+as compared to *hardsubs* (using Adobe After Effects) which are burned in.
 Each group and language "scene" will have different standards
 in regards to soft and hardsubs.
 For example, in the English scene,
@@ -136,6 +141,7 @@ incorrect ways that are not visually pleasing,
 do not match the original well,
 are difficult to read,
 or are too *heavy* (meaning computer resource intensive).
+
 
 ## Editor
 
@@ -157,12 +163,13 @@ and number of changes made.
 The Editor may also be responsible
 for making corrections recommended by the Quality Checkers.
 
+
 ## Quality Checker
 
 Time commitment per episode: 30 minutes to 4 hours (depending on your
 own standards)
 
-Quality Checkers (abbreviated *QC*) are often the last eyes on an
+Quality Checkers (abbreviated *QC*) are often the last eyes on an
 episode before it is released.
 They are responsible for ensuring that the overall quality
 of the release is up to par with the group's standards.
@@ -174,6 +181,7 @@ For example, one group might require an organized "QC report"
 with recommended changes and required fixes,
 while other groups may prefer the Quality
 Checker to make changes directly to the script whenever possible.
+
 
 ## Translator & Translation Checker
 
@@ -191,12 +199,13 @@ meaning scripts will be available either immediately or soon after airing in Jap
 In these cases, some fansub groups may choose to edit
 and check the simulcast script rather than translate it from scratch.
 This depends almost entirely on the quality of the simulcast.
-Fixing a bad simulcast script may be harder than doing an 
-*original translation* (abbreviated OTL).
+Fixing a bad simulcast script may be harder than doing an 
+*original translation* (abbreviated *OTL*).
 Finally, translators are responsible for transcribing and translating
 opening,
 ending,
 and insert songs as well.
+
 
 ## Karaoke Effect Creator
 

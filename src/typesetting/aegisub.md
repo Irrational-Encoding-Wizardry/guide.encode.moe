@@ -73,6 +73,7 @@ or with the hotkey *Alt + O*.
 ![Aegisub 8975-master-8d77da3 preferences 2](images/preferences-2.png)
 
 ![Aegisub 8975-master-8d77da3 preferences 3](images/preferences-3.png)
+*Aegisub 8975-master-8d77da3 preferences*
 
 Under *File \> Properties*,
 there is an additional option for the *YCbCr Matrix* of the script.
@@ -84,7 +85,8 @@ If you are subtitling with a video present
 this option as well as the script resolution
 will automatically be set to match the video source.
 
-![Aegisub 8975-master-8d77da3 script properties 1](images/script_properties-1.png)
+![](images/script_properties-1.png)
+*Aegisub 8975-master-8d77da3 script properties*
 
 For most cases with modern fansubbing,
 the BT.709 color space will be used
@@ -129,8 +131,8 @@ It used to be that [VSFilter][]
 was the only supported renderer by most fansub groups.
 VSFilter, being the first of its kind,
 is considered the original subtitle renderer.
-However, it was eventually replaced with [xy-VSFilter][],
-and then later replaced with [xySubFilter][]
+However, it was eventually replaced with [xy-VSFilter][],
+and then later replaced with [xySubFilter][]
 because VSFilter and xy-vsfilter were not performing as well
 with the resource requirements of newer subtitles.
 However, VSFilter,
@@ -179,13 +181,19 @@ and move on for now.
 
 ---
 
-[^1]: A long outstanding bug has made the recent versions of Aegisub unstable. The latest stable version as of writing this, r8903+1, can be found on [GoodJobMedia's website][].
+[^1]: A long outstanding bug has made the recent versions of Aegisub unstable.
+The latest stable version as of writing this, r8903+1,
+can be found on [GoodJobMedia's website][].
 
 [^2]: 32-bit builds on Windows may be more stable.
 
-[^3]: For further reading on this, visit the Wikipedia pages for [Standard Definition][] video, [High Definition][] video, and the [BT.601][] and [BT.709][] color spaces.
+[^3]: For further reading on this,
+visit the Wikipedia pages for [Standard Definition][] video,
+[High Definition][] video,
+and the [BT.601][] and [BT.709][] color spaces.
 
-[^4]: With the development of [mpv][], codec packs and player add-ons are no longer required.
+[^4]: With the development of [mpv][],
+codec packs and player add-ons are no longer required.
 
 [Standard Definition]: https://en.wikipedia.org/wiki/Standard-definition_television
 [High Definition]: https://en.wikipedia.org/wiki/High-definition_video

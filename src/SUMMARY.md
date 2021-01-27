@@ -1,15 +1,15 @@
 # Summary
 
-## Overview
+[Introduction](../README.md)
+[Contributing to the Guide](CONTRIBUTING.md)
 
-- [Contributing to the Guide](CONTRIBUTING.md)
+# General Fansubbing
+
 - [Preface](overview/preface.md)
 - [Roles](overview/roles.md)
 - [Requirements](overview/requirements.md)
 
-
-
-## Encoding
+# Encoding
 
 - [Preparations and Necessary Software](encoding/preparation.md)
 - [Basics and General Workflow](encoding/basics-and-workflow.md)
@@ -18,18 +18,18 @@
 - [Masking, Limiting, and Related Functions](encoding/masking-limiting-etc.md)
 - [Descaling](encoding/descaling.md)
 - [Resampling](encoding/resampling.md)
-- [Codecs](encoding/video-encoding.md)
-  - [x264](encoding/codecs/x264.md)
+- [Codecs]()
+    - [x264](encoding/codecs/x264.md)
 
-
-## Typesetting
+# Typesetting
 
 - [Aegisub and Other Tools](typesetting/aegisub.md)
 
+# Resources and References
 
-## Resources and References
 - [Colorspaces](archived-websites/bt601-vs-bt709.md)
 
-## Legal
-- [Impressum](impressum.md)
-- [Privacy Policy](privacy-policy.md)
+--------
+
+[Impressum](impressum.md)
+[Privacy Policy](privacy-policy.md)

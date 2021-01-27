@@ -67,8 +67,7 @@ but the sample code will always be written for VapourSynth.
 That being said, the installation of VapourSynth is quite easy.
 It is strongly recommended to install the 64-bit version
 of all tools listed here.
-VapourSynth requires Python 3.8.x or newer
-(which can be downloaded [here][Python]).
+VapourSynth requires [Python 3.8.x or newer][Python].
 VapourSynth Windows binaries can be found
 [here][VapourSynth].
 Linux users will have to build their own version,
@@ -160,7 +159,8 @@ VapourSynth-Script.
     It provides an easy and simple GUI to write your VapourSynth
     scripts.
 
-    ![The main window of VSEdit.](images/cnvimage100.png)
+    ![](images/cnvimage100.png)
+    *The main window of VSEdit.*
 
     While it seems to be unstable on some systems, its high performance
     preview window offsets its problems.
@@ -173,7 +173,8 @@ VapourSynth-Script.
     noted that Yuuno natively supports remote access, as it is only an
     extension for Jupyter Notebook.
 
-    ![A Jupyter Notebook.](images/cnvimage101.png)
+    ![](images/cnvimage101.png)
+    *A Jupyter Notebook.*
 
 3.  [VapourSynth Multi-Viewer](https://github.com/mysteryx93/VapourSynthViewer.NET/releases/).
     Multi-Viewer is a very simple and elementary previewing tool.
@@ -187,9 +188,11 @@ VapourSynth-Script.
     In short: very useful for thorough comparisons and filter fine-tuning,
     not so much for everything else.
 
-    ![VS Multi-Viewer’s editing window.](images/VS-Multi-Viewer_Preview.png)
+    ![](images/VS-Multi-Viewer_Preview.png)
+    *VS Multi-Viewer’s editing window.*
 
-    ![VS Multi-Viewer’s preview window.](images/VS-Multi-Viewer_Editor.png)
+    ![](images/VS-Multi-Viewer_Editor.png)
+    *VS Multi-Viewer’s preview window.*
 
 4.  [AvsPmod](https://github.com/AvsPmod/AvsPmod/releases). This is the
     editor for AviSynth. It is old and slow but stable. When you are
@@ -407,4 +410,8 @@ due to its versatility and compatibility.
 
 ---
 
-[^1]: It should be noted that the author strongly disagrees with this sentiment. The two have a lot in common, and any capable AviSynth encoder could reach a similar level in Vapoursynth within a few months, maybe even weeks. At least I'm honest, okay?
+[^1]: It should be noted that the author strongly disagrees with this sentiment.
+The two have a lot in common,
+and any capable AviSynth encoder could reach a similar level in Vapoursynth
+within a few months, maybe even weeks.
+At least I'm honest, okay?

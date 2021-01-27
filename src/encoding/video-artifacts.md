@@ -46,18 +46,20 @@ Bad lines happen,
 but its hard to say whether it's worth it to try to fix it.
 Using awarpsharp or sangnom to fix it will surely lead to disaster.
 
-![Rakudai-Kishi-no-Cavalry-ep.01.png](images/3cnvimage100.png)
+![](images/3cnvimage100.png)
+*Rakudai-Kishi-no-Cavalry-ep.01.png*
 
 
 ### Chromatic Aberration
 
-![Have I been staring at my monitor for too long?](images/3cnvimage101.png)
+![](images/3cnvimage101.png)
+*Have I been staring at my monitor for too long?*
 
 
 ### …and please don't do this
 
-![notevenonce.jpg](images/3cnvimage102.png)
-
+![](images/3cnvimage102.png)
+*notevenonce.jpg*
 
 
 ## Artifacts
@@ -69,11 +71,11 @@ If you happen to be encoding an MPEG2 TV station
 or a DVD from a previous decade,
 you will likely come across something like this:
 
-![Blocky Compression](images/blocky2.png)
+![](images/blocky2.png)
+*Blocky Compression*
 
-![Blocky Exaggeration](images/blocky1.jpg)
-
-<p align="center">(Urban, 2017)</p>
+![](images/blocky1.jpg)
+*Blocky Exaggeration[^2]*
 
 From Biamp's Blog[^2]:
 "Blocking is known by several names – including tiling,
@@ -87,9 +89,7 @@ is streamed over a low bandwidth connection
 (imagine a golf ball being passed through a garden hose).
 At decompression,
 the output of certain decoded blocks makes surrounding pixels
-appear averaged together to look like larger blocks." \(Urban, 2017\)
-
-
+appear averaged together to look like larger blocks." (Urban, 2017)
 
 Thankfully most blocking in BDs and web streams nowadays isn’t
 nearly as bad,
@@ -123,7 +123,8 @@ are the only two options.
 
 ### Banding
 
-![Example image for banding](images/banding.png)
+![](images/banding.png)
+*Example image for banding*
 
 Due to with its many flat areas and smooth gradients,
 banding is a frequent problem in anime,
@@ -184,9 +185,8 @@ edge enhancement artifacts,
 overshoot,
 or actual ring-like ringing caused by the Gibbs phenomenon.
 
-![Mosquito Noise](images/mosquito1.png)
-
-<p align="center">(Urban, 2017)</p>
+![](images/mosquito1.png)
+*Mosquito Noise[^2]*
 
 In Blu-ray encodes,
 the only ringing you’ll be likely to see is
@@ -232,7 +232,8 @@ or a manual filtering of dehalo\_alpha with dhhmask
 
 ### Cross-Field Noise
 
-[![field-noise.jpg](images/3cnvimage103.png)](https://diff.pics/84URvW5IYSdO/1)
+![](images/3cnvimage103.png)
+*field-noise.jpg*
 
 TODO
 
@@ -248,9 +249,11 @@ Thus, it is strongly recommended
 to check the brightness levels
 of the 8-bit source with `hist.Levels()`.
 
-[![Example of underflow (click for comparison)](images/underflow.jpg)](https://slowpics.org/comparison/f125e799-fdff-4c4c-8c9d-707af021bd88)
+![](images/underflow.jpg)
+*Example of underflow ([click for comparison](https://slowpics.org/comparison/f125e799-fdff-4c4c-8c9d-707af021bd88))*
 
-[![Example of overflow (click for comparison)](images/overflow.jpg)](https://slowpics.org/comparison/6e24ffe9-e068-4f33-b2e7-639031d512f2)
+![](images/overflow.jpg)
+*Example of overflow ([click for comparison](https://slowpics.org/comparison/6e24ffe9-e068-4f33-b2e7-639031d512f2))*
 
 To fix this problem,
 simply use [`resize`][resize] like so:
@@ -304,21 +307,41 @@ that may result in banding
 and other weird artifacts,
 can be seen below.
 
-![When you see a histogram like this, increase precision.](images/overflow_notice.jpg)
+![](images/overflow_notice.jpg)
+*When you see a histogram like this, increase precision.*
 
 [resize]: http://www.vapoursynth.com/doc/functions/resize.html
 [std-Levels]: http://www.vapoursynth.com/doc/functions/levels.html
 
 ---
 
-[^1]: At least, in digital anime. Actual grain is different but you most likely aren't encoding shows from the 90s so who cares.
+[^1]: At least, in digital anime.
+Actual grain is different but you most likely aren't encoding shows from the 90s
+so who cares.
 
-[^2]: Urban, J. (2017, February 16). Understanding Video Compression Artifacts. Retrieved from http://blog.biamp.com/understanding-video-compression-artifacts/
+[^2]: Urban, J. (2017, February 16).
+Understanding Video Compression Artifacts.
+Retrieved from http://blog.biamp.com/understanding-video-compression-artifacts/
 
-[^3]: Blocking may also occur for other reasons other than compression data loss. [Image re-construction with padding][waifu2x238] can cause very similar looking effects, although this is irrelevant for fansubbing source videos.
+[^3]: Blocking may also occur for other reasons
+other than compression data loss.
+[Image re-construction with padding][waifu2x238]
+can cause very similar looking effects,
+although this is irrelevant for fansubbing source videos.
 
-[^4]: The 8-bit limited range (used in rec.601 and rec.709) (and also BT.2020/2100) only defines values within $$[16,~235]$$ for the Y and $$[16,~240]$$ for the U and V planes. This means that Y=16 is considered full black and Y=235 full white, while any values outside of that range are clamped virtually (during rendering). U and V behave analogously.
+[^4]: The 8-bit limited range
+(used in rec.601, rec.709, and BT.2020/2100)
+only defines values within \\([16,~235]\\) for the Y
+and \\([16,~240]\\) for the U and V planes.
+This means that Y=16 is considered full black and Y=235 full white,
+while any values outside of that range are clamped virtually (during rendering).
+U and V behave analogously.
 
-[^5]: The limited ranges in different precisions are shifted by (multiplied by 2 to the power of) the added bits. For 12-bit, for example, you multiply by $$2^{12-8}$$, resulting in $$[256,~3760]$$ and $$[256,~3840]$$ respectively. The maximum value in full range is obviously the highest unsigned integer value, so $$2^{12}-1$$.
+[^5]: The limited ranges in different precisions are shifted by
+(multiplied by 2 to the power of) the added bits.
+For 12-bit, for example, you multiply by \\(2^{12-8}\\),
+resulting in \\([256,~3760]\\) and \\([256,~3840]\\) respectively.
+The maximum value in full range is obviously the highest unsigned integer value,
+so \\(2^{12}-1\\).
 
 [waifu2x238]: https://github.com/nagadomi/waifu2x/issues/238

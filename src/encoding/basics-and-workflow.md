@@ -12,18 +12,15 @@ requirements)
 imports, source filter (mention lsmash, ffms2), examples for resizing,
 debanding, AA. with images if possible
 
-## Encoding the Result
 
-{% term %}
-$ vspipe.exe script.vpy -y - | x264.exe --demuxer y4m --some example --parameters here --output video.264 -
-{% endterm %}
+## Encoding the Result
 
 ```sh
 $ vspipe.exe script.vpy -y - | x264.exe --demuxer y4m --some example --parameters here --output video.264 -
 ```
 
 Editors for VapourSynth usually have inbuilt support for encoding
-scripts you wrote. Use `%encode --y4m <clip_variable>` in Yuuno or the GUI
+scripts you wrote. Use `%encode --y4m <clip_variable>` in Yuuno or the GUI
 provided by VSEdit.
 
 

@@ -16,10 +16,6 @@ is greatly appreciated.
 Please open an issue on our [Github repository][issues]
 with your feedback,
 or begin working on a Pull Request.
-You can start editing any page
-by clicking on the
-<kbd><i class="fa fa-edit"></i> EDIT THIS PAGE</kbd>
-button in the top bar.
 
 If you are mainly looking for things to work on,
 refer to the [TODO](#todo) section.
@@ -52,51 +48,53 @@ why it only applies to a specific language.
 
 ### Technology
 
-This guide is written in [Markdown][]
-and uses legacy gitbook's [toolchain][] to compile
+This guide is written in [Markdown][] and uses [Rust's mdBook][mdbook] to compile
 the static HTML pages.
-Gitbook uses the [Github Flavoured Markdown][GFM] (GFM) variant.
 
 In order to build and preview the guide locally,
-you need [npm][] and [node.js][].
-The former is usually bundled with installation packages for node.
-Once you have those installed,
-run the following commands
-from the repository's folder:
+you only need to [install mdBook][],
+which can be done via the provided binaries
+or directly installing via [Crates.io][], Rust's package registry:
 
-{% term %}
-$ npm install
-added 611 packages from 674 contributors in 4.478s
+```
+$ cargo install mdbook
+Updating crates.io index
+Installing mdbook v0.4.1
+Downloaded syn v1.0.38
+...
+Downloaded 4 crates (501.9 KB) in 0.42s
+Compiling libc v0.2.74
+...
+Compiling mdbook v0.4.1
+Finished release [optimized] target(s) in 2m 56s
+```
 
-$ ./node_modules/.bin/gitbook install
-info: installing 5 plugins using npm@3.9.2
-…
-
-$ ./node_modules/.bin/gitbook serve --open
-Live reload server started on port: 35729
-Press CTRL+C to quit ...
-info: 12 plugins are installed
-info: loading plugin "highlight"... OK
-…
-info: found 11 pages
-info: found 21 asset files
-…
-info: >> generation finished with success in 1.6s !
-Starting server ...
-Serving book on http://localhost:4000
-{% endterm %}
-
-Afterwards, your browser will have opened
-with a preview of your files.
+Once an `mdbook` executable is installed,
+running `mdbook serve` in the root directory of the guide's repository
+and opening `http://localhost:3000` with your browser
+will show a preview of the book.
 Any changes you make to the source `.md` files
-will cause your browser to be refreshed
-and automatically reloaded.
+will cause your browser to be refreshed and automatically reloaded.
+
+```
+$ mdbook serve
+[INFO] (mdbook::book): Book building has started
+[INFO] (mdbook::book): Running the html backend
+[INFO] (mdbook::cmd::serve): Serving on: http://localhost:3000
+[INFO] (warp::server): Server::run; addr=V6([::1]:3000)
+[INFO] (warp::server): listening on http://[::1]:3000 
+[INFO] (mdbook::cmd::watch): Listening for changes...
+```
+
+Changes to the theme can be done by editing the `.css` files in `/theme/css/`.
+For information on adding plug-ins or changing the way the book is built,
+see the [mdBook User Guide][].
 
 [Markdown]: https://en.wikipedia.org/wiki/Markdown
-[toolchain]: https://github.com/GitbookIO/gitbook
-[GFM]: https://github.github.com/gfm/
-[npm]: https://npmjs.com/
-[node.js]: https://nodejs.org/
+[mdbook]: https://github.com/rust-lang/mdBook
+[install mdBook]: https://github.com/rust-lang/mdBook/tree/a00e7d17695d43af1f7999008b08a75bcb0c134f#installation
+[Crates.io]: https://crates.io/
+[mdBook User Guide]: https://rust-lang.github.io/mdBook/
 
 
 ### Adding a New Page
@@ -163,10 +161,10 @@ The following are the style guidelines
 for various aspects of this guide.
 The most important aspect is having **Semantic Linefeeds**.
 The other points may serve as guidelines for formatting future pages.
-Refer to [gitbook's markdown documentation][gitbookMarkdown][^1]
+Refer to the [Markdown Guide][]
 for guidelines on visual formatting.
 
-[gitbookMarkdown]: https://gitbookio.gitbooks.io/documentation/content/format/markdown.html
+[Markdown Guide]: https://www.markdownguide.org/basic-syntax
 
 
 ### Semantic Linefeeds (!)
@@ -195,8 +193,6 @@ any other sentence terminating punctuation,
 parenthesized sentences (not words),
 or new items in a long list
 (such as the one you are reading right now).
-
-[Footnotes](#footnotes) are an exception and must be written all on one line.
 
 [Semantic Linefeeds]: https://rhodesmill.org/brandon/2012/one-sentence-per-line/
 
@@ -298,20 +294,22 @@ If you are linking to a section on the same page,
 An example of this is [the hyperlink section you are reading](#hyperlinking).
 In markdown, this is simply `[the hyperlink section you are reading](#hyperlinking)`.
 
-The section names are converted to all lowercase[^2],
-and whitespace is converted to a dash.
-Special characters excluding the dash are ignored.
-For example, a section titled *Foo & BAR-2 !* is converted to
-`#foo--bar-2-`.
+Section names are converted to all lowercase,
+replacing spaces with a `-` dash,
+while disregarding all non-alphanumeric characters
+with the exception of the literal `-` dash being kept.
+Therefore, a section named `$aFoo-Bar b2 !` can be referenced
+as `foobar.md#afoo-bar-b2-`.
 
 
 ### Adding Images
 
 When adding images to your paragraphs,
-use the following syntax:
+use the following syntax[^1]:
 
 ```
-![Visible caption text](images/filename.png)
+![](images/filename.png)
+*Visible caption text*
 ```
 
 Make sure your image is separated from other images or text
@@ -330,7 +328,7 @@ lossless PNG compression: <code>pingo -sa file.png</code>.
 
 When extracting frames directly from a VapourSynth pipline
 where the format might be `vs.YUV420P16` (YUV 4:2:0, 16-bit),
-convert your image to `vs.RGB24` (RGB 8-bit) before saving as a PNG.[^3]
+convert your image to `vs.RGB24` (RGB 8-bit) before saving as a PNG.
 This is because many, if not all, browsers don't support
 images with bit-depths higher than 8 bpp,
 and the dithering behavior of some browsers may be different from others
@@ -364,15 +362,6 @@ under a horizontal rule.
 [PapersOwl]: https://papersowl.com/apa-citation-generator
 
 
-### Glossary
-
-If you find yourself repeating a term or concept
-that should be explained elsewhere,
-feel free to add the term to the `GLOSSARY.md` file.
-Examples of this can be found on the
-[Aegisub and Other Tools](typesetting/aegisub.md) page.
-
-
 ### Footnotes
 
 Footnotes can be used for information that would interrupt
@@ -383,12 +372,6 @@ and an additional `[^#]: Text here...` at the bottom of the page,
 separated by a horizontal rule `---`,
 where `#` is to be replaced with an increasing
 and per-page unique number.
-
-<div class="warning box"><p>
-The footnote text at the bottom of the page
-must all be written one line per footnote.
-Line breaks <strong>cannot</strong> be used.
-</p></div>
 
 
 ### Info/Warning boxes
@@ -420,14 +403,14 @@ This class should be used for important information.
 ```
 
 
-### Mathematics with TeX
+### Mathematics with MathJax
 
-This guide has KaTeX support,
+This guide has MathJax support,
 so in-line or block mathematics can be rendered with TeX.
 This obviously requires knowledge of TeX syntax and the supported functions
-listed in the [KaTeX documentation][].
-To start in-line formulas, the syntax is `$$...$$`.
-Similarly, the block formulas' syntax is:
+listed in the [MathJax documentation][].
+To start in-line formulas, the syntax is `\\( ... \\)`.
+On the other hand, the block formulas' syntax is:
 
 ```md
 $$
@@ -438,28 +421,11 @@ $$
 Similar to \`\`\` fenced code blocks,
 separate these blocks with one blank line on either side.
 
-<div class="info box"><p>
-Both {<code>% math %</code>} and {<code>% endmath %</code>} templates
-can be entirely replaced by two <code>$</code>'s,
-so any math between \$\$ ... \$\$ will render with KaTeX<sup><a href="#fn_4" id="reffn_4">4</a></sup>.
-However, using \$\$ within in-line `code`, code blocks, or info boxes
-will change these into the templates above
-(making printing "\$\$" in code impossible).
-</p></div>
-
-[KaTeX documentation]: https://katex.org/docs/supported.html
+[MathJax documentation]: http://docs.mathjax.org/en/latest/input/tex/index.html
 
 ---
 
-[^1]: The new gitbook spec is very different than the version this book is using. Almost none of the information from [gitbook's new website][new-gitbook] applies.
-
-[^2]: This is different from how github.com's markdown preview behaves.
-
-[^3]: There is a [Python script][vscompare] designed to automate this process for image saving and comparison websites (i.e. [slowpics][]).
-
-[^4]: Please view the [markdown of this page][contrib-md] for an example of KaTeX math using `$` symbols.
-
-[new-gitbook]: https://www.gitbook.com/
-[vscompare]: https://github.com/OrangeChannel/my-python-scripts/blob/master/VapourSynth/vscompare.py
-[slowpics]: https://slow.pics/
-[contrib-md]: https://github.com/Irrational-Encoding-Wizardry/guide.encode.moe/edit/master/CONTRIBUTING.md
+[^1]: This differs from normal Markdown image syntax,
+by abusing CSS tags to render the `Visual caption text`
+centered and under the image.
+This may be changed in the future with a plug-in.
