@@ -1,0 +1,562 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js rust">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Contributing to the Guide</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "rust";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">Introduction</a></li><li class="chapter-item expanded affix "><a href="CONTRIBUTING.html" class="active">Contributing to the Guide</a></li><li class="chapter-item expanded affix "><li class="part-title">General Fansubbing</li><li class="chapter-item expanded "><a href="overview/preface.html"><strong aria-hidden="true">1.</strong> Preface</a></li><li class="chapter-item expanded "><a href="overview/roles.html"><strong aria-hidden="true">2.</strong> Roles</a></li><li class="chapter-item expanded "><a href="overview/requirements.html"><strong aria-hidden="true">3.</strong> Requirements</a></li><li class="chapter-item expanded affix "><li class="part-title">Encoding</li><li class="chapter-item expanded "><a href="encoding/preparation.html"><strong aria-hidden="true">4.</strong> Preparations and Necessary Software</a></li><li class="chapter-item expanded "><a href="encoding/basics-and-workflow.html"><strong aria-hidden="true">5.</strong> Basics and General Workflow</a></li><li class="chapter-item expanded "><a href="encoding/video-artifacts.html"><strong aria-hidden="true">6.</strong> Recognizing Video Artifacts</a></li><li class="chapter-item expanded "><a href="encoding/scenefiltering.html"><strong aria-hidden="true">7.</strong> Scenefiltering</a></li><li class="chapter-item expanded "><a href="encoding/masking-limiting-etc.html"><strong aria-hidden="true">8.</strong> Masking, Limiting, and Related Functions</a></li><li class="chapter-item expanded "><a href="encoding/descaling.html"><strong aria-hidden="true">9.</strong> Descaling</a></li><li class="chapter-item expanded "><a href="encoding/resampling.html"><strong aria-hidden="true">10.</strong> Resampling</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">11.</strong> Codecs</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="encoding/codecs/x264.html"><strong aria-hidden="true">11.1.</strong> x264</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Typesetting</li><li class="chapter-item expanded "><a href="typesetting/aegisub.html"><strong aria-hidden="true">12.</strong> Aegisub and Other Tools</a></li><li class="chapter-item expanded affix "><li class="part-title">Resources and References</li><li class="chapter-item expanded "><a href="archived-websites/bt601-vs-bt709.html"><strong aria-hidden="true">13.</strong> Colorspaces</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="impressum.html">Impressum</a></li><li class="chapter-item expanded affix "><a href="privacy-policy.html">Privacy Policy</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        <a href="https://github.com/Irrational-Encoding-Wizardry/guide.encode.moe" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#contribution-guidelines" id="contribution-guidelines">Contribution Guidelines</a></h1>
+<p>If you are interested in supporting
+or contributing to this guide,
+please keep on reading.</p>
+<p><strong>If you are not,
+feel free to skip to the next page.</strong></p>
+<hr />
+<p>We are currently still in the early phases of this guide,
+so any form of contribution,
+including just giving feedback,
+is greatly appreciated.
+Please open an issue on our <a href="https://github.com/Irrational-Encoding-Wizardry/guide.encode.moe/issues">Github repository</a>
+with your feedback,
+or begin working on a Pull Request.</p>
+<p>If you are mainly looking for things to work on,
+refer to the <a href="#todo">TODO</a> section.</p>
+<h2><a class="header" href="#general" id="general">General</a></h2>
+<h3><a class="header" href="#language" id="language">Language</a></h3>
+<p>The language of this guide is <strong>English</strong>.
+American or British English are both acceptable
+and there is no preference for either.</p>
+<p>The only exceptions are
+pages specific to a particular language,
+for example with references to online dictionaries
+or official grammar rule books,
+or other typographic advices,
+for example concerning the usage of quotation marks.</p>
+<p>When adding such a page,
+please briefly describe in your Pull Request
+what the text is about,
+what topics it covers,
+and, if necessary,
+why it only applies to a specific language.</p>
+<h3><a class="header" href="#technology" id="technology">Technology</a></h3>
+<p>This guide is written in <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a> and uses <a href="https://github.com/rust-lang/mdBook">Rust’s mdBook</a> to compile
+the static HTML pages.</p>
+<p>In order to build and preview the guide locally,
+you only need to <a href="https://github.com/rust-lang/mdBook/tree/a00e7d17695d43af1f7999008b08a75bcb0c134f#installation">install mdBook</a>,
+which can be done via the provided binaries
+or directly installing via <a href="https://crates.io/">Crates.io</a>, Rust’s package registry:</p>
+<pre><code>$ cargo install mdbook
+Updating crates.io index
+Installing mdbook v0.4.1
+Downloaded syn v1.0.38
+...
+Downloaded 4 crates (501.9 KB) in 0.42s
+Compiling libc v0.2.74
+...
+Compiling mdbook v0.4.1
+Finished release [optimized] target(s) in 2m 56s
+</code></pre>
+<p>Once an <code>mdbook</code> executable is installed,
+running <code>mdbook serve</code> in the root directory of the guide’s repository
+and opening <code>http://localhost:3000</code> with your browser
+will show a preview of the book.
+Any changes you make to the source <code>.md</code> files
+will cause your browser to be refreshed and automatically reloaded.</p>
+<pre><code>$ mdbook serve
+[INFO] (mdbook::book): Book building has started
+[INFO] (mdbook::book): Running the html backend
+[INFO] (mdbook::cmd::serve): Serving on: http://localhost:3000
+[INFO] (warp::server): Server::run; addr=V6([::1]:3000)
+[INFO] (warp::server): listening on http://[::1]:3000 
+[INFO] (mdbook::cmd::watch): Listening for changes...
+</code></pre>
+<p>Changes to the theme can be done by editing the <code>.css</code> files in <code>/theme/css/</code>.
+For information on adding plug-ins or changing the way the book is built,
+see the <a href="https://rust-lang.github.io/mdBook/">mdBook User Guide</a>.</p>
+<h3><a class="header" href="#adding-a-new-page" id="adding-a-new-page">Adding a New Page</a></h3>
+<p>In order for your page to be accessible,
+you need to add it to the <code>SUMMARY.md</code> file.
+The title used there will be used in the navigation bar,
+so keep it short.</p>
+<h3><a class="header" href="#todo" id="todo">TODO</a></h3>
+<p>Various sections are still under construction.
+You will occasionally find <code>TODO</code> as verbatim text
+or within comments.</p>
+<p>Our goal is to have a section
+with one or more pages
+for each of the roles
+specified in the roles page.</p>
+<p>Feel free to work on any of the <code>TODO</code> marks
+or create a new section.</p>
+<p>Currently, we aim to add the following topics
+in no particular priority:</p>
+<ul>
+<li>Workflow</li>
+<li>Translation</li>
+<li>Edit</li>
+<li>Timing
+<ul>
+<li>Basic Procedure</li>
+<li>Snapping</li>
+<li>Joining, Splitting</li>
+<li>Post-processing (TPP &amp; Useful Scripts)</li>
+<li>Shifting &amp; <a href="https://github.com/tp7/Sushi/releases">Sushi</a></li>
+<li>Karaoke</li>
+</ul>
+</li>
+<li>Typesetting
+<ul>
+<li>…with Aegisub
+<ul>
+<li>Styling (of dialogue)</li>
+<li>Signs
+<ul>
+<li>Positioning, Layers, Rotation, Perspective, …</li>
+</ul>
+</li>
+<li>Masking</li>
+<li><a href="https://github.com/TypesettingTools">Automation Scripts</a></li>
+<li>Movement &amp; Motion Tracking</li>
+</ul>
+</li>
+<li>…<a href="https://typesettingtools.github.io/2014/08/25/typesetting-with-illustrator-and-ai2ass-part-1.html">with Adobe Illustrator</a></li>
+<li>(…with Adobe After Effects)</li>
+</ul>
+</li>
+<li>Encoding [<em>I’m sure there’s something to be done</em>]</li>
+<li>Quality Check</li>
+<li>Karaoke Effects</li>
+</ul>
+<p>There is a collection of links <a href="https://github.com/Irrational-Encoding-Wizardry/guide.encode.moe/issues/2">here</a> that can be used as reference
+when working on any future section.</p>
+<h2><a class="header" href="#style-guidelines" id="style-guidelines">Style Guidelines</a></h2>
+<p>The following are the style guidelines
+for various aspects of this guide.
+The most important aspect is having <strong>Semantic Linefeeds</strong>.
+The other points may serve as guidelines for formatting future pages.
+Refer to the <a href="https://www.markdownguide.org/basic-syntax">Markdown Guide</a>
+for guidelines on visual formatting.</p>
+<h3><a class="header" href="#semantic-linefeeds-" id="semantic-linefeeds-">Semantic Linefeeds (!)</a></h3>
+<p>Always use <a href="https://rhodesmill.org/brandon/2012/one-sentence-per-line/">Semantic Linefeeds</a> when editing text.
+They are used
+to break lines into logical units
+rather than after a certain line length threshold is reached!</p>
+<p>They drastically improve sentence parsing
+in the human brain
+and make code diffing much more simple
+compared to hard-wrapping at 80 columns.
+You should still aim
+not to exceed 80 columns in a single line,
+but unless you are writing code or URLs,
+you will most likely not have any problems with this.
+Markdown will collapse adjacent lines into a paragraph,
+so you don’t have to worry about the rendered result.</p>
+<p>As a rule of thumb,
+always start a new line on
+a comma,
+a period,
+any other sentence terminating punctuation,
+parenthesized sentences (not words),
+or new items in a long list
+(such as the one you are reading right now).</p>
+<h3><a class="header" href="#indentation" id="indentation">Indentation</a></h3>
+<p>The indent size is <strong>two spaces</strong>.</p>
+<h3><a class="header" href="#lists" id="lists">Lists</a></h3>
+<p>Unordered list lines should be indented <strong>once</strong>,
+while ordered lists are indented <strong>twice</strong>.
+The text of an unordered item should have one space after the <code>-</code>,
+while the text of an ordered item
+should start on the fourth column
+(start every line with the number 1).</p>
+<pre><code class="language-md">- This is an unordered list
+  - With a sublist
+  - And another item in that sublist
+</code></pre>
+<pre><code class="language-md">1. This is an ordered list
+1. Another list item
+…
+1. Last entry of the list
+</code></pre>
+<h3><a class="header" href="#blank-lines" id="blank-lines">Blank Lines</a></h3>
+<p>All block lists
+should be separated from text
+with a blank line on each side.
+The same applies to code blocks.</p>
+<p>Separate headings from text with <strong>two</strong> blank lines before the heading,
+and <strong>one</strong> after.
+Headings immediately following their parent heading
+only need one blank line in-between.</p>
+<p>Additionally, separate text from end-of-section hyperlink lists
+with <strong>one</strong> blank line before the list.
+For image embeds,
+there should be a blank line on each side.</p>
+<p>Horizontal rules can be useful for splitting subsections or
+as a visual guide to where the next explanation begins.
+They are created with a sole <code>---</code> on its own line,
+and must have a blank line on each side.</p>
+<h3><a class="header" href="#hyperlinking" id="hyperlinking">Hyperlinking</a></h3>
+<p>There are three types of hyperlinks.</p>
+<ul>
+<li>The text you want highlighted is more than one word,
+or different than the shorthand name of the link.
+<ul>
+<li><code>[website's great article][short]</code></li>
+<li><a href="https://guide.encode.moe/">website’s great article</a></li>
+</ul>
+</li>
+<li>The text you want highlighted is the same as the shorthand.
+<ul>
+<li><code>[short][]</code></li>
+<li><a href="https://guide.encode.moe/">short</a></li>
+</ul>
+</li>
+<li>You want the full address displayed.
+<ul>
+<li><code>&lt;https://guide.encode.moe/&gt;</code></li>
+<li><a href="https://guide.encode.moe/">https://guide.encode.moe/</a></li>
+</ul>
+</li>
+</ul>
+<p>For the first two hyperlinking styles,
+you will want to include a line at the end of that header section
+in the following format.</p>
+<p><code>[short]: https://guide.encode.moe/</code></p>
+<p>If there are multiple links used in the first two styles,
+you will want multiple lines at the end of the header section.</p>
+<pre><code class="language-md">[short1]: https://guide.encode.moe/
+[short2]: https://guide.encode.moe/CONTRIBUTING.HTML
+…
+</code></pre>
+<p>For relative links (links to other pages,
+images,
+or files within this repository),
+follow the guidelines for <a href="https://github.com/benbalter/jekyll-relative-links/blob/master/README.md">Jekyll Relative Links</a>.</p>
+<h4><a class="header" href="#section-linking" id="section-linking">Section Linking</a></h4>
+<p>If you are linking to a section on the same page,
+<code>[section name](#header)</code> is allowed in-line.
+An example of this is <a href="#hyperlinking">the hyperlink section you are reading</a>.
+In markdown, this is simply <code>[the hyperlink section you are reading](#hyperlinking)</code>.</p>
+<p>Section names are converted to all lowercase,
+replacing spaces with a <code>-</code> dash,
+while disregarding all non-alphanumeric characters
+with the exception of the literal <code>-</code> dash being kept.
+Therefore, a section named <code>$aFoo-Bar b2 !</code> can be referenced
+as <code>foobar.md#afoo-bar-b2-</code>.</p>
+<h3><a class="header" href="#adding-images" id="adding-images">Adding Images</a></h3>
+<p>When adding images to your paragraphs,
+use the following syntax<sup class="footnote-reference"><a href="#1">1</a></sup>:</p>
+<pre><code>![](images/filename.png)
+*Visible caption text*
+</code></pre>
+<p>Make sure your image is separated from other images or text
+with a blank line above and below,
+as this will align them correctly
+and allow for the caption to be displayed.</p>
+<div class="warning box"><p>
+Try to avoid adding lossy images to the guide
+(all screenshots should be lossless from the source).
+Also, make sure your image is compressed as much as possible
+<strong>before committing</strong> it.
+This can be done with <a href="https://www.css-ig.net/pingo" target="_blank">pingo</a>'s
+lossless PNG compression: <code>pingo -sa file.png</code>.
+</p></div>
+<p>When extracting frames directly from a VapourSynth pipline
+where the format might be <code>vs.YUV420P16</code> (YUV 4:2:0, 16-bit),
+convert your image to <code>vs.RGB24</code> (RGB 8-bit) before saving as a PNG.
+This is because many, if not all, browsers don’t support
+images with bit-depths higher than 8 bpp,
+and the dithering behavior of some browsers may be different from others
+or poorly executed.</p>
+<p>You can change the format and bit-depth
+while saving to a PNG file with the following lines:</p>
+<pre><code class="language-py"># replace `{frame}` with the frame number of the clip you are extracting
+out = core.imwri.Write(clip[{frame}].resize.Bicubic(format=vs.RGB24, matrix_in_s='709', dither_type='error_diffusion', filter_param_a_uv=0.33, filter_param_b_uv=0.33), 'PNG', '%06d.png', firstnum={frame})
+out.get_frame(0)
+</code></pre>
+<h3><a class="header" href="#citations" id="citations">Citations</a></h3>
+<p>If you are archiving another website’s text
+or copying their images into this repository,
+make sure to cite your sources using APA formatting.
+To generate APA citations,
+use <a href="https://papersowl.com/apa-citation-generator">PapersOwl</a>.
+Only use this if you fear the website is not a permanent source.</p>
+<p>For mid-document citations,
+use “in-text citations” with footnotes for the full citations.
+For a full document citation,
+simply place the full citation at the bottom of the document,
+under a horizontal rule.</p>
+<h3><a class="header" href="#footnotes" id="footnotes">Footnotes</a></h3>
+<p>Footnotes can be used for information that would interrupt
+the flow or purpose of a paragraph,
+but may still be of interest.
+They are created with <code>[^#]</code> in-text,
+and an additional <code>[^#]: Text here...</code> at the bottom of the page,
+separated by a horizontal rule <code>---</code>,
+where <code>#</code> is to be replaced with an increasing
+and per-page unique number.</p>
+<h3><a class="header" href="#infowarning-boxes" id="infowarning-boxes">Info/Warning boxes</a></h3>
+<p>Info boxes can be used similarly to footnotes,
+but for information that the reader might want to know
+before continuing to read the rest of the page.</p>
+<p>Warning boxes are similar but are for information
+that is necessary for the reader to know
+before continuing to read the rest of the page.</p>
+<p>The current syntax uses in-line HTML to render these paragraphs with a
+different CSS style.
+These paragraphs must be separated with a blank line above and below similar
+to images or code blocks.</p>
+<pre><code class="language-md">&lt;div class=&quot;info box&quot;&gt;&lt;p&gt;
+Text here as usual, using semantic linefeed rules.
+If you need text-formatting, you &lt;strong&gt;must&lt;/strong&gt; use in-line HTML.
+&lt;/p&gt;&lt;/div&gt;
+</code></pre>
+<pre><code class="language-md">&lt;div class=&quot;warning box&quot;&gt;&lt;p&gt;
+This class should be used for important information.
+&lt;/p&gt;&lt;/div&gt;
+</code></pre>
+<h3><a class="header" href="#mathematics-with-mathjax" id="mathematics-with-mathjax">Mathematics with MathJax</a></h3>
+<p>This guide has MathJax support,
+so in-line or block mathematics can be rendered with TeX.
+This obviously requires knowledge of TeX syntax and the supported functions
+listed in the <a href="http://docs.mathjax.org/en/latest/input/tex/index.html">MathJax documentation</a>.
+To start in-line formulas, the syntax is <code>\\( ... \\)</code>.
+On the other hand, the block formulas’ syntax is:</p>
+<pre><code class="language-md">$$
+...
+$$
+</code></pre>
+<p>Similar to ``` fenced code blocks,
+separate these blocks with one blank line on either side.</p>
+<hr />
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>This differs from normal Markdown image syntax,
+by abusing CSS tags to render the <code>Visual caption text</code>
+centered and under the image.
+This may be changed in the future with a plug-in.</p>
+</div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="overview/preface.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="overview/preface.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

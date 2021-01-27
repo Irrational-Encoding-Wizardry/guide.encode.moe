@@ -1,0 +1,630 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js rust">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Descaling</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "rust";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../index.html">Introduction</a></li><li class="chapter-item expanded affix "><a href="../CONTRIBUTING.html">Contributing to the Guide</a></li><li class="chapter-item expanded affix "><li class="part-title">General Fansubbing</li><li class="chapter-item expanded "><a href="../overview/preface.html"><strong aria-hidden="true">1.</strong> Preface</a></li><li class="chapter-item expanded "><a href="../overview/roles.html"><strong aria-hidden="true">2.</strong> Roles</a></li><li class="chapter-item expanded "><a href="../overview/requirements.html"><strong aria-hidden="true">3.</strong> Requirements</a></li><li class="chapter-item expanded affix "><li class="part-title">Encoding</li><li class="chapter-item expanded "><a href="../encoding/preparation.html"><strong aria-hidden="true">4.</strong> Preparations and Necessary Software</a></li><li class="chapter-item expanded "><a href="../encoding/basics-and-workflow.html"><strong aria-hidden="true">5.</strong> Basics and General Workflow</a></li><li class="chapter-item expanded "><a href="../encoding/video-artifacts.html"><strong aria-hidden="true">6.</strong> Recognizing Video Artifacts</a></li><li class="chapter-item expanded "><a href="../encoding/scenefiltering.html"><strong aria-hidden="true">7.</strong> Scenefiltering</a></li><li class="chapter-item expanded "><a href="../encoding/masking-limiting-etc.html"><strong aria-hidden="true">8.</strong> Masking, Limiting, and Related Functions</a></li><li class="chapter-item expanded "><a href="../encoding/descaling.html" class="active"><strong aria-hidden="true">9.</strong> Descaling</a></li><li class="chapter-item expanded "><a href="../encoding/resampling.html"><strong aria-hidden="true">10.</strong> Resampling</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">11.</strong> Codecs</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../encoding/codecs/x264.html"><strong aria-hidden="true">11.1.</strong> x264</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Typesetting</li><li class="chapter-item expanded "><a href="../typesetting/aegisub.html"><strong aria-hidden="true">12.</strong> Aegisub and Other Tools</a></li><li class="chapter-item expanded affix "><li class="part-title">Resources and References</li><li class="chapter-item expanded "><a href="../archived-websites/bt601-vs-bt709.html"><strong aria-hidden="true">13.</strong> Colorspaces</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="../impressum.html">Impressum</a></li><li class="chapter-item expanded affix "><a href="../privacy-policy.html">Privacy Policy</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        <a href="https://github.com/Irrational-Encoding-Wizardry/guide.encode.moe" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#descaling" id="descaling">Descaling</a></h1>
+<p>The ability to descale is a wonderful tool
+to have in any encoder’s arsenal.
+You may have heard before that
+most anime are not native 1080p,
+but a lower resolution.
+But how do we make use of that?
+How do you find the native resolution
+and reverse the upscale?</p>
+<h2><a class="header" href="#when-and-where-to-descale" id="when-and-where-to-descale">When and where to descale</a></h2>
+<p>There are many circumstances
+where descaling might prove beneficial.
+For example,
+say you’ve got
+a very blurry Blu-ray source.
+Rather than sharpening it,
+you might want to consider
+checking if it’s possible to descale it
+and maybe alleviate a lot of
+the blur that way.
+Or the opposite:
+say you’ve got a source full of ringing.
+It might have been upscaled
+using a very sharp kernel,
+so it’s worth a try
+to see if it can be descaled.
+It’s no surprise that descaling tends to
+offer far better lineart
+than usual rescaling does.</p>
+<p>However, descaling is not always an option.
+The worse your source is,
+the less likely it is that
+descaling will yield better results
+than a simple resample.
+If you’ve got a source
+full of broken gradients
+or noise patterns,
+like your average simulcast stream,
+descaling might only hurt the overall quality.
+Sadly, sources with a lot of post-processing
+might also prove tough to properly descale
+without dabbling with specific masks.
+However, as long as you’ve got
+a source with nice, clean lineart,
+descaling might be a viable option,
+and possibly nullify the need
+for a lot of other filtering.</p>
+<h2><a class="header" href="#preparation" id="preparation">Preparation</a></h2>
+<p>To prepare for figuring out the native resolution,
+you’ll want to use <a href="https://github.com/Infiziert90/getnative">getnative</a>,
+a Python script designed for
+figuring out the resolution
+a show was animated at.
+For the actual descaling,
+make sure to grab BluBb-mADe’s <a href="https://github.com/BluBb-mADe/vapoursynth-descale">descale</a>.</p>
+<p>One important thing
+to keep in mind when descaling
+is that you will never find
+“the perfect descaling settings”.
+Even if you find the exact settings
+that the studio used,
+you won’t be able to get a frame-perfect replica
+of the original frame.
+This is because the best available sources to consumers,
+usually Blu-rays,
+aren’t lossless.
+There are always going to be some differences
+from the original masters
+which makes it impossible
+to perfectly descale something.
+However, usually those differences
+are so small that they’re negligible.
+If you run into a case where
+you can’t find any low relative error spikes,
+descaling can be highly destructive.
+It’s instead recommended to resize
+as you would normally,
+or to not mess with scaling at all.</p>
+<h2><a class="header" href="#finding-out-the-native-resolution" id="finding-out-the-native-resolution">Finding out the native resolution</a></h2>
+<p>To figure out what
+the native resolution of an anime is,
+first you need a good frame to test.
+Ideally,
+you’ll want a bright frame
+with as little blur as possible of high quality
+(Blu-ray or very good webstreams).
+It also helps to not have
+too many post-processed elements in the picture.
+Whilst it is most definitely possible
+to get pretty good results with “bad” frames,
+it’s generally better to use
+good frames whenever possible.</p>
+<p>Here are some examples of “bad” frames.</p>
+<p><img src="images/descale_manaria01.png" alt="" />
+<em>Manaria Friends — 01 (frame 1)</em></p>
+<p>This picture is dark.
+It also has some effects over it.</p>
+<p><img src="images/descale_manaria02.png" alt="" />
+<em>Manaria Friends — 01 (frame 2)</em></p>
+<p>This picture is also very dark
+and has even more effects over it.</p>
+<p><img src="images/descale_manaria03.png" alt="" />
+<em>Manaria Friends — 01 (frame 3)</em></p>
+<p>Heavy dynamic grain will almost always give bad results.</p>
+<p><img src="images/descale_manaria04.png" alt="" />
+<em>Manaria Friends — 01 (frame 4)</em></p>
+<p>This is a nice frame to use as reference.
+The background is a bit blurry,
+but it isn’t full of effects
+and is fairly bright.
+The lineart is very clear.</p>
+<p>We will now make use of the getnative.py script
+to figure out what resolution
+this anime was produced at.
+Run the following in your terminal:</p>
+<pre><code class="language-bash">$ python getnative.py &quot;descale_manaria04.png&quot;
+</code></pre>
+<p>It should show the following:</p>
+<pre><code>Using imwri as source filter
+501/501
+Kernel: bicubic AR: 1.78 B: 0.33 C: 0.33
+Native resolution(s) (best guess): 878p
+done in 18.39s
+</code></pre>
+<p>If you check the directory
+where you executed the script,
+you will find a new folder
+called “getnative”.
+You can find the following graph
+in there as well:</p>
+<p><img src="images/descale_graph.png" alt="" />
+<em>Manaria Friends — 01 (frame 4 getnative graph)</em></p>
+<p>The X-axis shows the resolutions that were checked,
+and the Y-axis shows the relative error.
+The relative error refers to
+the difference between the original frame
+and the rescaled frame.
+What you’re looking for are
+the spikes that show a low relative error.
+In this case it very clearly points to 878p.</p>
+<p>As a sidenote,
+it’s important to keep in mind that this script
+can’t find native 1080p elements.
+This is because it descales the frame
+and re-upscales it afterwards
+to determine the relative error.
+You can’t descale to 1080p
+if the frame is already 1080p.
+If you have reason to believe
+that your show might be native 1080p,
+you’ve got to go with your gut.</p>
+<p><img src="images/descale_native1080_graph.png" alt="" />
+<em>Date A Live III — 01 (getnative graph)</em></p>
+<p>An example of a graph for a native 1080p show.</p>
+<p>You may notice that the line swerves a bit
+in the first graph.
+There are going to be cases where
+you will get odd graphs like these,
+so it’s important to know
+when the results are safe enough to descale
+or when they’re too risky.
+Here is an example of
+a “bad” graph:</p>
+<p><img src="images/descale_bad_graph1.png" alt="" />
+<em>Miru Tights — 02 (getnative graph)</em></p>
+<pre><code>Output:
+Kernel: bicubic AR: 1.78 B: 0.33 C: 0.33
+Native resolution(s) (best guess): 869p, 848p
+</code></pre>
+<p>The script has determined that
+it’s likely either 848p
+or 869p.
+However,
+there are no clear spikes in this graph
+like there was in the Manaria Friends one.
+The results are not clear enough
+to work off of.
+Here’s another example:</p>
+<p><img src="images/descale_bad_graph2.png" alt="" />
+<em>Black Lagoon (getnative graph)</em></p>
+<pre><code>Output:
+Kernel: bicubic AR: 1.78 B: 0.33 C: 0.33
+Native resolution(s) (best guess): 1000p, 974p, 810p
+</code></pre>
+<p>This graph has a lot of unnatural swerves
+and it’s impossible to determine
+what the native resolution is.</p>
+<p>Another pitfall you’ve got
+to watch out for
+is checking the results of a frame
+with letterboxing.</p>
+<p><img src="images/descale_ararararagi.png" alt="" />
+<em>Kizumonogatari I</em></p>
+<p><img src="images/descale_ararararagi_graph.png" alt="" />
+<em>Kizumonogatari I (getnative graph)</em></p>
+<p>You will have to crop them beforehand
+or they will return odd graphs like this.</p>
+<p>For a change of pace,
+let’s look at a good graph.</p>
+<p><img src="images/descale_good_graph.png" alt="" />
+<em>Aikatsu Friends! — NCOP (getnative graph)</em></p>
+<pre><code>Output:
+Kernel: bicubic AR: 1.78 B: 0.33 C: 0.33
+Native resolution(s) (best guess): 810p
+</code></pre>
+<p>The results are very clear.
+There are a couple of deviations,
+but there’s a very clear spike
+going down to 810p.
+This is a good result
+for testing out varying kernels.</p>
+<h2><a class="header" href="#descaling-1" id="descaling-1">Descaling</a></h2>
+<p>Now it’s time to actually start descaling.
+Open up your VapourSynth editor of choice,
+and import the clip:</p>
+<pre><code class="language-Py">src = core.lsmas.LWLibavSource(&quot;BDMV/[BDMV][190302][マナリアフレンズ I]/BD/BDMV/STREAM/00007.m2ts&quot;)
+</code></pre>
+<p>The next issue is figuring out
+what was used to <a href="resampling.html#upsampling">upscale</a> the show.
+By default,
+getnative.py checks with Mitchell-Netravali
+(bicubic b=1/3, c=1/3).
+However, it might have also been upscaled
+using other kernels.</p>
+<p>Here is a list
+of some common kernels and values.</p>
+<ul>
+<li>Lanczos</li>
+<li>Spline16</li>
+<li>Spline36</li>
+<li>Bilinear</li>
+<li>Bicubic b=1, c=0 (B-Spline)</li>
+<li>Bicubic b=0, c=0 (Hermite)</li>
+<li>Bicubic b=1/3, c=1/3 (Mitchell-Netravali)</li>
+<li>Bicubic b=0, c=0.5 (Catmull-Rom)</li>
+<li>Bicubic b=0, c=1 (Sharp Bicubic)</li>
+</ul>
+<p>The best way to figure out
+what is used is to simply try out
+a bunch of different kernels
+and use your eyes.
+Check for common scaling-related artifacting,
+like haloing, ringing, aliasing, etc.</p>
+<p>For bicubic,
+it is important
+to keep in mind that
+you will typically find that
+the values match the following mathematical expressions:</p>
+<ul>
+<li><code>b + 2c = 1</code></li>
+<li><code>b = 0, c = X</code></li>
+<li><code>b = 1, c = 0</code></li>
+</ul>
+<p>Whilst this isn’t a 100% guarantee,
+it is the most common approach
+to rescaling using bicubic,
+so it’s worth keeping in mind.</p>
+<p>Here’s an example of the previous frame
+when descaled using various kernels and settings
+(note that descale requires either GrayS, RGBS, or YUV444PS.
+I’ll be using <code>split</code> and <code>join</code> from <code>kagefunc</code> to split the planes
+and then join them again in this example,
+and <code>get_w</code> from <code>vsutil</code> to calculate the width)<sup class="footnote-reference"><a href="#1">1</a></sup>:</p>
+<p><a href="https://slowpics.org/comparison/61e39e1e-d074-4d83-b7c9-b0f4e1861855">Comparison between frames</a></p>
+<pre><code class="language-py">from vapoursynth import core
+import vsutil
+import kagefunc as kgf
+import fvsfunc as fvf
+
+src = core.lsmas.LWLibavSource(&quot;BDMV/[BDMV][190302][マナリアフレンズ I]/BD/BDMV/STREAM/00007.m2ts&quot;)
+src = fvf.Depth(src, 32)
+
+y, u, v = kgf.split(src)
+height = 878
+width = vsutil.get_w(height)
+
+# Bilinear
+descale_a = core.descale.Debilinear(y, width, height).resize.Bilinear(1920, 1080)
+descale_a = kgf.join([descale_a, u, v])
+# Mitchell-Netravali
+descale_b = core.descale.Debicubic(y, width, height, b=1/3, c=1/3).resize.Bicubic(1920, 1080, filter_param_a=1/3, filter_param_b=1/3)
+descale_b = kgf.join([descale_b, u, v])
+# Sharp Bicubic
+descale_c = core.descale.Debicubic(y, width, height, b=0, c=1).resize.Bicubic(1920, 1080, filter_param_a=0, filter_param_b=1)
+descale_c = kgf.join([descale_c, u, v])
+# B-Spline
+descale_d = core.descale.Debicubic(y, width, height, b=1, c=0).resize.Bicubic(1920, 1080, filter_param_a=1, filter_param_b=0)
+descale_d = kgf.join([descale_d, u, v])
+# Catmull-rom
+descale_e = core.descale.Debicubic(y, width, height, b=0, c=1/2).resize.Bicubic(1920, 1080, filter_param_a=0, filter_param_b=1/2)
+descale_e = kgf.join([descale_e, u, v])
+# Spline36
+descale_f = core.descale.Despline36(y, width, height).resize.Spline36(1920, 1080)
+descale_f = kgf.join([descale_f, u, v])
+</code></pre>
+<p>You might realize that after descaling,
+we are immediately upscaling the frame
+with the same kernel and values again.
+This is done so we can compare the before and after.
+The closer the new frame is to the old one,
+the more likely it is that you’ve got the correct kernel.
+Zooming in on the frame at 4x magnification or higher
+using Nearest Neighbor
+will help immensely.
+An alternative that you can use
+is to simply descale until
+you’ve got what you believe to be the best result.
+It’s faster to do it this way,
+but might be less accurate.</p>
+<h2><a class="header" href="#credits-and-other-native-1080p-elements" id="credits-and-other-native-1080p-elements">Credits and other native 1080p elements</a></h2>
+<p>There is one very, very important thing
+to keep in mind when descaling:</p>
+<p><em>Credits are usually done in 1080p</em>.</p>
+<p>There are various masks you can use
+to help with dealing with that issue,
+but it might be better
+to make use of existing wrappers instead.
+For this example I’ll
+be using <code>inverse_scale</code> from <code>kagefunc</code>.</p>
+<pre><code class="language-Py">descaled = kgf.inverse_scale(src, height=878, kernel='bicubic', b=0, c=1/2, mask_detail=True)
+</code></pre>
+<p>We can make use of the mask
+that <code>inverse_scale</code> uses internally
+as well.</p>
+<pre><code class="language-Py">descaled = kgf.inverse_scale(src, height=874, kernel='bicubic', b=0, c=1/2)
+descaled_mask = kgf._generate_descale_mask(vsutil.get_y(core.resize.Spline36(src, descaled.width, descaled.height)), vsutil.get_y(descaled), kernel='bicubic', b=0, c=1/2)
+</code></pre>
+<p><img src="images/descale_credits_mask.png" alt="" />
+<em>Kaguya-sama: Love Is War — OP (credits mask)</em></p>
+<p><img src="images/descale_credits.png" alt="" />
+<em>Kaguya-sama: Love Is War — OP (descaled)</em></p>
+<p>Note that if you see the mask
+catching a lot of other stuff,
+you might want to consider <em>not</em> descaling
+that particular frame,
+or trying a different kernel/values.
+Chances are that you’re either
+using the wrong kernel
+or that the frames you’re looking at are native 1080p.</p>
+<p><img src="images/descale_native1080.png" alt="" />
+<em>Manaria Friends — 01 (end card)</em></p>
+<p><img src="images/descale_dontdescalethis.png" alt="" />
+<em>(Don’t descale this)</em></p>
+<h2><a class="header" href="#dealing-with-bad-descaling" id="dealing-with-bad-descaling">Dealing with bad descaling</a></h2>
+<p>There are various things you can do
+to deal with scenes that have issues
+even after descaling.
+<code>Eedi3</code> stands out in particular
+as a fantastic AA filter
+that really nails down bad lineart
+caused by bad descaling.
+It’s at best a “cheat code”,
+however.
+While it might fix up some issues,
+it won’t fix everything.
+It’s also incredibly slow,
+so you might want to
+<a href="scenefiltering.html">use it on just a couple of frames at a time</a>
+rather than over the entire clip.</p>
+<p>Other than Eedi3,
+usually the results of bad descaling
+are so destructive that
+there isn’t much you can do.
+If you have an encode that’s
+badly descaled,
+you’re better off
+finding a different one.
+If you’ve got bad results
+after descaling yourself,
+try a different kernel or values.
+Alternatively,
+try not descaling at all.</p>
+<p>At the end of the day,
+as mentioned in the introduction,
+you can’t descale everything perfectly.
+Sometimes it’s better to think of it
+as a magical anti-ringing/haloing/aliasing filter
+rather than a scaler.</p>
+<p>For example,
+here it was used
+specifically to fix up
+some bad aliasing
+in the source.</p>
+<p><img src="images/descale_akanesasu_src.png" alt="" />
+<em>Akanesasu Shoujo — 01 (src)</em></p>
+<p><img src="images/descale_akanesasu_rescaled.png" alt="" />
+<em>Akanesasu Shoujo — 01 (rescaled)</em></p>
+<pre><code class="language-py">scaled = kgf.inverse_scale(src, height=900, kernel='bicubic', b=0.25, c=0.45, mask_detail=True)
+scaled = nnedi3_rpow2(scaled).resize.Spline36(1920, 1080)
+</code></pre>
+<p>Note how this fixed
+most of the aliasing
+on the CGI model.</p>
+<hr />
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>Most, if not all, relevant VapourSynth scripts/plug-ins and their functions can be found in the <a href="http://vsdb.top/">VapourSynth Database</a>.</p>
+</div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../encoding/masking-limiting-etc.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../encoding/resampling.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../encoding/masking-limiting-etc.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../encoding/resampling.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

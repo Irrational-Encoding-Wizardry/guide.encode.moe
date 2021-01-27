@@ -1,0 +1,419 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js rust">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Roles</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "rust";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../index.html">Introduction</a></li><li class="chapter-item expanded affix "><a href="../CONTRIBUTING.html">Contributing to the Guide</a></li><li class="chapter-item expanded affix "><li class="part-title">General Fansubbing</li><li class="chapter-item expanded "><a href="../overview/preface.html"><strong aria-hidden="true">1.</strong> Preface</a></li><li class="chapter-item expanded "><a href="../overview/roles.html" class="active"><strong aria-hidden="true">2.</strong> Roles</a></li><li class="chapter-item expanded "><a href="../overview/requirements.html"><strong aria-hidden="true">3.</strong> Requirements</a></li><li class="chapter-item expanded affix "><li class="part-title">Encoding</li><li class="chapter-item expanded "><a href="../encoding/preparation.html"><strong aria-hidden="true">4.</strong> Preparations and Necessary Software</a></li><li class="chapter-item expanded "><a href="../encoding/basics-and-workflow.html"><strong aria-hidden="true">5.</strong> Basics and General Workflow</a></li><li class="chapter-item expanded "><a href="../encoding/video-artifacts.html"><strong aria-hidden="true">6.</strong> Recognizing Video Artifacts</a></li><li class="chapter-item expanded "><a href="../encoding/scenefiltering.html"><strong aria-hidden="true">7.</strong> Scenefiltering</a></li><li class="chapter-item expanded "><a href="../encoding/masking-limiting-etc.html"><strong aria-hidden="true">8.</strong> Masking, Limiting, and Related Functions</a></li><li class="chapter-item expanded "><a href="../encoding/descaling.html"><strong aria-hidden="true">9.</strong> Descaling</a></li><li class="chapter-item expanded "><a href="../encoding/resampling.html"><strong aria-hidden="true">10.</strong> Resampling</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">11.</strong> Codecs</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../encoding/codecs/x264.html"><strong aria-hidden="true">11.1.</strong> x264</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Typesetting</li><li class="chapter-item expanded "><a href="../typesetting/aegisub.html"><strong aria-hidden="true">12.</strong> Aegisub and Other Tools</a></li><li class="chapter-item expanded affix "><li class="part-title">Resources and References</li><li class="chapter-item expanded "><a href="../archived-websites/bt601-vs-bt709.html"><strong aria-hidden="true">13.</strong> Colorspaces</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="../impressum.html">Impressum</a></li><li class="chapter-item expanded affix "><a href="../privacy-policy.html">Privacy Policy</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        <a href="https://github.com/Irrational-Encoding-Wizardry/guide.encode.moe" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#roles" id="roles">Roles</a></h1>
+<p>There are 8 (sometimes 9) major roles in every fansub group. They are:</p>
+<ol>
+<li><a href="#encoder"><strong>Encoder</strong></a></li>
+<li><a href="#timer"><strong>Timer</strong></a></li>
+<li><a href="#typesetter"><strong>Typesetter</strong></a></li>
+<li><a href="#editor"><strong>Editor</strong></a></li>
+<li><a href="#quality-checker"><strong>Quality Checker</strong></a></li>
+<li><em>Optional</em>: <a href="#translator--translation-checker">Translator</a></li>
+<li><em>Optional</em>: <a href="#translator--translation-checker">Translation Checker</a></li>
+<li><em>Optional</em>: <a href="#karaoke-effect-creator">Karaoke Effects Creator</a></li>
+<li><em>Optional</em>: Project Leader</li>
+</ol>
+<p>In this guide, we will only be providing in-depth guides for the
+Encoder, Timer, and Typesetter roles.
+However, Quality Checkers are often expected to be familiar with
+most or all of the roles in order to recognize errors.</p>
+<p>This page serves as just an overview of the work
+various roles will be expected to complete.</p>
+<h2><a class="header" href="#encoder" id="encoder">Encoder</a></h2>
+<p>Time commitment per episode: 20 minutes - 2 hours active (4-12 hours
+inactive)</p>
+<p>Encoders (sometimes abbreviated as <em>ENC</em>) are responsible for the audio
+and video.
+They will generally be provided with one or more video sources
+and are expected to produce the best video possible within reason.</p>
+<p>This is done with a <strong>frame-by-frame video processor</strong> such as AviSynth
+and VapourSynth<sup class="footnote-reference"><a href="#1">1</a></sup>,
+a <strong>video encoder</strong> such as x264 or x265<sup class="footnote-reference"><a href="#2">2</a></sup>,
+and <strong>audio tools</strong> such as eac3to,
+qaac,
+and FLAC<sup class="footnote-reference"><a href="#3">3</a></sup>.
+This is not a comprehensive list,
+but it does represent the broad categories of tools required.</p>
+<p>Encoders are expected to have a high level of skill and understanding of
+video concepts and tools.
+It is perhaps the most technically challenging role in fansubbing.
+However, much of the work is repeatable,
+as each episode in a show will usually be very similar to every other one.
+It will also get easier over time as they become more familiar with the
+concepts and tools.</p>
+<p>One last note about encoding: there are as many opinions about how to
+fix video problems as there are encoders.
+Encoders can and often do become contentious about their work,
+theories,
+and scripts.
+It’s important to keep in mind that a disagreement is not always an insult,
+and more experienced encoders often just want to help and provide feedback.
+The important part is the result!</p>
+<h2><a class="header" href="#timer" id="timer">Timer</a></h2>
+<p>Time commitment per episode: 20 minutes - 4 hours</p>
+<p>The Timer (abbreviated <em>TM</em>) is responsible for when the text
+representing spoken dialogue shows up on screen.</p>
+<p>The timing of subtitles is much more important than one might assume.
+The entrance and exit times of the subtitles,
+or a fluid transition from one line to the next,
+can make a large impact on the “watchability” of the episode as a whole.
+Take, for example,
+the following clip from Eromanga-sensei:</p>
+<div style="width:100%;height:0px;position:relative;padding-bottom:28.125%;"><iframe src="https://streamable.com/s/5kylp/abmmlr" frameborder="0" width="100%" height="100%" allowfullscreen style="width:100%;height:100%;position:absolute;left:0px;top:0px;overflow:hidden;"></iframe></div>
+<p>On the left are the official subtitles from Amazon’s AnimeStrike,
+and on the right is a fansub release.
+There are many problems with Amazon’s subtitles:
+entering and exiting the screen up to two seconds late,
+presenting 4-5 lines on screen at once,
+and not separating dialogue based on speaking character.
+These problems detract from the viewing experience,
+drawing attention to the appearance of the subtitles
+and distracting from the story and video.</p>
+<h2><a class="header" href="#typesetter" id="typesetter">Typesetter</a></h2>
+<p>Time commitment per episode: 20 minutes - 8+ hours (dependent on number
+and difficulty of signs)</p>
+<p>Typesetters (abbreviated <em>TS</em>) are responsible for the visual
+presentation of translated text on-screen. These are generally called <em>signs</em>.</p>
+<p>For example, given this scene and a translation of “Adachi Fourth Public High School”…</p>
+<p><img src="images/cnvimage100.png" alt="" />
+<em>[DameDesuYo] Eromanga-sensei - 01 (1920x1080 10bit AAC) [05CB518E].mkv_snapshot_03.11_[2017.08.18_21.14.55].jpg</em></p>
+<p>the Typesetter would be expected to produce something like
+this:</p>
+<p><img src="images/cnvimage101.png" alt="" />
+<em>[DameDesuYo] Eromanga-sensei - 01 (1920x1080 10bit AAC) [05CB518E].mkv_snapshot_03.11_[2017.08.18_21.14.43].jpg</em></p>
+<p>Almost every sign the Typesetter works on will be unique,
+requiring ingenuity,
+a wild imagination,
+a sense of style,
+and a high degree of attention to detail.
+The Typesetter’s goal is to produce something that integrates so
+well into the video that the viewer does not realize that it is actually
+part of the subtitles.</p>
+<p>The sign above is actually one of the more simple kinds that the Typesetter might
+have to deal with.
+It is <em>static</em>, meaning it does not move,
+and has plenty of room around it to place the translation.
+Other signs will be much more difficult.
+Take for example this scene from Kobayashi-san Chi no
+Maid Dragon:</p>
+<div style="width:100%;height:0px;position:relative;padding-bottom:28.125%;"><iframe src="https://streamable.com/s/d21iq/aqaodi" frameborder="0" width="100%" height="100%" allowfullscreen style="width:100%;height:100%;position:absolute;left:0px;top:0px;overflow:hidden;"></iframe></div>
+<p>Though it may be hard to believe,
+the typesetting on the right side of the screen was done entirely
+with <em>softsubs</em> (using Aegisub),
+subtitles that can be turned on and off in the video player
+as compared to <em>hardsubs</em> (using Adobe After Effects) which are burned in.
+Each group and language “scene” will have different standards
+in regards to soft and hardsubs.
+For example, in the English scene,
+hardsubs are considered highly distasteful,
+whereas in the German scene they are readily accepted.</p>
+<p>Something to remember about typesetting is that there is no one way to
+typeset a sign.
+There are, however,
+incorrect ways that are not visually pleasing,
+do not match the original well,
+are difficult to read,
+or are too <em>heavy</em> (meaning computer resource intensive).</p>
+<h2><a class="header" href="#editor" id="editor">Editor</a></h2>
+<p>Time commitment per episode: 2-4+ hours</p>
+<p>The Editor (sometimes abbreviated <em>ED</em>) is responsible for making sure that
+the script reads well.
+Depending on the source of the script,
+this may mean grammatical corrections and some rewording
+to address recommendations from the Translation Checker.
+However, more often than not,
+the job will entail rewriting,
+rewording,
+and characterizing large portions of the script.
+Each group will have different expectations of an Editor
+in terms of the type,
+style,
+and number of changes made.
+The Editor may also be responsible
+for making corrections recommended by the Quality Checkers.</p>
+<h2><a class="header" href="#quality-checker" id="quality-checker">Quality Checker</a></h2>
+<p>Time commitment per episode: 30 minutes to 4 hours (depending on your
+own standards)</p>
+<p>Quality Checkers (abbreviated <em>QC</em>) are often the last eyes on an
+episode before it is released.
+They are responsible for ensuring that the overall quality
+of the release is up to par with the group’s standards.
+They are also expected to be familiar with the workflow
+and many intricacies of every other role.
+Each group has a different approach to how the Quality Checker
+completes their work.
+For example, one group might require an organized “QC report”
+with recommended changes and required fixes,
+while other groups may prefer the Quality
+Checker to make changes directly to the script whenever possible.</p>
+<h2><a class="header" href="#translator--translation-checker" id="translator--translation-checker">Translator &amp; Translation Checker</a></h2>
+<p>Time commitment per episode: 1-3 hours for translation check,
+4+ hours for an original translation (dependent on the skill of the TL/TLC
+and the difficulty of the show’s original script)</p>
+<p>The job of the Translator (abbreviated <em>TL</em>) and the Translation Checker
+(abbreviated <em>TLC</em>) is to translate and ensure the translational quality
+of the script and signs respectively.
+This is perhaps an obvious statement,
+but it bears explaining just in case.
+Today, many shows are <em>simulcast</em> by one or more companies,
+meaning scripts will be available either immediately or soon after airing in Japan.
+In these cases, some fansub groups may choose to edit
+and check the simulcast script rather than translate it from scratch.
+This depends almost entirely on the quality of the simulcast.
+Fixing a bad simulcast script may be harder than doing an 
+<em>original translation</em> (abbreviated <em>OTL</em>).
+Finally, translators are responsible for transcribing and translating
+opening,
+ending,
+and insert songs as well.</p>
+<h2><a class="header" href="#karaoke-effect-creator" id="karaoke-effect-creator">Karaoke Effect Creator</a></h2>
+<p>Time commitment: several hours, once or twice per season</p>
+<p>The Karaoke Effect Creator (abbreviated <em>KFX</em>) styles and
+adds effects to the lyrics and sometimes romaji and/or kanji for
+opening,
+ending,
+and insert songs.
+This can be very similar to typesetting
+but utilizes a different set of tools
+and can be highly programming-oriented.</p>
+<hr />
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p><em>TODO - sources for AviSynth and VapourSynth builds relevant to fansubbing.</em></p>
+</div>
+<div class="footnote-definition" id="2"><sup class="footnote-definition-label">2</sup>
+<p>Further reading on the x264 and x265 libraries can be found <a href="https://www.reddit.com/r/anime/comments/8ktmvu/nerdpost_how_fansubbers_make_your_anime_look/">here</a>.</p>
+</div>
+<div class="footnote-definition" id="3"><sup class="footnote-definition-label">3</sup>
+<p>Comparisons of various audio codecs can be found <a href="https://en.wikipedia.org/wiki/Comparison_of_audio_coding_formats">here</a>.</p>
+</div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../overview/preface.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../overview/requirements.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../overview/preface.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../overview/requirements.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

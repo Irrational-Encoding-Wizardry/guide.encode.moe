@@ -1,0 +1,495 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js rust">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>x264</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "rust";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../../index.html">Introduction</a></li><li class="chapter-item expanded affix "><a href="../../CONTRIBUTING.html">Contributing to the Guide</a></li><li class="chapter-item expanded affix "><li class="part-title">General Fansubbing</li><li class="chapter-item expanded "><a href="../../overview/preface.html"><strong aria-hidden="true">1.</strong> Preface</a></li><li class="chapter-item expanded "><a href="../../overview/roles.html"><strong aria-hidden="true">2.</strong> Roles</a></li><li class="chapter-item expanded "><a href="../../overview/requirements.html"><strong aria-hidden="true">3.</strong> Requirements</a></li><li class="chapter-item expanded affix "><li class="part-title">Encoding</li><li class="chapter-item expanded "><a href="../../encoding/preparation.html"><strong aria-hidden="true">4.</strong> Preparations and Necessary Software</a></li><li class="chapter-item expanded "><a href="../../encoding/basics-and-workflow.html"><strong aria-hidden="true">5.</strong> Basics and General Workflow</a></li><li class="chapter-item expanded "><a href="../../encoding/video-artifacts.html"><strong aria-hidden="true">6.</strong> Recognizing Video Artifacts</a></li><li class="chapter-item expanded "><a href="../../encoding/scenefiltering.html"><strong aria-hidden="true">7.</strong> Scenefiltering</a></li><li class="chapter-item expanded "><a href="../../encoding/masking-limiting-etc.html"><strong aria-hidden="true">8.</strong> Masking, Limiting, and Related Functions</a></li><li class="chapter-item expanded "><a href="../../encoding/descaling.html"><strong aria-hidden="true">9.</strong> Descaling</a></li><li class="chapter-item expanded "><a href="../../encoding/resampling.html"><strong aria-hidden="true">10.</strong> Resampling</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">11.</strong> Codecs</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../encoding/codecs/x264.html" class="active"><strong aria-hidden="true">11.1.</strong> x264</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Typesetting</li><li class="chapter-item expanded "><a href="../../typesetting/aegisub.html"><strong aria-hidden="true">12.</strong> Aegisub and Other Tools</a></li><li class="chapter-item expanded affix "><li class="part-title">Resources and References</li><li class="chapter-item expanded "><a href="../../archived-websites/bt601-vs-bt709.html"><strong aria-hidden="true">13.</strong> Colorspaces</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="../../impressum.html">Impressum</a></li><li class="chapter-item expanded affix "><a href="../../privacy-policy.html">Privacy Policy</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        <a href="https://github.com/Irrational-Encoding-Wizardry/guide.encode.moe" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#encoding-with-x264" id="encoding-with-x264">Encoding with x264</a></h1>
+<p>H.264 has been the de facto standard video format
+across the internet for the past decade.
+It is widely supported for playback in all modern browsers
+and many hardware devices such as gaming consoles and phones.
+It provides better video quality at smaller file sizes
+compared to its predecessors.</p>
+<p>x264 is a mature, free, open-source encoder
+for the H.264 video format.</p>
+<h2><a class="header" href="#prerequisites" id="prerequisites">Prerequisites</a></h2>
+<p>To get started, you’ll need two things:</p>
+<ul>
+<li>A video to encode—for the examples,
+we will pipe in a video from VapourSynth,
+which you should be able to do
+if you’ve been following the previous sections of this guide</li>
+<li>The x264 encoder</li>
+</ul>
+<p>Here’s how we get a copy of the x264 encoder:</p>
+<h3><a class="header" href="#windows" id="windows">Windows</a></h3>
+<p>Official Windows builds are available
+<a href="https://artifacts.videolan.org/x264/release-win64/">here</a>.</p>
+<h3><a class="header" href="#linuxmacos" id="linuxmacos">Linux/macOS</a></h3>
+<p>Generally, x264 will be available
+through your distribution’s package manager.
+Here are a few examples:</p>
+<ul>
+<li><strong>Ubuntu/Debian</strong>: <code>sudo apt install x264</code></li>
+<li><strong>Arch Linux</strong>: <code>sudo pacman -S x264</code></li>
+<li><strong>macOS</strong>: <code>brew install x264</code></li>
+</ul>
+<h2><a class="header" href="#getting-started" id="getting-started">Getting Started</a></h2>
+<p>x264 is very configurable,
+and the options may seem overwhelming.
+But you can get started encoding
+by using the presets x264 provides
+and understanding a few basic concepts.
+We’ll walk through those concepts
+with the following examples.</p>
+<h3><a class="header" href="#example-1-general-purpose-encoding" id="example-1-general-purpose-encoding">Example 1: General-Purpose Encoding</a></h3>
+<p>Open up a terminal window,
+and navigate to the folder
+where your VapourSynth script lives.
+Let’s run the following command:</p>
+<pre><code>vspipe --y4m myvideo.vpy - | x264 --demuxer y4m --preset veryfast --tune animation --crf 24 -o x264output.mkv -
+</code></pre>
+<p>Let’s run through what each of these options means:</p>
+<h5><a class="header" href="#vspipe---y4m-myvideovpy--" id="vspipe---y4m-myvideovpy--"><code>vspipe --y4m myvideo.vpy -</code></a></h5>
+<p>This portion loads your VapourSynth script
+and pipes it to stdout,
+adding y4m headers that x264 can decode.
+If you use Linux,
+you’re probably familiar with how piping works.
+If you’re not,
+it’s basically a way of chaining two commands together.
+In this case, we want to chain <code>vspipe</code>,
+the program that reads VapourSynth scripts,
+with <code>x264</code>, our encoder.</p>
+<h5><a class="header" href="#--demuxer-y4m" id="--demuxer-y4m"><code>--demuxer y4m</code></a></h5>
+<p>This tells x264 that we’re providing it with a y4m file.
+This matches up with the <code>--y4m</code> flag
+that we gave to the <code>vspipe</code> command.</p>
+<h5><a class="header" href="#--preset-veryfast" id="--preset-veryfast"><code>--preset veryfast</code></a></h5>
+<p>x264 has a set of presets
+to switch between faster encoding, or higher quality.
+The full list of presets, from fastest to slowest, is:</p>
+<ol>
+<li>ultrafast</li>
+<li>superfast</li>
+<li>veryfast</li>
+<li>faster</li>
+<li>fast</li>
+<li>medium</li>
+<li>slow</li>
+<li>slower</li>
+<li>veryslow</li>
+<li>placebo</li>
+</ol>
+<p>You will almost never want to use the extreme settings,
+but generally, if you want good quality
+and don’t care about how long the encode takes,
+<code>slower</code> or <code>veryslow</code> are recommended.
+In this example,
+because we are just demonstrating how x264 works,
+we want a fast encode and have chosen <code>veryfast</code>.</p>
+<p>For the curious,
+you can see a full list of the settings enabled by each preset
+by running <code>x264 --fullhelp | less</code> (Linux/Mac)
+or <code>x264 --fullhelp | more</code> (Windows).
+However, this probably won’t mean much at the moment.
+Don’t worry,
+this page will explain later
+what all of those settings mean.</p>
+<p><em>Disclaimer:
+x264’s <code>fullhelp</code> is not guaranteed to be up-to-date.</em></p>
+<h5><a class="header" href="#--tune-animation" id="--tune-animation"><code>--tune animation</code></a></h5>
+<p>Beyond the preset chosen,
+x264 allows us to further tune the encoding settings
+for the type of content we’re working with.
+The following tunings are generally the most useful:</p>
+<ul>
+<li><code>film</code>: Recommended for live action videos.</li>
+<li><code>animation</code>: Recommended for anime or cartoons with flat textures.
+For 3D animation (e.g. Pixar movies),
+you may find better results with <code>film</code>.</li>
+<li><code>grain</code>: Recommended for particularly grainy films.</li>
+</ul>
+<p>You don’t need to use a tuning,
+but it generally helps
+to produce a better-looking video.</p>
+<h5><a class="header" href="#--crf-24" id="--crf-24"><code>--crf 24</code></a></h5>
+<p>CRF is a constant-quality, 1-pass encoding mode.
+In layman’s terms,
+this means that we don’t need the output to meet a specific filesize,
+we just want the output to meet a certain quality level.
+CRF ranges from 0 to 51 (for 8-bit encoding),
+with 0 being the best quality
+and 51 being the smallest filesize,
+but there is a certain range of CRF settings
+that are generally most useful.
+Here are some guidelines:</p>
+<ul>
+<li>CRF 13: This is considered visually lossless to videophiles.
+This can produce rather large files,
+but is a good choice if you want high quality videos.
+Some fansubbing groups use this for Blu-ray encodes.</li>
+<li>CRF 16-18: This is considered visually lossless to most viewers,
+and leans toward high quality
+while still providing a reasonable filesize.
+This is a typical range for fansub encodes.</li>
+<li>CRF 21-24: This provides a good balance between quality and filesize.
+Some quality loss becomes visible,
+but this is generally a good choice
+where filesize becomes a concern,
+such as for videos viewed over the internet.</li>
+<li>CRF 26-30: This prioritizes filesize,
+and quality loss becomes more obvious.
+It is generally not recommended to go higher than CRF 30
+in any real-world encoding scenario,
+unless you want your videos to look like they were made for dial-up.</li>
+</ul>
+<h5><a class="header" href="#-o-x264outputmkv--" id="-o-x264outputmkv--"><code>-o x264output.mkv -</code></a></h5>
+<p>This last portion tells which files to use for the input and output.
+We use <code>-o</code> to tell which filename to write the encoded file to.
+In this case, x264 will write a file at <code>x264output.mkv</code>
+in the current directory.</p>
+<p>The last argument we are passing to x264 is the input file.
+In this case, we pass <code>-</code> for the input file,
+which tells x264 to use the piped output from vspipe.
+The input argument is the only positional argument,
+so it does not need to be last;
+x264 will recognize it
+as the only argument without a <code>--</code> flag before it.</p>
+<h3><a class="header" href="#example-2-targeted-file-size" id="example-2-targeted-file-size">Example 2: Targeted File Size</a></h3>
+<p>For the next example,
+let’s say we want to make sure our encode
+fits onto a single 4.7GB DVD<sup class="footnote-reference"><a href="#1">1</a></sup>.
+How would we do that in x264?</p>
+<p>First, we’ll need to figure out
+what bitrate our encode should be,
+in <strong>kilobits per second</strong>.
+This means we’ll need to know a couple of things:</p>
+<ul>
+<li>The length of our video, in seconds.
+For this example,
+let’s say our movie is 2 hours (120 minutes) long.
+We’ll convert that to seconds:
+120 minutes * 60 minutes/second = <strong>7200 seconds</strong>.</li>
+<li>Our target filesize.
+We know that this is 4.7GB,
+but we need to convert it to kilobits.
+We can do this with the following steps:</li>
+</ul>
+<p>$$
+\begin{aligned}
+4.7~\mathrm{GB}\times \frac{1000~\mathrm{MB}}{\mathrm{GB}} &amp;= 4700~\mathrm{MB}\\
+4700~\mathrm{MB}\times \frac{1000~\mathrm{KB}}{\mathrm{MB}} &amp;= 4,700,000~\mathrm{KB}\\
+4,700,000~\mathrm{KB}\times \frac{8~\mathrm{Kbit}}{\mathrm{KB}} &amp;= 37,600,000~\mathrm{Kbit}
+\end{aligned}
+$$</p>
+<p>Now we divide the kilobit size we calculated by our video length,
+to find our kilobit per second target bitrate:</p>
+<p>$$
+37,600,000~\mathrm{Kbit}\div 7200~\mathrm{seconds} \approx 5222~\mathrm{Kbps}
+$$</p>
+<p>There is also a <a href="https://gist.githubusercontent.com/OrangeChannel/816a87cf760d9be19bde18db8818d4bc/raw/bitrate_filesize.py">python script</a> that can handle this calculation for us:</p>
+<pre><code class="language-py">&gt;&gt;&gt; from bitrate_filesize import *
+&gt;&gt;&gt; find_bitrate('4.7 GB', seconds=7200)
+bitrate should be 5,222 kbps
+</code></pre>
+<p>And here’s how we could add that to our x264 command:</p>
+<pre><code>vspipe --y4m myvideo.vpy - | x264 --demuxer y4m --preset veryfast --bitrate 5222 -o x264output.mkv -
+</code></pre>
+<p>The <code>--bitrate</code> option, by itself,
+says that we want to do a 1-pass, average-bitrate encode.
+In other words, the encoder will still give more bits
+to sections of the video that have more detail or motion,
+but the average bitrate of the video
+will be close to what we requested.</p>
+<h3><a class="header" href="#example-3-2-pass-encoding" id="example-3-2-pass-encoding">Example 3: 2-Pass Encoding</a></h3>
+<p>So far, we’ve only done 1-pass encodes.
+While using CRF 1-pass is great
+when you don’t have a target bitrate,
+it’s recommended not to use 1-pass
+for targeted-bitrate encodes,
+because the encoder can’t know
+what’s coming ahead of the current section of video.
+This means it can’t make good decisions
+about what parts of the video need the most bitrate.</p>
+<p>How do we fix this?
+x264 supports what is known as 2-pass encoding.
+In 2-pass mode, x264 runs through the video twice,
+the first time analyzing it
+to determine where to place keyframes
+and which sections of video need the most bitrate,
+and the second time performing the actual encode.
+2-pass mode is highly recommended
+if you need to target a certain bitrate.</p>
+<p>Here’s how we would run our first pass:</p>
+<pre><code>vspipe --y4m myvideo.vpy - | x264 --demuxer y4m --preset veryfast --pass 1 --bitrate 5222 -o x264output.mkv -
+</code></pre>
+<p>This creates a stats file in our current directory,
+which x264 will use in the second pass:</p>
+<pre><code>vspipe --y4m myvideo.vpy - | x264 --demuxer y4m --preset veryfast --pass 2 --bitrate 5222 -o x264output.mkv -
+</code></pre>
+<p>You’ll notice all we had to change was <code>--pass 1</code> to <code>--pass 2</code>. Simple!</p>
+<p>Although x264 will automatically use faster settings for the first pass,
+it should be no surprise
+that 2-pass encoding is slower than 1-pass encoding.
+Therefore, there are still certain use cases
+where 1-pass, bitrate-targeted video
+is a good fit, such as streaming.</p>
+<h2><a class="header" href="#recap" id="recap">Recap</a></h2>
+<p>We covered the basics of how to encode in x264,
+including speed presets, tunings, and three different encoding modes.</p>
+<p>Here is a summary of when to use each encoding mode:</p>
+<ul>
+<li>1-pass Constant Quality (CRF):
+<ul>
+<li>Good for: General-purpose encoding</li>
+<li>Bad for: Streaming; obtaining a certain file size</li>
+</ul>
+</li>
+<li>1-pass Average Bitrate:
+<ul>
+<li>Good for: Streaming</li>
+<li>Bad for: Everything else</li>
+</ul>
+</li>
+<li>2-pass Average Bitrate:
+<ul>
+<li>Good for: Obtaining a certain file size</li>
+<li>Bad for: Streaming</li>
+</ul>
+</li>
+</ul>
+<h2><a class="header" href="#advanced-configuration" id="advanced-configuration">Advanced Configuration</a></h2>
+<p>Coming Soon</p>
+<hr />
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>Source: <a href="http://www.mpeg.org/MPEG/DVD/Book_A/Specs.html">http://www.mpeg.org/MPEG/DVD/Book_A/Specs.html</a></p>
+</div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../../encoding/resampling.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../../typesetting/aegisub.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../../encoding/resampling.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../../typesetting/aegisub.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

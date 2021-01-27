@@ -1,0 +1,631 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js rust">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Masking, Limiting, and Related Functions</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "rust";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../index.html">Introduction</a></li><li class="chapter-item expanded affix "><a href="../CONTRIBUTING.html">Contributing to the Guide</a></li><li class="chapter-item expanded affix "><li class="part-title">General Fansubbing</li><li class="chapter-item expanded "><a href="../overview/preface.html"><strong aria-hidden="true">1.</strong> Preface</a></li><li class="chapter-item expanded "><a href="../overview/roles.html"><strong aria-hidden="true">2.</strong> Roles</a></li><li class="chapter-item expanded "><a href="../overview/requirements.html"><strong aria-hidden="true">3.</strong> Requirements</a></li><li class="chapter-item expanded affix "><li class="part-title">Encoding</li><li class="chapter-item expanded "><a href="../encoding/preparation.html"><strong aria-hidden="true">4.</strong> Preparations and Necessary Software</a></li><li class="chapter-item expanded "><a href="../encoding/basics-and-workflow.html"><strong aria-hidden="true">5.</strong> Basics and General Workflow</a></li><li class="chapter-item expanded "><a href="../encoding/video-artifacts.html"><strong aria-hidden="true">6.</strong> Recognizing Video Artifacts</a></li><li class="chapter-item expanded "><a href="../encoding/scenefiltering.html"><strong aria-hidden="true">7.</strong> Scenefiltering</a></li><li class="chapter-item expanded "><a href="../encoding/masking-limiting-etc.html" class="active"><strong aria-hidden="true">8.</strong> Masking, Limiting, and Related Functions</a></li><li class="chapter-item expanded "><a href="../encoding/descaling.html"><strong aria-hidden="true">9.</strong> Descaling</a></li><li class="chapter-item expanded "><a href="../encoding/resampling.html"><strong aria-hidden="true">10.</strong> Resampling</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">11.</strong> Codecs</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../encoding/codecs/x264.html"><strong aria-hidden="true">11.1.</strong> x264</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Typesetting</li><li class="chapter-item expanded "><a href="../typesetting/aegisub.html"><strong aria-hidden="true">12.</strong> Aegisub and Other Tools</a></li><li class="chapter-item expanded affix "><li class="part-title">Resources and References</li><li class="chapter-item expanded "><a href="../archived-websites/bt601-vs-bt709.html"><strong aria-hidden="true">13.</strong> Colorspaces</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="../impressum.html">Impressum</a></li><li class="chapter-item expanded affix "><a href="../privacy-policy.html">Privacy Policy</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        <a href="https://github.com/Irrational-Encoding-Wizardry/guide.encode.moe" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#masking-limiting-and-related-functions" id="masking-limiting-and-related-functions">Masking, Limiting, and Related Functions</a></h1>
+<p>There are filters
+which change the video in various ways,
+and then there are ways to change the filtering itself.
+There are likely hundreds of different techniques at your disposal
+for various situations,
+using masks to protect details from smoothing filters,
+blending two clips with different filtering applied,
+and countless others—many of which haven’t been thought of yet.
+This article will cover:</p>
+<ul>
+<li>Masking and Merging</li>
+<li>Limiting</li>
+<li>Reference clips</li>
+<li>Expressions and Lookup Tables</li>
+<li>Runtime functions</li>
+<li>Pre-filtering</li>
+</ul>
+<h2><a class="header" href="#masking" id="masking">Masking</a></h2>
+<p>Masking refers to a broad set of techniques used to merge multiple clips.
+Usually one filtered clip is merged with a source clip
+according to an overlay mask clip.
+A mask clip specifies the weight for each individual pixel
+according to which the two clips are merged;
+see <a href="#stdmaskedmerge">MaskedMerge</a> for details.</p>
+<p>In practice,
+masks are usually used to protect details,
+texture, and/or edges
+from destructive filtering effects like smoothing;
+this is accomplished
+by masking the areas to protect,
+e.g. with an edgemask,
+and merging the filtered clip with the unfiltered clip
+according to the mask,
+such that the masked areas are taken from the unfiltered clip,
+and the unmasked areas are taken from the filtered clip.
+In effect,
+this applies the filtering only to the unmasked areas of the clip,
+leaving the masked details/edges intact.</p>
+<p>Mask clips are usually grayscale,
+i.e. they consist of only one plane and thus contain no color information.
+In VapourSynth, such clips use the color family <code>GRAY</code>
+and one of these formats:
+<code>GRAY8</code> (8 bits integer),
+<code>GRAY16</code> (16 bits integer),
+or <code>GRAYS</code> (single precision floating point).</p>
+<h4><a class="header" href="#a-hrefhttpwwwvapoursynthcomdocfunctionsmaskedmergehtmlstdmaskedmergea" id="a-hrefhttpwwwvapoursynthcomdocfunctionsmaskedmergehtmlstdmaskedmergea"><a href="http://www.vapoursynth.com/doc/functions/maskedmerge.html">std.MaskedMerge</a></a></h4>
+<p>This is the main function for masking
+that performs the actual merging.
+It takes three clips as input:
+two source clips and one mask clip.
+The output will be a convex combination of the input clips,
+where the weights are given by the brightness of the mask clip.
+The following formula
+describes these internals for each pixel:</p>
+<p>$$
+\mathrm{output} = \mathrm{clip~a} \times (\mathit{max~value} - \mathrm{mask}) + (\mathrm{clip~b} \times \mathrm{mask})
+$$</p>
+<p>where \(\mathit{max~value}\) is 255 for 8-bit.</p>
+<p>In simpler terms:
+for brighter areas in the mask,
+the output will come from <strong>clip b</strong>,
+and for the dark areas,
+it’ll come from <strong>clip a</strong>.
+Grey areas result in an average of <strong>clip a</strong> and <strong>clip b</strong>.</p>
+<p>If <code>premultiplied</code> is set to True,
+the equation changes as follows:</p>
+<p>$$
+\mathrm{output} = \mathrm{clip~a} \times (\mathit{max~value} - \mathrm{mask}) + \mathrm{clip~b}
+$$</p>
+<hr />
+<h3><a class="header" href="#manipulating-masks" id="manipulating-masks">Manipulating Masks</a></h3>
+<p>Building precise masks
+that cover exactly what you want
+is often rather tricky.
+VapourSynth provides basic tools for manipulating masks
+that can be used to bring them into the desired shape:</p>
+<h4><a class="header" href="#a-hrefhttpwwwvapoursynthcomdocfunctionsminimum_maximumhtmlstdminimumstdmaximuma" id="a-hrefhttpwwwvapoursynthcomdocfunctionsminimum_maximumhtmlstdminimumstdmaximuma"><a href="http://www.vapoursynth.com/doc/functions/minimum_maximum.html">std.Minimum/std.Maximum</a></a></h4>
+<p>The Minimum/Maximum operations replace each pixel
+with the smallest/biggest value in its 3x3 neighbourhood.
+The 3x3 neighbourhood of a pixel
+are the 8 pixels directly adjacent to the pixel in question
+plus the pixel itself.</p>
+<p><img src="images/3x3.png" alt="" />
+<em>Illustration of the 3x3 neighborhood</em></p>
+<p>The Minimum/Maximum filters
+look at the 3x3 neighbourhood of each pixel in the input image
+and replace the corresponding pixel in the output image
+with the brightest (Maximum) or darkest (Minimum) pixel in that neighbourhood.</p>
+<p>Maximum generally expands/grows a mask
+because all black pixels adjacent to white edges will be turned white,
+whereas Minimum generally shrinks the mask
+because all white pixels bordering on black ones will be turned black.</p>
+<p>See the next section for usage examples.</p>
+<p>Side note:
+In general image processing,
+these operations are known as <a href="https://en.wikipedia.org/wiki/Erosion_(morphology)">Erosion</a> (Minimum)
+and <a href="https://en.wikipedia.org/wiki/Dilation_(morphology)">Dilation</a> (Maximum).
+Maximum/Minimum actually implement only a specific case
+where the <a href="https://en.wikipedia.org/wiki/Structuring_element">structuring element</a> is a 3x3 square.
+The built-in <code>morpho</code> plug-in implements the more general case
+in the functions <code>morpho.Erode</code> and <code>morpho.Dilate</code>
+which allow finer control over the structuring element.
+However, these functions are significantly slower than
+<code>std.Minimum</code> and <code>std.Maximum</code>.</p>
+<h4><a class="header" href="#a-hrefhttpwwwvapoursynthcomdocfunctionsdeflate_inflatehtmlstdinflatestddeflatea" id="a-hrefhttpwwwvapoursynthcomdocfunctionsdeflate_inflatehtmlstdinflatestddeflatea"><a href="http://www.vapoursynth.com/doc/functions/deflate_inflate.html">std.Inflate/std.Deflate</a></a></h4>
+<p>TODO</p>
+<h4><a class="header" href="#a-hrefhttpwwwvapoursynthcomdocfunctionsbinarizehtmlstdbinarizea" id="a-hrefhttpwwwvapoursynthcomdocfunctionsbinarizehtmlstdbinarizea"><a href="http://www.vapoursynth.com/doc/functions/binarize.html">std.Binarize</a></a></h4>
+<p>Split the luma/chroma values of any clip into one of two values,
+according to a fixed threshold.
+For instance,
+binarize an edgemask to white when edge values are at or above 24,
+and set values lower to 0:</p>
+<pre><code class="language-py">mask.std.Binarize(24, v0=0, v1=255)
+</code></pre>
+<p>For methods of creating mask clips,
+there are a few general categories…</p>
+<h3><a class="header" href="#line-masks" id="line-masks">Line masks</a></h3>
+<p>These are used for normal edge detection,
+which is useful for processing edges or the area around them,
+like anti-aliasing and deringing.
+The traditional edge detection technique is
+to apply one or more convolutions,
+focused in different directions,
+to create a clip containing what you might call a gradient vector map,
+or more simply a clip which has brighter values in pixels
+where the neighborhood dissimilarity is higher.
+Some commonly used examples would be <strong>Prewitt</strong> (core),
+<strong>Sobel</strong> (core),
+and <strong>kirsch</strong> (kagefunc).</p>
+<p>There are also some edge detection methods that use pre-filtering
+when generating the mask.
+The most common of these would be <strong>TCanny</strong>,
+which applies a Gaussian blur before creating a 1-pixel-thick Sobel mask.
+The most noteworthy pre-processed edge mask would be kagefunc’s
+<strong>retinex_edgemask</strong> filter,
+which at least with cartoons and anime,
+is unmatched in its accuracy.
+This is the mask to use if you want edge
+masking with ALL of the edges and nothing BUT the edges.</p>
+<p>Another edge mask worth mentioning is the mask in dehalohmod,
+which is a black-lineart mask well-suited to dehalo masking.
+Internally it uses a mask called a Camembert to generate a larger mask
+and limits it to the area affected by a line-darkening script.
+The main mask has no name and is simply dhhmask(mode=3).</p>
+<p>For more information about edgemasks,
+see <a href="https://kageru.moe/blog/article/edgemasks">kageru’s blog post</a>.</p>
+<p>The <strong>range mask</strong>
+(or in masktools,
+the “min/max” mask)
+also fits into this category.
+It is a very simple masking method that
+returns a clip made up of the maximum value of a range of neighboring pixels
+minus the minimum value of the range,
+as so:</p>
+<pre><code class="language-py">clipmax = core.std.Maximum(clip)
+clipmin = core.std.Minimum(clip)
+minmax = core.std.Expr([clipmax, clipmin], 'x y -')
+</code></pre>
+<p>The most common use of this mask is within GradFun3.
+In theory,
+the neighborhood variance technique is the perfect fit for a debanding mask.
+Banding is the result of 8 bit color limits,
+so we mask any pixel with a neighbor higher or lower than one 8 bit color step,
+thus masking everything except potential banding.
+But alas,
+grain induces false positives
+and legitimate details within a single color step are smoothed out,
+therefore debanding will forever be a balancing act between
+detail loss and residual artifacts.</p>
+<h4><a class="header" href="#example-build-a-simple-dehalo-mask" id="example-build-a-simple-dehalo-mask">Example: Build a simple dehalo mask</a></h4>
+<p>Suppose you want to remove these halos:</p>
+<p><img src="images/halos.png" alt="" />
+<em>Screenshot of the source.</em></p>
+<p><img src="images/src0.png" alt="" />
+<em>Point-enlargement of the halo area.</em></p>
+<p>(Note that the images shown in your browser are likely resized poorly;
+you can view them at full size in <a href="https://slowpics.org/comparison/96cbeca4-b4be-4dfc-82b1-631bbc85cdb0">this comparison</a>.)</p>
+<p>Fortunately, there is a well-established script that does just that:
+<a href="https://github.com/HomeOfVapourSynthEvolution/havsfunc/blob/8b2cd62a20faf0b410c742c95e7c7848894628d4/havsfunc.py#L370">DeHalo_alpha</a>.</p>
+<p>However, we must be cautious in applying that filter,
+since, while removing halos reliably,
+it’s extremely destructive to the lineart as well.
+Therefore we must use a <strong>dehalo mask</strong>
+to protect the lineart and limit the filtering to halos.</p>
+<p>A dehalo mask aims to cover the halos
+but exclude the lines themselves,
+so that the lineart won’t be blurred or dimmed.
+In order to do that,
+we first need to generate an edgemask.
+In this example,
+we’ll use the built-in Sobel function.
+After generating the edge mask, we extract the luma plane:</p>
+<pre><code class="language-py">mask = core.std.Sobel(src, 0)
+luma = core.std.ShufflePlanes(mask, 0, colorfamily=vs.GRAY)
+</code></pre>
+<p><img src="images/luma0.png" alt="" />
+<em><code>luma</code></em></p>
+<p>Next, we expand the mask twice, so that it covers the halos.
+<code>vsutil.iterate</code> is a <a href="https://github.com/Irrational-Encoding-Wizardry/vsutil/blob/c0206e2b68357fcbcfbcb47fafec70cce8391786/vsutil.py#L64">function in vsutil</a>
+which applies the specified filter a specified number of times
+to a clip—in this case it runs <code>std.Maximum</code> 2 times.</p>
+<pre><code class="language-py">mask_outer = vsutil.iterate(luma, core.std.Maximum, 2)
+</code></pre>
+<p><img src="images/mask_outer0.png" alt="" />
+<em><code>mask_outer</code></em></p>
+<p>Now we shrink the expanded clip back
+to cover only the lineart.
+Applying <code>std.Minimum</code> twice
+would shrink it back to the edge mask’s original size,
+but since the edge mask covers part of the halos too,
+we need to erode it a little further.</p>
+<p>The reason we use <code>mask_outer</code> as the basis and shrink it thrice,
+instead of using <code>mask</code> and shrinking it once,
+which would result in a similar outline,
+is that this way,
+small adjacent lines with gaps in them
+(i.e. areas of fine texture or details),
+such as the man’s eyes in this example,
+are covered up completely,
+preventing detail loss.</p>
+<pre><code class="language-py">mask_inner = vsutil.iterate(mask_outer, core.std.Minimum, 3)
+</code></pre>
+<p><img src="images/mask_inner0.png" alt="" />
+<em><code>mask_inner</code></em></p>
+<p>Now we subtract the outer mask covering the halos
+and the lineart from the inner mask covering only the lineart.
+This yields a mask covering only the halos,
+which is what we originally wanted:</p>
+<pre><code class="language-py">halos = core.std.Expr([mask_outer, mask_inner], 'x y -')
+</code></pre>
+<p><img src="images/halos0.png" alt="" />
+<em><code>halos</code></em></p>
+<p>Next, we do the actual dehaloing:</p>
+<pre><code class="language-py">dehalo = hf.DeHalo_alpha(src)
+</code></pre>
+<p><img src="images/dh0.png" alt="" />
+<em><code>dehalo</code></em></p>
+<p>Lastly, we use MaskedMerge to merge only the filtered halos
+into the source clip,
+leaving the lineart mostly untouched:</p>
+<pre><code class="language-py">masked_dehalo = core.std.MaskedMerge(src, dehalo, halos)
+</code></pre>
+<p><img src="images/dehalod0.png" alt="" />
+<em><code>masked_dehalo</code></em></p>
+<hr />
+<h3><a class="header" href="#diff-masks" id="diff-masks">Diff masks</a></h3>
+<p>A diff(erence) mask is any mask clip
+generated using the variance of two clips.
+There are many different ways to use this type of mask:
+limiting a difference to a threshold,
+processing a filtered difference itself,
+or smoothing →
+processing the clean clip →
+overlaying the original grain.
+They can also be used in conjunction with
+line masks,
+for example:
+kagefunc’s hardsubmask uses a special edge mask with a diff mask,
+and uses core.misc.Hysteresis to grow the line mask into diff mask.</p>
+<h4><a class="header" href="#example-create-a-descale-mask-for-white-non-fading-credits-with-extra-protection-for-lines-16-bit-input" id="example-create-a-descale-mask-for-white-non-fading-credits-with-extra-protection-for-lines-16-bit-input">Example: Create a descale mask for white non-fading credits with extra protection for lines (16 bit input)</a></h4>
+<pre><code class="language-py">src16 = kgf.getY(last)
+src32 = fvf.Depth(src16, 32)
+
+standard_scale = core.resize.Spline36(last, 1280, 720, format=vs.YUV444P16, resample_filter_uv='spline16')
+
+inverse_scale = core.descale.Debicubic(src32, 1280, 720)
+inverse_scale = fvf.Depth(inverse_scale, 16)
+
+#absolute error of descaling
+error = core.resize.Bicubic(inverse_scale, 1920, 1080)
+error = core.std.Expr([src, error], 'x y - abs')
+
+#create a light error mask to protect smaller spots against halos aliasing and rings
+error_light = core.std.Maximum(error, coordinates=[0,1,0,1,1,0,1,0])
+error_light = core.std.Expr(error_light, '65535 x 1000 / /')
+error_light = core.resize.Spline36(error_light, 1280, 720)
+
+#create large error mask for credits, limiting the area to white spots
+#masks are always full-range, so manually set fulls/fulld to True or range_in/range to 1 when changing bitdepth
+credits = core.std.Expr([src16, error], 'x 55800 &gt; y 2500 &gt; and 255 0 ?', vs.GRAY8)
+credits = core.resize.Bilinear(credits, 1280, 720)
+credits = core.std.Maximum(credits).std.Inflate().std.Inflate()
+credits = fvf.Depth(credits, 16, range_in=1, range=1)
+
+descale_mask = core.std.Expr([error_light, credits], 'x y -')
+
+output = kgf.getY(standard_scale).std.MaskedMerge(inverse_scale, descale_mask)
+output = muvf.MergeChroma(output, standard_scale)
+</code></pre>
+<h2><a class="header" href="#single-and-multi-clip-adjustments-with-stdexpr-and-friends" id="single-and-multi-clip-adjustments-with-stdexpr-and-friends">Single and multi-clip adjustments with std.Expr and friends</a></h2>
+<p>VapourSynth’s core contains many such filters,
+which can manipulate one to three different clips according to a math function.
+Most, if not all,
+can be done (though possibly slower) using std.Expr,
+which will be
+covered at the end of this
+sub-section.</p>
+<h4><a class="header" href="#a-hrefhttpwwwvapoursynthcomdocfunctionsmakediffhtmlstdmakediffa-and-a-hrefhttpwwwvapoursynthcomdocfunctionsmergediffhtmlstdmergediffa" id="a-hrefhttpwwwvapoursynthcomdocfunctionsmakediffhtmlstdmakediffa-and-a-hrefhttpwwwvapoursynthcomdocfunctionsmergediffhtmlstdmergediffa"><a href="http://www.vapoursynth.com/doc/functions/makediff.html">std.MakeDiff</a> and <a href="http://www.vapoursynth.com/doc/functions/mergediff.html">std.MergeDiff</a></a></h4>
+<p>Subtract or add the difference of two clips, respectively.
+These filters are peculiar in that they work differently in
+integer and float formats,
+so for more complex filtering
+float is recommended whenever possible.
+In 8 bit integer format where neutral luminance (gray) is 128,
+the function is \(\mathrm{clip~a} - \mathrm{clip~b} + 128\) for MakeDiff
+and \(\mathrm{clip~a} + \mathrm{clip~b} - 128\) for MergeDiff,
+so pixels with no change will be gray.</p>
+<p>The same is true of 16 bit and 32768.
+The float version is simply \(\mathrm{clip~a} - \mathrm{clip~b}\) so in 32 bit
+the difference is defined normally,
+negative for dark differences,
+positive for bright differences,
+and null differences are zero.</p>
+<p>Since overflowing values are clipped to 0 and 255,
+changes greater than 128 will be clipped as well.
+This can be worked around by re-defining the input clip as so:</p>
+<pre><code class="language-py">smooth = core.bilateral.Bilateral(src, sigmaS=6.4, sigmaR=0.009)
+noise = core.std.MakeDiff(src, smooth) # subtract filtered clip from source leaving the filtered difference
+smooth = core.std.MakeDiff(src, noise) # subtract diff clip to prevent clipping (doesn't apply to 32 bit)
+</code></pre>
+<h4><a class="header" href="#a-hrefhttpwwwvapoursynthcomdocfunctionsmergehtmlstdmergea" id="a-hrefhttpwwwvapoursynthcomdocfunctionsmergehtmlstdmergea"><a href="http://www.vapoursynth.com/doc/functions/merge.html">std.Merge</a></a></h4>
+<p>This function is similar to <a href="#stdmaskedmerge">MaskedMerge</a>,
+the main difference being
+that a constant weight is supplied
+instead of a mask clip to read the weight from for each pixel.
+The formula is thus just as simple:</p>
+<p>$$
+\mathrm{output} = \mathrm{clip~a} \times (\mathit{max~value} - \mathrm{weight}) + (\mathrm{clip~b} \times \mathrm{weight})
+$$</p>
+<p>It can be used to perform
+a weighted average of two clips or planes.</p>
+<h4><a class="header" href="#a-hrefhttpwwwvapoursynthcomdocfunctionsexprhtmlstdexpra" id="a-hrefhttpwwwvapoursynthcomdocfunctionsexprhtmlstdexpra"><a href="http://www.vapoursynth.com/doc/functions/expr.html">std.Expr</a></a></h4>
+<p>TODO</p>
+<h4><a class="header" href="#a-hrefhttpwwwvapoursynthcomdocfunctionsluthtmlstdluta-and-a-hrefhttpwwwvapoursynthcomdocfunctionslut2htmlstdlut2a" id="a-hrefhttpwwwvapoursynthcomdocfunctionsluthtmlstdluta-and-a-hrefhttpwwwvapoursynthcomdocfunctionslut2htmlstdlut2a"><a href="http://www.vapoursynth.com/doc/functions/lut.html">std.Lut</a> and <a href="http://www.vapoursynth.com/doc/functions/lut2.html">std.Lut2</a></a></h4>
+<p>May be slightly faster than Expr in some cases,
+otherwise they can’t really do anything that Expr can’t.
+You can substitute a normal Python function for the RPN expression, though,
+so you may still find it easier.
+See link for usage information.</p>
+<h2><a class="header" href="#limiting" id="limiting">Limiting</a></h2>
+<p>TODO</p>
+<h2><a class="header" href="#referencing" id="referencing">Referencing</a></h2>
+<p>TODO</p>
+<h2><a class="header" href="#runtime-filtering-with-frameeval" id="runtime-filtering-with-frameeval">Runtime filtering with FrameEval</a></h2>
+<p>TODO</p>
+<h4><a class="header" href="#example-strong-smoothing-on-scene-changes-ie-for-mpeg-2-transport-streams" id="example-strong-smoothing-on-scene-changes-ie-for-mpeg-2-transport-streams">Example: Strong smoothing on scene changes (i.e. for MPEG-2 transport streams)</a></h4>
+<pre><code class="language-py">from functools import partial
+
+src = core.d2v.Source()
+src = ivtc(src)
+src = haf.Deblock_QED(src)
+
+ref = core.rgvs.RemoveGrain(src, 2)
+
+# xvid analysis is better in lower resolutions
+first = core.resize.Bilinear(ref, 640, 360).wwxd.WWXD()
+# shift by one frame
+last = core.std.DuplicateFrames(first, src.num_frames - 1).std.DeleteFrames(0)
+
+# copy prop to last frame of previous scene
+propclip = core.std.ModifyFrame(first, clips=[first, last], selector=shiftback)
+
+def shiftback(n, f):
+    both = f[0].copy()
+    if f[1].props.SceneChange == 1:
+        both.props.SceneChange = 1
+    return both
+
+def scsmooth(n, f, clip, ref):
+    if f.props.SceneChange == 1:
+        clip = core.dfttest.DFTTest(ref, tbsize=1)
+    return clip
+
+out = core.std.FrameEval(src, partial(scsmooth, clip=src, ref=ref), prop_src=propclip)
+</code></pre>
+<h2><a class="header" href="#pre-filters" id="pre-filters">Pre-filters</a></h2>
+<p>TODO</p>
+<h4><a class="header" href="#example-deband-a-grainy-clip-with-f3kdb-16-bit-input" id="example-deband-a-grainy-clip-with-f3kdb-16-bit-input">Example: Deband a grainy clip with f3kdb (16 bit input)</a></h4>
+<pre><code class="language-py">src16 = last
+src32 = fvf.Depth(last, 32)
+
+# I really need to finish zzfunc.py :&amp;lt;
+minmax = zz.rangemask(src16, rad=1, radc=0)
+
+#8-16 bit MakeDiff and MergeDiff are limited to 50% of full-range, so float is used here
+clean = core.std.Convolution(src32, [1,2,1,2,4,2,1,2,1]).std.Convolution([1]*9, planes=[0])
+grain = core.std.Expr([src32, clean32], 'x y - 0.5 +')
+
+clean = fvf.Depth(clean, 16)
+deband =core.f3kdb.Deband(clean, 16, 40, 40, 40, 0, 0, keep_tv_range=True, output_depth=16)
+
+#limit the debanding: f3kdb becomes very strong on the smoothed clip (or rather, becomes more efficient)
+#adapt strength according to a neighborhood-similarity mask, steadily decreasing strength in more detailed areas
+limited = zz.AdaptiveLimitFilter(deband, clean, mask=minmax, thr1=0.3, thr2=0.0, mthr1=400, mthr2=700, thrc=0.25)
+
+output = fvf.Depth(limited, 32).std.MergeDiff(grain)
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../encoding/scenefiltering.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../encoding/descaling.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../encoding/scenefiltering.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../encoding/descaling.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
