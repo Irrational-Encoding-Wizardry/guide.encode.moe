@@ -29,6 +29,7 @@
 
 - [Group setups]()
     - [Creating and Using an FTP Setup](subtitling/group setups/ftp.md)
+    - [Creating and Using a GitHub Setup](subtitling/group setups/github.md)
 
 # Resources and References
 
