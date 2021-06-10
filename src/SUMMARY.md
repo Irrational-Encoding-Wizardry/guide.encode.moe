@@ -8,6 +8,9 @@
 - [Preface](overview/preface.md)
 - [Roles](overview/roles.md)
 - [Requirements](overview/requirements.md)
+- [Group_setups]()
+    - [Creating and Using an FTP Setup](subtitling/group setups/ftp.md)
+    - [Creating and Using a GitHub Setup](subtitling/group setups/github.md)
 
 # Encoding
 
@@ -24,12 +27,6 @@
 # Typesetting
 
 - [Aegisub and Other Tools](typesetting/aegisub.md)
-
-# Subtitling
-
-- [Group setups]()
-    - [Creating and Using an FTP Setup](subtitling/group setups/ftp.md)
-    - [Creating and Using a GitHub Setup](subtitling/group setups/github.md)
 
 # Resources and References
 
