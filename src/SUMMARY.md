@@ -25,6 +25,11 @@
 
 - [Aegisub and Other Tools](typesetting/aegisub.md)
 
+# Subtitling
+
+- [Group setups]()
+    - [Creating and Using an FTP Setup](subtitling/group setups/ftp.md)
+
 # Resources and References
 
 - [Colorspaces](archived-websites/bt601-vs-bt709.md)
