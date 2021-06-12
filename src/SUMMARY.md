@@ -8,7 +8,7 @@
 - [Preface](overview/preface.md)
 - [Roles](overview/roles.md)
 - [Requirements](overview/requirements.md)
-- [Group_setups]()
+- [Collaboration]()
     - [Creating and Using an FTP Setup](subtitling/group setups/ftp.md)
     - [Creating and Using a GitHub Setup](subtitling/group setups/github.md)
 
