@@ -13,22 +13,15 @@ and also create an easy place to find all the relevant files and their contents
 without requiring users to blindly download files to edit them
 the same way they would when working in an FTP setup.
 
-The benefit to using a Git platform like GitHub over FTPs can be extremely beneficial,
-but may also require users to be more tech-savvy individually than with an FTP setup,
-and for there to be someone to the side who can solve problems that may arise.
+There are many benefits to using GitHub for your project,
+but it may also require users to be more tech-savvy than with a regular FTP setup,
+and for there to be someone to the side who can solve any problems that may arise.
 Additionally,
 having an FTP available may still be a good idea for your encoders,
 since they will still need a place to upload bigger files to,
 which GitHub is not suited for.
 
 ## Setting up a GitHub repository
-
-To begin,
-you'll want everyone involved to create an account on either [GitHub](GitHub_home)
-or an alternative Git platform like [GitLab](GitLab_home) or [BitBucket](BitBucket_home),
-depending on where your project leader decides to host the repositories.
-For this guide,
-we will be assuming you're using GitHub.
 
 If you are the project leader,
 you will likely want to be the one to create a repository.
@@ -46,28 +39,32 @@ You can then create a new repository under your own username or an organization 
 
 Give your repository a name,
 and decide to make your repo either public or private.
-You may also want to add a README if you want to share additional information about the project.
+You may also want to add a README if you want to share additional information about the project,
+like how to build it,
+or links to your group's website for example.
 You can then create the repository by pressing "Create repository".
 
 If you're working with multiple users,
 you'll want to make sure you to add them to the repository as well.
 To do this you go to your repository's settings,
 and then click on "Manage access".
-Here you can add users or teams (in an organization) to give access to your repository.
-You'll want to give them either "write" or "maintain" roles
-so they'll be able to properly make changes without many headaches.
 
 ![Managing access](../images/gh_manage_access.png)
 
+Here you can manage what users (and teams in an organization) have access to your repository.
+When inviting someone,
+you'll want to make sure you give them the necessary permissions.
+If they're a team member,
+give them write access.
 
-[GitHub_home]: (https://github.com/)
-[GitLab_home]: (https://about.gitlab.com/)
-[BitBucket_home]: (https://bitbucket.org/)
+![Invite user](../images/gh_invite.png)
+![Set permissions](../images/gh_set_role.png)
+
 
 ## Basic actions
 
 **If you are new to GitHub,
-we highly recommend you use the [GitHub desktop client](GitHub_desktop)**
+we highly recommend you use the [GitHub desktop client][GitHub_desktop]**
 (this also works with other,
 similar platforms).
 This guide was written under the assumption that most users will be using this client.
@@ -89,7 +86,7 @@ This will automatically open up the cloning menu in your desktop client.
 
 ### Syncing file changes
 
-When editing files from a Git instance,
+When editing files from a git repository,
 Git will remember and verify what files have been changed.
 Before making any commits however,
 you'll want to first double-check that you have every file pulled to your local repository.
@@ -99,8 +96,20 @@ and pull in any newly-pushed commits made by other users.
 Now you can verify your own changes and commit the files you want to upload/update in the repository.
 The desktop client will additionally give you a very useful display of what is different between your file
 and the latest version of the file you pulled in from the repo.
+
 To make things easier for your teammates,
 you'll want to make sure to give your commit a helpful title and description if necessary.
+An example of a helpful commit title would be an episode number and what you did in the commit.
+For example,
+`03: Typeset train sign` or `08: Edited Part A`.
+The description can contain more detailed information,
+like what exactly was changed (if multiple things were changed),
+what problems you ran across along the way,
+etc.
+
+![Helpful message](../images/gh_helpful_description.png)
+*An example of a description that describes what changes were made in greater detail than a title would.*
+
 Finally,
 press "Commit to **master**",
 and once you've finished making all your changes and committed them,
