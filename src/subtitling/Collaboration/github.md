@@ -152,3 +152,67 @@ and then go back to the desktop client and press "Commit merge".
 Make sure you push your changes after!
 
 ![Successfully resolved every conflict](../images/gh_merge_conflicts.png)
+
+## Setting up the files for your project
+
+Now that you know how to perform the basic actions,
+it is important to understand how you can best utilize GitHub.
+When working in a group,
+it is important you don't trip over your teammates.
+To help with, it is generally recommended you split up the files as necessary
+to allow people to work in parallel
+without constantly having to deal with merge conflicts.
+
+The translator,
+editor,
+translation checker,
+and timer will generally require access to a single file,
+and it's important they work sequentially;
+that means they do their job one at a time in an order they agreed on.
+There are tools available that help separate the timing job from that setup,
+but that will be covered in a different guide.
+
+[//]: # (Myaa's assdiff3, specifically)
+
+The typesetters will also need to have their own files.
+This separates them from the main subtitle script,
+which would otherwise get massive signs added while the other members are working,
+and be harder to work with for them as a result.
+If there are multiple typesetters,
+it's a good idea to split it up further into individual "TS files".
+This allows each typesetter to do their part without interfering with the other typesetter's work.
+
+![Example](..images/../../images/gh_basic_file_split.png)
+*An example of how files are typically split.*
+
+You can further split this however you think works best for your project.
+You could for example add synced Opening/Ending subs to every directory,
+or an ASS file with an insert song,
+or an ASS file with all the ktemplates used in that particular episode.
+Just make sure it all fits well with your group's workflow.
+
+## Using GitHub for distribution
+
+While it may be helpful for members to work on GitHub,
+sometimes people will simply prefer other setups.
+Even in those situations,
+GitHub can prove useful for distribution.
+It can be the place to look for the most up-to-date scripts after release for instance,
+with errors that were reported post-release fixed.
+This way people can always update their scripts if necessary without you needing to release a v2,
+and they also have a convenient hub to report errors.
+
+If you decide to use a GitHub repository for this,
+it is recommended you create "Releases".
+This way people can easily see when your project was "finalized",
+and it gives a convenient way to see what commits were made after finalization.
+
+![v1 release](../images/gh_v1_release.png)
+![Commmtis made since v1 release](../images/gh_v1_commits_since.png)
+
+<hr>
+
+*Here are some example fansub repositories:*
+
+* [Kaleido-subs's repositories](https://github.com/Kaleido-subs)
+* [Good Job! Media's repository](https://github.com/Fyurie/gjmbatchscripts)
