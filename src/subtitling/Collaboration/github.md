@@ -125,7 +125,7 @@ as well as their titles/descriptions and what changes have been made to the file
 
 ![Viewing the repository's history](../images/gh_history.png)
 
-[GitHub_desktop]: (https://desktop.github.com/)
+[GitHub_desktop]: https://desktop.github.com/
 
 ## Resolving merge conflicts
 
