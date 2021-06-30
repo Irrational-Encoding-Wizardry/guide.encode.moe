@@ -9,8 +9,8 @@
 - [Roles](overview/roles.md)
 - [Requirements](overview/requirements.md)
 - [Collaboration]()
-    - [Creating and Using an FTP Setup](subtitling/Collaboration/ftp.md)
-    - [Creating and Using a GitHub Setup](subtitling/Collaboration/github.md)
+    - [With FTP](subtitling/collaboration/ftp.md)
+    - [With git (via GitHub)](subtitling/collaboration/github.md)
 
 # Encoding
 
