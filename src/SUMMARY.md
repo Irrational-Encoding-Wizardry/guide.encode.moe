@@ -8,6 +8,9 @@
 - [Preface](overview/preface.md)
 - [Roles](overview/roles.md)
 - [Requirements](overview/requirements.md)
+- [Collaboration]()
+    - [With FTP](subtitling/collaboration/ftp.md)
+    - [With git (via GitHub)](subtitling/collaboration/github.md)
 
 # Encoding
 
