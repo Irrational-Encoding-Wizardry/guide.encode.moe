@@ -20,7 +20,7 @@ src = "src"
 create-missing = false
 
 [output.html]
-default-theme = "rust"
+default-theme = "navy"
 curly-quotes = true
 mathjax-support = true
 # additional-css = [""]
