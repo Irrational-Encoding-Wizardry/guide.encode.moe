@@ -31,11 +31,11 @@ This will allow you to keep better track of your ongoing projects,
 as well as assign more administrators who can create and maintain repositories.
 You can create a repository by pressing the + button on the top-right of the page and clicking "New repository".
 
-![Create a new repository](../images/gh_make_repo1.png)
+![Create a new repository](./images/gh_make_repo1.png)
 
 You can then create a new repository under your own username or an organization you have writing access to.
 
-![Setting an owner and repository name](../images/gh_make_repo2.png)
+![Setting an owner and repository name](./images/gh_make_repo2.png)
 
 Give your repository a name,
 and decide to make your repo either public or private.
@@ -49,7 +49,7 @@ you'll want to make sure you to add them to the repository as well.
 To do this you go to your repository's settings,
 and then click on "Manage access".
 
-![Managing access](../images/gh_manage_access.png)
+![Managing access](./images/gh_manage_access.png)
 
 Here you can manage what users (and teams in an organization) have access to your repository.
 When inviting someone,
@@ -57,8 +57,8 @@ you'll want to make sure you give them the necessary permissions.
 If they're a team member,
 give them write access.
 
-![Invite user](../images/gh_invite.png)
-![Set permissions](../images/gh_set_role.png)
+![Invite user](./images/gh_invite.png)
+![Set permissions](./images/gh_set_role.png)
 
 
 ## Basic actions
@@ -76,13 +76,13 @@ open it and log in.
 You can then clone the repository to your system by going to `File > Clone repository`,
 or by going to the repository on GitHub and going `Code > Open with GitHub Desktop`.
 
-![Opening a repo with the desktop client](../images/gh_clone.png)
+![Opening a repo with the desktop client](./images/gh_clone.png)
 
 If the repository has not been set up yet,
 you can set it up in your desktop client through the link on the repository.
 This will automatically open up the cloning menu in your desktop client.
 
-![Setting up a repo with the desktop client](../images/gh_setup_repo.png)
+![Setting up a repo with the desktop client](./images/gh_setup_repo.png)
 
 ### Syncing file changes
 
@@ -107,7 +107,7 @@ like what exactly was changed (if multiple things were changed),
 what problems you ran across along the way,
 etc.
 
-![Helpful message](../images/gh_helpful_description.png)
+![Helpful message](./images/gh_helpful_description.png)
 *An example of a description that describes what changes were made in greater detail than a title would.*
 
 Finally,
@@ -115,7 +115,7 @@ press "Commit to **master**",
 and once you've finished making all your changes and committed them,
 press "Push origin".
 
-![Pulling in changes made to the repository](../images/gh_syncing.png)
+![Pulling in changes made to the repository](./images/gh_syncing.png)
 
 
 If you want to check the history to see what your teammates have changed,
@@ -123,7 +123,7 @@ you can view the history by clicking the "History" tab.
 This will give you a useful oversight of all the commits,
 as well as their titles/descriptions and what changes have been made to the files.
 
-![Viewing the repository's history](../images/gh_history.png)
+![Viewing the repository's history](./images/gh_history.png)
 
 [GitHub_desktop]: https://desktop.github.com/
 
@@ -151,7 +151,7 @@ Repeat this until you've dealt with every merge conflict,
 and then go back to the desktop client and press "Commit merge".
 Make sure you push your changes after!
 
-![Successfully resolved every conflict](../images/gh_merge_conflicts.png)
+![Successfully resolved every conflict](./images/gh_merge_conflicts.png)
 
 ## Setting up the files for your project
 
@@ -182,7 +182,7 @@ If there are multiple typesetters,
 it's a good idea to split it up further into individual "TS files".
 This allows each typesetter to do their part without interfering with the other typesetter's work.
 
-![Example](..images/../../images/gh_basic_file_split.png)
+![Example](./images/gh_basic_file_split.png)
 *An example of how files are typically split.*
 
 You can further split this however you think works best for your project.
@@ -207,8 +207,8 @@ it is recommended you create "Releases".
 This way people can easily see when your project was "finalized",
 and it gives a convenient way to see what commits were made after finalization.
 
-![v1 release](../images/gh_v1_release.png)
-![Commmtis made since v1 release](../images/gh_v1_commits_since.png)
+![v1 release](./images/gh_v1_release.png)
+![Commmtis made since v1 release](./images/gh_v1_commits_since.png)
 
 <hr>
 
