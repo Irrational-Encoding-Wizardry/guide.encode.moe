@@ -1,4 +1,4 @@
-# Using GitHub for fansubbing
+# Collaboration With git (via GitHub)
 
 When working in a group,
 you'll often find multiple people making changes to the same or multiple files.
@@ -6,8 +6,8 @@ The Translator will need a place to upload their translation to,
 the typesetter(s) may need a place where they can upload their typesetting to,
 etc.
 For this kind of operation,
-a Git environment may be preferable.
-With Git you can very easily do version control,
+a git environment may be preferable.
+With git you can very easily do version control,
 which allows you to see who made changes to what files and when,
 and also create an easy place to find all the relevant files and their contents
 without requiring users to blindly download files to edit them
@@ -21,7 +21,7 @@ having an FTP available may still be a good idea for your encoders,
 since they will still need a place to upload bigger files to,
 which GitHub is not suited for.
 
-## Setting up a GitHub repository
+## Setting Up a GitHub Repository
 
 If you are the project leader,
 you will likely want to be the one to create a repository.
@@ -58,10 +58,11 @@ If they're a team member,
 give them write access.
 
 ![Invite user](./images/gh_invite.png)
+
 ![Set permissions](./images/gh_set_role.png)
 
 
-## Basic actions
+## Basic Actions
 
 **If you are new to GitHub,
 we highly recommend you use the [GitHub desktop client][GitHub_desktop]**
@@ -84,10 +85,10 @@ This will automatically open up the cloning menu in your desktop client.
 
 ![Setting up a repo with the desktop client](./images/gh_setup_repo.png)
 
-### Syncing file changes
+### Syncing File Changes
 
 When editing files from a git repository,
-Git will remember and verify what files have been changed.
+git will remember and verify what files have been changed.
 Before making any commits however,
 you'll want to first double-check that you have every file pulled to your local repository.
 Click "Fetch origin" at the top,
@@ -117,7 +118,6 @@ press "Push origin".
 
 ![Pulling in changes made to the repository](./images/gh_syncing.png)
 
-
 If you want to check the history to see what your teammates have changed,
 you can view the history by clicking the "History" tab.
 This will give you a useful oversight of all the commits,
@@ -127,7 +127,7 @@ as well as their titles/descriptions and what changes have been made to the file
 
 [GitHub_desktop]: https://desktop.github.com/
 
-## Resolving merge conflicts
+## Resolving Merge Conflicts
 
 There are going to be times when multiple users accidentally write to the same file at the same time.
 This is usually no issue,
@@ -153,7 +153,7 @@ Make sure you push your changes after!
 
 ![Successfully resolved every conflict](./images/gh_merge_conflicts.png)
 
-## Setting up the files for your project
+## Setting Up the Files For Your Project
 
 Now that you know how to perform the basic actions,
 it is important to understand how you can best utilize GitHub.
@@ -191,7 +191,7 @@ or an ASS file with an insert song,
 or an ASS file with all the ktemplates used in that particular episode.
 Just make sure it all fits well with your group's workflow.
 
-## Using GitHub for distribution
+## Using GitHub For Distribution
 
 While it may be helpful for members to work on GitHub,
 sometimes people will simply prefer other setups.
@@ -199,7 +199,8 @@ Even in those situations,
 GitHub can prove useful for distribution.
 It can be the place to look for the most up-to-date scripts after release for instance,
 with errors that were reported post-release fixed.
-This way people can always update their scripts if necessary without you needing to release a v2,
+This way people can always update their scripts if necessary
+without you needing to release a v2,
 and they also have a convenient hub to report errors.
 
 If you decide to use a GitHub repository for this,
@@ -208,9 +209,12 @@ This way people can easily see when your project was "finalized",
 and it gives a convenient way to see what commits were made after finalization.
 
 ![v1 release](./images/gh_v1_release.png)
-![Commmtis made since v1 release](./images/gh_v1_commits_since.png)
+*v1 release tag*
 
-<hr>
+![Commmits made since v1 release](./images/gh_v1_commits_since.png)
+*Commits made since v1*
+
+## Examples
 
 *Here are some example fansub repositories:*
 
