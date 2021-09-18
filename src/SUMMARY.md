@@ -23,6 +23,7 @@
 - [Resampling](encoding/resampling.md)
 - [Codecs]()
     - [x264](encoding/codecs/x264.md)
+    - [vp9/av1](encoding/codecs/vpXfamily.md)
 
 # Typesetting
 
