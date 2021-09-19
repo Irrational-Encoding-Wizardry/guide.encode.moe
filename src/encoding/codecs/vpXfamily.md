@@ -232,7 +232,7 @@ chunks for encoding. The more chunks the more threads can be used
 for encoding. One important note here is that the values of this
 parameter are in the form of $$2^{x}$$ meaning that the number of
 columns and rows with these values is actually 4 and 2 
-respectively. Tiles cannot be bigger than 65536 pixels in area.
+respectively. Tiles cannot be smaller than 65536 pixels in area.
 
 
 ##### `--threads=8`
@@ -275,9 +275,10 @@ TODO
 We covered the basics of how to encode using the vpX/aom family of
 codecs, including speed presets.
 
-Here is a summary of when to use vp9 vs AV1:
+Here is a summary of when to use vp9 vs AV1 (please note these are
+recommendations, you do not have to follow them):
 
-- Is your video larger than Full HD?
+- Is your source larger than Full HD?
 	- Yes:
 		- AV1
 	- No:
