@@ -1,126 +1,125 @@
 # Masking using AI and PS
+
 ## Procedure
 
-Before we start, note that we will be
-doing all the grunt work in PS while keeping
-AI usage to bare minimum.
-If you are familiar with editing in PS, 
-you can skip this part and check 
+Before we start, note that we will be doing all the grunt work in PS
+while keeping AI usage to bare minimum.
+If you are familiar with editing in PS,
+you can skip this part and check
 [Image Tracing in AI](imageTrace.md).
 If not continue reading this guide
-where I will show few essential tools to get you to speed 
-but for in depth editing and all the tools in PS, 
+where I will show few essential tools to get you to speed
+but for in depth editing and all the tools in PS,
 refer tutorials online.
 
-So on one fine day I was doing [Fruits Basket Final][] Ep.06 
+So on one fine day I was doing [Fruits Basket Final][] Ep.06
 and suddenly I came across this abomination, so I,
-the typesetting warrior who has taken a vow to eliminate 
+the typesetting warrior who has taken a vow to eliminate
 all Japanese in video decided to mask this.
 
-![rawTS](images/Masking/rawTS.png)
-*Raw Image*
+![RawImage](images/Masking/Photoshop/RawImage.png)
+_Raw Image_
 
-If you look at the image carefully you will notice 
-that there is a gradient radially 
+If you look at the image carefully you will notice
+that there is a gradient radially
 and also some sort of grain.
-So masking this in Aegisub is a 
-challenging and quite difficult. 
+So masking this in Aegisub is a
+challenging and quite difficult.
 So if you come across such masks,
 you can opt this method.
 
 Open the image in PS (Drag and drop it).
 It will look something like this.
 
-![Photoshop-01](images/Masking/Photoshop-01.png)
-*Photoshop window*
+![Photoshop_Window](images/Masking/Photoshop/Photoshop_Window.png)
+_Photoshop window_
 
-Before we start our magic we need to remove the 
+Before we start our magic we need to remove the
 unecessary part or else your
 script will be 100mb
-so select the *Rectangular Marquee tool*[^1]
+so select the _Rectangular Marquee tool_[^1]
 which is the top 2nd icon on left side panel.
 
-![Photoshop-02](images/Masking/Photoshop-02.png)
-*Rectangular Marquee tool*
+![Marquee_Tool](images/Masking/Photoshop/Marquee_Tool.png)
+_Rectangular Marquee tool_
 
-Draw a rectangle where you want to mask 
-and *right click* on the region 
-and select *Select Inverse*. 
-I drew something like this. 
+Draw a rectangle where you want to mask
+and _right click_ on the region
+and select _Select Inverse_.
+I drew something like this.
 
-![Photoshop-03](images/Masking/Photoshop-03.png)
-*Select the area and inverse the selection*
+![Select_Inverse_Preview](images/Masking/Photoshop/Select_Inverse_Preview.png)
+_Select the area and inverse the selection_
 
-After that select *Eraser tool* 
+After that select _Eraser tool_
 which is 12th icon from the top.
 
-![Photoshop-04](images/Masking/Photoshop-04.png) 
-*Eraser tool*
+![Eraser_Tool](images/Masking/Photoshop/Eraser_Tool.png)
+_Eraser tool_
 
-By holding the button you will get even more options, 
-and now select the *Erase Tool*.
+By holding the button you will get even more options,
+and now select the _Erase Tool_.
 
-![Photoshop-05](images/Masking/Photoshop-05.png)
-*Extra Eraser options*
+![Extra_Eraser_Options](images/Masking/Photoshop/Extra_Eraser_Options.png)
+_Extra Eraser options_
 
 After selecting press right mouse button
-on image, you should see 
-a pop up and increase the *Size*
-parameter to max. 
+on image, you should see
+a pop up and increase the _Size_
+parameter to max.
 
-![Photoshop-06](images/Masking/Photoshop-06.png)
-*Eraser size*
+![Eraser_Full_Window](images/Masking/Photoshop/Eraser_Full_Window.png)
+_Eraser size_
 
-Now again select the *Eraser tool* but this time use the
-*Background Eraser* and do the same thing as above.
+Now again select the _Eraser tool_ but this time use the
+_Background Eraser_ and do the same thing as above.
 
-![Photoshop-07](images/Masking/Photoshop-07.png)
-*Background Eraser*
+![Background_Eraser](images/Masking/Photoshop/Background_Eraser.png)
+_Background Eraser_
 
-If you haven't messed up then you 
+If you haven't messed up then you
 should be seeing something like this.
 
-![Photoshop-08](images/Masking/Photoshop-08.png)
-*Clean BG image*
+![Eraser_Output](images/Masking/Photoshop/Eraser_Output.png)
+_Clean BG image_
 
-Now we can start masking. 
-Select the *Rectangular Marquee tool* around letter **O**
-and select *Content-Aware Fill* 
-via *Edit-\>Content-Aware Fill*.[^2]
+Now we can start masking.
+Select the _Rectangular Marquee tool_ around letter **O**
+and select _Content-Aware Fill_
+via _Edit-\>Content-Aware Fill_.[^2]
 
-![Photoshop-09](images/Masking/Photoshop-09.png)
-*Fill*
+![Right_Context_Preview](images/Masking/Photoshop/Right_Context_Preview.png)
+_Fill_
 
-You should see a pop-up like below and click on ok. 
+You should see a pop-up like below and click on ok.
 
-![Photoshop-10](images/Masking/Photoshop-10.png)
-*Fill options*
+![Content_Aware_Fill_Preview](images/Masking/Photoshop/Content_Aware_Fill_Preview.png)
+_Fill options_
 
-You should see a good mask if not 
-try the above step and mess with the *Sampling Area Options* 
+You should see a good mask if not
+try the above step and mess with the _Sampling Area Options_
 until you are satisfied with the result.
 
-![Photoshop-11](images/Masking/Photoshop-11.png)
-*Masking*
+![Good_Mask_Result](images/Masking/Photoshop/Good_Mask_Result.png)
+_Masking_
 
-There is something to keep in mind, 
-this will create a new layer by default 
-but you can change that option. 
-So make sure you are on *correct* layer. 
+There is something to keep in mind,
+this will create a new layer by default
+but you can change that option.
+So make sure you are on _correct_ layer.
 Follow the above steps until you yeet all the Japanese.
-Now save this file as .png 
-and this was my final result which looks pretty good. 
+Now save this file as .png
+and this was my final result which looks pretty good.
 
-![Photoshop-13](images/Masking/Photoshop-13.png)
-*Final Image*
+![Final_Output](images/Masking/Photoshop/Final_Output.png)
+_Final Image_
 
-That is it for PS part. 
+That is it for PS part.
 Now we can go to AI.
 
-***
+---
 
-[^1]: There is various another tools such as Lasso Tool, Polygonal Lasso Tool .etc to draw free hand areas.
-
+[^1]: There are various another tools such as Lasso Tool, Polygonal Lasso Tool .etc to draw free hand areas.
 [^2]: You can hotkey this.
 
-[Fruits Basket Final]: https://myanimelist.net/anime/42938/Fruits_Basket__The_Final
+[fruits basket final]: https://myanimelist.net/anime/42938/Fruits_Basket__The_Final
