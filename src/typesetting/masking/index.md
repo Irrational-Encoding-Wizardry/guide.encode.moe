@@ -2,11 +2,15 @@
 
 ## Preface
 
+<div class="info box"><p>
+
 Most of the *Masking With Adobe Photoshop (PS) & Adobe Illustrator (AI) guide*
 is written by **[gsk\_][]**.
 If you see any pronouns such as "I", "me", "my", etc.,
 unless otherwise stated,
 it refers to me.
+
+</p></div>
 
 Before we get to know on how to work with AI,
 I would like to give a small warning.
