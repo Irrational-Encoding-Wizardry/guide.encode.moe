@@ -8,24 +8,26 @@ If you see any pronouns such as "I", "me", "my", etc.,
 unless otherwise stated,
 it refers to me.
 
-So before we get to know on how to work with AI,
+Before we get to know on how to work with AI,
 I would like to give a small warning.
-AI is really advanced, powerful tool in TSing
+AI is a really advanced, powerful tool for typesetting
 and if you use it carelessly
 it may cause _Exploooooooooooosion.gif_
-since it is **heavy** to render on toasters.
-This is something to keep in mind so make sure
-you use it in _moderation_ and try to avoid whenever you can.
+since its results are **heavy** to render
+and take a toll on toasters.
+This is something to always keep in mind,
+so make sure you use it in _moderation_
+and try to avoid whenever you can.
 
-My aim of writing this guide is to show basics of
-Photoshop, Illustrator and it's relevant parts/functions
-and give you a direction on to how to use them.
-Through out the guide I will be abbrevating
+My aim of writing this guide
+is to show basics of Photoshop, Illustrator and their relevant parts/features
+and give you some direction on to how to use them.
+Throughout the guide, I will be abbrevating
 **Photoshop** as **PS** and Adobe **Illustrator** as **AI**.
 
-I assume you have all the software installed and ready to go.
-And I also assume you know the basics of the Aegisub
-so I will be skipping the detail explanation of it.
+I assume you have all the software installed and ready to go
+And I also assume you know the basics of Aegisub,
+so I will be skipping detailed explanation of it.
 If you don't, I implore you to read the infamous [unanimated guide][].
 
 ## Tools required
