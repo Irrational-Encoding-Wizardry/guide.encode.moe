@@ -24,8 +24,8 @@
 # Typesetting
 
 - [Aegisub and Other Tools](typesetting/aegisub.md)
-- [Masking using PS & AI](typesetting/masking/index.md)
-    - [Image processing in PS](typesetting/masking/image-processing.md)
+- [Masking With PS & AI](typesetting/masking/index.md)
+    - [Image Processing in PS](typesetting/masking/image-processing.md)
     - [Image Tracing in AI](typesetting/masking/image-tracing.md)
 
 # Resources and References

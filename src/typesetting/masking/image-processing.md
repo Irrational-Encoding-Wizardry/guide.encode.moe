@@ -1,4 +1,4 @@
-# Masking using AI and PS
+# Image Processing in PS
 
 ## Procedure
 

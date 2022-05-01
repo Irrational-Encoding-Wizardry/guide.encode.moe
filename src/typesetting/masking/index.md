@@ -1,4 +1,4 @@
-# Masking using AI and PS
+# Masking using PS and AI
 
 ## Preface
 
