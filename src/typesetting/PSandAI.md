@@ -1,4 +1,6 @@
-# Preface
+# Masking using AI and PS
+
+## Preface
 
 Most of the *PS & AI guide* is written by **[gsk\_][]**.
 If you see any pronouns such as "I", "me", "my" etc.,
