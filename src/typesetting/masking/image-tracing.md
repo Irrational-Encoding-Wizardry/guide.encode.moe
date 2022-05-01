@@ -10,7 +10,7 @@ you have created in PS into the AI.
 Make sure you have selected **Essentials Classic**
 as work space.
 
-![Work_Space](images/Masking/AI/Work_Space.png)
+![Work_Space](images/AI/Work_Space.png)
 _Work space_
 
 Now click on _Image Trace_ which is present
@@ -21,14 +21,14 @@ There is some pre-processing that needs to be done so wait for it to get complet
 After that you should see a window like below.
 Now click on _Expand_ in bottom of right panel.
 
-![Expand](images/Masking/AI/Expand.png)
+![Expand](images/AI/Expand.png)
 _Expand_
 
 After Expansion you should see blue lines
 on image like below image.
 Now click on _Ungroup_ in bottom of right panel.
 
-![Ungroup](images/Masking/AI/Ungroup.png)
+![Ungroup](images/AI/Ungroup.png)
 _Ungroup_
 
 Deselect the whole thing by clicking anywhere outside
@@ -36,7 +36,7 @@ the canvas and press _Ctrl+Shift+d_.[^2]
 After that click on white background and press _Delete_.
 If you didn't messed up you should see a clean image.
 
-![Clean_Image](images/Masking/AI/Clean_Image.png)
+![Clean_Image](images/AI/Clean_Image.png)
 _Clean AI image_
 
 Sometimes ImageTrace can create
@@ -50,14 +50,14 @@ I generally use green but use whatever color
 is convienent for you.
 And click ok.
 
-![Grid_Window](images/Masking/AI/Grid_Window.png)
+![Grid_Window](images/AI/Grid_Window.png)
 _Grid colours_
 
 Press _z_ to _Zoom_ and press _v_ to select the _Selection tool_
 and click on any white spots and press _Delete_ to delete them.
 This is how you should get at the end.
 
-![Final_AI_Image](images/Masking/AI/Final_AI_Image.png)
+![Final_AI_Image](images/AI/Final_AI_Image.png)
 _Final image_
 
 Sometimes there might be holes in the drawings,
@@ -67,13 +67,13 @@ and drag the anchor/handles to fill it up.
 After you are happy with the result _File-\>Scripts-\>AI2ASS_
 to create the drawings.
 
-![AI2ASS](images/Masking/AI/AI2ASS.png)
+![AI2ASS](images/AI/AI2ASS.png)
 _AI2ASS_
 
 On the window click on Export button and wait till it is finished.
 Now you can copy the result into subtitle and you should see the mask.
 
-![Final TS](images/Masking/AI/Final_Image.png)
+![Final TS](images/AI/Final_Image.png)
 _Looks pretty, doesn't it?_
 
 ---
