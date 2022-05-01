@@ -2,8 +2,9 @@
 
 ## Preface
 
-Most of the *PS & AI guide* is written by **[gsk\_][]**.
-If you see any pronouns such as "I", "me", "my" etc.,
+Most of the *Masking With Adobe Photoshop (PS) & Adobe Illustrator (AI) guide*
+is written by **[gsk\_][]**.
+If you see any pronouns such as "I", "me", "my", etc.,
 unless otherwise stated,
 it refers to me.
 
