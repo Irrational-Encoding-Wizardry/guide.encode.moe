@@ -1,7 +1,10 @@
 # Preface
 
-Most of the guide is written by me (gsk\_)
-so if you see any pronouns such as "I", "me", "my" etc. it is refers to [gsk\_](https://github.com/gsk143), unless otherwise stated.
+Most of the *PS & AI guide* is written by **[gsk\_][]**.
+If you see any pronouns such as "I", "me", "my" etc.,
+unless otherwise stated,
+it refers to me.
+
 So before we get to know on how to work with AI,
 I would like to give a small warning.
 AI is really advanced, powerful tool in TSing
@@ -28,6 +31,7 @@ If you don't, I implore you to read the infamous [unanimated guide][].
 - [Adobe Illustrator][]
 - [AI2ASS][]
 
+[gsk\_]: https://github.com/gsk143
 [adobe photoshop]: https://www.photoshop.com/en
 [adobe illustrator]: https://www.adobe.com/in/products/illustrator.html
 [ai2ass]: https://github.com/TypesettingTools/AI2ASS
