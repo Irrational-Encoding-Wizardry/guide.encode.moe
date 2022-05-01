@@ -11,7 +11,7 @@ into AI.
 Make sure you have selected **Essentials Classic**
 as your work space.
 
-![Work_Space](images/AI/Work_Space.png)
+![Work_Space](images/ai/work_space.png)
 _Work space_
 
 Now click on _Image Trace_
@@ -23,7 +23,7 @@ so wait for it to be completed.
 After that you should see a window like below.
 Click on _Expand_ at the bottom of right panel.
 
-![Expand](images/AI/Expand.png)
+![Expand](images/ai/expand.png)
 _Expand_
 
 After Expansion
@@ -31,7 +31,7 @@ you should see blue lines on image like pictured below.
 Now click on _Ungroup_,
 again at the bottom of right panel.
 
-![Ungroup](images/AI/Ungroup.png)
+![Ungroup](images/ai/ungroup.png)
 _Ungroup_
 
 Deselect the whole thing
@@ -41,7 +41,7 @@ Afterwards, click on the white background and press _Delete_.
 If you didn't messed up,
 you should see a clean image.
 
-![Clean_Image](images/AI/Clean_Image.png)
+![Clean_Image](images/ai/clean_image.png)
 _Clean AI image_
 
 Sometimes ImageTrace can create
@@ -57,7 +57,7 @@ I generally use green
 but you may use whatever color is convenient for you.
 Confirm your choice by clicking on _OK_.
 
-![Grid_Window](images/AI/Grid_Window.png)
+![Grid_Window](images/ai/grid_window.png)
 _Grid colours_
 
 Press <kbd>Z</kbd> to _Zoom_
@@ -65,7 +65,7 @@ and press <kbd>V</kbd> to activate the _Selection tool_.
 Click on any white spots and press _Delete_ to delete them.
 This is what you should see at the end.
 
-![Final_AI_Image](images/AI/Final_AI_Image.png)
+![Final_AI_Image](images/ai/final_ai_image.png)
 _Final image_
 
 Sometimes there might be holes in the drawings.
@@ -77,7 +77,7 @@ and drag the anchor/handles to fill it up.
 Once you are happy with the result,
 select _File → Scripts → AI2ASS_ to create the ASS drawings.
 
-![AI2ASS](images/AI/AI2ASS.png)
+![AI2ASS](images/ai/ai2ass.png)
 _AI2ASS_
 
 On the window,
@@ -85,7 +85,7 @@ click on _Export_ and wait till it is finished.
 Now you can copy the result into your subtitle script
 and you should see the mask.
 
-![Final TS](images/AI/Final_Image.png)
+![Final TS](images/ai/final_image.png)
 _Looks pretty, doesn't it?_
 
 ---
