@@ -188,10 +188,10 @@ VapourSynth-Script.
     In short: very useful for thorough comparisons and filter fine-tuning,
     not so much for everything else.
 
-    ![](images/VS-Multi-Viewer_Preview.png)
+    ![](images/VS-Multi-Viewer_Editor.png)
     *VS Multi-Viewer’s editing window.*
 
-    ![](images/VS-Multi-Viewer_Editor.png)
+    ![](images/VS-Multi-Viewer_Preview.png)
     *VS Multi-Viewer’s preview window.*
 
 4.  [AvsPmod](https://github.com/AvsPmod/AvsPmod/releases). This is the
