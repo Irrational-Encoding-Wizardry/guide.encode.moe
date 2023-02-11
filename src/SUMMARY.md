@@ -23,6 +23,7 @@
 - [Resampling](encoding/resampling.md)
 - [Codecs]()
     - [x264](encoding/codecs/x264.md)
+    - [x265](encoding/codecs/x265.md)
 
 # Typesetting
 
