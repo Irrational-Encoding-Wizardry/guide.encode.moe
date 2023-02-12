@@ -414,10 +414,21 @@ But, since it is useful for many different tasks,
 adding it to the system PATH is recommended.</p>
 <p>When working with WEB and TV sources,
 you will most likely have only lossy audio available.
-The most common codecs here are AC-3, E-AC-3 and AAC.
-Lossily compressed files should generally
-not be re-encoded—the proper way to handle them
-is to remux (i.e. copy) them to the final file.</p>
+The most common codecs here are AC-3, E-AC-3 and AAC.</p>
+<h3><a class="header" href="#avoid-re-encoding-lossily-compressed-audio" id="avoid-re-encoding-lossily-compressed-audio">Avoid re-encoding lossily compressed audio</a></h3>
+<p><strong>Lossily compressed audio should generally not be re-encoded</strong>.
+The proper way to handle them
+is to remux (i.e. copy) them to the final file.
+Re-encoding lossy audio into a different lossy audio format
+cannot improve the audio quality
+for barely improved compression
+(in relation and assuming a lower bitrate),
+while encoding into a lossless audio format
+is just wasting bandwidth.
+Your source file will always have the most data available
+and using a lossless format for that
+can not generate data lost from the previous compression
+from thin air.</p>
 <h3><a class="header" href="#which-codecs-to-use" id="which-codecs-to-use">Which codecs to use?</a></h3>
 <p>Once you have your lossless files decoded, you need to encode them.
 Depending on your taste, you can choose a lossy or lossless codec.
@@ -463,6 +474,9 @@ knowing that the difference—assuming high enough bitrate—won’t
 be audible anyway.
 And they both have a point.</p>
 <p>So, do some ABX testing and decide for yourself.</p>
+<p>However, remember that you
+<a href="#avoid-re-encoding-lossily-compressed-audio">should not re-encode lossily compressed audio
+into a lossless format</a>.</p>
 <h2><a class="header" href="#mkvtoolnix" id="mkvtoolnix">MKVToolNix</a></h2>
 <p>You probably have at least three files now—that being the video,
 audio,

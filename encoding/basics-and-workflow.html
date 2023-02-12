@@ -177,7 +177,112 @@ debanding, AA. with images if possible</p>
 scripts you wrote. Use <code>%encode --y4m &lt;clip_variable&gt;</code> in Yuuno or the GUI
 provided by VSEdit.</p>
 <h2><a class="header" href="#transcoding-audio" id="transcoding-audio">Transcoding Audio</a></h2>
-<p>examples for qaac, flac</p>
+<p>As said earlier, only <em>qaac</em> will require configuration,
+everything else can simply be extracted wherever you like.
+Nonetheless, it is easier to add every binary you use to the PATH environment variable,
+and the rest of this guide will assume you’ve done exactly that.</p>
+<h3><a class="header" href="#decoding-audio-with-ffmpeg-and-piping-it-out" id="decoding-audio-with-ffmpeg-and-piping-it-out">Decoding audio with FFmpeg and piping it out</a></h3>
+<p>Basic <em>ffmpeg</em> usage is simple.
+You just need to specify your input file and your desired output file, like this:</p>
+<pre><code class="language-sh">ffmpeg -i &quot;input.dtshd&quot; &quot;output.wav&quot;
+</code></pre>
+<p>This command will decode the <em>DTS-HD MA</em> audio file and encode it as a WAVE file.
+This command doesn’t specify any options so <em>ffmpeg</em> will resort to using its defaults.</p>
+<p>For transcoding from <em>DTS-HD MA</em>
+only one option is needed:</p>
+<pre><code class="language-sh">ffmpeg -i &quot;input.dtshd&quot; -c:a pcm_s24le &quot;output.wav&quot;
+</code></pre>
+<p>The <code>-c:a pcm_s24le</code> parameter will tell <em>ffmpeg</em> to encode its output with a depth of 24 bits.
+If your source file is 16 bits,
+change this parameter to <code>pcm_s16le</code> or simply skip it
+because 16 bits is the default.</p>
+<p>The command above will decode the source file
+and save a resulting <em>WAVE</em> file on your drive.
+You can then encode this <em>WAVE</em> file to a <em>FLAC</em> or <em>AAC</em> file,
+but there is a faster and more convenient way to do that: piping.
+Piping skips the process of writing
+and reading the data to and from a file
+and simply sends the data straight from one program to another.</p>
+<p>To pipe from <em>ffmpeg</em>, specify the output format as <em>WAVE</em> using the <code>-f</code> option,
+replace the output filename with a hyphen and place a pipe symbol at the end,
+which will be used to separate the <em>ffmpeg</em> command from your encoder command,
+like this:</p>
+<pre><code class="language-sh">ffmpeg -i &quot;input.dtshd&quot; -c:a pcm_s24le -f wav - | {encoder command}
+</code></pre>
+<h3><a class="header" href="#encoding-to-flac" id="encoding-to-flac">Encoding to FLAC</a></h3>
+<p>To encode to <em>FLAC</em>, we will use the <code>flac</code> command line program:</p>
+<pre><code class="language-sh">flac -8 --ignore-chunk-sizes &quot;input.wav&quot; -o &quot;output.flac&quot;
+</code></pre>
+<p><code>-8</code> sets the encoding level to 8, the maximum level.
+This will result in the best compression,
+although at the expense of encoding speed.
+<em>FLAC</em> encoding is fast, so just stick with level 8.</p>
+<p><code>--ignore-chunk-sizes</code> is needed
+because the <em>WAVE</em> format only supports audio data up to 4 GiB.
+This is a way to work around that limitation.
+It will ignore the length field in the header of the <em>WAVE</em> file,
+allowing the <em>FLAC</em> encoder to read files of any size.</p>
+<p>To encode audio piped from <em>ffmpeg</em>,
+replace the input filename with a hyphen
+and place the whole command after the <code>ffmpeg</code> command,
+like this:</p>
+<pre><code class="language-sh">ffmpeg -i &quot;input.dtshd&quot; -c:a pcm_s24le -f wav - | flac -8 --ignore-chunk-sizes - -o &quot;output.flac&quot;
+</code></pre>
+<h3><a class="header" href="#encoding-to-aac" id="encoding-to-aac">Encoding to AAC</a></h3>
+<p>First, set up <em>qaac</em>:</p>
+<ul>
+<li>Go to <a href="https://sites.google.com/site/qaacpage/cabinet">its download page</a> and download the newest build
+(2.70 at the time of writing) and <code>makeportable.zip</code>.</li>
+<li>Extract the <code>x64</code> folder wherever you want <code>qaac</code> to be,
+then extract contents of <code>makeportable.zip</code> inside it.</li>
+<li>Download the <a href="https://secure-appldnld.apple.com/itunes12/001-37026-20200915-5CBD39A0-F7A0-11EA-BB8F-8EB5DD073FF6/iTunes64Setup.exe">iTunes setup file</a> (<code>iTunes64Setup.exe</code>)
+and move it to the <code>x64</code> folder.</li>
+<li>Run the <code>makeportable.cmd</code> script</li>
+<li>You are done.
+You can now delete the iTunes installation file.</li>
+</ul>
+<p>To encode from a file, use the following command:</p>
+<pre><code class="language-sh">qaac64 --tvbr 91 --ignorelength --no-delay &quot;input.wav&quot; -o &quot;output.m4a&quot;
+</code></pre>
+<p>The <code>--tvbr 91</code> option sets the encoding mode to True Variable Bitrate
+(in other words, constant quality)
+and sets the desired quality.
+<em>qaac</em> has only 15 actual quality steps in intervals of 9 (0, 9, 18, ... 127).
+The higher the number, the higher the resulting bitrate will be.
+The recommended value is 91, which will result in a bitrate
+of about 192 kbps on 2.0 channel files,
+enough for complete transparency in the vast majority of cases.</p>
+<p><code>--ignorelength</code> performs the same function as <code>--ignore-chunk-sizes</code> in FLAC.
+<code>--no-delay</code> is needed for proper audio/video sync<sup class="footnote-reference"><a href="#1">1</a></sup>.</p>
+<p>To encode audio piped from <em>ffmpeg</em>,
+replace the input filename with a hyphen
+and place the whole command after the <code>ffmpeg</code> command:</p>
+<pre><code class="language-sh">ffmpeg -i &quot;input.dtshd&quot; -c:a pcm_s24le -f wav - | qaac64 --tvbr 91 --ignorelength --no-delay - -o &quot;output.m4a&quot;
+</code></pre>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>Read why in this <a href="https://hydrogenaud.io/index.php/topic,85135.msg921707.html#msg921707">HydrogenAudio forum post</a>.</p>
+</div>
+<h3><a class="header" href="#encoding-to-opus" id="encoding-to-opus">Encoding to Opus</a></h3>
+<p>Encoding a file with <code>opusenc</code> will look like this:</p>
+<pre><code class="language-sh">opusenc --vbr --bitrate 160 --ignorelength &quot;input.wav&quot; &quot;output.opus&quot;
+</code></pre>
+<p><code>--vbr</code> sets the encoding mode to Variable Bitrate (which is the default but it
+never hurts to be explicit),
+while <code>--ignorelength</code> does the same thing as in <code>qaac</code>.</p>
+<p>As you may have noticed,
+<code>opusenc</code> uses bitrate control
+rather than some kind of constant quality mode<sup class="footnote-reference"><a href="#2">2</a></sup>.
+Instead of an abstract number that corresponds to a quality target
+like with <code>x264</code>‘s CRF mode and <code>qaac</code>‘s TVBR mode,
+you give the encoder your preferred resulting bitrate and it chooses the constant quality target itself.
+The recommended bitrate is 160 kbps for 2.0 channels
+and 320 kbps for 5.1.</p>
+<p>Encoding audio piped from <code>ffmpeg</code> works the same as for previous encoders—just replace the input filename with a hyphen:</p>
+<pre><code class="language-sh">ffmpeg -i &quot;input.dtshd&quot; -c:a pcm_s24le -f wav - | opusenc --vbr --bitrate 160 --ignorelength - &quot;output.opus&quot;
+</code></pre>
+<div class="footnote-definition" id="2"><sup class="footnote-definition-label">2</sup>
+<p><a href="https://wiki.hydrogenaud.io/index.php?title=Opus#Characteristics">A more in-depth explanation on HydrogenAudio</a></p>
+</div>
 <h2><a class="header" href="#muxing" id="muxing">Muxing</a></h2>
 <p>mkvtoolnix</p>
 
