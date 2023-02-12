@@ -71,7 +71,7 @@ In simpler terms:
 for brighter areas in the mask,
 the output will come from **clip b**,
 and for the dark areas,
-it’ll come from **clip a**.
+it'll come from **clip a**.
 Grey areas result in an average of **clip a** and **clip b**.
 
 If `premultiplied` is set to True,
@@ -243,18 +243,18 @@ Fortunately, there is a well-established script that does just that:
 
 However, we must be cautious in applying that filter,
 since, while removing halos reliably,
-it’s extremely destructive to the lineart as well.
+it's extremely destructive to the lineart as well.
 Therefore we must use a **dehalo mask**
 to protect the lineart and limit the filtering to halos.
 
 
 A dehalo mask aims to cover the halos
 but exclude the lines themselves,
-so that the lineart won’t be blurred or dimmed.
+so that the lineart won't be blurred or dimmed.
 In order to do that,
 we first need to generate an edgemask.
 In this example,
-we’ll use the built-in Sobel function.
+we'll use the built-in Sobel function.
 After generating the edge mask, we extract the luma plane:
 
 ```py
@@ -280,7 +280,7 @@ mask_outer = vsutil.iterate(luma, core.std.Maximum, 2)
 Now we shrink the expanded clip back
 to cover only the lineart.
 Applying `std.Minimum` twice
-would shrink it back to the edge mask’s original size,
+would shrink it back to the edge mask's original size,
 but since the edge mask covers part of the halos too,
 we need to erode it a little further.
 
@@ -290,7 +290,7 @@ which would result in a similar outline,
 is that this way,
 small adjacent lines with gaps in them
 (i.e. areas of fine texture or details),
-such as the man’s eyes in this example,
+such as the man's eyes in this example,
 are covered up completely,
 preventing detail loss.
 

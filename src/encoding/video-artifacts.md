@@ -11,7 +11,7 @@ and some steps to remove them wherever possible.
 
 Before we dive into this laundry list of problems
 with no clear solutions,
-let’s start by recognizing some things
+let's start by recognizing some things
 that often get mistaken for artifacts.
 
 
@@ -91,7 +91,7 @@ At decompression,
 the output of certain decoded blocks makes surrounding pixels
 appear averaged together to look like larger blocks." (Urban, 2017)
 
-Thankfully most blocking in BDs and web streams nowadays isn’t
+Thankfully most blocking in BDs and web streams nowadays isn't
 nearly as bad,
 and can either be ignored or removed
 by another stage in your filter chain[^3].
@@ -133,7 +133,7 @@ and (especially in low bitrate sources) truncation.
 The filter GradFun3 is the most common tool for removing it,
 and is the right tool for the job in average cases.
 
-Some other options are available if this isn’t enough:
+Some other options are available if this isn't enough:
 Particularly large quantization errors,
 worse banding in dark scenes,
 and/or banding with grain are cases where
@@ -189,12 +189,12 @@ or actual ring-like ringing caused by the Gibbs phenomenon.
 *Mosquito Noise[^2]*
 
 In Blu-ray encodes,
-the only ringing you’ll be likely to see is
+the only ringing you'll be likely to see is
 upscaling methods such as Lanczos and sharp Bicubic variants,
 or possibly from badly done sharpening.
 This is because ringing is primarily a compression artifact,
 and BDs are generally high bitrate,
-and even bad BDs don’t tend to ring much.
+and even bad BDs don't tend to ring much.
 
 Thus, you are much more likely to see ringing in low bitrate webrips
 and MPEG2 TV captures.
@@ -209,7 +209,7 @@ without too many drawbacks.
 
 In the case of heavily compressed H.264 sources,
 consider doing a manual masking/limiting/filtering,
-or scenefiltering with some of HQDeringmod’s safety-checks disabled
+or scenefiltering with some of HQDeringmod's safety-checks disabled
 (change repair from default 24 to 23,
 or disable entirely)
 
@@ -222,7 +222,7 @@ Halos (especially in anime) are exactly as their title would imply;
 an even,
 thick,
 brightness surrounding lines.
-In some cases they might even seem like they’re supposed to be there.
+In some cases they might even seem like they're supposed to be there.
 In Blu-rays this is rarely a problem,
 but if you do come across it,
 a masked dehalo\_alpha filter such as Fine\_Dehalo
@@ -267,7 +267,7 @@ or set the "full range" flag on the video,
 so the values can be interpreted accordingly.
 Limited range video is more widely supported
 and players may ignore the "full range" flag,
-which results in interpreting full range content 
+which results in interpreting full range content
 in a limited context.
 
 In rare cases,
@@ -289,7 +289,7 @@ Because limited precision with only 8 bit per channel
 may lead to rounding errors quickly,
 we prefer adjusting the levels
 (and our filtering in general)
-with higher precision, 
+with higher precision,
 such as 16 bit or float (32 bit).
 In the example above,
 you would use the following[^5]:
@@ -302,7 +302,7 @@ clip = clip.std.Levels(min_in=0, max_in=240 << 8, min_out=16 << 8, max_out=240 <
 
 An example for a case,
 where shifting the levels with 8 bit precision
-leads to rounding errors 
+leads to rounding errors
 that may result in banding
 and other weird artifacts,
 can be seen below.

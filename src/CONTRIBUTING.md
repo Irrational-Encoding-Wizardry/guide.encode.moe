@@ -82,7 +82,7 @@ $ mdbook serve
 [INFO] (mdbook::book): Running the html backend
 [INFO] (mdbook::cmd::serve): Serving on: http://localhost:3000
 [INFO] (warp::server): Server::run; addr=V6([::1]:3000)
-[INFO] (warp::server): listening on http://[::1]:3000 
+[INFO] (warp::server): listening on http://[::1]:3000
 [INFO] (mdbook::cmd::watch): Listening for changes...
 ```
 
@@ -401,6 +401,17 @@ If you need text-formatting, you <strong>must</strong> use in-line HTML.
 This class should be used for important information.
 </p></div>
 ```
+
+
+### Punctuation
+
+Use the *ASCII* symbols `"` and `'`
+for quotation and apostrophe respectively
+over the *Unicode* versions `“`, `“`, and `’`.
+They will be converted during the build process
+and in most situations,
+text editing tools will work better
+with the generic *ASCII* symbols.
 
 
 ### Mathematics with MathJax

@@ -36,16 +36,16 @@ for a layman to start.
 All resampling kernels behave slightly differently
 and generate artifacts of differing kinds and severity.
 
-It should be noted that there is no “objectively best” resampling filter,
+It should be noted that there is no "objectively best" resampling filter,
 so it is largely a matter of personal preference.
 There are no hard and fast rules about
 which resampler performs best for any given type of content,
-so it’s best to test them yourself.
+so it's best to test them yourself.
 
 A short overview of the most common filters follows.
 For a much more extensive explanation of the different filters,
 including details on the exact algorithms,
-see [ImageMagick’s guide][IM].
+see [ImageMagick's guide][IM].
 
 Additionally,
 [ResampleHQ][RHQ]'s documentation features
@@ -118,14 +118,14 @@ when making filtering decisions.
 
 #### Bilinear / Triangle
 
-Bilinear, also known as Triangle due to its graph’s shape,
+Bilinear, also known as Triangle due to its graph's shape,
 is one of the most common algorithms in widespread use
 because of its simplicity and speed.
 However,
 it generally creates all sorts of nasty artifacts
 and is inferior in quality to most other filters.
 The only advantage it offers is speed,
-so don’t use it unless you’re sure you have to.
+so don't use it unless you're sure you have to.
 
 VapourSynth example:
 
@@ -143,7 +143,7 @@ and the default for many image processing programs,
 because it is usually considered a good neutral default.
 
 It takes two parameters, B and C,
-which can be used to tweak the filter’s behaviour.
+which can be used to tweak the filter's behaviour.
 For upscaling, it is recommended to use values that satisfy the equation
 \\(\mathrm{b} + 2\mathrm{c} = 1\\).
 
@@ -166,7 +166,7 @@ and their corresponding parameters in Mitchell-Netravali.
 
 - B-Spline – b=1, c=0
 - Hermite – b=0, c=0
-- Mitchell-Netravali – b=1/3, c=1/3 (sometimes referred to as just “Mitchell”)
+- Mitchell-Netravali – b=1/3, c=1/3 (sometimes referred to as just "Mitchell")
 - Catmull-Rom – b=0, c=0.5
 - Sharp Bicubic – b=0, c=1
 
@@ -192,7 +192,7 @@ It is usually slightly sharper than Mitchell (Bicubic b=c=1/3),
 but might produce slightly more ringing.
 
 Lanczos takes an additional parameter
-that controls the filter’s number of lobes,
+that controls the filter's number of lobes,
 or *taps*.
 Increasing the number of lobes
 improves sharpness at the cost of increased ringing.
@@ -251,7 +251,7 @@ clip = core.fmtc.resample(src, w, h, kernel="spline", taps=6) # equivalent to Sp
 
 The Gaussian filter is very special in that its Fourier transform[^1]
 is another Gaussian
-whose width is inversely proportional to the spatial function’s.
+whose width is inversely proportional to the spatial function's.
 This can be harnessed to remove and amplify high frequencies
 in a very controllable way.
 Widening the filter,
@@ -261,7 +261,7 @@ whereas squashing it will amplify higher frequencies (more aliasing).
 
 In practice,
 though,
-the Gaussian filter isn’t all too useful for regular resizing.
+the Gaussian filter isn't all too useful for regular resizing.
 However,
 it can be used to accurately emulate a Gaussian blur
 (when used without resizing)
@@ -286,11 +286,11 @@ Some sources will categorize filters as either
 interpolation filters or non-interpolation filters.
 
 Interpolation filters are those that
-when applied “in-place”,
+when applied "in-place",
 i.e. at the location of the input samples,
-don’t alter the sample value.
+don't alter the sample value.
 Therefore,
-they only interpolate “missing” values,
+they only interpolate "missing" values,
 leaving the input samples untouched.
 
 This is true for filters that evaluate to 0
@@ -315,7 +315,7 @@ Another,
 more practical,
 case where this property is useful
 is when shifting an image by full pixel widths (integers),
-again because input pixel values aren’t changed
+again because input pixel values aren't changed
 but just relocated.
 
 
@@ -332,7 +332,7 @@ First it is resampled horizontally, then vertically.
 This allows images to be treated 1-dimensionally
 since each pixel row/column can be resampled separately.
 The main advantage of this method is that it's extremely fast,
-which is why it’s the much more common one;
+which is why it's the much more common one;
 generally, unless indicated otherwise,
 this is what is used.
 
@@ -343,7 +343,7 @@ this is what is used.
 *Two-dimensional kernel. The radius is colored green.*
 
 All input samples whose [Euclidean distance][L2] to the pixel
-is within the filter’s radius contribute to its value.
+is within the filter's radius contribute to its value.
 The Euclidean distance is passed to the filter kernel.
 This is a lot more costly than tensor resampling in terms of runtime.
 
@@ -353,7 +353,7 @@ This is a lot more costly than tensor resampling in terms of runtime.
 ### Scaling in modified colorspaces
 
 The colorspace used when resampling
-can significantly impact the output’s subjective quality.
+can significantly impact the output's subjective quality.
 
 
 #### Downscaling in linear light
@@ -367,7 +367,7 @@ consider this gradient:
 *A grayscale gradient from 0 to 255.*
 
 It should be apparent
-that the brightness doesn’t scale linearly with the pixel values.
+that the brightness doesn't scale linearly with the pixel values.
 This is because most digital video
 uses [gamma-transformed][gamma] pixel values
 in order to compress more perceptually distinct color shades
@@ -400,7 +400,7 @@ See [this comparison][comp] for a particularly extreme example
 of linear vs gamma downscaling.
 
 However,
-this doesn’t necessarily mean downscaling in linear light
+this doesn't necessarily mean downscaling in linear light
 is always the right choice,
 since it noticeably accentuates dark halos
 introduced by scaling.
@@ -442,7 +442,7 @@ This means converting the linear RGB version of an image
 to a custom colorspace with an S-shaped intensity curve
 before scaling and converting it back afterwards.
 What this does, essentially,
-is decrease the image’s contrast
+is decrease the image's contrast
 by pushing extreme values of both dark and bright
 towards the middle.
 
@@ -460,7 +460,7 @@ Example code for VS:
 ```py
 import havsfunc as hf
 linear = core.resize.Bicubic(src, format=vs.RGBS, transfer_in_s="709", transfer_s="linear", matrix_in_s="709")
-sigmoidized = hf.SigmoidInverse(linear, thr=0.5, cont=6.5) # 'cont' corresponds to the “sigmoidal contrast” mentioned above
+sigmoidized = hf.SigmoidInverse(linear, thr=0.5, cont=6.5) # 'cont' corresponds to the "sigmoidal contrast" mentioned above
 scaled_sigmoid = core.resize.Bicubic(sigmoidized, 640, 360)
 de_sigmoidized = hf.SigmoidDirect(scaled_sigmoid, thr=0.5, cont=6.5)
 scaled_gamma = core.resize.Bicubic(de_sigmoidized, format=src.format, transfer_s="709", transfer_in_s="linear", matrix_s="709")
@@ -472,7 +472,7 @@ scaled_gamma = core.resize.Bicubic(de_sigmoidized, format=src.format, transfer_s
 NN-based scalers have become
 increasingly popular in recent times.
 This is because
-they aren’t subject to the technical limitations
+they aren't subject to the technical limitations
 of convolution-based resamplers—which beyond a certain point
 only trade one artifact for another—and thus produce
 much higher quality upscales.
@@ -489,7 +489,7 @@ such as haloing, ringing or aliasing.
 
 Nnedi3 was originally conceived as a deinterlacer;
 as such,
-it only doubles a frame’s height,
+it only doubles a frame's height,
 leaving the original pixel rows untouched
 and interpolating the missing ones.
 This, however, can trivially be leveraged
@@ -516,7 +516,7 @@ VapourSynth usage example:
 
 ```py
 from nnedi3_rpow2 import *
-# 'spline36' here is technically redundant since it’s the default
+# 'spline36' here is technically redundant since it's the default
 up = nnedi3_rpow2(src, width=1920, height=1080, kernel="spline36")
 ```
 
@@ -528,7 +528,7 @@ including non-integer values,
 requires resampling as well.
 For example,
 left-shifting by a quarter pixel
-will resample the image at the input samples’ positions minus 0.25.[^3]
+will resample the image at the input samples' positions minus 0.25.[^3]
 This also means that,
 unless a [interpolative filter](#interpolation-filters) is used,
 even shifting by integer amounts will alter the image.
@@ -582,7 +582,7 @@ when going from 4:2:0 to 4:4:4,
 the new chroma sample positions will
 match up with the luma sample positions.
 This would be the correct mapping
-if the resamplers’s assumption of center-alignment was true—if it isn’t
+if the resamplers's assumption of center-alignment was true—if it isn't
 (like with MPEG-2 chroma placement)
 we have to compensate for the offset by shifting the input samples
 by a quarter pixel width to the left
@@ -601,13 +601,13 @@ the chroma needs to be shifted by
 
 Chroma shifting is performed
 automatically under the hood by most format conversion software
-(including zimg, VapourSynth’s resizing library)
+(including zimg, VapourSynth's resizing library)
 and media players.
 Thus, we only need to take care of it
 if we handle the chroma upscaling separately by hand.
 
 In VS,
-shifting can be performed with the ``resize`` functions’ ``src_left`` parameter:
+shifting can be performed with the ``resize`` functions' ``src_left`` parameter:
 
 ```py
 u = core.std.ShufflePlanes(src, planes=1, colorfamily=vs.GRAY)
@@ -618,12 +618,12 @@ shifted_scaled_u = core.resize.Spline16(u, 1920, 1080, src_left=0.25) # shifts t
 
 ---
 
-[^1]: The Fourier transform is an ubiquitous concept in image processing, so we strongly advise becoming familiar with at least the basics. A very good resource for this topic is [ImageMagick’s guide][].
+[^1]: The Fourier transform is an ubiquitous concept in image processing, so we strongly advise becoming familiar with at least the basics. A very good resource for this topic is [ImageMagick's guide][].
 
 [^2]: Robidoux, N. (2012, October 21). Resampling — ImageMagick v6 Examples. Retrieved August 22, 2019, from https://www.imagemagick.org/Usage/filter/nicolas/#upsampling
 
-[^3]: If you don’t understand what this means, read the resources linked above in the [resizing section](#resizing).
+[^3]: If you don't understand what this means, read the resources linked above in the [resizing section](#resizing).
 
 [^4]: This is derived as follows: The shift is the distance between the position of the first luma sample and the position of the first chroma sample (both mapped onto the input grid and given in terms of input chroma pixel widths). The former is located at \\(0.25 + \frac{\mathrm{src~width}}{4 \times \mathrm{dst~width}}\\), the latter at \\(\frac{\mathrm{src~width}}{2 \times \mathrm{dst~width}}\\). This yields \\(0.25 + \frac{\mathrm{src~width}}{4 \times \mathrm{dst~width}} - \frac{\mathrm{src~width}}{2 \times \mathrm{dst~width}} = 0.25 + \frac{\mathrm{src~width}}{\mathrm{dst~width}} \times \left( ^1/_4 -\,^1/_2 \right) = 0.25 + \frac{\mathrm{src~width}}{\mathrm{dst~width}} \times (-0.25)\\) for the shift.
 
-[ImageMagick’s guide]: http://www.fmwconcepts.com/imagemagick/fourier_transforms/fourier.html
+[ImageMagick's guide]: http://www.fmwconcepts.com/imagemagick/fourier_transforms/fourier.html
