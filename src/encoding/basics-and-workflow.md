@@ -26,7 +26,7 @@ provided by VSEdit.
 
 ## Transcoding Audio
 
-As said earlier, only `qaac` will require configuration,
+As said earlier, only *qaac* will require configuration,
 everything else can simply be extracted wherever you like.
 Nonetheless, it is easier to add every binary you use to the PATH environment variable,
 and the rest of this guide will assume you've done exactly that.
@@ -34,39 +34,39 @@ and the rest of this guide will assume you've done exactly that.
 
 ### Decoding audio with FFmpeg and piping it out
 
-Basic `ffmpeg` usage is simple.
+Basic *ffmpeg* usage is simple.
 You just need to specify your input file and your desired output file, like this:
 
 ```sh
 ffmpeg -i "input.dtshd" "output.wav"
 ```
 
-This command will decode the DTS-HD MA audio file and encode it as a WAVE file.
-This command doesn't specify any options so `ffmpeg` will resort to using its defaults.
+This command will decode the *DTS-HD MA* audio file and encode it as a WAVE file.
+This command doesn't specify any options so *ffmpeg* will resort to using its defaults.
 
-For transcoding from DTS-HD MA
+For transcoding from *DTS-HD MA*
 only one option is needed:
 
 ```sh
 ffmpeg -i "input.dtshd" -c:a pcm_s24le "output.wav"
 ```
 
-The `-c:a pcm_s24le` parameter will tell `ffmpeg` to encode its output with a depth of 24 bits.
-The default is 16 bits.
+The `-c:a pcm_s24le` parameter will tell *ffmpeg* to encode its output with a depth of 24 bits.
 If your source file is 16 bits,
-change this parameter to `pcm_s16le` or simply skip it.
+change this parameter to `pcm_s16le` or simply skip it
+because 16 bits is the default.
 
 The command above will decode the source file
-and save a resulting WAVE file on your drive.
-You can then encode this WAVE file to a FLAC or AAC file,
+and save a resulting *WAVE* file on your drive.
+You can then encode this *WAVE* file to a *FLAC* or *AAC* file,
 but there is a faster and more convenient way to do that: piping.
 Piping skips the process of writing
 and reading the data to and from a file
 and simply sends the data straight from one program to another.
 
-To pipe from `ffmpeg`, specify the output format as WAVE using the `-f` option,
+To pipe from *ffmpeg*, specify the output format as *WAVE* using the `-f` option,
 replace the output filename with a hyphen and place a pipe symbol at the end,
-which will be used to separate the `ffmpeg` command from your encoder command,
+which will be used to separate the *ffmpeg* command from your encoder command,
 like this:
 
 ```sh
@@ -76,7 +76,7 @@ ffmpeg -i "input.dtshd" -c:a pcm_s24le -f wav - | {encoder command}
 
 ### Encoding to FLAC
 
-To encode to FLAC, we will use the `flac` command line program:
+To encode to *FLAC*, we will use the `flac` command line program:
 
 ```sh
 flac -8 --ignore-chunk-sizes "input.wav" -o "output.flac"
@@ -85,15 +85,15 @@ flac -8 --ignore-chunk-sizes "input.wav" -o "output.flac"
 `-8` sets the encoding level to 8, the maximum level.
 This will result in the best compression,
 although at the expense of encoding speed.
-FLAC encoding is fast, so just stick with level 8.
+*FLAC* encoding is fast, so just stick with level 8.
 
 `--ignore-chunk-sizes` is needed
-because the WAVE format only supports audio data up to 4 GiB.
+because the *WAVE* format only supports audio data up to 4 GiB.
 This is a way to work around that limitation.
-It will ignore the length field in the header of the WAVE file,
-allowing the FLAC encoder to read files of any size.
+It will ignore the length field in the header of the *WAVE* file,
+allowing the *FLAC* encoder to read files of any size.
 
-To encode audio piped from `ffmpeg`,
+To encode audio piped from *ffmpeg*,
 replace the input filename with a hyphen
 and place the whole command after the `ffmpeg` command,
 like this:
@@ -105,7 +105,7 @@ ffmpeg -i "input.dtshd" -c:a pcm_s24le -f wav - | flac -8 --ignore-chunk-sizes -
 
 ### Encoding to AAC
 
-First, set up `qaac`:
+First, set up *qaac*:
 
 * Go to [its download page][qaac] and download the newest build
   (2.70 at the time of writing) and `makeportable.zip`.
@@ -114,7 +114,8 @@ First, set up `qaac`:
 * Download the [iTunes setup file][itunes] (`iTunes64Setup.exe`)
   and move it to the `x64` folder.
 * Run the `makeportable.cmd` script
-* You are done. You can now delete the iTunes installation file.
+* You are done.
+  You can now delete the iTunes installation file.
 
 To encode from a file, use the following command:
 
@@ -125,16 +126,16 @@ qaac64 --tvbr 91 --ignorelength --no-delay "input.wav" -o "output.m4a"
 The `--tvbr 91` option sets the encoding mode to True Variable Bitrate
 (in other words, constant quality)
 and sets the desired quality.
-`qaac` has only 15 actual quality steps in intervals of 9 (0, 9, 18, ... 127).
+*qaac* has only 15 actual quality steps in intervals of 9 (0, 9, 18, ... 127).
 The higher the number, the higher the resulting bitrate will be.
 The recommended value is 91, which will result in a bitrate
 of about 192 kbps on 2.0 channel files,
 enough for complete transparency in the vast majority of cases.
 
-`--ignorelength` performs the same function as `--ignore-chunk-sizes` in FLAC.  
+`--ignorelength` performs the same function as `--ignore-chunk-sizes` in FLAC.
 `--no-delay` is needed for proper audio/video sync[^1].
 
-To encode audio piped from `ffmpeg`,
+To encode audio piped from *ffmpeg*,
 replace the input filename with a hyphen
 and place the whole command after the `ffmpeg` command:
 
