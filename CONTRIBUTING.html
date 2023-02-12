@@ -409,14 +409,14 @@ use the following syntax<sup class="footnote-reference"><a href="#1">1</a></sup>
 with a blank line above and below,
 as this will align them correctly
 and allow for the caption to be displayed.</p>
-<div class="warning box"><p>
-Try to avoid adding lossy images to the guide
+<div class="warning box"><div>
+<p>Try to avoid adding lossy images to the guide
 (all screenshots should be lossless from the source).
 Also, make sure your image is compressed as much as possible
 <strong>before committing</strong> it.
-This can be done with <a href="https://www.css-ig.net/pingo" target="_blank">pingo</a>'s
-lossless PNG compression: <code>pingo -sa file.png</code>.
-</p></div>
+This can be done with <a href="https://www.css-ig.net/pingo">pingo</a>‘s
+lossless PNG compression: <code>pingo -sa file.png</code>.</p>
+</div></div>
 <p>When extracting frames directly from a VapourSynth pipline
 where the format might be <code>vs.YUV420P16</code> (YUV 4:2:0, 16-bit),
 convert your image to <code>vs.RGB24</code> (RGB 8-bit) before saving as a PNG.
@@ -462,14 +462,20 @@ before continuing to read the rest of the page.</p>
 different CSS style.
 These paragraphs must be separated with a blank line above and below similar
 to images or code blocks.</p>
-<pre><code class="language-md">&lt;div class=&quot;info box&quot;&gt;&lt;p&gt;
+<pre><code class="language-md">&lt;div class=&quot;info box&quot;&gt;&lt;div&gt;
+
 Text here as usual, using semantic linefeed rules.
-If you need text-formatting, you &lt;strong&gt;must&lt;/strong&gt; use in-line HTML.
-&lt;/p&gt;&lt;/div&gt;
+The blank lines around HTML text are needed
+to enable inline Markdown parsing,
+for example for text formatting.
+
+&lt;/div&gt;&lt;/div&gt;
 </code></pre>
-<pre><code class="language-md">&lt;div class=&quot;warning box&quot;&gt;&lt;p&gt;
+<pre><code class="language-md">&lt;div class=&quot;warning box&quot;&gt;&lt;div&gt;
+
 This class should be used for important information.
-&lt;/p&gt;&lt;/div&gt;
+
+&lt;/div&gt;&lt;/div&gt;
 </code></pre>
 <h3><a class="header" href="#punctuation" id="punctuation">Punctuation</a></h3>
 <p>Use the <em>ASCII</em> symbols <code>&quot;</code> and <code>'</code>

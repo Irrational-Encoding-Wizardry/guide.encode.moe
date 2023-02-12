@@ -196,6 +196,19 @@ only one option is needed:</p>
 If your source file is 16 bits,
 change this parameter to <code>pcm_s16le</code> or simply skip it
 because 16 bits is the default.</p>
+<p><a name="16bps"></a></p>
+<div class="info box"><div>
+<p>16 bits per sample are,
+in almost all situation and most definitely also for anime,
+more than enough data points to store audio data.
+Thus, you should use 16 bits per sample in your output formats
+and only use 24 bits for the intermediate <em>WAVE</em> file,
+<em>iff</em> your source file already used 24 bits to begin with.</p>
+<p>Refer also to the following article:</p>
+<ul>
+<li><a href="https://people.xiph.org/%7Exiphmont/demo/neil-young.html">24/192 Music Downloads and why they make no sense</a></li>
+</ul>
+</div></div>
 <p>The command above will decode the source file
 and save a resulting <em>WAVE</em> file on your drive.
 You can then encode this <em>WAVE</em> file to a <em>FLAC</em> or <em>AAC</em> file,
@@ -211,7 +224,7 @@ like this:</p>
 </code></pre>
 <h3><a class="header" href="#encoding-to-flac" id="encoding-to-flac">Encoding to FLAC</a></h3>
 <p>To encode to <em>FLAC</em>, we will use the <code>flac</code> command line program:</p>
-<pre><code class="language-sh">flac -8 --ignore-chunk-sizes &quot;input.wav&quot; -o &quot;output.flac&quot;
+<pre><code class="language-sh">flac -8 --ignore-chunk-sizes --bps 16 &quot;input.wav&quot; -o &quot;output.flac&quot;
 </code></pre>
 <p><code>-8</code> sets the encoding level to 8, the maximum level.
 This will result in the best compression,
@@ -222,11 +235,17 @@ because the <em>WAVE</em> format only supports audio data up to 4 GiB.
 This is a way to work around that limitation.
 It will ignore the length field in the header of the <em>WAVE</em> file,
 allowing the <em>FLAC</em> encoder to read files of any size.</p>
+<p><code>--bps 16</code> specifies the “bits per sample” to be 16.
+As noted <a href="#16bps">earlier</a>,
+16 bits are enough for our purposes
+and <em>FLAC</em> additionally has the downside
+that all 24-bit samples are padded to 32-bit samples in the format,
+meaning 25% of the storage used is completely wasted.</p>
 <p>To encode audio piped from <em>ffmpeg</em>,
 replace the input filename with a hyphen
 and place the whole command after the <code>ffmpeg</code> command,
 like this:</p>
-<pre><code class="language-sh">ffmpeg -i &quot;input.dtshd&quot; -c:a pcm_s24le -f wav - | flac -8 --ignore-chunk-sizes - -o &quot;output.flac&quot;
+<pre><code class="language-sh">ffmpeg -i &quot;input.dtshd&quot; -c:a pcm_s24le -f wav - | flac -8 --ignore-chunk-sizes --bps 16 - -o &quot;output.flac&quot;
 </code></pre>
 <h3><a class="header" href="#encoding-to-aac" id="encoding-to-aac">Encoding to AAC</a></h3>
 <p>First, set up <em>qaac</em>:</p>

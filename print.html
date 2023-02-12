@@ -429,14 +429,14 @@ use the following syntax<sup class="footnote-reference"><a href="#1">1</a></sup>
 with a blank line above and below,
 as this will align them correctly
 and allow for the caption to be displayed.</p>
-<div class="warning box"><p>
-Try to avoid adding lossy images to the guide
+<div class="warning box"><div>
+<p>Try to avoid adding lossy images to the guide
 (all screenshots should be lossless from the source).
 Also, make sure your image is compressed as much as possible
 <strong>before committing</strong> it.
-This can be done with <a href="https://www.css-ig.net/pingo" target="_blank">pingo</a>'s
-lossless PNG compression: <code>pingo -sa file.png</code>.
-</p></div>
+This can be done with <a href="https://www.css-ig.net/pingo">pingo</a>‘s
+lossless PNG compression: <code>pingo -sa file.png</code>.</p>
+</div></div>
 <p>When extracting frames directly from a VapourSynth pipline
 where the format might be <code>vs.YUV420P16</code> (YUV 4:2:0, 16-bit),
 convert your image to <code>vs.RGB24</code> (RGB 8-bit) before saving as a PNG.
@@ -482,14 +482,20 @@ before continuing to read the rest of the page.</p>
 different CSS style.
 These paragraphs must be separated with a blank line above and below similar
 to images or code blocks.</p>
-<pre><code class="language-md">&lt;div class=&quot;info box&quot;&gt;&lt;p&gt;
+<pre><code class="language-md">&lt;div class=&quot;info box&quot;&gt;&lt;div&gt;
+
 Text here as usual, using semantic linefeed rules.
-If you need text-formatting, you &lt;strong&gt;must&lt;/strong&gt; use in-line HTML.
-&lt;/p&gt;&lt;/div&gt;
+The blank lines around HTML text are needed
+to enable inline Markdown parsing,
+for example for text formatting.
+
+&lt;/div&gt;&lt;/div&gt;
 </code></pre>
-<pre><code class="language-md">&lt;div class=&quot;warning box&quot;&gt;&lt;p&gt;
+<pre><code class="language-md">&lt;div class=&quot;warning box&quot;&gt;&lt;div&gt;
+
 This class should be used for important information.
-&lt;/p&gt;&lt;/div&gt;
+
+&lt;/div&gt;&lt;/div&gt;
 </code></pre>
 <h3><a class="header" href="#punctuation" id="punctuation">Punctuation</a></h3>
 <p>Use the <em>ASCII</em> symbols <code>&quot;</code> and <code>'</code>
@@ -1432,6 +1438,19 @@ only one option is needed:</p>
 If your source file is 16 bits,
 change this parameter to <code>pcm_s16le</code> or simply skip it
 because 16 bits is the default.</p>
+<p><a name="16bps"></a></p>
+<div class="info box"><div>
+<p>16 bits per sample are,
+in almost all situation and most definitely also for anime,
+more than enough data points to store audio data.
+Thus, you should use 16 bits per sample in your output formats
+and only use 24 bits for the intermediate <em>WAVE</em> file,
+<em>iff</em> your source file already used 24 bits to begin with.</p>
+<p>Refer also to the following article:</p>
+<ul>
+<li><a href="https://people.xiph.org/%7Exiphmont/demo/neil-young.html">24/192 Music Downloads and why they make no sense</a></li>
+</ul>
+</div></div>
 <p>The command above will decode the source file
 and save a resulting <em>WAVE</em> file on your drive.
 You can then encode this <em>WAVE</em> file to a <em>FLAC</em> or <em>AAC</em> file,
@@ -1447,7 +1466,7 @@ like this:</p>
 </code></pre>
 <h3><a class="header" href="#encoding-to-flac" id="encoding-to-flac">Encoding to FLAC</a></h3>
 <p>To encode to <em>FLAC</em>, we will use the <code>flac</code> command line program:</p>
-<pre><code class="language-sh">flac -8 --ignore-chunk-sizes &quot;input.wav&quot; -o &quot;output.flac&quot;
+<pre><code class="language-sh">flac -8 --ignore-chunk-sizes --bps 16 &quot;input.wav&quot; -o &quot;output.flac&quot;
 </code></pre>
 <p><code>-8</code> sets the encoding level to 8, the maximum level.
 This will result in the best compression,
@@ -1458,11 +1477,17 @@ because the <em>WAVE</em> format only supports audio data up to 4 GiB.
 This is a way to work around that limitation.
 It will ignore the length field in the header of the <em>WAVE</em> file,
 allowing the <em>FLAC</em> encoder to read files of any size.</p>
+<p><code>--bps 16</code> specifies the “bits per sample” to be 16.
+As noted <a href="encoding/basics-and-workflow.html#16bps">earlier</a>,
+16 bits are enough for our purposes
+and <em>FLAC</em> additionally has the downside
+that all 24-bit samples are padded to 32-bit samples in the format,
+meaning 25% of the storage used is completely wasted.</p>
 <p>To encode audio piped from <em>ffmpeg</em>,
 replace the input filename with a hyphen
 and place the whole command after the <code>ffmpeg</code> command,
 like this:</p>
-<pre><code class="language-sh">ffmpeg -i &quot;input.dtshd&quot; -c:a pcm_s24le -f wav - | flac -8 --ignore-chunk-sizes - -o &quot;output.flac&quot;
+<pre><code class="language-sh">ffmpeg -i &quot;input.dtshd&quot; -c:a pcm_s24le -f wav - | flac -8 --ignore-chunk-sizes --bps 16 - -o &quot;output.flac&quot;
 </code></pre>
 <h3><a class="header" href="#encoding-to-aac" id="encoding-to-aac">Encoding to AAC</a></h3>
 <p>First, set up <em>qaac</em>:</p>
@@ -3963,13 +3988,13 @@ codec packs and player add-ons are no longer required.</p>
 </div>
 <h1><a class="header" href="#masking-using-ps-and-ai" id="masking-using-ps-and-ai">Masking using PS and AI</a></h1>
 <h2><a class="header" href="#preface-1" id="preface-1">Preface</a></h2>
-<div class="info box"><p>
+<div class="info box"><div>
 <p>Most of the <em>Masking With Adobe Photoshop (PS) &amp; Adobe Illustrator (AI) guide</em>
 is written by <strong><a href="https://github.com/gsk143">gsk_</a></strong>.
 If you see any pronouns such as “I”, “me”, “my”, etc.,
 unless otherwise stated,
 it refers to me.</p>
-</p></div>
+</div></div>
 <p>Before we get to know on how to work with AI,
 I would like to give a small warning.
 AI is a really advanced, powerful tool for typesetting
