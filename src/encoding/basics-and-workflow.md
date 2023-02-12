@@ -56,6 +56,23 @@ If your source file is 16 bits,
 change this parameter to `pcm_s16le` or simply skip it
 because 16 bits is the default.
 
+<a name="16bps"></a>
+<div class="info box"><div>
+
+16 bits per sample are,
+in almost all situation and most definitely also for anime,
+more than enough data points to store audio data.
+Thus, you should use 16 bits per sample in your output formats
+and only use 24 bits for the intermediate *WAVE* file,
+*iff* your source file already used 24 bits to begin with.
+
+Refer also to the following article:
+- [24/192 Music Downloads and why they make no sense][24/192-music]
+
+[24/192-music]: https://people.xiph.org/~xiphmont/demo/neil-young.html
+
+</div></div>
+
 The command above will decode the source file
 and save a resulting *WAVE* file on your drive.
 You can then encode this *WAVE* file to a *FLAC* or *AAC* file,
@@ -79,7 +96,7 @@ ffmpeg -i "input.dtshd" -c:a pcm_s24le -f wav - | {encoder command}
 To encode to *FLAC*, we will use the `flac` command line program:
 
 ```sh
-flac -8 --ignore-chunk-sizes "input.wav" -o "output.flac"
+flac -8 --ignore-chunk-sizes --bps 16 "input.wav" -o "output.flac"
 ```
 
 `-8` sets the encoding level to 8, the maximum level.
@@ -93,13 +110,20 @@ This is a way to work around that limitation.
 It will ignore the length field in the header of the *WAVE* file,
 allowing the *FLAC* encoder to read files of any size.
 
+`--bps 16` specifies the "bits per sample" to be 16.
+As noted [earlier](#16bps),
+16 bits are enough for our purposes
+and *FLAC* additionally has the downside
+that all 24-bit samples are padded to 32-bit samples in the format,
+meaning 25% of the storage used is completely wasted.
+
 To encode audio piped from *ffmpeg*,
 replace the input filename with a hyphen
 and place the whole command after the `ffmpeg` command,
 like this:
 
 ```sh
-ffmpeg -i "input.dtshd" -c:a pcm_s24le -f wav - | flac -8 --ignore-chunk-sizes - -o "output.flac"
+ffmpeg -i "input.dtshd" -c:a pcm_s24le -f wav - | flac -8 --ignore-chunk-sizes --bps 16 - -o "output.flac"
 ```
 
 
