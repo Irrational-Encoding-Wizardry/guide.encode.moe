@@ -315,9 +315,22 @@ adding it to the system PATH is recommended.
 When working with WEB and TV sources,
 you will most likely have only lossy audio available.
 The most common codecs here are AC-3, E-AC-3 and AAC.
-Lossily compressed files should generally
-not be re-encoded—the proper way to handle them
+
+### Avoid re-encoding lossily compressed audio
+
+**Lossily compressed audio should generally not be re-encoded**.
+The proper way to handle them
 is to remux (i.e. copy) them to the final file.
+Re-encoding lossy audio into a different lossy audio format
+cannot improve the audio quality
+for barely improved compression
+(in relation and assuming a lower bitrate),
+while encoding into a lossless audio format
+is just wasting bandwidth.
+Your source file will always have the most data available
+and using a lossless format for that
+can not generate data lost from the previous compression
+from thin air.
 
 [ffmpeg]: https://www.ffmpeg.org/download.html
 
@@ -381,6 +394,10 @@ be audible anyway.
 And they both have a point.
 
 So, do some ABX testing and decide for yourself.
+
+However, remember that you
+[should not re-encode lossily compressed audio
+into a lossless format](#avoid-re-encoding-lossily-compressed-audio).
 
 
 ## MKVToolNix
