@@ -3572,9 +3572,8 @@ if you’ve been following the previous sections of this guide.</li>
 that there are several modified versions of <em>x265</em>
 specifically improved for animation encoding.</p>
 <ul>
-<li><a href="https://github.com/msg7086/x265-Yuuki-Asuna/tree/Asuna">Asuna</a></li>
-<li><a href="https://github.com/msg7086/x265-Yuuki-Asuna/tree/Yuuki">Yuuki</a></li>
-<li><a href="https://github.com/AmusementClub/x265">AmusementClub</a></li>
+<li><a href="https://github.com/DJATOM/x265-aMod">aMod</a></li>
+<li><a href="https://github.com/jpsdr/x265/tree/x265_mod">jpsdr</a></li>
 </ul>
 <p>These modifications may include
 some custom features and performance optimizations.
@@ -3607,10 +3606,10 @@ for the full list of CLI options.</p>
 and navigate to the folder
 where your VapourSynth script lives.
 Let’s use the following command:</p>
-<pre><code class="language-sh">vspipe --y4m myvideo.vpy - | x265 --y4m --profile main10 --preset veryfast --tune animation --crf 20 -o x265output.mkv -
+<pre><code class="language-sh">vspipe -c y4m myvideo.vpy - | x265 --y4m --profile main10 --preset veryfast --tune animation --crf 20 -o x265output.mkv -
 </code></pre>
 <p>We’ll run through what each of these options means:</p>
-<h4><a class="header" href="#vspipe---y4m-myvideovpy---1" id="vspipe---y4m-myvideovpy---1"><code>vspipe --y4m myvideo.vpy -</code></a></h4>
+<h4><a class="header" href="#vspipe--c-y4m-myvideovpy--" id="vspipe--c-y4m-myvideovpy--"><code>vspipe -c y4m myvideo.vpy -</code></a></h4>
 <p>This portion loads your VapourSynth script
 and pipes it to stdout,
 adding <em>y4m</em> headers that <em>x265</em> can decode.
@@ -3729,7 +3728,7 @@ what bitrate our encode should be, in <strong>kilobits per second</strong>.
 Everything you need to know
 is listed in <a href="encoding/codecs/./x264.html#example-2-targeted-file-size">the <em>x264</em> documentation</a>.</p>
 <p>And here’s how we could add that to our <em>x265</em> command:</p>
-<pre><code class="language-sh">vspipe --y4m myvideo.vpy - | x265 --y4m --preset veryfast --bitrate 5222 -o x265output.mkv -
+<pre><code class="language-sh">vspipe -c y4m myvideo.vpy - | x265 --y4m --preset veryfast --bitrate 5222 -o x265output.mkv -
 </code></pre>
 <p>The <code>--bitrate</code> option, by itself,
 says that we want to do a 1-pass, average-bitrate encode.
@@ -3757,11 +3756,11 @@ and the second time performing the actual encode.
 2-pass mode is highly recommended
 if you need to target a certain bitrate.</p>
 <p>Here’s how we would run our first pass:</p>
-<pre><code class="language-sh">vspipe --y4m myvideo.vpy - | x265 --y4m --preset veryfast --pass 1 --bitrate 5222 -o x265output.mkv -
+<pre><code class="language-sh">vspipe -c y4m myvideo.vpy - | x265 --y4m --preset veryfast --pass 1 --bitrate 5222 -o x265output.mkv -
 </code></pre>
 <p>This creates a stats file in our current directory,
 which <em>x265</em> will use in the second pass:</p>
-<pre><code class="language-sh">vspipe --y4m myvideo.vpy - | x265 --y4m --preset veryfast --pass 2 --bitrate 5222 -o x265output.mkv -
+<pre><code class="language-sh">vspipe -c y4m myvideo.vpy - | x265 --y4m --preset veryfast --pass 2 --bitrate 5222 -o x265output.mkv -
 </code></pre>
 <p>You’ll notice all we had to change was <code>--pass 1</code> to <code>--pass 2</code>.
 Simple!</p>
