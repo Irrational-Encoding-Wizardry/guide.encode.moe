@@ -82,7 +82,7 @@ $ mdbook serve
 [INFO] (mdbook::book): Running the html backend
 [INFO] (mdbook::cmd::serve): Serving on: http://localhost:3000
 [INFO] (warp::server): Server::run; addr=V6([::1]:3000)
-[INFO] (warp::server): listening on http://[::1]:3000 
+[INFO] (warp::server): listening on http://[::1]:3000
 [INFO] (mdbook::cmd::watch): Listening for changes...
 ```
 
@@ -317,14 +317,18 @@ with a blank line above and below,
 as this will align them correctly
 and allow for the caption to be displayed.
 
-<div class="warning box"><p>
+<div class="warning box"><div>
+
 Try to avoid adding lossy images to the guide
 (all screenshots should be lossless from the source).
 Also, make sure your image is compressed as much as possible
-<strong>before committing</strong> it.
-This can be done with <a href="https://www.css-ig.net/pingo" target="_blank">pingo</a>'s
-lossless PNG compression: <code>pingo -sa file.png</code>.
-</p></div>
+**before committing** it.
+This can be done with [pingo][]'s
+lossless PNG compression: `pingo -sa file.png`.
+
+[pingo]: https://www.css-ig.net/pingo
+
+</div></div>
 
 When extracting frames directly from a VapourSynth pipline
 where the format might be `vs.YUV420P16` (YUV 4:2:0, 16-bit),
@@ -390,17 +394,34 @@ These paragraphs must be separated with a blank line above and below similar
 to images or code blocks.
 
 ```md
-<div class="info box"><p>
+<div class="info box"><div>
+
 Text here as usual, using semantic linefeed rules.
-If you need text-formatting, you <strong>must</strong> use in-line HTML.
-</p></div>
+The blank lines around HTML text are needed
+to enable inline Markdown parsing,
+for example for text formatting.
+
+</div></div>
 ```
 
 ```md
-<div class="warning box"><p>
+<div class="warning box"><div>
+
 This class should be used for important information.
-</p></div>
+
+</div></div>
 ```
+
+
+### Punctuation
+
+Use the *ASCII* symbols `"` and `'`
+for quotation and apostrophe respectively
+over the *Unicode* versions `“`, `“`, and `’`.
+They will be converted during the build process
+and in most situations,
+text editing tools will work better
+with the generic *ASCII* symbols.
 
 
 ### Mathematics with MathJax

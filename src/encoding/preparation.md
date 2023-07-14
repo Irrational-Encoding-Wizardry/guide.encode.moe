@@ -108,7 +108,7 @@ or [ask for help][Discord].
 
 ### Plugins
 
-In addition to VapourSynth’s core plugins,
+In addition to VapourSynth's core plugins,
 community-created scripts and plugins
 can be installed to extend the functionality of the frameserver.
 These are usually more specific than the universally usable core plugins
@@ -118,13 +118,13 @@ A (non-exhaustive) list of plugins and scripts is available in the
 Additionally, an extensive database of VapourSynth plugins and scripts
 is available at [VSDB][vsdb].
 VSDB also offers a GUI for [vsrepo][vsrepo],
-VapourSynth’s official package manager,
-and a plugin pack (labeled “Portable FATPACK”)
+VapourSynth's official package manager,
+and a plugin pack (labeled "Portable FATPACK")
 that bundles most popular plugins,
 scripts, and VS-related applications into one archive
 for ease of download and installation.
 
-An alternative to the latter is [eXmendiC’s encode pack][ex-encode-pack],
+An alternative to the latter is [eXmendiC's encode pack][ex-encode-pack],
 which contains a lot of encoding-related applications and scripts,
 on top of a broad collection of VapourSynth plugins and scripts.
 However, the package is not maintained anymore,
@@ -178,21 +178,21 @@ VapourSynth-Script.
 
 3.  [VapourSynth Multi-Viewer](https://github.com/mysteryx93/VapourSynthViewer.NET/releases/).
     Multi-Viewer is a very simple and elementary previewing tool.
-    While the text editing is vastly inferior to VSEdit’s,
-    and the preview lacks a lot of VSEdit’s advanced features,
+    While the text editing is vastly inferior to VSEdit's,
+    and the preview lacks a lot of VSEdit's advanced features,
     its tab-based previewing functionality easily outclasses
-    VSEdit’s single preview window,
+    VSEdit's single preview window,
     because it makes comparisons between different script versions
     a lot more convenient and efficient.
 
     In short: very useful for thorough comparisons and filter fine-tuning,
     not so much for everything else.
 
-    ![](images/VS-Multi-Viewer_Preview.png)
-    *VS Multi-Viewer’s editing window.*
-
     ![](images/VS-Multi-Viewer_Editor.png)
-    *VS Multi-Viewer’s preview window.*
+    *VS Multi-Viewer's editing window.*
+
+    ![](images/VS-Multi-Viewer_Preview.png)
+    *VS Multi-Viewer's preview window.*
 
 4.  [AvsPmod](https://github.com/AvsPmod/AvsPmod/releases). This is the
     editor for AviSynth. It is old and slow but stable. When you are
@@ -315,9 +315,22 @@ adding it to the system PATH is recommended.
 When working with WEB and TV sources,
 you will most likely have only lossy audio available.
 The most common codecs here are AC-3, E-AC-3 and AAC.
-Lossily compressed files should generally
-not be re-encoded—the proper way to handle them
+
+### Avoid re-encoding lossily compressed audio
+
+**Lossily compressed audio should generally not be re-encoded**.
+The proper way to handle them
 is to remux (i.e. copy) them to the final file.
+Re-encoding lossy audio into a different lossy audio format
+cannot improve the audio quality
+for barely improved compression
+(in relation and assuming a lower bitrate),
+while encoding into a lossless audio format
+is just wasting bandwidth.
+Your source file will always have the most data available
+and using a lossless format for that
+can not generate data lost from the previous compression
+from thin air.
 
 [ffmpeg]: https://www.ffmpeg.org/download.html
 
@@ -381,6 +394,10 @@ be audible anyway.
 And they both have a point.
 
 So, do some ABX testing and decide for yourself.
+
+However, remember that you
+[should not re-encode lossily compressed audio
+into a lossless format](#avoid-re-encoding-lossily-compressed-audio).
 
 
 ## MKVToolNix
