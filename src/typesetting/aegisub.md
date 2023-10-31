@@ -35,13 +35,13 @@ Here is a list of tools you will want to download:
           - [Suitcase Fusion][]
   - Software for motion-tracking
       - [Mocha Pro standalone app][]
-        - Look for it on *certain websites*.
+        - Look for it on *certain websites*.
         - On Windows, Mocha **requires** [Quicktime][] to be installed.
           More information can be found [here][quicktimeFAQ].
   - [x264 binary][]
       - Download the latest binary for your platform. (`x264-r3015-4c2aafd` at the time of this edit.)
   - [Adobe Photoshop and Illustrator][]
-      - Look for it on *certain websites*.
+      - Look for it on *certain websites*.
       - Alternatively, free software like
         [Gimp][] and
         [Inkscape][] may be used in some
