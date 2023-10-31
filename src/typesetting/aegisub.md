@@ -14,6 +14,11 @@ Here is a list of tools you will want to download:
         several *critical* fixes ,
         several new features,
         and is in general the most actively maintained fork.
+      - If you are, for some reason, interested in the history of Aegisub
+        and the recent-ish forks,
+        you can read about it
+        in a somewhat up-to-date
+        [article on some Fansubbing Wiki][fansub-wiki-aegisub].
   - A font manager
       - Not all font managers are equal. Choose the one that works the
         best for you. Some important features might include:
@@ -55,6 +60,7 @@ Here is a list of tools you will want to download:
 [Gimp]: https://www.gimp.org
 [Inkscape]: https://inkscape.org/en/
 [arch1t3cht's fork]: https://github.com/arch1t3cht/Aegisub/releases
+[fansub-wiki-aegisub]: https://fansubbers.miraheze.org/wiki/Aegisub
 
 
 ## Configuring Aegisub
