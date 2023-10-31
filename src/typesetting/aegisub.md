@@ -47,8 +47,8 @@ Here is a list of tools you will want to download:
         [Inkscape][] may be used in some
         circumstances.
 
-[Aegisub]: http://www.aegisub.org
-[Nexusfont]: http://www.xiles.net
+[Aegisub]: https://aegisub.org/
+[Nexusfont]: https://www.xiles.app/
 [FontBase]: https://fontba.se/
 [MainType]: https://www.high-logic.com/font-manager/maintype
 [Suitcase Fusion]: https://www.extensis.com/products/font-management/suitcase-fusion/
