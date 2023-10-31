@@ -9,10 +9,16 @@ they need to be configured properly.
 Here is a list of tools you will want to download:
 
   - [Aegisub][]
-      - It is **highly** recommended to use [CoffeeFlux's builds][][^1] which
-        include Dependency Control and several *critical*
-        fixes to Aegisub that have not been merged into the official
-        application.
+      - It is **highly** recommended to use [arch1t3cht's fork][],
+        which includes Dependency Control,
+        several *critical* fixes ,
+        several new features,
+        and is in general the most actively maintained fork.
+      - If you are, for some reason, interested in the history of Aegisub
+        and the recent-ish forks,
+        you can read about it
+        in a somewhat up-to-date
+        [article on some Fansubbing Wiki][fansub-wiki-aegisub].
   - A font manager
       - Not all font managers are equal. Choose the one that works the
         best for you. Some important features might include:
@@ -29,20 +35,20 @@ Here is a list of tools you will want to download:
           - [Suitcase Fusion][]
   - Software for motion-tracking
       - [Mocha Pro standalone app][]
-        - Look for it on *certain websites*.
+        - Look for it on *certain websites*.
         - On Windows, Mocha **requires** [Quicktime][] to be installed.
           More information can be found [here][quicktimeFAQ].
-  - [x264 binary][][^2]
+  - [x264 binary][]
       - Download the latest binary for your platform. (`x264-r3015-4c2aafd` at the time of this edit.)
   - [Adobe Photoshop and Illustrator][]
-      - Look for it on *certain websites*.
+      - Look for it on *certain websites*.
       - Alternatively, free software like
         [Gimp][] and
         [Inkscape][] may be used in some
         circumstances.
 
-[Aegisub]: http://www.aegisub.org
-[Nexusfont]: http://www.xiles.net
+[Aegisub]: https://aegisub.org/
+[Nexusfont]: https://www.xiles.app/
 [FontBase]: https://fontba.se/
 [MainType]: https://www.high-logic.com/font-manager/maintype
 [Suitcase Fusion]: https://www.extensis.com/products/font-management/suitcase-fusion/
@@ -53,7 +59,8 @@ Here is a list of tools you will want to download:
 [Adobe Photoshop and Illustrator]: https://www.adobe.com/creativecloud.html
 [Gimp]: https://www.gimp.org
 [Inkscape]: https://inkscape.org/en/
-[CoffeeFlux's builds]: https://thevacuumof.space/builds/
+[arch1t3cht's fork]: https://github.com/arch1t3cht/Aegisub/releases
+[fansub-wiki-aegisub]: https://fansubbers.miraheze.org/wiki/Aegisub
 
 
 ## Configuring Aegisub
@@ -96,7 +103,7 @@ and how these two are different,
 visit [Maxime Lebled's blog](../archived-websites/bt601-vs-bt709.md),
 but the gist of it is this:
 BT.601 is for Standard Definition video
-and BT.709 is for High Definition video[^3].
+and BT.709 is for High Definition video[^1].
 
 Manually setting the script to BT.601 could
 **irreversibly ruin the colors of any typesetting,
@@ -119,7 +126,7 @@ ask the encoder or check the source's
 
 ### The "Subtitles Provider"
 
-The recommended build of Aegisub comes pre-equipped with libass,
+The recommended build of Aegisub comes pre-equipped with [libass][],
 so no manual settings change is needed.
 The following is a brief history of subtitle renderers.
 
@@ -138,7 +145,7 @@ with the resource requirements of newer subtitles.
 However, VSFilter,
 and its derivatives xy-vsfilter and xySubFilter,
 only support Windows operating systems.
-They have often been used in codec packs[^4] for
+They have often been used in codec packs[^2] for
 players we don't recommend,
 such as [MPC-HC][].
 
@@ -181,18 +188,12 @@ and move on for now.
 
 ---
 
-[^1]: A long outstanding bug has made the recent versions of Aegisub unstable.
-The latest stable version as of writing this, r8903+1,
-can be found on [GoodJobMedia's website][].
-
-[^2]: 32-bit builds on Windows may be more stable.
-
-[^3]: For further reading on this,
+[^1]: For further reading on this,
 visit the Wikipedia pages for [Standard Definition][] video,
 [High Definition][] video,
 and the [BT.601][] and [BT.709][] color spaces.
 
-[^4]: With the development of [mpv][],
+[^2]: With the development of [mpv][],
 codec packs and player add-ons are no longer required.
 
 [Standard Definition]: https://en.wikipedia.org/wiki/Standard-definition_television
