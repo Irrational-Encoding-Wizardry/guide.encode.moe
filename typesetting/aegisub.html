@@ -169,12 +169,18 @@ Typesetters will need more tools than most other roles in fansubbing and
 they need to be configured properly.</p>
 <p>Here is a list of tools you will want to download:</p>
 <ul>
-<li><a href="http://www.aegisub.org">Aegisub</a>
+<li><a href="https://aegisub.org/">Aegisub</a>
 <ul>
-<li>It is <strong>highly</strong> recommended to use <a href="https://thevacuumof.space/builds/">CoffeeFlux’s builds</a><sup class="footnote-reference"><a href="#1">1</a></sup> which
-include Dependency Control and several <em>critical</em>
-fixes to Aegisub that have not been merged into the official
-application.</li>
+<li>It is <strong>highly</strong> recommended to use <a href="https://github.com/arch1t3cht/Aegisub/releases">arch1t3cht’s fork</a>,
+which includes Dependency Control,
+several <em>critical</em> fixes ,
+several new features,
+and is in general the most actively maintained fork.</li>
+<li>If you are, for some reason, interested in the history of Aegisub
+and the recent-ish forks,
+you can read about it
+in a somewhat up-to-date
+<a href="https://fansubbers.miraheze.org/wiki/Aegisub">article on some Fansubbing Wiki</a>.</li>
 </ul>
 </li>
 <li>A font manager
@@ -191,7 +197,7 @@ best for you. Some important features might include:
 </li>
 <li>Free Options
 <ul>
-<li><a href="http://www.xiles.net">Nexusfont</a></li>
+<li><a href="https://www.xiles.app/">Nexusfont</a></li>
 <li><a href="https://fontba.se/">FontBase</a></li>
 </ul>
 </li>
@@ -207,21 +213,21 @@ best for you. Some important features might include:
 <ul>
 <li><a href="https://www.imagineersystems.com/products/mocha-pro/">Mocha Pro standalone app</a>
 <ul>
-<li>Look for it on <em>certain websites</em>.</li>
+<li>Look for it on <em>certain websites</em>.</li>
 <li>On Windows, Mocha <strong>requires</strong> <a href="https://support.apple.com/kb/DL837?locale=en_US">Quicktime</a> to be installed.
 More information can be found <a href="https://borisfx.com/faq/quicktime-on-windows/">here</a>.</li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="https://artifacts.videolan.org/x264/">x264 binary</a><sup class="footnote-reference"><a href="#2">2</a></sup>
+<li><a href="https://artifacts.videolan.org/x264/">x264 binary</a>
 <ul>
 <li>Download the latest binary for your platform. (<code>x264-r3015-4c2aafd</code> at the time of this edit.)</li>
 </ul>
 </li>
 <li><a href="https://www.adobe.com/creativecloud.html">Adobe Photoshop and Illustrator</a>
 <ul>
-<li>Look for it on <em>certain websites</em>.</li>
+<li>Look for it on <em>certain websites</em>.</li>
 <li>Alternatively, free software like
 <a href="https://www.gimp.org">Gimp</a> and
 <a href="https://inkscape.org/en/">Inkscape</a> may be used in some
@@ -261,7 +267,7 @@ and how these two are different,
 visit <a href="../archived-websites/bt601-vs-bt709.html">Maxime Lebled’s blog</a>,
 but the gist of it is this:
 BT.601 is for Standard Definition video
-and BT.709 is for High Definition video<sup class="footnote-reference"><a href="#3">3</a></sup>.</p>
+and BT.709 is for High Definition video<sup class="footnote-reference"><a href="#1">1</a></sup>.</p>
 <p>Manually setting the script to BT.601 could
 <strong>irreversibly ruin the colors of any typesetting,
 dialogue,
@@ -277,7 +283,7 @@ so when in doubt,
 ask the encoder or check the source’s
 <a href="https://mediaarea.net/en/MediaInfo">MediaInfo</a> if they are not available.</p>
 <h3><a class="header" href="#the-subtitles-provider" id="the-subtitles-provider">The “Subtitles Provider”</a></h3>
-<p>The recommended build of Aegisub comes pre-equipped with libass,
+<p>The recommended build of Aegisub comes pre-equipped with <a href="https://github.com/libass/libass">libass</a>,
 so no manual settings change is needed.
 The following is a brief history of subtitle renderers.</p>
 <p>Just a few years ago,
@@ -295,7 +301,7 @@ with the resource requirements of newer subtitles.
 However, VSFilter,
 and its derivatives xy-vsfilter and xySubFilter,
 only support Windows operating systems.
-They have often been used in codec packs<sup class="footnote-reference"><a href="#4">4</a></sup> for
+They have often been used in codec packs<sup class="footnote-reference"><a href="#2">2</a></sup> for
 players we don’t recommend,
 such as <a href="https://mpc-hc.org/">MPC-HC</a>.</p>
 <p>By 2015, however,
@@ -326,20 +332,12 @@ We’ll let you decide on those yourself, however,
 and move on for now.</p>
 <hr />
 <div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
-<p>A long outstanding bug has made the recent versions of Aegisub unstable.
-The latest stable version as of writing this, r8903+1,
-can be found on <a href="https://www.goodjobmedia.com/fansubbing/">GoodJobMedia’s website</a>.</p>
-</div>
-<div class="footnote-definition" id="2"><sup class="footnote-definition-label">2</sup>
-<p>32-bit builds on Windows may be more stable.</p>
-</div>
-<div class="footnote-definition" id="3"><sup class="footnote-definition-label">3</sup>
 <p>For further reading on this,
 visit the Wikipedia pages for <a href="https://en.wikipedia.org/wiki/Standard-definition_television">Standard Definition</a> video,
 <a href="https://en.wikipedia.org/wiki/High-definition_video">High Definition</a> video,
 and the <a href="https://en.wikipedia.org/wiki/Rec._601">BT.601</a> and <a href="https://en.wikipedia.org/wiki/Rec._709">BT.709</a> color spaces.</p>
 </div>
-<div class="footnote-definition" id="4"><sup class="footnote-definition-label">4</sup>
+<div class="footnote-definition" id="2"><sup class="footnote-definition-label">2</sup>
 <p>With the development of <a href="https://mpv.io/">mpv</a>,
 codec packs and player add-ons are no longer required.</p>
 </div>
