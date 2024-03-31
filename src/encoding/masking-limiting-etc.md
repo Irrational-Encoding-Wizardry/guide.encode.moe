@@ -81,7 +81,7 @@ $$
 \mathrm{output} = \mathrm{clip~a} \times (\mathit{max~value} - \mathrm{mask}) + \mathrm{clip~b}
 $$
 
-[std.MaskedMerge]: http://www.vapoursynth.com/doc/functions/maskedmerge.html
+[std.MaskedMerge]: https://www.vapoursynth.com/doc/functions/video/maskedmerge.html
 
 ---
 
@@ -129,7 +129,7 @@ which allow finer control over the structuring element.
 However, these functions are significantly slower than
 `std.Minimum` and `std.Maximum`.
 
-[std.Minimum/std.Maximum]: http://www.vapoursynth.com/doc/functions/minimum_maximum.html
+[std.Minimum/std.Maximum]: https://www.vapoursynth.com/doc/functions/video/minimum_maximum.html
 [Erosion]: https://en.wikipedia.org/wiki/Erosion_(morphology)
 [Dilation]: https://en.wikipedia.org/wiki/Dilation_(morphology)
 [structuring element]: https://en.wikipedia.org/wiki/Structuring_element
@@ -139,7 +139,7 @@ However, these functions are significantly slower than
 
 TODO
 
-[std.Inflate/std.Deflate]: http://www.vapoursynth.com/doc/functions/deflate_inflate.html
+[std.Inflate/std.Deflate]: https://www.vapoursynth.com/doc/functions/video/deflate_inflate.html
 
 
 #### [std.Binarize][]
@@ -157,7 +157,7 @@ mask.std.Binarize(24, v0=0, v1=255)
 For methods of creating mask clips,
 there are a few general categories…
 
-[std.Binarize]: http://www.vapoursynth.com/doc/functions/binarize.html
+[std.Binarize]: https://www.vapoursynth.com/doc/functions/video/binarize_binarizemask.html
 
 
 ### Line masks
@@ -431,8 +431,8 @@ noise = core.std.MakeDiff(src, smooth) # subtract filtered clip from source leav
 smooth = core.std.MakeDiff(src, noise) # subtract diff clip to prevent clipping (doesn't apply to 32 bit)
 ```
 
-[std.MakeDiff]: http://www.vapoursynth.com/doc/functions/makediff.html
-[std.MergeDiff]: http://www.vapoursynth.com/doc/functions/mergediff.html
+[std.MakeDiff]: https://www.vapoursynth.com/doc/functions/video/makediff.html
+[std.MergeDiff]: https://www.vapoursynth.com/doc/functions/video/mergediff.html
 
 #### [std.Merge][]
 
@@ -449,13 +449,13 @@ $$
 It can be used to perform
 a weighted average of two clips or planes.
 
-[std.Merge]: http://www.vapoursynth.com/doc/functions/merge.html
+[std.Merge]: https://www.vapoursynth.com/doc/functions/video/merge.html
 
 #### [std.Expr][]
 
 TODO
 
-[std.Expr]: http://www.vapoursynth.com/doc/functions/expr.html
+[std.Expr]: https://www.vapoursynth.com/doc/functions/video/expr.html
 
 
 #### [std.Lut][] and [std.Lut2][]
@@ -466,8 +466,8 @@ You can substitute a normal Python function for the RPN expression, though,
 so you may still find it easier.
 See link for usage information.
 
-[std.Lut]: http://www.vapoursynth.com/doc/functions/lut.html
-[std.Lut2]: http://www.vapoursynth.com/doc/functions/lut2.html
+[std.Lut]: https://www.vapoursynth.com/doc/functions/video/lut.html
+[std.Lut2]: https://www.vapoursynth.com/doc/functions/video/lut2.html
 
 
 ## Limiting

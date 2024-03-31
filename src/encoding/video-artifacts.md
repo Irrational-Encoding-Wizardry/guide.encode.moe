@@ -310,8 +310,8 @@ can be seen below.
 ![](images/overflow_notice.jpg)
 *When you see a histogram like this, increase precision.*
 
-[resize]: http://www.vapoursynth.com/doc/functions/resize.html
-[std-Levels]: http://www.vapoursynth.com/doc/functions/levels.html
+[resize]: https://www.vapoursynth.com/doc/functions/video/resize.html
+[std-Levels]: https://www.vapoursynth.com/doc/functions/video/levels.html
 
 ---
 
