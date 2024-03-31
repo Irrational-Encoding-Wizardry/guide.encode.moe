@@ -113,9 +113,7 @@ community-created scripts and plugins
 can be installed to extend the functionality of the frameserver.
 These are usually more specific than the universally usable core plugins
 or they are collections of wrappers and functions.
-A (non-exhaustive) list of plugins and scripts is available in the
-[official documentation][vs-plugins].
-Additionally, an extensive database of VapourSynth plugins and scripts
+An extensive database of VapourSynth plugins and scripts
 is available at [VSDB][vsdb].
 VSDB also offers a GUI for [vsrepo][vsrepo],
 VapourSynth's official package manager,
@@ -130,7 +128,6 @@ on top of a broad collection of VapourSynth plugins and scripts.
 However, the package is not maintained anymore,
 and may in part include outdated software.
 
-[vs-plugins]: http://www.vapoursynth.com/doc/pluginlist.html "Plugins, Applications & Scripts"
 [vsdb]: http://vsdb.top/
 [vsrepo]: https://github.com/vapoursynth/vsrepo
 [ex-encode-pack]: https://iamscum.wordpress.com/encoding-stuff/encode-pack/
@@ -285,7 +282,7 @@ such as Intel's [SVT-AV1][] will also not be included.
 [tmod-git-releases]: https://github.com/jpsdr/x264/releases
 [Daala]: https://xiph.org/daala/
 [AV-1]: https://aomediacodec.github.io/av1-spec/
-[SVT-AV1]: https://github.com/OpenVisualCloud/SVT-AV1
+[SVT-AV1]: https://gitlab.com/AOMediaCodec/SVT-AV1
 [unification-commit]: https://code.videolan.org/videolan/x264/commit/71ed44c7
 
 
@@ -377,7 +374,7 @@ In short—don't bother,
 unless you really have to, for some reason.
 
 [FLAC]: https://xiph.org/flac/download.html
-[qaac]: https://sites.google.com/site/qaacpage/cabinet
+[qaac]: https://sites.google.com/site/qaacpage/
 [opus]: https://opus-codec.org/downloads/
 
 

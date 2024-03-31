@@ -168,7 +168,7 @@ ffmpeg -i "input.dtshd" -c:a pcm_s24le -f wav - | qaac64 --tvbr 91 --ignorelengt
 ```
 
 [itunes]: https://secure-appldnld.apple.com/itunes12/001-37026-20200915-5CBD39A0-F7A0-11EA-BB8F-8EB5DD073FF6/iTunes64Setup.exe
-[qaac]: https://sites.google.com/site/qaacpage/cabinet
+[qaac]: https://sites.google.com/site/qaacpage/
 [^1]: Read why in this [HydrogenAudio forum post](https://hydrogenaud.io/index.php/topic,85135.msg921707.html#msg921707).
 
 
