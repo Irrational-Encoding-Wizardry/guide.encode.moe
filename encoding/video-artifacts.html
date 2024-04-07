@@ -360,7 +360,7 @@ of the 8-bit source with <code>hist.Levels()</code>.</p>
 <p><img src="images/overflow.jpg" alt="" />
 <em>Example of overflow (<a href="https://slowpics.org/comparison/6e24ffe9-e068-4f33-b2e7-639031d512f2">click for comparison</a>)</em></p>
 <p>To fix this problem,
-simply use <a href="http://www.vapoursynth.com/doc/functions/resize.html"><code>resize</code></a> like so:</p>
+simply use <a href="https://www.vapoursynth.com/doc/functions/video/resize.html"><code>resize</code></a> like so:</p>
 <pre><code class="language-py"># Only applies to integer pixel formats, since floating point clips are always full range.
 clip = clip.resize.Spline36(range_in_s=&quot;full&quot;, range_s=&quot;limited&quot;)
 </code></pre>
@@ -376,7 +376,7 @@ For example,
 a video may use faulty levels like 0-235 or 16-255
 which are neither full nor limited range.
 In such cases or similar,
-<a href="http://www.vapoursynth.com/doc/functions/levels.html"><code>std.Levels</code></a> can be utilized to correct the range:</p>
+<a href="https://www.vapoursynth.com/doc/functions/video/levels.html"><code>std.Levels</code></a> can be utilized to correct the range:</p>
 <pre><code class="language-py"># This only applies to 8 bit clips!
 # In this example, the input clip uses 0-235 for luma and 0-240 for chroma.
 clip = clip.std.Levels(min_in=0, max_in=235, min_out=16, max_out=235, planes=0)      # y plane

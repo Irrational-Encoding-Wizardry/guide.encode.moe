@@ -208,7 +208,7 @@ and one of these formats:
 <code>GRAY8</code> (8 bits integer),
 <code>GRAY16</code> (16 bits integer),
 or <code>GRAYS</code> (single precision floating point).</p>
-<h4><a class="header" href="#a-hrefhttpwwwvapoursynthcomdocfunctionsmaskedmergehtmlstdmaskedmergea" id="a-hrefhttpwwwvapoursynthcomdocfunctionsmaskedmergehtmlstdmaskedmergea"><a href="http://www.vapoursynth.com/doc/functions/maskedmerge.html">std.MaskedMerge</a></a></h4>
+<h4><a class="header" href="#a-hrefhttpswwwvapoursynthcomdocfunctionsvideomaskedmergehtmlstdmaskedmergea" id="a-hrefhttpswwwvapoursynthcomdocfunctionsvideomaskedmergehtmlstdmaskedmergea"><a href="https://www.vapoursynth.com/doc/functions/video/maskedmerge.html">std.MaskedMerge</a></a></h4>
 <p>This is the main function for masking
 that performs the actual merging.
 It takes three clips as input:
@@ -239,7 +239,7 @@ that cover exactly what you want
 is often rather tricky.
 VapourSynth provides basic tools for manipulating masks
 that can be used to bring them into the desired shape:</p>
-<h4><a class="header" href="#a-hrefhttpwwwvapoursynthcomdocfunctionsminimum_maximumhtmlstdminimumstdmaximuma" id="a-hrefhttpwwwvapoursynthcomdocfunctionsminimum_maximumhtmlstdminimumstdmaximuma"><a href="http://www.vapoursynth.com/doc/functions/minimum_maximum.html">std.Minimum/std.Maximum</a></a></h4>
+<h4><a class="header" href="#a-hrefhttpswwwvapoursynthcomdocfunctionsvideominimum_maximumhtmlstdminimumstdmaximuma" id="a-hrefhttpswwwvapoursynthcomdocfunctionsvideominimum_maximumhtmlstdminimumstdmaximuma"><a href="https://www.vapoursynth.com/doc/functions/video/minimum_maximum.html">std.Minimum/std.Maximum</a></a></h4>
 <p>The Minimum/Maximum operations replace each pixel
 with the smallest/biggest value in its 3x3 neighbourhood.
 The 3x3 neighbourhood of a pixel
@@ -267,9 +267,9 @@ in the functions <code>morpho.Erode</code> and <code>morpho.Dilate</code>
 which allow finer control over the structuring element.
 However, these functions are significantly slower than
 <code>std.Minimum</code> and <code>std.Maximum</code>.</p>
-<h4><a class="header" href="#a-hrefhttpwwwvapoursynthcomdocfunctionsdeflate_inflatehtmlstdinflatestddeflatea" id="a-hrefhttpwwwvapoursynthcomdocfunctionsdeflate_inflatehtmlstdinflatestddeflatea"><a href="http://www.vapoursynth.com/doc/functions/deflate_inflate.html">std.Inflate/std.Deflate</a></a></h4>
+<h4><a class="header" href="#a-hrefhttpswwwvapoursynthcomdocfunctionsvideodeflate_inflatehtmlstdinflatestddeflatea" id="a-hrefhttpswwwvapoursynthcomdocfunctionsvideodeflate_inflatehtmlstdinflatestddeflatea"><a href="https://www.vapoursynth.com/doc/functions/video/deflate_inflate.html">std.Inflate/std.Deflate</a></a></h4>
 <p>TODO</p>
-<h4><a class="header" href="#a-hrefhttpwwwvapoursynthcomdocfunctionsbinarizehtmlstdbinarizea" id="a-hrefhttpwwwvapoursynthcomdocfunctionsbinarizehtmlstdbinarizea"><a href="http://www.vapoursynth.com/doc/functions/binarize.html">std.Binarize</a></a></h4>
+<h4><a class="header" href="#a-hrefhttpswwwvapoursynthcomdocfunctionsvideobinarize_binarizemaskhtmlstdbinarizea" id="a-hrefhttpswwwvapoursynthcomdocfunctionsvideobinarize_binarizemaskhtmlstdbinarizea"><a href="https://www.vapoursynth.com/doc/functions/video/binarize_binarizemask.html">std.Binarize</a></a></h4>
 <p>Split the luma/chroma values of any clip into one of two values,
 according to a fixed threshold.
 For instance,
@@ -460,7 +460,7 @@ can be done (though possibly slower) using std.Expr,
 which will be
 covered at the end of this
 sub-section.</p>
-<h4><a class="header" href="#a-hrefhttpwwwvapoursynthcomdocfunctionsmakediffhtmlstdmakediffa-and-a-hrefhttpwwwvapoursynthcomdocfunctionsmergediffhtmlstdmergediffa" id="a-hrefhttpwwwvapoursynthcomdocfunctionsmakediffhtmlstdmakediffa-and-a-hrefhttpwwwvapoursynthcomdocfunctionsmergediffhtmlstdmergediffa"><a href="http://www.vapoursynth.com/doc/functions/makediff.html">std.MakeDiff</a> and <a href="http://www.vapoursynth.com/doc/functions/mergediff.html">std.MergeDiff</a></a></h4>
+<h4><a class="header" href="#a-hrefhttpswwwvapoursynthcomdocfunctionsvideomakediffhtmlstdmakediffa-and-a-hrefhttpswwwvapoursynthcomdocfunctionsvideomergediffhtmlstdmergediffa" id="a-hrefhttpswwwvapoursynthcomdocfunctionsvideomakediffhtmlstdmakediffa-and-a-hrefhttpswwwvapoursynthcomdocfunctionsvideomergediffhtmlstdmergediffa"><a href="https://www.vapoursynth.com/doc/functions/video/makediff.html">std.MakeDiff</a> and <a href="https://www.vapoursynth.com/doc/functions/video/mergediff.html">std.MergeDiff</a></a></h4>
 <p>Subtract or add the difference of two clips, respectively.
 These filters are peculiar in that they work differently in
 integer and float formats,
@@ -483,7 +483,7 @@ This can be worked around by re-defining the input clip as so:</p>
 noise = core.std.MakeDiff(src, smooth) # subtract filtered clip from source leaving the filtered difference
 smooth = core.std.MakeDiff(src, noise) # subtract diff clip to prevent clipping (doesn't apply to 32 bit)
 </code></pre>
-<h4><a class="header" href="#a-hrefhttpwwwvapoursynthcomdocfunctionsmergehtmlstdmergea" id="a-hrefhttpwwwvapoursynthcomdocfunctionsmergehtmlstdmergea"><a href="http://www.vapoursynth.com/doc/functions/merge.html">std.Merge</a></a></h4>
+<h4><a class="header" href="#a-hrefhttpswwwvapoursynthcomdocfunctionsvideomergehtmlstdmergea" id="a-hrefhttpswwwvapoursynthcomdocfunctionsvideomergehtmlstdmergea"><a href="https://www.vapoursynth.com/doc/functions/video/merge.html">std.Merge</a></a></h4>
 <p>This function is similar to <a href="#stdmaskedmerge">MaskedMerge</a>,
 the main difference being
 that a constant weight is supplied
@@ -494,9 +494,9 @@ The formula is thus just as simple:</p>
 $$</p>
 <p>It can be used to perform
 a weighted average of two clips or planes.</p>
-<h4><a class="header" href="#a-hrefhttpwwwvapoursynthcomdocfunctionsexprhtmlstdexpra" id="a-hrefhttpwwwvapoursynthcomdocfunctionsexprhtmlstdexpra"><a href="http://www.vapoursynth.com/doc/functions/expr.html">std.Expr</a></a></h4>
+<h4><a class="header" href="#a-hrefhttpswwwvapoursynthcomdocfunctionsvideoexprhtmlstdexpra" id="a-hrefhttpswwwvapoursynthcomdocfunctionsvideoexprhtmlstdexpra"><a href="https://www.vapoursynth.com/doc/functions/video/expr.html">std.Expr</a></a></h4>
 <p>TODO</p>
-<h4><a class="header" href="#a-hrefhttpwwwvapoursynthcomdocfunctionsluthtmlstdluta-and-a-hrefhttpwwwvapoursynthcomdocfunctionslut2htmlstdlut2a" id="a-hrefhttpwwwvapoursynthcomdocfunctionsluthtmlstdluta-and-a-hrefhttpwwwvapoursynthcomdocfunctionslut2htmlstdlut2a"><a href="http://www.vapoursynth.com/doc/functions/lut.html">std.Lut</a> and <a href="http://www.vapoursynth.com/doc/functions/lut2.html">std.Lut2</a></a></h4>
+<h4><a class="header" href="#a-hrefhttpswwwvapoursynthcomdocfunctionsvideoluthtmlstdluta-and-a-hrefhttpswwwvapoursynthcomdocfunctionsvideolut2htmlstdlut2a" id="a-hrefhttpswwwvapoursynthcomdocfunctionsvideoluthtmlstdluta-and-a-hrefhttpswwwvapoursynthcomdocfunctionsvideolut2htmlstdlut2a"><a href="https://www.vapoursynth.com/doc/functions/video/lut.html">std.Lut</a> and <a href="https://www.vapoursynth.com/doc/functions/video/lut2.html">std.Lut2</a></a></h4>
 <p>May be slightly faster than Expr in some cases,
 otherwise they can’t really do anything that Expr can’t.
 You can substitute a normal Python function for the RPN expression, though,

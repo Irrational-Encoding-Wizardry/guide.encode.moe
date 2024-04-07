@@ -1149,9 +1149,7 @@ community-created scripts and plugins
 can be installed to extend the functionality of the frameserver.
 These are usually more specific than the universally usable core plugins
 or they are collections of wrappers and functions.
-A (non-exhaustive) list of plugins and scripts is available in the
-<a href="http://www.vapoursynth.com/doc/pluginlist.html" title="Plugins, Applications &amp; Scripts">official documentation</a>.
-Additionally, an extensive database of VapourSynth plugins and scripts
+An extensive database of VapourSynth plugins and scripts
 is available at <a href="http://vsdb.top/">VSDB</a>.
 VSDB also offers a GUI for <a href="https://github.com/vapoursynth/vsrepo">vsrepo</a>,
 VapourSynth’s official package manager,
@@ -1292,7 +1290,7 @@ are generally not used for fansubbing,
 so they are not listed here.
 The same is true for experimental codecs like <a href="https://xiph.org/daala/">Daala</a> and <a href="https://aomediacodec.github.io/av1-spec/">AV-1</a>.
 Encoders made for distributed server encoding,
-such as Intel’s <a href="https://github.com/OpenVisualCloud/SVT-AV1">SVT-AV1</a> will also not be included.</p>
+such as Intel’s <a href="https://gitlab.com/AOMediaCodec/SVT-AV1">SVT-AV1</a> will also not be included.</p>
 <h2><a class="header" href="#audio" id="audio">Audio</a></h2>
 <h3><a class="header" href="#audio-formats-and-how-to-handle-them" id="audio-formats-and-how-to-handle-them">Audio formats and how to handle them</a></h3>
 <p>Depending on the source you’ll be working with,
@@ -1338,7 +1336,7 @@ and AAC (lossy), but recently opus (also lossy) is gaining some popularity, too.
 Download Windows builds from <a href="https://xiph.org/flac/download.html">xiph’s website</a>.
 Most Linux distributions should have FLAC in their package repositories.</p>
 <p>The recommended and most widely used AAC encoder is qaac,
-available on <a href="https://sites.google.com/site/qaacpage/cabinet">its official site</a>.
+available on <a href="https://sites.google.com/site/qaacpage/">its official site</a>.
 Nero and Fraunhofer FDK aren’t really that much worse,
 so you can use them if you really want.
 Other AAC encoders are discouraged,
@@ -1492,7 +1490,7 @@ like this:</p>
 <h3><a class="header" href="#encoding-to-aac" id="encoding-to-aac">Encoding to AAC</a></h3>
 <p>First, set up <em>qaac</em>:</p>
 <ul>
-<li>Go to <a href="https://sites.google.com/site/qaacpage/cabinet">its download page</a> and download the newest build
+<li>Go to <a href="https://sites.google.com/site/qaacpage/">its download page</a> and download the newest build
 (2.70 at the time of writing) and <code>makeportable.zip</code>.</li>
 <li>Extract the <code>x64</code> folder wherever you want <code>qaac</code> to be,
 then extract contents of <code>makeportable.zip</code> inside it.</li>
@@ -1744,7 +1742,7 @@ of the 8-bit source with <code>hist.Levels()</code>.</p>
 <p><img src="encoding/images/overflow.jpg" alt="" />
 <em>Example of overflow (<a href="https://slowpics.org/comparison/6e24ffe9-e068-4f33-b2e7-639031d512f2">click for comparison</a>)</em></p>
 <p>To fix this problem,
-simply use <a href="http://www.vapoursynth.com/doc/functions/resize.html"><code>resize</code></a> like so:</p>
+simply use <a href="https://www.vapoursynth.com/doc/functions/video/resize.html"><code>resize</code></a> like so:</p>
 <pre><code class="language-py"># Only applies to integer pixel formats, since floating point clips are always full range.
 clip = clip.resize.Spline36(range_in_s=&quot;full&quot;, range_s=&quot;limited&quot;)
 </code></pre>
@@ -1760,7 +1758,7 @@ For example,
 a video may use faulty levels like 0-235 or 16-255
 which are neither full nor limited range.
 In such cases or similar,
-<a href="http://www.vapoursynth.com/doc/functions/levels.html"><code>std.Levels</code></a> can be utilized to correct the range:</p>
+<a href="https://www.vapoursynth.com/doc/functions/video/levels.html"><code>std.Levels</code></a> can be utilized to correct the range:</p>
 <pre><code class="language-py"># This only applies to 8 bit clips!
 # In this example, the input clip uses 0-235 for luma and 0-240 for chroma.
 clip = clip.std.Levels(min_in=0, max_in=235, min_out=16, max_out=235, planes=0)      # y plane
@@ -2049,7 +2047,7 @@ and one of these formats:
 <code>GRAY8</code> (8 bits integer),
 <code>GRAY16</code> (16 bits integer),
 or <code>GRAYS</code> (single precision floating point).</p>
-<h4><a class="header" href="#a-hrefhttpwwwvapoursynthcomdocfunctionsmaskedmergehtmlstdmaskedmergea" id="a-hrefhttpwwwvapoursynthcomdocfunctionsmaskedmergehtmlstdmaskedmergea"><a href="http://www.vapoursynth.com/doc/functions/maskedmerge.html">std.MaskedMerge</a></a></h4>
+<h4><a class="header" href="#a-hrefhttpswwwvapoursynthcomdocfunctionsvideomaskedmergehtmlstdmaskedmergea" id="a-hrefhttpswwwvapoursynthcomdocfunctionsvideomaskedmergehtmlstdmaskedmergea"><a href="https://www.vapoursynth.com/doc/functions/video/maskedmerge.html">std.MaskedMerge</a></a></h4>
 <p>This is the main function for masking
 that performs the actual merging.
 It takes three clips as input:
@@ -2080,7 +2078,7 @@ that cover exactly what you want
 is often rather tricky.
 VapourSynth provides basic tools for manipulating masks
 that can be used to bring them into the desired shape:</p>
-<h4><a class="header" href="#a-hrefhttpwwwvapoursynthcomdocfunctionsminimum_maximumhtmlstdminimumstdmaximuma" id="a-hrefhttpwwwvapoursynthcomdocfunctionsminimum_maximumhtmlstdminimumstdmaximuma"><a href="http://www.vapoursynth.com/doc/functions/minimum_maximum.html">std.Minimum/std.Maximum</a></a></h4>
+<h4><a class="header" href="#a-hrefhttpswwwvapoursynthcomdocfunctionsvideominimum_maximumhtmlstdminimumstdmaximuma" id="a-hrefhttpswwwvapoursynthcomdocfunctionsvideominimum_maximumhtmlstdminimumstdmaximuma"><a href="https://www.vapoursynth.com/doc/functions/video/minimum_maximum.html">std.Minimum/std.Maximum</a></a></h4>
 <p>The Minimum/Maximum operations replace each pixel
 with the smallest/biggest value in its 3x3 neighbourhood.
 The 3x3 neighbourhood of a pixel
@@ -2108,9 +2106,9 @@ in the functions <code>morpho.Erode</code> and <code>morpho.Dilate</code>
 which allow finer control over the structuring element.
 However, these functions are significantly slower than
 <code>std.Minimum</code> and <code>std.Maximum</code>.</p>
-<h4><a class="header" href="#a-hrefhttpwwwvapoursynthcomdocfunctionsdeflate_inflatehtmlstdinflatestddeflatea" id="a-hrefhttpwwwvapoursynthcomdocfunctionsdeflate_inflatehtmlstdinflatestddeflatea"><a href="http://www.vapoursynth.com/doc/functions/deflate_inflate.html">std.Inflate/std.Deflate</a></a></h4>
+<h4><a class="header" href="#a-hrefhttpswwwvapoursynthcomdocfunctionsvideodeflate_inflatehtmlstdinflatestddeflatea" id="a-hrefhttpswwwvapoursynthcomdocfunctionsvideodeflate_inflatehtmlstdinflatestddeflatea"><a href="https://www.vapoursynth.com/doc/functions/video/deflate_inflate.html">std.Inflate/std.Deflate</a></a></h4>
 <p>TODO</p>
-<h4><a class="header" href="#a-hrefhttpwwwvapoursynthcomdocfunctionsbinarizehtmlstdbinarizea" id="a-hrefhttpwwwvapoursynthcomdocfunctionsbinarizehtmlstdbinarizea"><a href="http://www.vapoursynth.com/doc/functions/binarize.html">std.Binarize</a></a></h4>
+<h4><a class="header" href="#a-hrefhttpswwwvapoursynthcomdocfunctionsvideobinarize_binarizemaskhtmlstdbinarizea" id="a-hrefhttpswwwvapoursynthcomdocfunctionsvideobinarize_binarizemaskhtmlstdbinarizea"><a href="https://www.vapoursynth.com/doc/functions/video/binarize_binarizemask.html">std.Binarize</a></a></h4>
 <p>Split the luma/chroma values of any clip into one of two values,
 according to a fixed threshold.
 For instance,
@@ -2301,7 +2299,7 @@ can be done (though possibly slower) using std.Expr,
 which will be
 covered at the end of this
 sub-section.</p>
-<h4><a class="header" href="#a-hrefhttpwwwvapoursynthcomdocfunctionsmakediffhtmlstdmakediffa-and-a-hrefhttpwwwvapoursynthcomdocfunctionsmergediffhtmlstdmergediffa" id="a-hrefhttpwwwvapoursynthcomdocfunctionsmakediffhtmlstdmakediffa-and-a-hrefhttpwwwvapoursynthcomdocfunctionsmergediffhtmlstdmergediffa"><a href="http://www.vapoursynth.com/doc/functions/makediff.html">std.MakeDiff</a> and <a href="http://www.vapoursynth.com/doc/functions/mergediff.html">std.MergeDiff</a></a></h4>
+<h4><a class="header" href="#a-hrefhttpswwwvapoursynthcomdocfunctionsvideomakediffhtmlstdmakediffa-and-a-hrefhttpswwwvapoursynthcomdocfunctionsvideomergediffhtmlstdmergediffa" id="a-hrefhttpswwwvapoursynthcomdocfunctionsvideomakediffhtmlstdmakediffa-and-a-hrefhttpswwwvapoursynthcomdocfunctionsvideomergediffhtmlstdmergediffa"><a href="https://www.vapoursynth.com/doc/functions/video/makediff.html">std.MakeDiff</a> and <a href="https://www.vapoursynth.com/doc/functions/video/mergediff.html">std.MergeDiff</a></a></h4>
 <p>Subtract or add the difference of two clips, respectively.
 These filters are peculiar in that they work differently in
 integer and float formats,
@@ -2324,7 +2322,7 @@ This can be worked around by re-defining the input clip as so:</p>
 noise = core.std.MakeDiff(src, smooth) # subtract filtered clip from source leaving the filtered difference
 smooth = core.std.MakeDiff(src, noise) # subtract diff clip to prevent clipping (doesn't apply to 32 bit)
 </code></pre>
-<h4><a class="header" href="#a-hrefhttpwwwvapoursynthcomdocfunctionsmergehtmlstdmergea" id="a-hrefhttpwwwvapoursynthcomdocfunctionsmergehtmlstdmergea"><a href="http://www.vapoursynth.com/doc/functions/merge.html">std.Merge</a></a></h4>
+<h4><a class="header" href="#a-hrefhttpswwwvapoursynthcomdocfunctionsvideomergehtmlstdmergea" id="a-hrefhttpswwwvapoursynthcomdocfunctionsvideomergehtmlstdmergea"><a href="https://www.vapoursynth.com/doc/functions/video/merge.html">std.Merge</a></a></h4>
 <p>This function is similar to <a href="encoding/masking-limiting-etc.html#stdmaskedmerge">MaskedMerge</a>,
 the main difference being
 that a constant weight is supplied
@@ -2335,9 +2333,9 @@ The formula is thus just as simple:</p>
 $$</p>
 <p>It can be used to perform
 a weighted average of two clips or planes.</p>
-<h4><a class="header" href="#a-hrefhttpwwwvapoursynthcomdocfunctionsexprhtmlstdexpra" id="a-hrefhttpwwwvapoursynthcomdocfunctionsexprhtmlstdexpra"><a href="http://www.vapoursynth.com/doc/functions/expr.html">std.Expr</a></a></h4>
+<h4><a class="header" href="#a-hrefhttpswwwvapoursynthcomdocfunctionsvideoexprhtmlstdexpra" id="a-hrefhttpswwwvapoursynthcomdocfunctionsvideoexprhtmlstdexpra"><a href="https://www.vapoursynth.com/doc/functions/video/expr.html">std.Expr</a></a></h4>
 <p>TODO</p>
-<h4><a class="header" href="#a-hrefhttpwwwvapoursynthcomdocfunctionsluthtmlstdluta-and-a-hrefhttpwwwvapoursynthcomdocfunctionslut2htmlstdlut2a" id="a-hrefhttpwwwvapoursynthcomdocfunctionsluthtmlstdluta-and-a-hrefhttpwwwvapoursynthcomdocfunctionslut2htmlstdlut2a"><a href="http://www.vapoursynth.com/doc/functions/lut.html">std.Lut</a> and <a href="http://www.vapoursynth.com/doc/functions/lut2.html">std.Lut2</a></a></h4>
+<h4><a class="header" href="#a-hrefhttpswwwvapoursynthcomdocfunctionsvideoluthtmlstdluta-and-a-hrefhttpswwwvapoursynthcomdocfunctionsvideolut2htmlstdlut2a" id="a-hrefhttpswwwvapoursynthcomdocfunctionsvideoluthtmlstdluta-and-a-hrefhttpswwwvapoursynthcomdocfunctionsvideolut2htmlstdlut2a"><a href="https://www.vapoursynth.com/doc/functions/video/lut.html">std.Lut</a> and <a href="https://www.vapoursynth.com/doc/functions/video/lut2.html">std.Lut2</a></a></h4>
 <p>May be slightly faster than Expr in some cases,
 otherwise they can’t really do anything that Expr can’t.
 You can substitute a normal Python function for the RPN expression, though,
@@ -3533,7 +3531,7 @@ including speed presets, tunings, and three different encoding modes.</p>
 <p>Coming Soon</p>
 <hr />
 <div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
-<p>Source: <a href="http://www.mpeg.org/MPEG/DVD/Book_A/Specs.html">http://www.mpeg.org/MPEG/DVD/Book_A/Specs.html</a></p>
+<p>Source: <a href="https://web.archive.org/web/20190203114601/http://www.mpeg.org/MPEG/DVD/Book_A/Specs.html">https://web.archive.org/web/20190203114601/http://www.mpeg.org/MPEG/DVD/Book_A/Specs.html</a></p>
 </div>
 <h1><a class="header" href="#encoding-with-x265" id="encoding-with-x265">Encoding with <em>x265</em></a></h1>
 <p><em>High Efficiency Video Coding</em> (<em>HEVC</em>),
@@ -3802,7 +3800,7 @@ and three different encoding modes.</p>
 <!-- TODO -->
 <hr />
 <div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
-<p>Source: <a href="http://www.mpeg.org/MPEG/DVD/Book_A/Specs.html">http://www.mpeg.org/MPEG/DVD/Book_A/Specs.html</a></p>
+<p>Source: <a href="https://web.archive.org/web/20190203114601/http://www.mpeg.org/MPEG/DVD/Book_A/Specs.html">https://web.archive.org/web/20190203114601/http://www.mpeg.org/MPEG/DVD/Book_A/Specs.html</a></p>
 </div>
 <h1><a class="header" href="#aegisub--other-tools" id="aegisub--other-tools">Aegisub &amp; Other Tools</a></h1>
 <h2><a class="header" href="#tools" id="tools">Tools</a></h2>
