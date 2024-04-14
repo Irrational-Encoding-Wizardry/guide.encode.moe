@@ -4,14 +4,10 @@
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>Resampling</title>
-        
-        
 
 
         <!-- Custom HTML head -->
         
-
-
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,9 +22,7 @@
 
         <!-- Fonts -->
         <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
-        
         <link rel="stylesheet" href="../fonts/fonts.css">
-        
 
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="../highlight.css">
@@ -36,12 +30,9 @@
         <link rel="stylesheet" href="../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
-        
 
-        
         <!-- MathJax -->
         <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        
     </head>
     <body>
         <!-- Provide site root to javascript -->
@@ -92,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../index.html">Introduction</a></li><li class="chapter-item expanded affix "><a href="../CONTRIBUTING.html">Contributing to the Guide</a></li><li class="chapter-item expanded affix "><li class="part-title">General Fansubbing</li><li class="chapter-item expanded "><a href="../overview/preface.html"><strong aria-hidden="true">1.</strong> Preface</a></li><li class="chapter-item expanded "><a href="../overview/roles.html"><strong aria-hidden="true">2.</strong> Roles</a></li><li class="chapter-item expanded "><a href="../overview/requirements.html"><strong aria-hidden="true">3.</strong> Requirements</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> Collaboration</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../subtitling/collaboration/ftp.html"><strong aria-hidden="true">4.1.</strong> With FTP</a></li><li class="chapter-item expanded "><a href="../subtitling/collaboration/github.html"><strong aria-hidden="true">4.2.</strong> With git (via GitHub)</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Encoding</li><li class="chapter-item expanded "><a href="../encoding/preparation.html"><strong aria-hidden="true">5.</strong> Preparations and Necessary Software</a></li><li class="chapter-item expanded "><a href="../encoding/basics-and-workflow.html"><strong aria-hidden="true">6.</strong> Basics and General Workflow</a></li><li class="chapter-item expanded "><a href="../encoding/video-artifacts.html"><strong aria-hidden="true">7.</strong> Recognizing Video Artifacts</a></li><li class="chapter-item expanded "><a href="../encoding/scenefiltering.html"><strong aria-hidden="true">8.</strong> Scenefiltering</a></li><li class="chapter-item expanded "><a href="../encoding/masking-limiting-etc.html"><strong aria-hidden="true">9.</strong> Masking, Limiting, and Related Functions</a></li><li class="chapter-item expanded "><a href="../encoding/descaling.html"><strong aria-hidden="true">10.</strong> Descaling</a></li><li class="chapter-item expanded "><a href="../encoding/resampling.html" class="active"><strong aria-hidden="true">11.</strong> Resampling</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">12.</strong> Codecs</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../encoding/codecs/x264.html"><strong aria-hidden="true">12.1.</strong> x264</a></li><li class="chapter-item expanded "><a href="../encoding/codecs/x265.html"><strong aria-hidden="true">12.2.</strong> x265</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Typesetting</li><li class="chapter-item expanded "><a href="../typesetting/aegisub.html"><strong aria-hidden="true">13.</strong> Aegisub and Other Tools</a></li><li class="chapter-item expanded "><a href="../typesetting/masking/index.html"><strong aria-hidden="true">14.</strong> Masking With PS &amp; AI</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../typesetting/masking/image-processing.html"><strong aria-hidden="true">14.1.</strong> Image Processing in PS</a></li><li class="chapter-item expanded "><a href="../typesetting/masking/image-tracing.html"><strong aria-hidden="true">14.2.</strong> Image Tracing in AI</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Resources and References</li><li class="chapter-item expanded "><a href="../archived-websites/bt601-vs-bt709.html"><strong aria-hidden="true">15.</strong> Colorspaces</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="../impressum.html">Impressum</a></li><li class="chapter-item expanded affix "><a href="../privacy-policy.html">Privacy Policy</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../index.html">Introduction</a></li><li class="chapter-item expanded affix "><a href="../CONTRIBUTING.html">Contributing to the Guide</a></li><li class="chapter-item expanded affix "><li class="part-title">General Fansubbing</li><li class="chapter-item expanded "><a href="../overview/preface.html"><strong aria-hidden="true">1.</strong> Preface</a></li><li class="chapter-item expanded "><a href="../overview/roles.html"><strong aria-hidden="true">2.</strong> Roles</a></li><li class="chapter-item expanded "><a href="../overview/requirements.html"><strong aria-hidden="true">3.</strong> Requirements</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> Collaboration</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../subtitling/collaboration/ftp.html"><strong aria-hidden="true">4.1.</strong> With FTP</a></li><li class="chapter-item expanded "><a href="../subtitling/collaboration/github.html"><strong aria-hidden="true">4.2.</strong> With git (via GitHub)</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Encoding</li><li class="chapter-item expanded "><a href="../encoding/preparation.html"><strong aria-hidden="true">5.</strong> Preparations and Necessary Software</a></li><li class="chapter-item expanded "><a href="../encoding/basics-and-workflow.html"><strong aria-hidden="true">6.</strong> Basics and General Workflow</a></li><li class="chapter-item expanded "><a href="../encoding/video-artifacts.html"><strong aria-hidden="true">7.</strong> Recognizing Video Artifacts</a></li><li class="chapter-item expanded "><a href="../encoding/scenefiltering.html"><strong aria-hidden="true">8.</strong> Scenefiltering</a></li><li class="chapter-item expanded "><a href="../encoding/masking-limiting-etc.html"><strong aria-hidden="true">9.</strong> Masking, Limiting, and Related Functions</a></li><li class="chapter-item expanded "><a href="../encoding/descaling.html"><strong aria-hidden="true">10.</strong> Descaling</a></li><li class="chapter-item expanded "><a href="../encoding/resampling.html" class="active"><strong aria-hidden="true">11.</strong> Resampling</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">12.</strong> Codecs</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../encoding/codecs/x264.html"><strong aria-hidden="true">12.1.</strong> x264</a></li><li class="chapter-item expanded "><a href="../encoding/codecs/x265.html"><strong aria-hidden="true">12.2.</strong> x265</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Typesetting</li><li class="chapter-item expanded "><a href="../typesetting/aegisub.html"><strong aria-hidden="true">13.</strong> Aegisub and Other Tools</a></li><li class="chapter-item expanded "><a href="../typesetting/masking/index.html"><strong aria-hidden="true">14.</strong> Masking With PS & AI</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../typesetting/masking/image-processing.html"><strong aria-hidden="true">14.1.</strong> Image Processing in PS</a></li><li class="chapter-item expanded "><a href="../typesetting/masking/image-tracing.html"><strong aria-hidden="true">14.2.</strong> Image Tracing in AI</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Resources and References</li><li class="chapter-item expanded "><a href="../archived-websites/bt601-vs-bt709.html"><strong aria-hidden="true">15.</strong> Colorspaces</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="../impressum.html">Impressum</a></li><li class="chapter-item expanded affix "><a href="../privacy-policy.html">Privacy Policy</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -100,8 +91,7 @@
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                
-                <div id="menu-bar-hover-placeholder"></div>
+                                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky bordered">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -117,11 +107,9 @@
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy (default)</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
                         </ul>
-                        
                         <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                             <i class="fa fa-search"></i>
                         </button>
-                        
                     </div>
 
                     <h1 class="menu-title"></h1>
@@ -130,15 +118,12 @@
                         <a href="../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
-                        
                         <a href="https://github.com/Irrational-Encoding-Wizardry/guide.encode.moe" title="Git repository" aria-label="Git repository">
                             <i id="git-repository-button" class="fa fa-github"></i>
                         </a>
-                        
                     </div>
                 </div>
 
-                
                 <div id="search-wrapper" class="hidden">
                     <form id="searchbar-outer" class="searchbar-outer">
                         <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
@@ -149,7 +134,6 @@
                         </ul>
                     </div>
                 </div>
-                
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script type="text/javascript">
@@ -162,12 +146,12 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#resampling" id="resampling">Resampling</a></h1>
+                        <h1 id="resampling"><a class="header" href="#resampling">Resampling</a></h1>
 <p>Resampling is a technique applied in various
 image processing tasks,
 most prominently scaling/resizing,
 but also shifting and rotation.</p>
-<h2><a class="header" href="#resizing" id="resizing">Resizing</a></h2>
+<h2 id="resizing"><a class="header" href="#resizing">Resizing</a></h2>
 <p>The most common class of resampling algorithms
 used for resizing are the convolution-based resamplers.
 As the name suggests,
@@ -184,7 +168,7 @@ of these filters,
 the <a href="https://www.pbrt.org/chapters/pbrt_chapter7.pdf">Sampling and Reconstruction chapter</a>
 of <a href="https://www.pbrt.org/">Physically Based Rendering</a> is one of the best places
 for a layman to start.</p>
-<h3><a class="header" href="#filters" id="filters">Filters</a></h3>
+<h3 id="filters"><a class="header" href="#filters">Filters</a></h3>
 <p>All resampling kernels behave slightly differently
 and generate artifacts of differing kinds and severity.</p>
 <p>It should be noted that there is no “objectively best” resampling filter,
@@ -197,10 +181,10 @@ For a much more extensive explanation of the different filters,
 including details on the exact algorithms,
 see <a href="http://www.imagemagick.org/Usage/filter/">ImageMagick’s guide</a>.</p>
 <p>Additionally,
-<a href="https://forum.doom9.org/showthread.php?t=160038">ResampleHQ</a>‘s documentation features
+<a href="https://forum.doom9.org/showthread.php?t=160038">ResampleHQ</a>’s documentation features
 an excellent visual comparison of common filter kernels;
 a back-up is available <a href="http://maven.whatbox.ca:11665/resample_kernels/kernels.html">here</a>.</p>
-<h4><a class="header" href="#box-filter--nearest-neighbour" id="box-filter--nearest-neighbour">Box filter / Nearest Neighbour</a></h4>
+<h4 id="box-filter--nearest-neighbour"><a class="header" href="#box-filter--nearest-neighbour">Box filter / Nearest Neighbour</a></h4>
 <p>When upscaling,
 the Box filter will behave just like
 <a href="https://en.wikipedia.org/wiki/Nearest-neighbor_interpolation">Nearest Neighbour (<em>NN</em>) interpolation</a>,
@@ -237,7 +221,7 @@ can be a useful property in specific cases,
 but is not generally desirable.</p>
 <p>The Box filter is available in VapourSynth
 in the <code>fmtconv</code> plug-in:</p>
-<pre><code class="language-py">clip = core.fmtc.resample(src, w, h, kernel=&quot;box&quot;)
+<pre><code class="language-py">clip = core.fmtc.resample(src, w, h, kernel="box")
 </code></pre>
 <p>Nearest Neighbour interpolation is part of the built-in <code>resize</code> plug-in:</p>
 <pre><code class="language-py">clip = core.resize.Point(src, w, h)
@@ -245,7 +229,7 @@ in the <code>fmtconv</code> plug-in:</p>
 <p>Most <a href="preparation.html#the-editor">script editors</a> including VSEdit feature NN scaling in the preview;
 it is recommended to use it over Bilinear
 when making filtering decisions.</p>
-<h4><a class="header" href="#bilinear--triangle" id="bilinear--triangle">Bilinear / Triangle</a></h4>
+<h4 id="bilinear--triangle"><a class="header" href="#bilinear--triangle">Bilinear / Triangle</a></h4>
 <p>Bilinear, also known as Triangle due to its graph’s shape,
 is one of the most common algorithms in widespread use
 because of its simplicity and speed.
@@ -257,7 +241,7 @@ so don’t use it unless you’re sure you have to.</p>
 <p>VapourSynth example:</p>
 <pre><code class="language-py">clip = core.resize.Bilinear(src, w, h)
 </code></pre>
-<h4><a class="header" href="#mitchell-netravali--bicubic" id="mitchell-netravali--bicubic">Mitchell-Netravali / Bicubic</a></h4>
+<h4 id="mitchell-netravali--bicubic"><a class="header" href="#mitchell-netravali--bicubic">Mitchell-Netravali / Bicubic</a></h4>
 <p>The Mitchell-Netravali filter,
 also known as Bicubic,
 is one of the most popular resampling algorithms,
@@ -294,7 +278,7 @@ at the cost of slight blurriness.</p>
 <pre><code class="language-py"># 'filter_param_a' and 'filter_param_b' refer to B and C, respectively
 clip = core.resize.Bicubic(src, w, h, filter_param_a=0, filter_param_b=0.5)
 </code></pre>
-<h4><a class="header" href="#lanczos" id="lanczos">Lanczos</a></h4>
+<h4 id="lanczos"><a class="header" href="#lanczos">Lanczos</a></h4>
 <p>Lanczos is generally considered
 a very high-quality resampler for upscaling,
 especially its <a href="#elliptical-weighted-averaging-ewa-cylindrical-polar-circular">EWA version</a>.</p>
@@ -314,7 +298,7 @@ suppressing <a href="http://www.imagemagick.org/Usage/filter/#aliasing">Moiré e
 <pre><code class="language-py"># 'filter_param_a' specifies the tap count
 clip = core.resize.Lanczos(src, w, h, filter_param_a=2)
 </code></pre>
-<h4><a class="header" href="#spline" id="spline">Spline</a></h4>
+<h4 id="spline"><a class="header" href="#spline">Spline</a></h4>
 <p>Spline is another high-quality resizer.</p>
 <p>Spline, like Lanczos,
 can be fine-tuned by configuring its number of lobes.
@@ -335,9 +319,9 @@ though arguably slightly less artifacted.</p>
 <pre><code class="language-py">clip = core.resize.Spline36(src, w, h)
 </code></pre>
 <p>Higher tap counts can be used via fmtconv:</p>
-<pre><code class="language-py">clip = core.fmtc.resample(src, w, h, kernel=&quot;spline&quot;, taps=6) # equivalent to Spline144
+<pre><code class="language-py">clip = core.fmtc.resample(src, w, h, kernel="spline", taps=6) # equivalent to Spline144
 </code></pre>
-<h4><a class="header" href="#gauss" id="gauss">Gauss</a></h4>
+<h4 id="gauss"><a class="header" href="#gauss">Gauss</a></h4>
 <p>The Gaussian filter is very special in that its Fourier transform<sup class="footnote-reference"><a href="#1">1</a></sup>
 is another Gaussian
 whose width is inversely proportional to the spatial function’s.
@@ -355,14 +339,14 @@ it can be used to accurately emulate a Gaussian blur
 (when used without resizing)
 in VapourSynth.</p>
 <p>For example:</p>
-<pre><code class="language-py">blurred = core.fmtc.resample(src, kernel=&quot;gauss&quot;, fh=-1, fv=-1, a1=1)
+<pre><code class="language-py">blurred = core.fmtc.resample(src, kernel="gauss", fh=-1, fv=-1, a1=1)
 </code></pre>
 <p><code>fh=-1, fv=-1</code> forces the processing
 when no resizing is performed.
 <code>a1</code> controls the blurring:
 the higher,
 the sharper the image.</p>
-<h3><a class="header" href="#interpolation-filters" id="interpolation-filters">Interpolation filters</a></h3>
+<h3 id="interpolation-filters"><a class="header" href="#interpolation-filters">Interpolation filters</a></h3>
 <p>Some sources will categorize filters as either
 interpolation filters or non-interpolation filters.</p>
 <p>Interpolation filters are those that
@@ -394,10 +378,10 @@ case where this property is useful
 is when shifting an image by full pixel widths (integers),
 again because input pixel values aren’t changed
 but just relocated.</p>
-<h3><a class="header" href="#two-dimensional-resampling" id="two-dimensional-resampling">Two-dimensional resampling</a></h3>
+<h3 id="two-dimensional-resampling"><a class="header" href="#two-dimensional-resampling">Two-dimensional resampling</a></h3>
 <p>There are two different ways to go about
 resampling in two dimensions.</p>
-<h4><a class="header" href="#tensor-resampling-orthogonal-2-pass-separated" id="tensor-resampling-orthogonal-2-pass-separated">Tensor resampling (<em>orthogonal</em>, <em>2-pass</em>, <em>separated</em>)</a></h4>
+<h4 id="tensor-resampling-orthogonal-2-pass-separated"><a class="header" href="#tensor-resampling-orthogonal-2-pass-separated">Tensor resampling (<em>orthogonal</em>, <em>2-pass</em>, <em>separated</em>)</a></h4>
 <p>The image is resampled in two separate passes:
 First it is resampled horizontally, then vertically.
 This allows images to be treated 1-dimensionally
@@ -406,17 +390,17 @@ The main advantage of this method is that it’s extremely fast,
 which is why it’s the much more common one;
 generally, unless indicated otherwise,
 this is what is used.</p>
-<h4><a class="header" href="#elliptical-weighted-averaging-ewa-cylindrical-polar-circular" id="elliptical-weighted-averaging-ewa-cylindrical-polar-circular">Elliptical Weighted Averaging (<em>“EWA”</em>, <em>cylindrical</em>, <em>polar</em>, <em>circular</em>)</a></h4>
+<h4 id="elliptical-weighted-averaging-ewa-cylindrical-polar-circular"><a class="header" href="#elliptical-weighted-averaging-ewa-cylindrical-polar-circular">Elliptical Weighted Averaging (<em>“EWA”</em>, <em>cylindrical</em>, <em>polar</em>, <em>circular</em>)</a></h4>
 <p><img src="images/resample_polar.png" alt="" />
 <em>Two-dimensional kernel. The radius is colored green.</em></p>
 <p>All input samples whose <a href="https://en.wikipedia.org/wiki/Euclidean_distance">Euclidean distance</a> to the pixel
 is within the filter’s radius contribute to its value.
 The Euclidean distance is passed to the filter kernel.
 This is a lot more costly than tensor resampling in terms of runtime.</p>
-<h3><a class="header" href="#scaling-in-modified-colorspaces" id="scaling-in-modified-colorspaces">Scaling in modified colorspaces</a></h3>
+<h3 id="scaling-in-modified-colorspaces"><a class="header" href="#scaling-in-modified-colorspaces">Scaling in modified colorspaces</a></h3>
 <p>The colorspace used when resampling
 can significantly impact the output’s subjective quality.</p>
-<h4><a class="header" href="#downscaling-in-linear-light" id="downscaling-in-linear-light">Downscaling in linear light</a></h4>
+<h4 id="downscaling-in-linear-light"><a class="header" href="#downscaling-in-linear-light">Downscaling in linear light</a></h4>
 <p>Downscaling in gamma-corrected light instead of linear light
 can sometimes noticeably dim the image.
 To see why this happens,
@@ -468,14 +452,14 @@ because it preserves legibility.</p>
 make sure to use a sufficiently high bitdepth
 so as to not introduce banding.</p>
 <p>Example code for resizing in linear RGB light:</p>
-<pre><code class="language-py">linear = core.resize.Bicubic(src, format=vs.RGBS, transfer_in_s=&quot;709&quot;, transfer_s=&quot;linear&quot;, matrix_in_s=&quot;709&quot;)
+<pre><code class="language-py">linear = core.resize.Bicubic(src, format=vs.RGBS, transfer_in_s="709", transfer_s="linear", matrix_in_s="709")
 scaled_linear = core.resize.Bicubic(linear, 640, 360)
-scaled_gamma = core.resize.Bicubic(scaled_linear, format=src.format, transfer_s=&quot;709&quot;, transfer_in_s=&quot;linear&quot;, matrix_s=&quot;709&quot;)
+scaled_gamma = core.resize.Bicubic(scaled_linear, format=src.format, transfer_s="709", transfer_in_s="linear", matrix_s="709")
 </code></pre>
 <p>Note that the <code>matrix_s</code> and <code>matrix_in_s</code> arguments
 are only necessary when <code>src</code> is YUV;
 otherwise, they should be omitted.</p>
-<h4><a class="header" href="#upscaling-in-sigmoidized-light" id="upscaling-in-sigmoidized-light">Upscaling in sigmoidized light</a></h4>
+<h4 id="upscaling-in-sigmoidized-light"><a class="header" href="#upscaling-in-sigmoidized-light">Upscaling in sigmoidized light</a></h4>
 <p>In order to attenuate both dark and white halos
 introduced by upscaling,
 you can resize through a sigmoidized colorspace.</p>
@@ -490,20 +474,20 @@ towards the middle.</p>
 <blockquote>
 <p>You may decrease halos and increase perceptual sharpness by increasing the sigmoidal contrast (up to 11.5, say).
 Higher contrasts are especially recommended with greyscale images (even “false RGB greyscale” that have three proportional color channels).
-The downside of sigmoidization is that it sometimes produces “color bleed” artefacts that look a bit like cheap flexographic (”gummidruck”) printing or chromatic aberration.
+The downside of sigmoidization is that it sometimes produces “color bleed” artefacts that look a bit like cheap flexographic (“gummidruck”) printing or chromatic aberration.
 In addition, sigmoidization’s “fattening” of extreme light and dark values may not work for your image content.
 If such artefacts are obvious, push the contrast value down from 7.5 (to 5, for example, or even lower).
 Setting the contrast to 0 is equivalent to enlarging through linear RGB. <em>(Robidoux, 2012)</em></p>
 </blockquote>
 <p>Example code for VS:</p>
 <pre><code class="language-py">import havsfunc as hf
-linear = core.resize.Bicubic(src, format=vs.RGBS, transfer_in_s=&quot;709&quot;, transfer_s=&quot;linear&quot;, matrix_in_s=&quot;709&quot;)
-sigmoidized = hf.SigmoidInverse(linear, thr=0.5, cont=6.5) # 'cont' corresponds to the &quot;sigmoidal contrast&quot; mentioned above
+linear = core.resize.Bicubic(src, format=vs.RGBS, transfer_in_s="709", transfer_s="linear", matrix_in_s="709")
+sigmoidized = hf.SigmoidInverse(linear, thr=0.5, cont=6.5) # 'cont' corresponds to the "sigmoidal contrast" mentioned above
 scaled_sigmoid = core.resize.Bicubic(sigmoidized, 640, 360)
 de_sigmoidized = hf.SigmoidDirect(scaled_sigmoid, thr=0.5, cont=6.5)
-scaled_gamma = core.resize.Bicubic(de_sigmoidized, format=src.format, transfer_s=&quot;709&quot;, transfer_in_s=&quot;linear&quot;, matrix_s=&quot;709&quot;)
+scaled_gamma = core.resize.Bicubic(de_sigmoidized, format=src.format, transfer_s="709", transfer_in_s="linear", matrix_s="709")
 </code></pre>
-<h3><a class="header" href="#neural-network-scalers" id="neural-network-scalers">Neural network scalers</a></h3>
+<h3 id="neural-network-scalers"><a class="header" href="#neural-network-scalers">Neural network scalers</a></h3>
 <p>NN-based scalers have become
 increasingly popular in recent times.
 This is because
@@ -511,7 +495,7 @@ they aren’t subject to the technical limitations
 of convolution-based resamplers—which beyond a certain point
 only trade one artifact for another—and thus produce
 much higher quality upscales.</p>
-<h5><a class="header" href="#nnedi3" id="nnedi3">NNEDI3</a></h5>
+<h5 id="nnedi3"><a class="header" href="#nnedi3">NNEDI3</a></h5>
 <p>This is the current de-facto standard
 for high-quality upscaling
 because it generally produces equally as sharp or sharper
@@ -543,9 +527,9 @@ slower than conventional resamplers.</p>
 <p>VapourSynth usage example:</p>
 <pre><code class="language-py">from nnedi3_rpow2 import *
 # 'spline36' here is technically redundant since it's the default
-up = nnedi3_rpow2(src, width=1920, height=1080, kernel=&quot;spline36&quot;)
+up = nnedi3_rpow2(src, width=1920, height=1080, kernel="spline36")
 </code></pre>
-<h2><a class="header" href="#shifting" id="shifting">Shifting</a></h2>
+<h2 id="shifting"><a class="header" href="#shifting">Shifting</a></h2>
 <p>Shifting an image by an arbitrary amount,
 including non-integer values,
 requires resampling as well.
@@ -560,7 +544,7 @@ It can be interesting to think of shifting
 not as resampling at shifted pixel locations,
 but as resampling at the input locations
 with a shifted kernel.</p>
-<h3><a class="header" href="#chroma-shifting" id="chroma-shifting">Chroma shifting</a></h3>
+<h3 id="chroma-shifting"><a class="header" href="#chroma-shifting">Chroma shifting</a></h3>
 <p>When going from 4:2:0 <a href="https://en.wikipedia.org/wiki/Chroma_subsampling">subsampling</a>
 to 4:4:4 (no subsampling),
 it is important to take into account chroma placement
@@ -611,7 +595,7 @@ a slight shift needs to be applied
 to preserve the alignment.
 Specifically,
 the chroma needs to be shifted by
-\(0.25 - 0.25 \times \frac{\mathrm{src~width}}{\mathrm{dst~width}}\).<sup class="footnote-reference"><a href="#4">4</a></sup></p>
+\(0.25 - 0.25 \times \frac{\mathrm{src<del>width}}{\mathrm{dst</del>width}}\).<sup class="footnote-reference"><a href="#4">4</a></sup></p>
 <p>Chroma shifting is performed
 automatically under the hood by most format conversion software
 (including zimg, VapourSynth’s resizing library)
@@ -634,24 +618,20 @@ shifted_scaled_u = core.resize.Spline16(u, 1920, 1080, src_left=0.25) # shifts t
 <p>If you don’t understand what this means, read the resources linked above in the <a href="#resizing">resizing section</a>.</p>
 </div>
 <div class="footnote-definition" id="4"><sup class="footnote-definition-label">4</sup>
-<p>This is derived as follows: The shift is the distance between the position of the first luma sample and the position of the first chroma sample (both mapped onto the input grid and given in terms of input chroma pixel widths). The former is located at \(0.25 + \frac{\mathrm{src~width}}{4 \times \mathrm{dst~width}}\), the latter at \(\frac{\mathrm{src~width}}{2 \times \mathrm{dst~width}}\). This yields \(0.25 + \frac{\mathrm{src~width}}{4 \times \mathrm{dst~width}} - \frac{\mathrm{src~width}}{2 \times \mathrm{dst~width}} = 0.25 + \frac{\mathrm{src~width}}{\mathrm{dst~width}} \times \left( ^1/_4 -,^1/_2 \right) = 0.25 + \frac{\mathrm{src~width}}{\mathrm{dst~width}} \times (-0.25)\) for the shift.</p>
+<p>This is derived as follows: The shift is the distance between the position of the first luma sample and the position of the first chroma sample (both mapped onto the input grid and given in terms of input chroma pixel widths). The former is located at \(0.25 + \frac{\mathrm{src<del>width}}{4 \times \mathrm{dst</del>width}}\), the latter at \(\frac{\mathrm{src<del>width}}{2 \times \mathrm{dst</del>width}}\). This yields \(0.25 + \frac{\mathrm{src<del>width}}{4 \times \mathrm{dst</del>width}} - \frac{\mathrm{src<del>width}}{2 \times \mathrm{dst</del>width}} = 0.25 + \frac{\mathrm{src<del>width}}{\mathrm{dst</del>width}} \times \left( ^1/_4 -,^1/_2 \right) = 0.25 + \frac{\mathrm{src<del>width}}{\mathrm{dst</del>width}} \times (-0.25)\) for the shift.</p>
 </div>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                        
                             <a rel="prev" href="../encoding/descaling.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
-                        
 
-                        
                             <a rel="next" href="../encoding/codecs/x264.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
-                        
 
                         <div style="clear: both"></div>
                     </nav>
@@ -659,49 +639,35 @@ shifted_scaled_u = core.resize.Spline16(u, 1920, 1080, src_left=0.25) # shifts t
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                
                     <a rel="prev" href="../encoding/descaling.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
-                
 
-                
                     <a rel="next" href="../encoding/codecs/x264.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
-                
             </nav>
 
         </div>
 
-        
 
-        
 
-        
 
-        
         <script type="text/javascript">
             window.playground_copyable = true;
         </script>
-        
 
-        
 
-        
         <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
-        
 
         <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
         <script src="../book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
-        
 
-        
 
     </body>
 </html>
