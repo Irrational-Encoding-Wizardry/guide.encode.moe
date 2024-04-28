@@ -24,6 +24,8 @@
 - [Codecs]()
     - [x264](encoding/codecs/x264.md)
     - [x265](encoding/codecs/x265.md)
+    - [vp9/av1](encoding/codecs/vpXfamily.md)
+
 
 # Typesetting
 
